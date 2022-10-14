@@ -8,6 +8,11 @@ Variables
 :root {
   --clr-white: #FFF;
   --clr-black: #000;
+  --clr-primary-1: #D61917;
+  --clr-primary-2: #838383;
+  --clr-primary-3: #B4B4B4;
+  --clr-primary-4: #D9D9D9;
+
   --transition: all 0.3s linear;
 }
 
