@@ -2,111 +2,112 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import SearchBar from '../components/SearchBar';
+import Dropdown from '../components/Dropdown';
 
 function Navbar() {
 	const [show, setShow] = useState(false);
+	const [showDropdown, setShowDropdown] = useState(false);
 
 	const search = async(ev) => {
 		ev.preventDefault();
 		setShow(!show);
 	}
 
+	const dropdown = async(ev) => {
+		ev.preventDefault();
+		setShowDropdown(!showDropdown);
+	}
+
 	return (
-		show ? 
-			<Wrapper>
-				<div className='icon button laptop searchIcon'>
-					<Image src='/navbar-icons/search-laptop2.svg' alt="close button" width={29} height={30} layout='fixed' />
-				</div>
-
-				<div className="search">
-					<SearchBar/>
-					<div className='icon button mobile searchIcon'>
-						<Image src='/navbar-icons/search-mobile2.svg' alt="close button" width={20} height={20} layout='fixed' />
+		<Wrapper>
+			{show ? 
+				<nav className='container'>
+					<div className='icon button laptop searchIcon'>
+						<Image src='/navbar-icons/search-laptop2.svg' alt="close button" width={29} height={30} layout='fixed' />
 					</div>
-				</div>
 
-				<div className='icon button laptop closeIcon'>
-					<Image src='/navbar-icons/close-laptop2.svg' alt="close button" width={25} height={25} layout='fixed' onClick={search} />
-				</div>
-				
-				<p className='button mobile closeButton' onClick={search}>Закрыть</p>
-			</Wrapper>
-				: 
-			<Wrapper>
-				<ul className='shop-menu laptop'>
-					<li className='item'><a href='/'>Главная</a></li>
-					<li className='item'><a href='/shop'>Магазин</a></li>
-					<li className='item'><a href='/about'>О нас</a></li>
-					<li className='item'><a href='/services'>Услуги</a></li>
-					<li className='item'><a href='/blog'>Блог</a></li>
-					<li className='item'><a href='/delivery'>Доставка</a></li>
-					<li className='item'><a href='/contacts'>Контакты</a></li>
-				</ul>
+					<div className="search">
+						<SearchBar/>
+						<div className='icon button mobile searchIcon'>
+							<Image src='/navbar-icons/search-mobile2.svg' alt="close button" width={20} height={20} layout='fixed' />
+						</div>
+					</div>
 
-						{/* <div className='icon'>
-								<Image src='/navbar-icons/logo.svg' alt="чекмаркет logo" width={32} height={30} layout='fixed' onClick={search} />
-							</div>
-							<p className='text'>+7 (707) 907-07-17</p>
-							<div className='icon'>
-								<Image src='/navbar-icons/close1.svg' alt="close button" width={15} height={15} layout='fixed' onClick={search} />
-							</div>
-						</div> */}
+					<div className='icon button laptop closeIcon'>
+						<Image src='/navbar-icons/close-laptop2.svg' alt="close button" width={25} height={25} layout='fixed' onClick={search} />
+					</div>
+					
+					<p className='button mobile closeButton' onClick={search}>Закрыть</p>
+				</nav>
+					: 
+				<nav className='container mobile-container'>
+					<ul className='shop-menu laptop'>
+						<li className='item'><a href='/'>Главная</a></li>
+						<li className='item'><a href='/shop'>Магазин</a></li>
+						<li className='item'><a href='/about'>О нас</a></li>
+						<li className='item'><a href='/services'>Услуги</a></li>
+						<li className='item'><a href='/blog'>Блог</a></li>
+						<li className='item'><a href='/delivery'>Доставка</a></li>
+						<li className='item'><a href='/contacts'>Контакты</a></li>
+					</ul>
 						
-				<div className='icons mobile'>
-					<div className='icon button'>
-						<Image src='/navbar-icons/search-mobile1.svg' alt="dropdown toggle" width={20} height={20} layout='fixed' onClick={search}/>
+					<div className='icons mobile'>
+						<div className='icon button'>
+							<Image src='/navbar-icons/search-mobile1.svg' alt="dropdown toggle" width={20} height={20} layout='fixed' onClick={search}/>
+						</div>
+
+						<div className="shop-menu">
+							<div className='icon button'>
+								<Image src='/navbar-icons/purchase-mobile1.svg' alt="Search icon" width={17} height={20} layout='fixed' />
+								<span className='purchased'></span>
+							</div>
+							<div className='icon button'>
+								<Image src='/navbar-icons/toggle.svg' alt="dropdown toggle" width={20} height={14} layout='fixed' onClick={dropdown}/>
+							</div>
+						</div>
 					</div>
 
-					<div className="shop-menu">
+					<div className='icons laptop'>
 						<div className='icon button'>
-							<Image src='/navbar-icons/purchase-mobile1.svg' alt="Search icon" width={17} height={20} layout='fixed' />
-							<span className='purchased'></span>
+							<Image src='/navbar-icons/search-laptop1.svg' alt="Purchase icon" width={29} height={30} layout='fixed' onClick={search} />
 						</div>
 						<div className='icon button'>
-							<Image src='/navbar-icons/toggle.svg' alt="dropdown toggle" width={20} height={14} layout='fixed' />
+							<Image src='/navbar-icons/purchase-laptop1.svg' alt="Search icon" width={22} height={30} layout='fixed' />
+							<span className='purchased'>
+								{0}
+							</span>
 						</div>
 					</div>
-				</div>
-
-				<div className='icons laptop'>
-					<div className='icon button'>
-						<Image src='/navbar-icons/search-laptop1.svg' alt="Purchase icon" width={29} height={30} layout='fixed' onClick={search} />
-					</div>
-					<div className='icon button'>
-						<Image src='/navbar-icons/purchase-laptop1.svg' alt="Search icon" width={22} height={30} layout='fixed' />
-						<span className='purchased'>
-							{0}
-						</span>
-					</div>
-				</div>
+				</nav>
+			}
+				
+				{showDropdown ? <Dropdown close={dropdown}/> : null}
 			</Wrapper>
   	);
 }
 
-const Wrapper = styled.nav`
-	max-width: 120rem;
+const Wrapper = styled.header`
 	height: 6.25rem;
-	display: flex;
-	justify-content: center;
-	padding: 0 auto;
+	max-width: 120rem;
+	padding: 2.1875rem 0; 
+
+	.container {
+		height: 1.875rem;
+		display: flex;
+		justify-content: center;
+	}
 
 	.mobile {
 		display: none;
 	}
 
 	.shop-menu,
-	.laptop {
+	.icons.laptop {
 		display: flex;
-	}
-
-	.shop-menu {
-		margin: 0;
-		padding: 0;
 	}
 
 	.item {
 		font-size: 20px;
-		margin: auto 0;
 		padding-right: 3.75vw;
 	}
 
@@ -116,7 +117,6 @@ const Wrapper = styled.nav`
 
 	.icon {
 		position: relative;
-		margin: auto 0;
 		padding: 0 28px 0 3px;
 	}
 
@@ -145,20 +145,31 @@ const Wrapper = styled.nav`
 
 	@media (max-width: 992px) {
 		height: 3.125rem;
-		justify-content: space-between;
-		padding: 0 5.55556vw;
+		padding: 0.625rem 5.55556vw;
+
+		.container {
+			justify-content: space-between;
+		}	
 		
+		.mobile-container {
+			padding: 0.3125rem 0;
+		}	
+		
+		.laptop {
+			display: none;
+		}
+
 		.mobile {
 			display: block;
+		}
+
+		.icons.laptop {
+			display: none;
 		}
 
 		.mobile.icons {
 			display: flex;
 			width: 100%;
-		}
-		
-		.laptop {
-			display: none;
 		}
 
 		.icons {
@@ -184,6 +195,7 @@ const Wrapper = styled.nav`
 
 		.closeButton {
 			font-size: 15px;
+			margin: 0.3125rem 0;
 		}
 
 		.shop-menu .icon {
