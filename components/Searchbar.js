@@ -38,45 +38,4 @@ const Input = styled.input`
 		}
 	}
 `
-
-
-// 	@media (max-width: 1100px) {
-// 		input {
-// 			height: 2.813rem;
-// 			border: none;
-// 		}
-
-// 		input::placeholder {
-// 			font-size: 26px;
-// 		}
-// 	}
-	
-// 	@media (max-width: 768px) {
-// 		input {
-// 			height: 4.904vw;
-// 			border: none;
-// 			margin: 0.624vw 0 0.832vw;
-// 		}
-
-// 		input::placeholder {
-// 			font-size: 19px;
-// 		}
-// 	}
-	
-// 	@media (max-width: 480px) {
-// 		margin-left: 0;
-
-// 		input {
-// 			width: 200%;
-// 			height: 1.563rem;
-// 			border: none;
-// 			margin: 0.75rem 0 0.813rem;
-// 		}
-
-// 		input::placeholder {
-// 			font-size: 16px;
-// 		}
-//		}
-// `
-
 export default SearchBar;

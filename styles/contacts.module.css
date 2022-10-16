@@ -1,0 +1,58 @@
+.container {
+	display: grid;
+	justify-content: center;
+	padding: 14.375rem 0;
+}
+
+.title {
+	margin-bottom: 4.375rem;
+}
+
+.content {
+	width: 72.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	margin: 0 0 0.625rem 1.25rem;
+}
+
+.header h5 {
+	margin-left: 0.625rem;
+}
+
+.text {
+	font-size: 18px;
+	margin-bottom: 1.25rem;
+}
+
+.box {
+	width: 43.75rem;
+	height: 24.375rem;
+	border: 0.125rem solid var(--clr-primary-1);
+	margin-top: 2.5rem;
+}
+
+.map {
+	margin: -1.875rem 0 0 2.5rem;
+}
+
+.paragraph {
+	font-size: 22px;
+	font-weight: 400;
+	margin: 7.5rem 0 2.5rem;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.button {
+	width: 21.875rem;
+	height: 4.375rem;
+}

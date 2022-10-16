@@ -4,6 +4,9 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 function Dropdown({ close }) {
+	let activeStyle = { color: 'green', textDecoration: 'underline' };
+	let activeClass = 'activated';
+
   	return (
 		<Wrapper>
 			<div className='dropdown-header'>
@@ -11,10 +14,10 @@ function Dropdown({ close }) {
 					<div className='dropdown-icon'>
 						<Image src='/navbar-icons/logo.svg' alt="чекмаркет logo" width={32} height={30} layout='fixed' />
 					</div>
-					<p className='dropdown-text'>+7 (707) 907-07-17</p>
+					<a href="tel:+77759764165" className='dropdown-text'>+7 (707) 907-07-17</a>
 				</div>
 				<div className='dropdown-icon'>
-					<Image src='/navbar-icons/close-mobile1.svg' alt="close button" width={15} height={15} layout='fixed' onClick={close} />
+					<Image src='/navbar-icons/close.svg' alt="close button" width={15} height={15} layout='fixed' onClick={close} />
 				</div>
 			</div>
 
@@ -22,7 +25,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/shop.svg' alt="Shop icon" width={15} height={15} layout='fixed' />
-						<Link href="/shop">Магазин</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/shop">Магазин</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -30,7 +33,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/home.svg' alt="Home icon" width={17} height={15} layout='fixed' />
-						<Link href="/">Главная</Link>
+						<Link style={({ isActive }) => isActive ? activeStyle : undefined} href="/">Главная</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -38,7 +41,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/about.svg' alt="About icon" width={15} height={15} layout='fixed' />
-						<Link href="/about">О нас</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/about">О нас</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -46,7 +49,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/services.svg' alt="Services icon" width={16} height={15} layout='fixed' />
-						<Link href="/services">Услуги</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/services">Услуги</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -54,7 +57,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/blog.svg' alt="Blog icon" width={14} height={15} layout='fixed' />
-						<Link href="/blog">Блог</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/blog">Блог</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -62,7 +65,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/delivery.svg' alt="Delivery icon" width={17} height={16} layout='fixed' />
-						<Link href="/delivery">Доставка</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/delivery">Доставка</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -70,7 +73,7 @@ function Dropdown({ close }) {
 				<li className='dropdown-item'>
 					<div>
 						<Image src='/dropdown-icons/contacts.svg' alt="Contacts icon" width={15} height={15} layout='fixed' />
-						<Link href="/contacts">Контакты</Link>
+						<Link activeStyle={{ textDecoration: 'underline' }} href="/contacts">Контакты</Link>
 					</div>
 					<Image src='/dropdown-icons/arrow.svg' alt="open arrow" width={7} height={10} layout='fixed' />
 				</li>
@@ -106,6 +109,7 @@ const Wrapper = styled.div`
 	}
 	
 	.dropdown-text {
+		line-height: 1.25rem;
 		font-weight: 400;
 		margin-left: 3.6111vw;
 	}
