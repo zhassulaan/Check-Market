@@ -20,7 +20,7 @@ function Footer() {
  	const handleSubmit = e => {
 		e.preventDefault();
 		dispatch({
-			type: "SAVED",
+			type: "SUBSCRIBE",
 			payload: detail,
 		})
 	}

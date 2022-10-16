@@ -13,7 +13,6 @@ export default function Contacts() {
 	const modal = async(ev) => {
 		ev.preventDefault();
 		setOpenModal(!openModal);
-		console.log(openModal);
 	}
 
 	return (
@@ -31,7 +30,7 @@ export default function Contacts() {
 			</Head>
 
 			{openModal ? 
-				<MessageModal/> 
+				<MessageModal modal={ modal }/> 
 					:
 				<>
 					<Navbar/>

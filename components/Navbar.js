@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import styled from 'styled-components';
 import SearchBar from '../components/SearchBar';
 import Dropdown from '../components/Dropdown';
 
 function Navbar({ home }) {
+	const router = useRouter();
 	const [show, setShow] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
 
@@ -47,13 +49,27 @@ function Navbar({ home }) {
 					: 
 				<nav className={home ? 'container white' : 'container'}>
 					<ul className='shop-menu laptop'>
-						<li className={home ? 'white item' : 'item'}><a href='/'>Главная</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/shop'>Магазин</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/about'>О нас</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/services'>Услуги</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/blog'>Блог</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/delivery'>Доставка</a></li>
-						<li className={home ? 'white item' : 'item'}><a href='/contacts'>Контакты</a></li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/' className={router.pathname == "/" ? "active" : ""}>Главная</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/shop' className={router.pathname == "/shop" ? "active" : ""}>Магазин</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/about' className={router.pathname == "/about" ? "active" : ""}>О нас</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/services' className={router.pathname == "/services" ? "active" : ""}>Услуги</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/blog' className={router.pathname == "/blog" ? "active" : ""}>Блог</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/delivery' className={router.pathname == "/delivery" ? "active" : ""}>Доставка</a>
+						</li>
+						<li className={home ? 'white item' : 'item'}>
+							<a href='/contacts' className={router.pathname == "/contacts" ? "active" : ""}>Контакты</a>
+						</li>
 					</ul>
 					
 					<div className='icons mobile'>
@@ -120,10 +136,21 @@ const Wrapper = styled.header`
 	}
 
 	.item {
+		position: relative;
 		line-height: 1.875rem;
 		font-size: 20px;
 		color: var(--clr-white);
-		padding-right: 4.5rem;
+		margin-right: 4.5rem;
+	}
+
+	.active:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		bottom: -0.625rem;
+		left: 0;
+		background-color: var(--clr-primary-1);
 	}
 
 	.white {

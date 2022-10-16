@@ -1,12 +1,22 @@
-import { useState, useEffect, useReducer, createContext } from "react";
-import { Reducer } from "./emailReducer";
+import { useEffect, useReducer, createContext } from "react";
+import { Reducer } from "./Reducer";
 
 // loacl storage
-const getLocalStorage = () => {
+const getLocalStorageSubscription = () => {
 	if (typeof window !== "undefined") {
-		let email = localStorage.getItem("email-items");
-		if (email) {
-			return JSON.parse(localStorage.getItem('email-items'));
+		let data = localStorage.getItem("subscription");
+		if (data) {
+			return JSON.parse(localStorage.getItem('subscription'));
+		} else {
+			return [];
+		}
+	}
+}
+const getLocalStorageMessage = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("message");
+		if (data) {
+			return JSON.parse(localStorage.getItem('message'));
 		} else {
 			return [];
 		}
@@ -15,7 +25,8 @@ const getLocalStorage = () => {
 
 // initial state
 const initialState = {
-	email: getLocalStorage(),
+	subscription: getLocalStorageSubscription(),
+	message: getLocalStorageMessage()
 };
 
 // create context
@@ -27,11 +38,16 @@ function Provider({ children }) {
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
-			localStorage.setItem('email-items', JSON.stringify(state.email));
+			localStorage.setItem('subscription', JSON.stringify(state.subscription));
+			localStorage.setItem('message', JSON.stringify(state.message));
 		}
-	}, [state.email]);
+	}, [state.subscription, state.message]);
 
-	return <Context.Provider value={value}>{children}</Context.Provider>;
+	return (
+		<Context.Provider value={value}>
+			{ children }
+		</Context.Provider>
+	);
 };
 
 export { Context, Provider };
