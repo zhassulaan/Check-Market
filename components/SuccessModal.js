@@ -8,9 +8,9 @@ export default function SuccessModal({ modal }) {
 				<h3 className='title'>Спасибо! Ваш вопрос в обработке</h3>
 
 				<div className='icons'>
-					<Image src='/modal/rectangle.svg' alt="phone icon" width={15} height={15} layout='fixed' />
-					<Image src='/modal/triangle.svg' alt="phone icon" width={40} height={15} layout='fixed' />
-					<Image src='/modal/ellipse.svg' alt="phone icon" width={15} height={15} layout='fixed' />
+					<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+					<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+					<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 				</div>
 					
 				<p className="text">Мы свяжемся с Вами как только найдем ответ</p>

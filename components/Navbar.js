@@ -192,7 +192,7 @@ const Wrapper = styled.header`
 
 	@media (max-width: 1220px) {
 		.item {
-			padding-right: 2.994375rem;
+			margin-right: 2.994375rem;
 		}
 
 		.icons {

@@ -33,7 +33,7 @@
 	width: 43.75rem;
 	height: 24.375rem;
 	border: 0.125rem solid var(--clr-primary-1);
-	margin-top: 2.5rem;
+	margin: 2.5rem 2.5rem 0 0;
 }
 
 .map {
@@ -55,4 +55,15 @@
 .button {
 	width: 21.875rem;
 	height: 4.375rem;
+}
+
+@media (max-width: 1220px) {
+	.content {
+		width: 58rem;
+		flex-direction: column;
+	}	
+
+	.box {
+		margin: 2.5rem auto 0;
+	}
 }
