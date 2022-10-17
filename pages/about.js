@@ -34,13 +34,18 @@ export default function About() {
 				<>
 					<Navbar/>
 					<div className={styles.container}>
+						<div className={styles.mobile}>
+							<img src="/about-icons/frame.png" alt="logo frame" className={styles.frame} />
+							<img src="/about-icons/logo.png" alt="co. logo" className={styles.logo} />
+						</div>
+						
 						<div className={styles.header}>
 							<h3 className={styles.title}>О нас</h3>
 
 							<div className={styles.icons}>
-								<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-								<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-								<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+								<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+								<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 							</div>
 
 							<p className={styles.subtitle}>Узнайте подробнее о ЧЕК МАРКЕТ</p>
@@ -77,9 +82,9 @@ export default function About() {
 							<h3 className={styles.title}>Наши партнеры и бренды</h3>
 
 							<div className={styles.icons}>
-								<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-								<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-								<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+								<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+								<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 							</div>
 
 							<div className={styles.images}>
