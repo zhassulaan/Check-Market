@@ -15,8 +15,8 @@ export default function SuccessModal({ modal }) {
 					
 				<p className="text">Мы свяжемся с Вами как только найдем ответ</p>
 				
-				<div className='close-icon' onClick={ modal }>
-					<Image src='/modal/close.svg' alt="close button"  width={30} height={30} />
+				<div className='close-icon button' onClick={ modal }>
+					<Image src='/modal/close.svg' alt="close button" width={30} height={30} />
 				</div>
 			</div>
 		</Wrapper>
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 		align-items: center;
 		background: var(--clr-white);
 		margin: auto;
-		padding: 9.375rem 12.5rem 8.75rem;
+		padding: 9.375rem 0 8.75rem;
 	}
 
 	.title {

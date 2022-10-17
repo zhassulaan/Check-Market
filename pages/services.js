@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import Head from 'next/head';
+import SubscribeModal from '../components/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Services() {
+	const [subscribeModal, setSubscribeModal] = useState(false);
+	
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
+
 	return (
 		<div>
 			<Head>
@@ -17,9 +26,15 @@ export default function Services() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			<Navbar/>
-			<h1>Услуги</h1>
-			<Footer/>
+			{subscribeModal ?
+				<SubscribeModal modal={ subscribe }/>
+					:
+				<>
+					<Navbar/>
+					<h1>Услуги</h1>
+					<Footer modal={ subscribe }/>
+				</>
+			}
 		</div>
 	);
 }

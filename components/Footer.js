@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Context } from '../context/Context';
 import styles from '../styles/footer.module.css';
 
-function Footer() {
+function Footer({ modal }) {
 	const { state, dispatch } = useContext(Context);
 	const [detail, setDetail] = useState('');
 
@@ -19,10 +19,22 @@ function Footer() {
 
  	const handleSubmit = e => {
 		e.preventDefault();
-		dispatch({
-			type: "SUBSCRIBE",
-			payload: detail,
-		})
+
+		if (detail.email !== undefined && detail !== "") {
+			const inCart = state.subscription.find((item) => 
+				item.email === detail.email) ?
+					true
+						: 
+					false;
+			
+			if (!inCart) {
+				dispatch({
+					type: "SUBSCRIBE",
+					payload: detail,
+				});
+				modal(e);
+			}
+		}
 	}
 
 	return (
@@ -101,7 +113,7 @@ function Footer() {
 						</div>
 
 						<p className={styles.item}>Подпишитесь на нашу рассылку, чтобы узнавать об акциях, скидках и последних новостях от ЧЕК МАРКЕТ</p>
-						<form className={styles.message} onSubmit={(detail.email !== undefined && detail.email !== '') ? handleSubmit : null}>
+						<form className={styles.message} onSubmit={ handleSubmit }>
 							<input 
 								type='email'
 								id='email'

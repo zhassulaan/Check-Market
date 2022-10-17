@@ -120,8 +120,8 @@ export default function MessageModal({ modal }) {
 							</div>
 						</form>
 
-						<div className='close-icon' onClick={ modal }>
-							<Image src='/modal/close.svg' alt="close button"  width={30} height={30} />
+						<div className='close-icon button' onClick={ modal }>
+							<Image src='/modal/close.svg' alt="close button" width={30} height={30} />
 						</div>
 					</div>
 				</Wrapper>
