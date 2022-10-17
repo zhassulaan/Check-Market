@@ -206,6 +206,11 @@ const Wrapper = styled.div`
 		height: 4.375rem;
 		margin-top: 0.625rem;
 	}
+	
+	.form-button .text {
+		font-size: 20px;
+		font-weight: 700;
+	}
 
 	.close-icon {
 		position: absolute;

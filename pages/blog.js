@@ -1,16 +1,69 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import Head from 'next/head';
+import Image from 'next/image';
+import styled from 'styled-components';
+import newsData from '../data/news-data';
+import articlesData from '../data/articles-data';
 import SubscribeModal from '../components/SubscribeModal';
+import BlogsPagination from '../components/BlogsPagination';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Button from '../components/Button';
 
 export default function Blog() {
 	const [subscribeModal, setSubscribeModal] = useState(false);
+	const [option, setOption] = useState(1);
+	const [news, setNews] = useState(newsData.slice().reverse());
+	const [articles, setArticles] = useState(articlesData.slice().reverse());
+	const [blogs, setBlogs] = useState(articles);
+
+	// We start with an empty list of items.
+	const [currentArticles, setCurrentArticles] = useState(articles);
+	const [pageCountArticles, setPageCountArticles] = useState(0);
+	const [currentNews, setCurrentNews] = useState(news);
+	const [pageCountNews, setPageCountNews] = useState(0);
+	// Here we use item offsets; we could also use page offsets
+	// following the API or data you're working with.
+	const [itemOffset, setItemOffset] = useState(0);
 	
 	const subscribe = async(ev) => {
 		ev.preventDefault();
 		setSubscribeModal(!subscribeModal);
 	}
+
+	const chooseArticles = async(ev) => {
+		ev.preventDefault();
+		setOption(1);
+		setItemOffset(0);
+		setBlogs(articles);
+	}
+
+	const chooseNews = async(ev) => {
+		ev.preventDefault();
+		setOption(2);
+		setItemOffset(0);
+		setBlogs(news);
+	}
+
+	useEffect(() => {
+		// Fetch items from another resources.
+		const endOffset = itemOffset + 3;
+		console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+		setCurrentArticles(articles.slice(itemOffset, endOffset));
+		setPageCountArticles(Math.ceil(articles.length / 3));
+		setCurrentNews(news.slice(itemOffset, endOffset));
+		setPageCountNews(Math.ceil(news.length / 3));
+	}, [itemOffset, 3]);
+  
+	// Invoke when user click to request another page.
+	const handlePageClick = (event) => {
+		const newOffset = (event.selected * 3) % blogs.length;
+		console.log(
+		  `User requested page number ${event.selected + 1}, which is offset ${newOffset}`
+		);
+		setItemOffset(newOffset);
+	};
 
 	return (
 		<div>
@@ -31,10 +84,171 @@ export default function Blog() {
 					:
 				<>
 					<Navbar/>
-					<h1>Блог</h1>
+					<Wrapper>
+						<div className='container'>
+							<div className='header'>
+								<h3 className='title'>Блог</h3>
+
+								<div className='icons'>
+									<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+
+								<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
+							</div>
+
+							<div className='buttons'>
+								<div className={option === 1 ? 'blog-button' : 'blog-button non-active'} onClick={chooseArticles}>
+									<Button text={"Статьи"}/>
+								</div>
+								<div className={option === 2 ? 'blog-button' : 'blog-button non-active'} onClick={chooseNews}>
+									<Button text={"Новости"}/>
+								</div>
+							</div>
+
+							{option === 1 ?
+								<div className='blog-container'>
+									<BlogsPagination currentItems={currentArticles} option={"Статьи"}/>
+									<ReactPaginate
+									  	key="paginate1"
+										breakLabel="..."
+										nextLabel="Следующая"
+										onPageChange={handlePageClick}
+										marginPagesDisplayed={1}
+          							pageRangeDisplayed={3}
+										pageCount={pageCountArticles}
+										previousLabel="Предыдущая"
+										renderOnZeroPageCount={null}
+									/>
+								</div>
+									:
+								<div className='blog-container'>
+									<BlogsPagination currentItems={currentNews} option={"Новости"}/>
+									<ReactPaginate
+									  	key="paginate2"
+										breakLabel="..."
+										nextLabel="Следующая"
+										onPageChange={handlePageClick}
+										marginPagesDisplayed={1}
+          							pageRangeDisplayed={3}
+										pageCount={pageCountNews}
+										previousLabel="Предыдущая"
+										renderOnZeroPageCount={null}
+									/>
+								</div>
+							}
+						</div>
+					</Wrapper>
 					<Footer modal={ subscribe }/>
 				</>
 			}
 		</div>
 	);
 }
+
+const Wrapper = styled.section`
+	display: flex;
+	justify-content: center;
+
+	.container {
+		width: 72.5rem;
+		height: 93.125rem;
+		margin: 14.375rem 0 13.125rem;
+	}
+
+	.header {
+		width: 25rem;
+		margin-bottom: 3.75rem;
+	}
+
+	.title {
+		line-height: 3.125rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.icons {
+		margin-bottom: 0.9375rem;
+	}
+
+	.subtitle {
+		line-height: 1.875rem;
+	}
+
+	.buttons {
+		display: flex;
+		height: 3.125rem;
+	}
+
+	.blog-button .button {
+		width: 10rem;
+		margin-right: 1.25rem;
+	}
+
+	.non-active .button{
+		background-color: transparent;
+		border: 1px solid var(--clr-primary-1);
+	}
+
+	.blog-button .text {
+		font-size: 18px;
+		font-weight: 700;
+	}
+	
+	.non-active .text {
+		color: var(--clr-primary-1);
+	}
+	
+	.blog-container {
+		ul {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 6.625rem;
+		}
+		
+		li {
+			width: 1.875rem;
+			height: 1.875rem;
+			font-size: 18px;
+			font-weight: 400;
+			cursor: pointer;
+			margin: 0 .625rem;
+		}
+
+		li a {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.previous,
+		.next {
+			width: 10rem;
+			height: 1.875rem;
+			text-decoration: underline;
+			margin: 0 3.75rem;
+		}
+		
+		.previous {
+			justify-content: flex-end;
+		}
+		
+		.next {
+			justify-content: flex-start;
+		}
+		
+		.selected {
+			width: 3.125rem;
+			height: 3.125rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--clr-primary-6);
+			border-radius: 5px;
+			margin: 0 .3125rem;
+		}
+	}
+`

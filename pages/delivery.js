@@ -3,6 +3,7 @@ import Head from 'next/head';
 import SubscribeModal from '../components/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import styles from '../styles/delivery.module.css';
 
 export default function Delivery() {
 	const [subscribeModal, setSubscribeModal] = useState(false);
