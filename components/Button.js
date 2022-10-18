@@ -33,6 +33,13 @@ const Wrapper = styled.div`
 	
 	@media (max-width: 992px) {
 		.text {
+			line-height: 1.5625rem;
+			font-size: 18px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.text {
 			line-height: 1.25rem;
 			font-size: 13px;
 		}

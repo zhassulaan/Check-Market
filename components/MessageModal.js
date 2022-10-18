@@ -92,7 +92,7 @@ export default function MessageModal({ modal }) {
 									type={"text"}
 									name={"email"}
 									id={"email"}
-									placeholder={'Укажите адрес электронной почты '}
+									placeholder={'Укажите свой e-mail '}
 									value={details.email}
 									onChange={e => setDetails({...details, email: e.target.value})}
 									className={error ? "error-border" : "dafault-border"}
@@ -121,7 +121,10 @@ export default function MessageModal({ modal }) {
 						</form>
 
 						<div className='close-icon button' onClick={ modal }>
-							<Image src='/modal/close.svg' alt="close button" width={30} height={30} />
+							<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+								<path d="M1 1L30.9999 31" stroke-width="2"/>
+								<path d="M31 1L1 31" stroke-width="2"/>
+							</svg>
 						</div>
 					</div>
 				</Wrapper>
@@ -141,11 +144,11 @@ const Wrapper = styled.div`
 
 	.form-container {
 		position: relative;
-		width: 72.5rem;
+		width: 60.4167vw;
 		background: var(--clr-white);
 		font-family: 'Open Sans';
 		font-style: normal;
-		margin: auto;
+		margin: 0 19.79167vw;
 		padding: 3.125rem 3.75rem 5rem;
 	}
 
@@ -185,7 +188,7 @@ const Wrapper = styled.div`
 	.form-group {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 1.875rem;
+		margin-bottom: 1.25rem;
 	}
 
 	.form-label {
@@ -214,8 +217,117 @@ const Wrapper = styled.div`
 
 	.close-icon {
 		position: absolute;
+		width: 1.875rem;
+		heigth: 1.875rem;
 		top: 0;
 		right: 0;
 		margin-right: -6.875rem;
 	}	
+
+	@media (max-width: 1600px) {
+		.form-group,
+		.form-button {
+			width: 30rem;
+		}		
+	}
+	
+	@media (max-width: 1280px) {
+		.form-container {
+			width: 75.806vw;
+			margin: 0 12.0968vw;
+			padding: 3.125rem 3.125rem 5rem;
+		}
+
+		.form-group,
+		.form-button {
+			width: 25rem;
+		}
+
+		.form-header {
+			padding-bottom: 1.25rem;
+			margin-bottom: 1.875rem;
+		}
+
+		.form-title {
+			line-height: 2.1875rem;
+			font-size: 24px;
+		}
+
+		.form-label {
+			line-height: 1.5625rem;
+			font-size: 16px;
+		}
+
+		.input-container {
+			font-size: 15px;
+		}
+
+		.form-button {
+			height: 3.125rem;
+		}
+
+		.form-button .text {
+			font-size: 18px;
+		}
+
+		.close-icon {
+			width: 1.5625rem;
+			heigth: 1.5625rem;
+			margin-right: -4.375rem;
+		}	
+	}
+	
+	@media (max-width: 768px) {
+		padding: 1.875rem 0 6.25rem;
+
+		.form-container {
+			width: 88.889vw;
+			border-radius: 0.625rem;
+			margin: 0 5.556vw;
+			padding: 3.125rem 5.556vw 2.5rem;
+		}
+
+		.form-group {
+			width: 100%;
+		}		
+		
+		.form-button {
+			width: calc(100% - 27.77778vw);
+		}
+
+		.form-header {
+			margin-bottom: 1.25rem;
+		}
+
+		.form-title {
+			line-height: 1.25rem;
+			font-size: 16px;
+			text-align: center;
+		}
+		
+		.form-header:before {
+			height: 1px;
+		}
+
+		.form-button {
+			height: 2.5rem;
+			margin-top: 0;
+		}
+		
+		.form-button .text {
+			font-size: 13px;
+		}
+
+		.close-icon {
+			width: 0.9375rem;
+			heigth: 0.9375rem;
+			margin: 1.25rem;
+		}	
+
+		.close-icon svg {
+			width: 0.9375rem;
+			heigth: 0.9375rem;
+			stroke: black;
+		}	
+	}
 `

@@ -103,6 +103,10 @@
 }
 
 @media (max-width: 650px) {
+	.container {
+		padding: 3.125rem 0 4.375rem;
+	}
+
 	.header {
 		margin: 1.875rem 0;
 	}

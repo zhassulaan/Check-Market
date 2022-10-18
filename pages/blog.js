@@ -84,6 +84,7 @@ export default function Blog() {
 					:
 				<>
 					<Navbar/>
+					
 					<Wrapper>
 						<div className='container'>
 							<div className='header'>
@@ -140,6 +141,7 @@ export default function Blog() {
 							}
 						</div>
 					</Wrapper>
+					
 					<Footer modal={ subscribe }/>
 				</>
 			}

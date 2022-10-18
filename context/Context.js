@@ -6,7 +6,7 @@ const getLocalStorageSubscription = () => {
 	if (typeof window !== "undefined") {
 		let data = localStorage.getItem("subscription");
 		if (data) {
-			return JSON.parse(localStorage.getItem('subscription'));
+			return JSON.parse(localStorage.getItem("subscription"));
 		} else {
 			return [];
 		}
@@ -16,7 +16,18 @@ const getLocalStorageMessage = () => {
 	if (typeof window !== "undefined") {
 		let data = localStorage.getItem("message");
 		if (data) {
-			return JSON.parse(localStorage.getItem('message'));
+			return JSON.parse(localStorage.getItem("message"));
+		} else {
+			return [];
+		}
+	}
+}
+
+const getLocalStorageService = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("service");
+		if (data) {
+			return JSON.parse(localStorage.getItem("service"));
 		} else {
 			return [];
 		}
@@ -26,7 +37,8 @@ const getLocalStorageMessage = () => {
 // initial state
 const initialState = {
 	subscription: getLocalStorageSubscription(),
-	message: getLocalStorageMessage()
+	message: getLocalStorageMessage(),
+	service: getLocalStorageService()
 };
 
 // create context
@@ -40,8 +52,9 @@ function Provider({ children }) {
 		if (typeof window !== "undefined") {
 			localStorage.setItem('subscription', JSON.stringify(state.subscription));
 			localStorage.setItem('message', JSON.stringify(state.message));
+			localStorage.setItem('service', JSON.stringify(state.service));
 		}
-	}, [state.subscription, state.message]);
+	}, [state.subscription, state.message, state.service]);
 
 	return (
 		<Context.Provider value={value}>

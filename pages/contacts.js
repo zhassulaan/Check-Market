@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import MessageModal from '../components/MessageModal';
 import SubscribeModal from '../components/SubscribeModal';
 import Navbar from '../components/Navbar';
@@ -45,31 +44,42 @@ export default function Contacts() {
 							:
 						<>
 							<Navbar/>
-							<div className={styles.container}>
-								<h1 className={styles.title}>Контакты</h1>
 
+							<div className={styles.container}>
+								<div className={styles.mobile}>
+									<img src="/main/frame.png" alt="logo frame" className={styles.frame} />
+									<img src="/main/logo.png" alt="co. logo" className={styles.logo} />
+								</div>
+
+								<h1 className={styles.title}>Контакты</h1>
+								<div className={[styles.icons, styles.mobile].join(" ")}>
+									<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+								
 								<div className={styles.content}>
 									<div>
 										<div className={styles.header}>
-											<Image src='/contacts-icons/map.svg' alt="map icon" width={30} height={30} layout='fixed' />
+											<img src='/contacts-icons/map.svg' alt="map icon" width={30} height={30} layout='fixed' />
 											<h5>Адрес:</h5>
 										</div>
 										<p className={styles.text}>Зенкова 59 офис 146, Алматы, Казахстан</p>
 
 										<div className={styles.header}>
-											<Image src='/contacts-icons/phone.svg' alt="phone icon" width={30} height={30} layout='fixed' />
+											<img src='/contacts-icons/phone.svg' alt="phone icon" width={30} height={30} layout='fixed' />
 											<h5>Телефон:</h5>
 										</div>
 										<p className={styles.text}>+7 (707) 907-07-17</p>
 
 										<div className={styles.header}>
-											<Image src='/contacts-icons/message.svg' alt="message icon" width={30} height={30} layout='fixed' />
+											<img src='/contacts-icons/message.svg' alt="message icon" width={30} height={30} layout='fixed' />
 											<h5>E-mail:</h5>
 										</div>
 										<p className={styles.text}>chek-market@bk.ru</p>
 
 										<div className={styles.header}>
-											<Image src='/contacts-icons/hour.svg' alt="hour icon" width={30} height={30} layout='fixed' />
+											<img src='/contacts-icons/hour.svg' alt="hour icon" width={30} height={30} layout='fixed' />
 											<h5>График работы</h5>
 										</div>
 										<p className={styles.text}>Пн-Пт | 10:00-18:00</p>
@@ -77,7 +87,7 @@ export default function Contacts() {
 
 									<div className={styles.box}>
 										<div className={styles.map}>
-											<Image src='/contacts-icons/map.png' alt="Almaty map" width={700} height={390} layout='fixed' />
+											<img src='/contacts-icons/map.png' alt="Almaty map" width={700} height={390} layout='fixed' />
 										</div>
 									</div>
 								</div>
@@ -89,6 +99,7 @@ export default function Contacts() {
 									</div>
 								</div>
 							</div>
+							
 							<Footer modal={ subscribe }/>
 						</>
 					}

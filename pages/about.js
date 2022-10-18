@@ -33,10 +33,11 @@ export default function About() {
 					:
 				<>
 					<Navbar/>
+
 					<div className={styles.container}>
 						<div className={styles.mobile}>
-							<img src="/about-icons/frame.png" alt="logo frame" className={styles.frame} />
-							<img src="/about-icons/logo.png" alt="co. logo" className={styles.logo} />
+							<img src="/main/frame.png" alt="logo frame" className={styles.frame} />
+							<img src="/main/logo.png" alt="co. logo" className={styles.logo} />
 						</div>
 						
 						<div className={styles.header}>
@@ -109,6 +110,7 @@ export default function About() {
 							</div>
 						</div>
 					</div>
+					
 					<Footer modal={ subscribe }/>
 				</>
 			}

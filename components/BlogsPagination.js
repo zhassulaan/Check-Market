@@ -9,7 +9,7 @@ export default function BlogsPagination({ currentItems, option }) {
 			<div className="blog-box">
 				<div className='image-content'>
 					<Image src={firstElement.image} alt="blog image" width={660} height={350} layout='fixed' />
-					<div className="blog-image-border"></div>
+					<div className="frame"></div>
 												
 					<div className='blog-date'>
 						<h4>{firstElement.date}</h4>
@@ -34,7 +34,7 @@ export default function BlogsPagination({ currentItems, option }) {
 				<div className='blog-box mini'>
 					<div className='mini-image-content'>
 						<Image src={item.image} alt="blog image" width={260} height={260} layout='fixed' />
-						<div className="blog-image-border"></div>
+						<div className="frame"></div>
 					</div>
 
 					<div className='text-content'>
@@ -72,7 +72,7 @@ const Wrapper = styled.div`
 		height: 21.875rem;
 	}
 
-	.blog-image-border {
+	.frame {
 		position: absolute;
 		width: 100%;
 		height: 100%;

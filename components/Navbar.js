@@ -50,25 +50,25 @@ function Navbar({ home }) {
 				<nav className={home ? 'container white' : 'container'}>
 					<ul className='shop-menu laptop'>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/' className={router.pathname == "/" ? "active" : ""}>Главная</a>
+							<a href='/' className={(router.pathname == "/") ? 'active' : ''}>Главная</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/shop' className={router.pathname == "/shop" ? "active" : ""}>Магазин</a>
+							<a href='/shop' className={(router.pathname == "/shop") ? 'active' : ''}>Магазин</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/about' className={router.pathname == "/about" ? "active" : ""}>О нас</a>
+							<a href='/about' className={(router.pathname == "/about") ? 'active' : ''}>О нас</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/services' className={router.pathname == "/services" ? "active" : ""}>Услуги</a>
+							<a href='/services' className={(router.pathname == "/services") ? 'active' : ''}>Услуги</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/blog' className={router.pathname == "/blog" ? "active" : ""}>Блог</a>
+							<a href='/blog' className={(router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active' : ''}>Блог</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/delivery' className={router.pathname == "/delivery" ? "active" : ""}>Доставка</a>
+							<a href='/delivery' className={(router.pathname == "/delivery") ? 'active' : ''}>Доставка</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/contacts' className={router.pathname == "/contacts" ? "active" : ""}>Контакты</a>
+							<a href='/contacts' className={(router.pathname == "/contacts") ? 'active' : ''}>Контакты</a>
 						</li>
 					</ul>
 					

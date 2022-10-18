@@ -3,7 +3,7 @@ import Head from 'next/head';
 import SubscribeModal from '../components/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import styles from '../styles/home.module.css';
+// import styles from '../styles/home.module.css';
 
 export default function Home() {
   const [subscribeModal, setSubscribeModal] = useState(false);

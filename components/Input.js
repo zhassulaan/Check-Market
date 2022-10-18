@@ -63,7 +63,7 @@ const Wrapper = styled.nav`
 		font-size: 16px;
 		font-weight: 300;
 		::placeholder {
-			color: var(--clr-primary-5);
+			color: var(--clr-black);
 		}
 		margin-top: 0.625rem;
 	}
