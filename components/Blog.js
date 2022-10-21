@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import Button from "./Button";
 
-export default function Direction() {
+export default function Blog() {
 	return (
 		<Wrapper>
 			<div>
-				<div className='direction-header'>
-					<h3 className='title'>Наши направления</h3>
+				<div className='blog-header'>
+					<h3 className='title'>Наш блог</h3>
 
 					<div className='icons'>
 						<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
@@ -14,50 +13,57 @@ export default function Direction() {
 						<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 					</div>
 					
-					<p className='subtitle'>В настоящее время мы предлагаем широкий ассортимент решений и качественного оборудования и расходного материала в следующих категориях:</p>
+					<p className='subtitle'>Читайте самые свежие статьи из мира ЧЕК МАРКЕТ</p>
 				</div>
 
-				<div className="direction-component">
-					<div className="direction-box">
-						<img src="/home/image1.png" alt="Противокражные системы" />
+				<div className="blog-component">
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Противокражные системы" />
 						<div className="direction-info">
 							<h4 className="direction-title">Противокражные системы</h4>
 							<p className="direction-paragraph">Антенны, датчики, сейфера, защитные этикетки, тросики</p>
-							<Button text={"Подробнее"}/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/image2.png" alt="Автоматизация торговли" />
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Автоматизация торговли" />
 						<div className="direction-info">
 							<h4 className="direction-title">Автоматизация торговли</h4>
 							<p className="direction-paragraph">принтера этикеток, принтера чеков, сканеры, моноблоки</p>
-							<Button text={"Подробнее"}/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/image3.png" alt="Подсчёт посетителей" />
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Подсчёт посетителей" />
 						<div className="direction-info">
 							<h4 className="direction-title">Подсчёт посетителей</h4>
 							<p className="direction-paragraph">Система для маркетинговых исследований</p>
-							<Button text={"Подробнее"}/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/image4.png" alt="Расходный материал" />
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Расходный материал" />
 						<div className="direction-info">
 							<h4 className="direction-title">Расходный материал</h4>
 							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
-							<Button text={"Подробнее"}/>
 						</div>
 					</div>
-				</div>
 
-				<div className="direction-footer">
-					<p className="direction-paragraph">Также Вы можете скачать прайс-лист</p>
-					<Button text={"Скачать прайс"}/>
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Подсчёт посетителей" />
+						<div className="direction-info">
+							<h4 className="direction-title">Подсчёт посетителей</h4>
+							<p className="direction-paragraph">Система для маркетинговых исследований</p>
+						</div>
+					</div>
+
+					<div className="blog-box">
+						<img src="/home/image.png" alt="Расходный материал" />
+						<div className="direction-info">
+							<h4 className="direction-title">Расходный материал</h4>
+							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</Wrapper>
@@ -67,37 +73,36 @@ export default function Direction() {
 const Wrapper = styled.div`
 	display: grid;
 	justify-content: center;
-	padding: 1.875rem 0 7.5rem;
+	background-color: var(--clr-primary-8);
+	padding: 5rem 0 7.1875rem;
 	
-	.direction-header {
-		width: 40rem; 
-		text-align: center;
-		margin: 0 auto;
+	.blog-header {
+		width: 22.5rem; 
 	}
 
-	.direction-header .title {
+	.blog-header .title {
 		line-height: 3.75rem;
 		margin-bottom: 1.25rem;
 	}
 
-	.direction-header .icons {
+	.blog-header .icons {
 		margin-bottom: 1.5625rem;
 	}
 
-	.direction-header .subtitle {
+	.blog-header .subtitle {
 		line-height: 1.875rem;
 	}
 	
-	.direction-component {
+	.blog-component {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2.5rem;
-		margin-top: 4.375rem;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5625rem 1.875rem;
+		margin-top: 3.125rem;
 	}
 	
-	.direction-box {
-		width: 35rem;
-		height: 15rem;
+	.blog-box {
+		width: 23.125rem;
+		height: 29.375rem;
 		display: flex;
 		background-color: var(--clr-white);
 	}

@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Direction from '../components/Direction';
+import Blog from '../components/Blog';
 import styles from '../styles/home.module.css';
 
 export default function Home() {
@@ -40,6 +41,7 @@ export default function Home() {
             <Hero/>
             <About/>
             <Direction/>
+            <Blog/>
           </div>
 					
           <Footer modal={ subscribe }/>
