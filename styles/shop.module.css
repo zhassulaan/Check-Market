@@ -1,11 +1,12 @@
 .container {
 	display: grid;
 	justify-content: center;
-	padding: 14.375rem 0 15.625rem;
+	padding: 14.375rem 0 12.5rem;
 }
 
 .header {
-	margin-bottom: 2.5rem;
+	width: 28.75rem;
+	margin-bottom: 7.5rem;
 }
 
 .title {
@@ -18,39 +19,112 @@
 }
 
 .subtitle {
+	line-height: 1.875rem;
+}
+
+.section_content .title {
+	text-align: center;
+	margin-bottom: 3.125rem;
+}
+
+.section_content .content {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.5rem;
+}
+
+.image {
+	position: relative;
+	width: 22.5rem;
+	height: 14.375rem;
+}
+
+.frame {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: #00000050;
+}
+
+.type_title {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 1.875rem 1.25rem;
+}
+
+.frame_title {
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--clr-white);
+}
+
+.frame_title1,
+.frame_title2,
+.frame_title3 {
+	line-height: 2.5rem;
+	margin-right: 0.625rem;
+}
+
+.frame_title4,
+.frame_title6 {
+	width: 15rem;
+}
+
+.frame_title4 {
+	line-height: 2.1875rem;
+	margin-right: 0.625rem;
+}
+
+.frame_title6 {
 	line-height: 2.5rem;
 }
 
-.content {
-	width: 72.5rem;
+.frame_title5 {
+	width: 13.75rem;
+	line-height: 2.1875rem;
+	margin-right: 0.3125rem;
 }
 
-.text {
+.type_title img {
+	height: 0.75rem;
+	margin-top: 0.875rem;
+}
+
+.frame_text {
+	position: absolute;
+	width: 100%;
+	height: 5.625rem;
+	bottom: 0;
+	font-weight: 600;
+	background-color: var(--clr-white);
+	padding: 1.25rem 1.875rem 1.25rem 1.25rem;
+}
+
+.frame_text p {
+	font-size: 16px;
 	font-weight: 400;
 }
 
-.options {
-	list-style-type: disc;
-	margin-left: 1.25rem;
+.request_content {
+	margin: 8.125rem auto 0;
 }
 
-.footer {
-	margin-top: 3.75rem;
+.text {
+	font-size: 22px;
+	font-weight: 400;
+	margin-bottom: 2.5rem;
 }
 
-.images {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 2.5rem;
+.button {
+	width: 15.625rem;
+	height: 4.375rem;
+	text-align: center;
+	margin: auto;
 }
 
-@media (max-width: 1220px) {
-	.content {
-		width: 58rem;
-	}	
-
-	/* .box {
-		margin: 2.5rem auto 0;
-	} */
+.topproducts_content {
+	margin-top: 10rem;
 }

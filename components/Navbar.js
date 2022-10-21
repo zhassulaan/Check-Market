@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Context } from '../context/Context';
 import Image from 'next/image';
 import styled from 'styled-components';
 import SearchBar from '../components/SearchBar';
@@ -7,6 +8,7 @@ import Dropdown from '../components/Dropdown';
 
 function Navbar({ home }) {
 	const router = useRouter();
+	const { state, dispatch } = useContext(Context);
 	const [show, setShow] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
 
@@ -20,6 +22,13 @@ function Navbar({ home }) {
 		setShowDropdown(!showDropdown);
 	}
 
+	const [totalItems, setTotalItems] = useState(0);
+	useEffect(() => 
+		setTotalItems(
+			state.basket?.reduce((total, item) =>  total += item.quantity , 0)
+		),
+	[]);
+
 	return (
 		<Wrapper>
 			{show ? 
@@ -31,10 +40,7 @@ function Navbar({ home }) {
 					</div>
 
 					<div className="search">
-						<SearchBar/>
-						<div className='icon button mobile searchIcon'>
-							<Image src='/navbar-icons/search2.svg' alt="close button" width={20} height={20} layout='fixed' />
-						</div>
+						<SearchBar text={ "Введите здесь ключевые слова для поиска" }/>
 					</div>
 
 					<div className='icon button laptop closeIcon' onClick={search}>
@@ -53,7 +59,7 @@ function Navbar({ home }) {
 							<a href='/' className={(router.pathname == "/") ? 'active' : ''}>Главная</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/shop' className={(router.pathname == "/shop") ? 'active' : ''}>Магазин</a>
+							<a href='/shop' className={(router.pathname == "/shop" || router.pathname == "/catalog/[...slug]") ? 'active' : ''}>Магазин</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
 							<a href='/about' className={(router.pathname == "/about") ? 'active' : ''}>О нас</a>
@@ -98,9 +104,7 @@ function Navbar({ home }) {
 							<svg width="22" height="30" viewBox="0 0 22 30" fill={home ? "black" : "white"} xmlns="http://www.w3.org/2000/svg">
 								<path d="M21.9981 27.5883L21.1675 6.50959C21.1482 6.01978 20.7548 5.63601 20.2718 5.63601H16.5233V5.60665C16.5233 2.51513 14.0455 0 11 0C7.95446 0 5.47674 2.51513 5.47674 5.60665V5.63601H1.72827C1.24529 5.63601 0.851893 6.01973 0.832518 6.50959L0.00188953 27.5883C-0.0232109 28.2248 0.202462 28.8284 0.637209 29.2877C1.07201 29.747 1.65707 30 2.28459 30H19.7155C20.343 30 20.928 29.747 21.3628 29.2877C21.7975 28.8283 22.0232 28.2248 21.9981 27.5883ZM6.34427 5.60665C6.34427 3.0007 8.43281 0.880626 11 0.880626C13.5672 0.880626 15.6557 3.0007 15.6557 5.60665V5.63601H6.34427V5.60665ZM20.7372 28.6775C20.4676 28.9624 20.1046 29.1194 19.7155 29.1194H2.28459C1.89536 29.1194 1.5325 28.9625 1.26281 28.6776C0.993127 28.3927 0.853165 28.0184 0.868781 27.6235L1.69935 6.54481C1.69999 6.52896 1.71265 6.51663 1.72827 6.51663H5.47674V9.36399C5.47674 9.60716 5.67095 9.80431 5.9105 9.80431C6.15006 9.80431 6.34427 9.60716 6.34427 9.36399V6.51663H15.6557V9.36399C15.6557 9.60716 15.8499 9.80431 16.0895 9.80431C16.3291 9.80431 16.5233 9.60716 16.5233 9.36399V6.51663H20.2718C20.2873 6.51663 20.3 6.52896 20.3006 6.54481L21.1313 27.6235C21.1468 28.0183 21.0069 28.3926 20.7372 28.6775Z"/>
 							</svg>
-							<span className='purchased'>
-								{0}
-							</span>
+							<span className='purchased'>{totalItems}</span>
 						</div>
 					</div>
 				</nav>
@@ -121,12 +125,14 @@ const Wrapper = styled.header`
 	.container {
 		height: 100%;
 		display: flex;
+		align-items: center;
 		justify-content: center;
 		background-color: var(--clr-black);
-		padding: 2.1875rem 0; 
+		padding: 1.5625rem 0; 
 	}
 
-	.mobile {
+	.mobile,
+	.search_icon {
 		display: none;
 	}
 
@@ -182,6 +188,20 @@ const Wrapper = styled.header`
 		color: var(--clr-white);
 	}
 
+	.search {
+		width: 35rem;
+		height: 3.125rem;
+	}
+	
+	.search input {
+		border: none;
+	}
+	
+	.search input::placeholder {
+		font-size: 20px;
+		color: var(--clr-primary-2);
+	}
+
 	.searchIcon {
 		padding: 0 1.09375vw 0 13.54167vw;
 	}
@@ -209,24 +229,25 @@ const Wrapper = styled.header`
 		
 		.container {
 			justify-content: space-between;
-			padding: 0.9375rem 5.55556vw;
+			padding: 0.625rem 5.55556vw;
 			background-color: var(--clr-white);
 		}
 		
-		.laptop {
+		.laptop,
+		.icons.laptop {
 			display: none;
 		}
 
 		.mobile {
 			display: block;
 		}
-
-		.icons.laptop {
-			display: none;
+		
+		.search_icon,
+		.mobile.icons {
+			display: flex;
 		}
 
 		.mobile.icons {
-			display: flex;
 			width: 100%;
 		}
 
@@ -240,17 +261,23 @@ const Wrapper = styled.header`
 		}
 
 		.search {
-			display: flex;
-		}
-
-		.searchIcon {
-			width: 1.875rem;
 			height: 1.875rem;
-			background: var(--clr-primary-1);
-			padding: 0.3125rem;
-			margin-left: -1.875rem;
+			width: 65.27778vw;
 		}
 
+		.search input {
+			border: 1px solid var(--clr-primary-4);;
+		}
+
+		.search input::placeholder {
+			font-size: 12px;
+			color: var(--clr-primary-4);
+		}
+	
+		.search img {
+			width: 1.875rem;
+		}
+	
 		.closeButton {
 			font-size: 15px;
 			margin: 0.3125rem 0;

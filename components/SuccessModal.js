@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Button from './Button';
 
-export default function SuccessModal({ sender, modal }) {
+export default function SuccessModal({ sender, close }) {
 	return (
 		<Wrapper>
 			{ sender !== 1 ?
@@ -22,7 +22,7 @@ export default function SuccessModal({ sender, modal }) {
 							
 						<p className="text">Мы свяжемся с Вами как только найдем ответ</p>
 						
-						<div className='close-icon button' onClick={ modal }>
+						<div className='close-icon button' onClick={ close }>
 							<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1L30.9999 31" stroke-width="2"/>
 								<path d="M31 1L1 31" stroke-width="2"/>

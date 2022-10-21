@@ -50,7 +50,7 @@ export default function Services() {
 			</Head>
 
 			{openModal ? 
-				<ServicesModal type={ selectedType } modal={ modal }/> 
+				<ServicesModal type={ selectedType } close={ modal }/> 
 					:
 				<>
 					{subscribeModal ?
@@ -82,32 +82,32 @@ export default function Services() {
 										<div className={[styles.image, styles.image1].join(" ")}>
 											<Image src='/services/image1.png' alt="image 1" width={360} height={240} layout='fixed' />
 											<div id={serviceType[0].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Автоматизация <br /> розничной торговли</h6>
+											<h6 className={styles.frame_text}>Автоматизация <br /> розничной торговли</h6>
 										</div>
 										<div className={[styles.image, styles.image2].join(" ")}>
 											<Image src='/services/image2.png' alt="image 2" width={213.22} height={280} layout='fixed' />
 											<div id={serviceType[1].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Автоматизация <br /> ресторанного бизнеса</h6>
+											<h6 className={styles.frame_text}>Автоматизация <br /> ресторанного бизнеса</h6>
 										</div>
 										<div className={[styles.image, styles.image3].join(" ")}>
 											<Image src='/services/image3.png' alt="image 3" width={200} height={130} layout='fixed' />
 											<div id={serviceType[2].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Доставка <br /> расходного материала</h6>
+											<h6 className={styles.frame_text}>Доставка <br /> расходного материала</h6>
 										</div>
 										<div className={[styles.image, styles.image4].join(" ")}>
 											<Image src='/services/image4.png' alt="image 4" width={190} height={190} layout='fixed' />
 											<div id={serviceType[3].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Установка/настройка противокражных систем</h6>
+											<h6 className={styles.frame_text}>Установка/настройка противокражных систем</h6>
 										</div>
 										<div className={[styles.image, styles.image5].join(" ")}>
 											<Image src='/services/image5.png' alt="image 5" width={166} height={190} layout='fixed' />
 											<div id={serviceType[4].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Установка/настройка счётчиков подсчёта посетителей</h6>
+											<h6 className={styles.frame_text}>Установка/настройка счётчиков подсчёта посетителей</h6>
 										</div>
 										<div className={[styles.image, styles.image6].join(" ")}>
 											<Image src='/services/image6.png' alt="image 6" width={360} height={430} layout='fixed' />
 											<div id={serviceType[5].id} className={styles.frame} onClick={ modal }></div>
-											<h6 className={styles.fram_text}>Установка и настройка ПО на торговом оборудовании</h6>
+											<h6 className={styles.frame_text}>Установка и настройка ПО на торговом оборудовании</h6>
 										</div>
 									</div>
 

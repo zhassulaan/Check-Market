@@ -1,41 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function SearchBar({ value, changeInput }) {
+function SearchBar({ value, changeInput, text }) {
   	return (
-		<Input
-			type='text'
-			id='text'
-			placeholder='Введите здесь ключевые слова для поиска'
-			value={value}
-			onChange={changeInput}
-		/>
+		<Wrapper>
+			<input
+				type='text'
+				id='text'
+				placeholder={text}
+				value={value}
+				onChange={changeInput}
+			/>
+
+			<div className='button search_icon'>
+				<img src='/navbar-icons/search2.svg' alt="search button"/>
+			</div>
+		</Wrapper>
   	);
 }
 
-const Input = styled.input`
-	width: 35rem;
-	height: 1.875rem;
-	font-size: 16px;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
+const Wrapper = styled.section`
+	display: flex;
+	height: 100%;
 	margin: auto 0;
-	padding-left: 1.875rem;
 
-	input::placeholder {
-		font-size: 20px;
-		color: var(--clr-primary-2);
+	input {
+		width: 100%;
+		height: 100%;
+		font-family: 'Open Sans', sans-serif;
+		padding: 0 2.5rem 0 0.625rem;
+		font-weight: 400;
+	}
+
+	.search_icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		background: var(--clr-primary-1);
+		margin-left: -1.875rem;
+	}
+	
+	.search_icon img {
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 
 	@media (max-width: 992px) {
 		width: 65.27778vw;
-		border: 1px solid var(--clr-primary-4);
-		padding: 0 2.5rem 0 0.625rem;
-		font-size: 12px;
-
-		input::placeholder {
-			color: var(--clr-primary-4);
-		}
 	}
 `
 export default SearchBar;

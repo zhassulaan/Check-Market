@@ -9,7 +9,7 @@ import SuccessModal from './SuccessModal';
 import Input from './Input';
 import Button from './Button';
 
-export default function ServiceModal({ type, modal }) {
+export default function ServiceModal({ type, close }) {
 	const { state, dispatch } = useContext(Context);
 	const [details, setDetails] = useState({ type: type.text, name: "", surename: "", phone: "", email: "" });
 	const [subscribeModal, setSubscribeModal] = useState(false);
@@ -34,7 +34,7 @@ export default function ServiceModal({ type, modal }) {
 		else {
 			setError(false);
 			dispatch({
-				type: "SUBMIT_APPLICATION",
+				type: "SUBMIT_SERVICE_APPLICATION",
 				payload: details,
 			})
 			successModal(e);
@@ -110,7 +110,7 @@ export default function ServiceModal({ type, modal }) {
 							:
 						<>
 							<Navbar/>
-							<SuccessModal sender={ 1 } modal={ modal }/>
+							<SuccessModal sender={ 1 } close={ close }/>
 							<Footer modal={ subscribe }/>
 						</>
 					}
@@ -191,7 +191,7 @@ export default function ServiceModal({ type, modal }) {
 							</form>
 						</div>
 
-						<div className='close-icon button' onClick={ modal }>
+						<div className='close-icon button' onClick={ close }>
 							<Image src='/modal/close.svg' alt="close button" width={30} height={30} />
 						</div>
 					</div>

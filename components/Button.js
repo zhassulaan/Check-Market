@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Button({ text }) {
+export default function Button({ text, disable }) {
 	return (
 		<Wrapper>
 			<button className="button">
@@ -11,8 +11,6 @@ export default function Button({ text }) {
 }
 
 const Wrapper = styled.div`
-	height: 100%;
-	
 	.button {
 		width: 100%;
 		height: 100%;

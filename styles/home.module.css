@@ -1,8 +1,11 @@
 .container {
 	display: grid;
 	justify-content: center;
-	padding: 14.375rem 0 15.625rem;
 }
+
+
+
+
 
 .header {
 	margin-bottom: 2.5rem;

@@ -248,7 +248,7 @@ const Wrapper = styled.section`
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: var(--clr-primary-6);
+			background-color: var(--clr-primary-4);
 			border-radius: 5px;
 			margin: 0 .3125rem;
 		}

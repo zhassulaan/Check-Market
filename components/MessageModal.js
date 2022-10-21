@@ -1,17 +1,17 @@
 import { useState, useContext } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
 import SuccessModal from './SuccessModal';
 import Input from './Input';
 import Button from './Button';
 
-export default function MessageModal({ modal }) {
+export default function MessageModal({ close, send }) {
 	const [details, setDetails] = useState({ name: "", surename: "", phone: "", email: "", message: "" });
 	const { state, dispatch } = useContext(Context);
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
-	
+	let disp = send;
+
 	const successModal = async(ev) => {
 		ev.preventDefault();
 		setSuccess(!success);
@@ -25,7 +25,7 @@ export default function MessageModal({ modal }) {
 		else {
 			setError(false);
 			dispatch({
-				type: "SEND_MESSAGE",
+				type: disp,
 				payload: details,
 			})
 			successModal(e);
@@ -35,7 +35,7 @@ export default function MessageModal({ modal }) {
 	return (
 		<>
 			{success ?
-				<SuccessModal modal={ modal }/>
+				<SuccessModal close={ close }/>
 					:
 				<Wrapper>
 					<div className="form-container">
@@ -120,7 +120,7 @@ export default function MessageModal({ modal }) {
 							</div>
 						</form>
 
-						<div className='close-icon button' onClick={ modal }>
+						<div className='close-icon button' onClick={ close }>
 							<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1L30.9999 31" stroke-width="2"/>
 								<path d="M31 1L1 31" stroke-width="2"/>

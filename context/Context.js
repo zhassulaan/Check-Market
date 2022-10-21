@@ -2,6 +2,16 @@ import { useEffect, useReducer, createContext } from "react";
 import { Reducer } from "./Reducer";
 
 // loacl storage
+const getLocalStorageProductPage = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("page-item");
+		if (data) {
+			return JSON.parse(localStorage.getItem("page-item"));
+		} else {
+			return [];
+		}
+	}
+}
 const getLocalStorageSubscription = () => {
 	if (typeof window !== "undefined") {
 		let data = localStorage.getItem("subscription");
@@ -22,7 +32,6 @@ const getLocalStorageMessage = () => {
 		}
 	}
 }
-
 const getLocalStorageService = () => {
 	if (typeof window !== "undefined") {
 		let data = localStorage.getItem("service");
@@ -33,12 +42,35 @@ const getLocalStorageService = () => {
 		}
 	}
 }
+const getLocalStorageProduct = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("product");
+		if (data) {
+			return JSON.parse(localStorage.getItem("product"));
+		} else {
+			return [];
+		}
+	}
+}
+const getLocalStorageBasket = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("basket");
+		if (data) {
+			return JSON.parse(localStorage.getItem("basket"));
+		} else {
+			return [];
+		}
+	}
+}
 
 // initial state
 const initialState = {
+	page: getLocalStorageProductPage(),
 	subscription: getLocalStorageSubscription(),
 	message: getLocalStorageMessage(),
-	service: getLocalStorageService()
+	service: getLocalStorageService(),
+	product: getLocalStorageProduct(),
+	basket: getLocalStorageBasket()
 };
 
 // create context
@@ -50,11 +82,14 @@ function Provider({ children }) {
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
+			localStorage.setItem('page-item', JSON.stringify(state.page));
 			localStorage.setItem('subscription', JSON.stringify(state.subscription));
 			localStorage.setItem('message', JSON.stringify(state.message));
 			localStorage.setItem('service', JSON.stringify(state.service));
+			localStorage.setItem('product', JSON.stringify(state.product));
+			localStorage.setItem('basket', JSON.stringify(state.basket));
 		}
-	}, [state.subscription, state.message, state.service]);
+	}, [state.page, state.subscription, state.message, state.service, state.product, state.basket]);
 
 	return (
 		<Context.Provider value={value}>

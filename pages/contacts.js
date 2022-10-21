@@ -36,7 +36,7 @@ export default function Contacts() {
 			</Head>
 
 			{openModal ? 
-				<MessageModal modal={ modal }/> 
+				<MessageModal close={ modal } send={ "SEND_MESSAGE" }/> 
 					:
 				<>
 					{subscribeModal ?
