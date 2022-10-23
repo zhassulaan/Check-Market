@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import data from "../data/articles-data";
 
 export default function Blog() {
+	const articles = [];
+	for (let i = 0; i < 6; i++) {
+		articles[i] = data[i];
+	}
+
 	return (
 		<Wrapper>
 			<div>
@@ -17,53 +23,23 @@ export default function Blog() {
 				</div>
 
 				<div className="blog-component">
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Противокражные системы" />
-						<div className="direction-info">
-							<h4 className="direction-title">Противокражные системы</h4>
-							<p className="direction-paragraph">Антенны, датчики, сейфера, защитные этикетки, тросики</p>
-						</div>
-					</div>
+					{ articles.map(article => 
+						<div className="blog-box">
+							<div className='image-content'>
+								<img src={article.image.src} alt="blog image" width={370} height={470} layout='fixed' />
+								<div className="frame"></div>
+															
+								<div className='article-date'>
+									<h4>{article.date}</h4>
+									<img src='/blog-icons/arrow.svg' alt="open arrow" width={50} height={15} layout='fixed' />
+								</div>
 
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Автоматизация торговли" />
-						<div className="direction-info">
-							<h4 className="direction-title">Автоматизация торговли</h4>
-							<p className="direction-paragraph">принтера этикеток, принтера чеков, сканеры, моноблоки</p>
+								<div className="article-info">
+									<h6 className="article-title">{article.title}</h6>
+								</div>
+							</div>
 						</div>
-					</div>
-
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Подсчёт посетителей" />
-						<div className="direction-info">
-							<h4 className="direction-title">Подсчёт посетителей</h4>
-							<p className="direction-paragraph">Система для маркетинговых исследований</p>
-						</div>
-					</div>
-
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Расходный материал" />
-						<div className="direction-info">
-							<h4 className="direction-title">Расходный материал</h4>
-							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
-						</div>
-					</div>
-
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Подсчёт посетителей" />
-						<div className="direction-info">
-							<h4 className="direction-title">Подсчёт посетителей</h4>
-							<p className="direction-paragraph">Система для маркетинговых исследований</p>
-						</div>
-					</div>
-
-					<div className="blog-box">
-						<img src="/home/image.png" alt="Расходный материал" />
-						<div className="direction-info">
-							<h4 className="direction-title">Расходный материал</h4>
-							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
-						</div>
-					</div>
+					) }
 				</div>
 			</div>
 		</Wrapper>
@@ -106,6 +82,55 @@ const Wrapper = styled.div`
 		display: flex;
 		background-color: var(--clr-white);
 	}
+
+	.image-content {
+		position: relative;
+	}
+
+	.frame {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background-color: #00000050;
+	}
+
+	.article-date {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		top: 0;
+		left: 0;
+		margin: 1.875rem;
+	}
+
+	.article-date h4 {
+		width: 10.625rem;
+		color: var(--clr-white);
+	}
+
+	.article-info {
+		position: absolute;
+		width: 23.125rem;
+		height: 8.125rem;
+		bottom: 0;
+		background-color: var(--clr-white);
+	}
+
+	.article-title {
+		line-height: 1.5625rem;
+		font-size: 18px;
+		font-weight: 400;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		margin: 2.5rem 3.125rem 2.5rem 1.875rem;
+	}
+
+
+
+
 
 	.direction-info {
 		margin: 1.875rem 0 0 1.25rem;

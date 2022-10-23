@@ -154,6 +154,7 @@ const Wrapper = styled.section`
 	justify-content: center;
 
 	.container {
+		position: relative;
 		width: 72.5rem;
 		height: 93.125rem;
 		margin: 14.375rem 0 13.125rem;
@@ -179,11 +180,11 @@ const Wrapper = styled.section`
 
 	.buttons {
 		display: flex;
-		height: 3.125rem;
 	}
 
 	.blog-button .button {
 		width: 10rem;
+		height: 3.125rem;
 		margin-right: 1.25rem;
 	}
 
@@ -203,10 +204,12 @@ const Wrapper = styled.section`
 	
 	.blog-container {
 		ul {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin-top: 6.625rem;
 		}
 		
 		li {

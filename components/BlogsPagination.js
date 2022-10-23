@@ -111,6 +111,10 @@ const Wrapper = styled.div`
 		line-height: 2.8125rem;
 		margin-bottom: 1.25rem;
 		padding-bottom: 0.625rem;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
 	}
 
 	.blog-title:after {
