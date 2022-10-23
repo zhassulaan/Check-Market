@@ -9,8 +9,14 @@ export default function Blog() {
 
 	return (
 		<Wrapper>
-			<div>
-				<div className='blog-header'>
+			<div className="blog-container">
+				<div className="icon-images">
+					<img src="/home/scanner.svg" alt="scanner" />
+					<img src="/home/monitor.svg" alt="monitor" />
+					<img src="/home/roll.svg" alt="roll" />
+				</div>
+
+				<div className='header'>
 					<h3 className='title'>Наш блог</h3>
 
 					<div className='icons'>
@@ -18,17 +24,17 @@ export default function Blog() {
 						<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
 						<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 					</div>
-					
+						
 					<p className='subtitle'>Читайте самые свежие статьи из мира ЧЕК МАРКЕТ</p>
 				</div>
 
 				<div className="blog-component">
 					{ articles.map(article => 
 						<div className="blog-box">
-							<div className='image-content'>
+							<a href={`/blog/articles/${article.id}`} className='image-content'>
 								<img src={article.image.src} alt="blog image" width={370} height={470} layout='fixed' />
 								<div className="frame"></div>
-															
+																
 								<div className='article-date'>
 									<h4>{article.date}</h4>
 									<img src='/blog-icons/arrow.svg' alt="open arrow" width={50} height={15} layout='fixed' />
@@ -37,43 +43,59 @@ export default function Blog() {
 								<div className="article-info">
 									<h6 className="article-title">{article.title}</h6>
 								</div>
-							</div>
+							</a>
 						</div>
 					) }
 				</div>
+
+				<a href="/blog" className="blog-link">Смотреть все статьи ></a>
 			</div>
 		</Wrapper>
 	);
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	display: grid;
-	justify-content: center;
+	justify-content: center; 
 	background-color: var(--clr-primary-8);
-	padding: 5rem 0 7.1875rem;
 	
-	.blog-header {
+	.header {
 		width: 22.5rem; 
 	}
 
-	.blog-header .title {
+	.title {
 		line-height: 3.75rem;
 		margin-bottom: 1.25rem;
 	}
-
-	.blog-header .icons {
+  
+	.icons {
 		margin-bottom: 1.5625rem;
 	}
-
-	.blog-header .subtitle {
+  
+	.subtitle {
 		line-height: 1.875rem;
+	}
+
+	.blog-container {
+		position: relative;
+		padding: 5rem 0 2.8125rem;
+	}
+
+	.icon-images {
+		position: absolute;
+		top: -2.8125rem;
+		right: 0;
+	}
+	
+	.icon-images img {
+		margin-right: 1.4375rem;
 	}
 	
 	.blog-component {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.5625rem 1.875rem;
-		margin-top: 3.125rem;
+		gap: 1.875rem 1.5625rem;
+		margin: 3.125rem 0 2.5rem;
 	}
 	
 	.blog-box {
@@ -128,46 +150,13 @@ const Wrapper = styled.div`
 		margin: 2.5rem 3.125rem 2.5rem 1.875rem;
 	}
 
-
-
-
-
-	.direction-info {
-		margin: 1.875rem 0 0 1.25rem;
-	}
-
-	.direction-title {
+	.blog-link {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
 		line-height: 1.875rem;
-		font-size: 20px;
-		margin-bottom: 1.25rem;
-	}
-
-	.direction-paragraph {
-		line-height: 1.5625rem;
-		font-size: 18px;
-		margin-bottom: 1.875rem;
-	}
-
-	.direction-box .button {
-		width: 8.75rem;
-		height: 3.125rem;
-	}
-
-	.direction-box .text {
-		font-size: 18px;
-	}
-
-	.direction-footer .direction-paragraph {
-		width: 35rem;
-		text-align: center;
 		font-size: 22px;
 		font-weight: 400;
-		margin: 6.5625rem auto 1.875rem;
-	}
-	
-	.direction-footer .button {
-		width: 13.125rem;
-		height: 4.375rem;
-		margin: 0 auto;
+		color: var(--clr-primary-1);
 	}
 `

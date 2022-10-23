@@ -182,13 +182,14 @@ const Wrapper = styled.section`
 		display: flex;
 	}
 
-	.blog-button .button {
+	.blog-button {
 		width: 10rem;
 		height: 3.125rem;
+		border-radius: 0.625rem;
 		margin-right: 1.25rem;
 	}
 
-	.non-active .button{
+	.non-active .button {
 		background-color: transparent;
 		border: 1px solid var(--clr-primary-1);
 	}

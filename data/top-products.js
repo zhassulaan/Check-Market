@@ -1,70 +1,91 @@
 import image1 from '../public/product-images/image1.png';
 import image2 from '../public/product-images/image2.png';
 import image3 from '../public/product-images/image3.png';
+import image4 from '../public/product-images/image4.png';
+import image5 from '../public/product-images/image5.png';
+import image6 from '../public/product-images/image6.png';
 
 const topProducts = [
 	{
 		id: 1,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
+		name: "Сенсорный POS-терминал Mulex A8 MSR",
 		image: image1,
-		price: 250,
-		inStock: true
+		price: 312400,
+		sale: null,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 2,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
+		name: "Принтер этикеток TSC TTP-244 СЕ",
 		image: image2,
-		price: 60000,
-		inStock: true
+		price: 121000,
+		sale: null,
+		inStock: false,
+		onOrder: true
 	},
 	{
 		id: 3,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
+		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
 		image: image3,
-		price: 850,
-		inStock: true
+		price: 900,
+		sale: 20,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 4,
 		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image2,
+		image: image4,
 		price: 250,
-		inStock: true
+		sale: null,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 5,
 		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image3,
+		image: image5,
 		price: 60000,
-		inStock: true
+		sale: null,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 6,
 		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image1,
+		image: image6,
 		price: 850,
-		inStock: true
+		sale: null,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 7,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image3,
-		price: 250,
-		inStock: true
+		name: "Сенсорный POS-терминал Mulex A8 MSR",
+		image: image1,
+		price: 312400,
+		sale: null,
+		inStock: true,
+		onOrder: false
 	},
 	{
 		id: 8,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image1,
-		price: 60000,
-		inStock: true
+		name: "Принтер этикеток TSC TTP-244 СЕ",
+		image: image2,
+		price: 121000,
+		sale: null,
+		inStock: false,
+		onOrder: true
 	},
 	{
 		id: 9,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image2,
-		price: 850,
-		inStock: true
+		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
+		image: image3,
+		price: 900,
+		sale: 20,
+		inStock: true,
+		onOrder: false
 	}
 ]
 

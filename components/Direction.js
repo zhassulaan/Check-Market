@@ -5,7 +5,7 @@ export default function Direction() {
 	return (
 		<Wrapper>
 			<div>
-				<div className='direction-header'>
+				<div className='header'>
 					<h3 className='title'>Наши направления</h3>
 
 					<div className='icons'>
@@ -64,27 +64,27 @@ export default function Direction() {
 	);
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	display: grid;
 	justify-content: center;
 	padding: 1.875rem 0 7.5rem;
 	
-	.direction-header {
+	.header {
 		width: 40rem; 
 		text-align: center;
-		margin: 0 auto;
+		margin: 0 auto;	
 	}
 
-	.direction-header .title {
+	.title {
 		line-height: 3.75rem;
 		margin-bottom: 1.25rem;
 	}
-
-	.direction-header .icons {
+  
+	.icons {
 		margin-bottom: 1.5625rem;
 	}
-
-	.direction-header .subtitle {
+  
+	.subtitle {
 		line-height: 1.875rem;
 	}
 	

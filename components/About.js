@@ -4,7 +4,7 @@ export default function About() {
 	return (
 		<Wrapper>
 			<div>
-				<div className='about-header'>
+				<div className='header'>
 					<h3 className='title'>Что такое «ЧЕК МАРКЕТ»?</h3>
 
 					<div className='icons'>
@@ -29,31 +29,31 @@ export default function About() {
 	);
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	display: flex;
 	justify-content: center;
 	padding: 6.25rem 0 10rem;
 	
-	.about-header,
+	.header,
 	.about-text-component {
 		width: 35rem;
 		margin-right: 37.5rem;
 	}
 
-	.about-header {
+	.header {
 		margin-top: 3.125rem;
 	}
 
-	.about-header .title {
+	.title {
 		line-height: 3.125rem;
 		margin-bottom: 1.25rem;
 	}
 
-	.about-header .icons {
+	.icons {
 		margin-bottom: 0.9375rem;
 	}
 
-	.about-header .subtitle {
+	.subtitle {
 		line-height: 1.875rem;
 	}
 	

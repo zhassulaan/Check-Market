@@ -11,13 +11,16 @@ export default function Button({ text, disable }) {
 }
 
 const Wrapper = styled.div`
+	width: 100%;
+	height: 100%;
+	
 	.button {
+		background-color: var(--clr-primary-1);
 		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: var(--clr-primary-1);
 		border: none;
 		border-radius: 0.625rem;
 	}

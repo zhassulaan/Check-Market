@@ -42,7 +42,7 @@ export default function Hero() {
 	);
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	display: grid;
 	justify-content: center;
 	padding: 6.25rem 19.79167vw;

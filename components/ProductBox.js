@@ -27,15 +27,15 @@ export default function ProductBox({ product }) {
 			<img src={ product.image.src } alt="product image" />
 
 			<div className='product-data'>
-				<p className='product-name'>{ product.name }</p>
+				<p className={'product-name'}>{ product.name }</p>
 				<p className='product-price'>{ price(product.price) } тг</p>
-				<p className='product-instock'>{ (product.inStock === true) ? "В наличии" : "нет в наличии" }</p>
+				<p className={(product.inStock === true) ? 'product-instock' : 'product-notinstock'}>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии"  }</p>
 				{ (product.inStock === true) ?
 					<div className='product-button' onClick={ handleSubmit }>
 						<Button text={ "В корзину" }/>
 					</div>
 						:
-					<div className='product-button'>
+					<div className='product-button nonactive'>
 						<Button text={ "Недоступно" }/>
 					</div>
 				}
@@ -60,14 +60,21 @@ const Wrapper = styled.div`
 	}
 
 	.product-name {
+		height: 3.125rem;
 		line-height: 1.5625rem;
 		margin-bottom: 1.875rem;
 	}
 	
 	.product-price,
-	.product-instock {
+	.product-instock,
+	.product-notinstock {
 		line-height: 1.875rem;
 		margin-bottom: 0.625rem;
+	}
+
+	.product-instock,
+	.product-notinstock {
+		font-size: 16px;
 	}
 
 	.product-price {
@@ -76,14 +83,21 @@ const Wrapper = styled.div`
 	}
 	
 	.product-instock {
-		font-size: 16px;
 		color: var(--clr-primary-7);
+	}
+	
+	.product-notinstock {
+		color: var(--clr-primary-1);
 	}
 
 	.product-button {
 		width: 14.375rem;
 		height: 3.125rem;
 		margin: auto;
+	}
+
+	.nonactive .button {
+		background-color: var(--clr-primary-4);
 	}
 
 	.text {

@@ -42,7 +42,7 @@ export default function TopProducts() {
 }
 
 const Wrapper = styled.div`
-	margin-top: 3.75rem;
+	margin-top: 2.5rem;
 
 	.products {
 		display: flex;

@@ -7,7 +7,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Direction from '../components/Direction';
 import Blog from '../components/Blog';
-import styles from '../styles/home.module.css';
+import Recomendations from '../components/Recomendations';
 
 export default function Home() {
   const [subscribeModal, setSubscribeModal] = useState(false);
@@ -37,13 +37,12 @@ export default function Home() {
 				<>
 					<Navbar home={ true }/>
 
-					<div className={styles.container}>
-            <Hero/>
-            <About/>
-            <Direction/>
-            <Blog/>
-          </div>
-					
+          <Hero/>
+          <About/>
+          <Direction/>
+          <Blog/>
+          <Recomendations/>
+				
           <Footer modal={ subscribe }/>
 				</>
 			}

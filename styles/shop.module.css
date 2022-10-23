@@ -128,3 +128,7 @@
 .topproducts_content {
 	margin-top: 10rem;
 }
+
+.topproducts_content .icons {
+	padding-bottom: 2.1875rem;
+}
