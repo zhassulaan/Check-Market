@@ -8,6 +8,7 @@ import About from '../components/About';
 import Direction from '../components/Direction';
 import Blog from '../components/Blog';
 import Recomendations from '../components/Recomendations';
+import Reviews from '../components/Reviews';
 
 export default function Home() {
   const [subscribeModal, setSubscribeModal] = useState(false);
@@ -42,6 +43,7 @@ export default function Home() {
           <Direction/>
           <Blog/>
           <Recomendations/>
+          <Reviews/>
 				
           <Footer modal={ subscribe }/>
 				</>

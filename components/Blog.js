@@ -28,10 +28,10 @@ export default function Blog() {
 					<p className='subtitle'>Читайте самые свежие статьи из мира ЧЕК МАРКЕТ</p>
 				</div>
 
-				<div className="blog-component">
+				<div className="blog-content">
 					{ articles.map(article => 
 						<div className="blog-box">
-							<a href={`/blog/articles/${article.id}`} className='image-content'>
+							<a href={`/blog/articles/${article.id}`} className='image'>
 								<img src={article.image.src} alt="blog image" width={370} height={470} layout='fixed' />
 								<div className="frame"></div>
 																
@@ -91,7 +91,7 @@ const Wrapper = styled.section`
 		margin-right: 1.4375rem;
 	}
 	
-	.blog-component {
+	.blog-content {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1.875rem 1.5625rem;
@@ -105,7 +105,7 @@ const Wrapper = styled.section`
 		background-color: var(--clr-white);
 	}
 
-	.image-content {
+	.image {
 		position: relative;
 	}
 
