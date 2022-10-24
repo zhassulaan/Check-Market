@@ -16,7 +16,7 @@ export default function Hero() {
 					<h2 className="hero-title">Лидер в области автоматизации торговли</h2>
 					<p className="hero-paragraph">Самые выгодные решения для Вашего бизнеса уже сегодня</p>
 					
-					<a href="catalog/1">
+					<a href="/shop/catalog/1">
 						<Button hero={ true } text={ "Открыть каталог" }/>
 					</a>
 

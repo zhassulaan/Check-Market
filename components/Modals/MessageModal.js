@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { Context } from '../context/Context';
+import { Context } from '../../context/Context';
 import SuccessModal from './SuccessModal';
-import Input from './Input';
-import Button from './Button';
+import Input from '../Input';
+import Button from '../Button';
 
 export default function MessageModal({ close, send }) {
 	const [details, setDetails] = useState({ name: "", surename: "", phone: "", email: "", message: "" });

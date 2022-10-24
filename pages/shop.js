@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
 import Head from 'next/head';
 import { Context } from '../context/Context';
-import SubscribeModal from '../components/SubscribeModal';
-import MessageModal from '../components/MessageModal';
+import MessageModal from '../components/Modals/MessageModal';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TopProducts from '../components/TopProducts';
@@ -10,9 +11,20 @@ import Button from '../components/Button';
 import styles from '../styles/shop.module.css';
 
 export default function Shop() {
-	const [openModal, setOpenModal] = useState(false);
-	const [subscribeModal, setSubscribeModal] = useState(false);
 	const { state, dispatch } = useContext(Context);
+	// SUBSCRIBE AND BASKET MODAL
+	const [subscribeModal, setSubscribeModal] = useState(false);
+	const [basketModal, setBasketModal] = useState(false);
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
+	const basket = async(ev) => {
+		ev.preventDefault();
+		setBasketModal(!basketModal);
+	}
+
+	const [openModal, setOpenModal] = useState(false);
 	const [productType, setProductType] = useState([
 		{ id: 1, text: "Все товары" },
 		{ id: 2, text: "Чековая лента" },
@@ -28,11 +40,6 @@ export default function Shop() {
 		setOpenModal(!openModal);
 	}
 	
-	const subscribe = async(ev) => {
-		ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
-
 	const handleSubmit = async(ev) => {
 		ev.preventDefault();
 		setSelectedType(productType[ev.target.id]);
@@ -56,131 +63,136 @@ export default function Shop() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{openModal ? 
-				<MessageModal close={ modal } send={ "SUBMIT_PRODUCT_APPLICATION" }/> 
-					:
-				<>
-					{subscribeModal ?
+			{(() => {
+				if (openModal)
+					return (
+						<MessageModal close={ modal } send={ "SUBMIT_PRODUCT_APPLICATION" }/> 
+					);
+				else if (basketModal)
+					return (
+						<BasketModal close={ basket }/> 
+					);
+				else if (subscribeModal)
+					return (
 						<SubscribeModal modal={ subscribe }/>
-							:
-						<>
-							<Navbar/>
+					);
+				else
+					return (<>
+						<Navbar modal={ basket }/>
 
-							<div className={styles.container}>
-								<div className={styles.header}>
-									<h3 className={styles.title}>Интернет-магазин</h3>
+						<div className={styles.container}>
+							<div className={styles.header}>
+								<h3 className={styles.title}>Интернет-магазин</h3>
 
-									<div className={styles.icons}>
-										<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-										<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-										<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
-									</div>
-
-									<p className={styles.subtitle}>Более сотни позиций для автоматизации вашего бизнеса.</p>
+								<div className={styles.icons}>
+									<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 								</div>
+
+								<p className={styles.subtitle}>Более сотни позиций для автоматизации вашего бизнеса.</p>
+							</div>
 									
-								<div className={styles.section_content}>
-									<h4 className={styles.title}>Выберите интересующий Вас раздел</h4>
-									<div className={styles.content}>
-										<div className={styles.image}>
-											<a id='0' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='0' src='/shop/image1.png' alt="Все товары"/>
-												<div id='0' className={styles.frame}></div>
-												<div id='0' className={styles.type_title}>
-													<p id='0' className={[styles.frame_title, styles.frame_title1].join(" ")}>{ productType[0].text }</p>
-													<img id='0' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>Смотреть полный каталог товаров</p></div>
-										</div>
-
-										<div className={styles.image}>
-											<a id='1' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='1' src='/shop/image2.png' alt="Чековая лента" />
-												<div id='1' className={styles.frame}></div>
-												<div id='1' className={styles.type_title}>
-													<p id='1' className={[styles.frame_title, styles.frame_title2].join(" ")}>{ productType[1].text }</p>
-													<img id='1' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>Для кассовых аппаратов, пос-терминалов и фискальных регистров</p></div>
-										</div>
-
-										<div className={styles.image}>
-											<a id='2' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='2' src='/shop/image3.png' alt="Термоэтикетки" />
-												<div id='2' className={styles.frame}></div>
-												<div id='2' className={styles.type_title}>
-													<p id='2' className={[styles.frame_title, styles.frame_title3].join(" ")}>{ productType[2].text }</p>
-													<img id='2' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>Самоклеющиеся термоэтикетки (термотрансферная этикет-лента</p></div>
-										</div>
-
-										<div className={styles.image}>
-											<a id='3' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='3' src='/shop/image4.png' alt="Счётчики подсчёта посетителей" />
-												<div id='3' className={styles.frame}></div>
-												<div id='3' className={styles.type_title}>
-													<p id='3' className={[styles.frame_title, styles.frame_title4].join(" ")}>{ productType[3].text }</p>
-													<img id='3' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>Товары для статистики и маркетинговых исследований</p></div>
-										</div>
-
-										<div className={styles.image}>
-											<a id='4' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='4' src='/shop/image5.png' alt="Противокражное оборудование" />
-												<div id='4' className={styles.frame}></div>
-												<div id='4' className={styles.type_title}>
-													<p id='4' className={[styles.frame_title, styles.frame_title5].join(" ")}>{ productType[4].text }</p>
-													<img id='4' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>Антикражные ворота, радиочастотные датчики, антенны, этикетки и тд</p></div>
-										</div>
-
-										<div className={styles.image}>
-											<a id='5' onClick={() => handleSubmit} href="/shop/catalog/1">
-												<img id='5' src='/shop/image6.png' alt="Оборудование для автоматизации" />
-												<div id='5' className={styles.frame}></div>
-												<div id='5' className={styles.type_title}>
-													<p id='5' className={[styles.frame_title, styles.frame_title6].join(" ")}>{ productType[5].text }</p>
-													<img id='5' src='/shop/arrow.svg' alt="go arrow" />
-												</div>
-											</a>
-											<div className={styles.frame_text}><p>ПО, принтеры этикетов, сканеры, терминалы сбора данных и тд.</p></div>
-										</div>
-									</div>
-								</div>
-									
-								<div className={styles.request_content}>
-									<p className={styles.text}>Не нашли нужный товар? Свяжитесь с нами и мы уточним наличие</p>
-									<div className={styles.button} onClick={ modal }>
-										<Button text={ "Оставить заявку" }/>
-									</div>
-								</div>
-
-								<div className={styles.topproducts_content}>
-									<h3 className={styles.title}>Топ продаж на сайте</h3>
-
-									<div className={styles.icons}>
-										<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-										<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-										<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+							<div className={styles.section_content}>
+								<h4 className={styles.title}>Выберите интересующий Вас раздел</h4>
+								<div className={styles.content}>
+									<div className={styles.image}>
+										<a id='0' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='0' src='/shop/image1.png' alt="Все товары"/>
+											<div id='0' className={styles.frame}></div>
+											<div id='0' className={styles.type_title}>
+												<p id='0' className={[styles.frame_title, styles.frame_title1].join(" ")}>{ productType[0].text }</p>
+												<img id='0' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>Смотреть полный каталог товаров</p></div>
 									</div>
 
-									<TopProducts/>
+									<div className={styles.image}>
+										<a id='1' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='1' src='/shop/image2.png' alt="Чековая лента" />
+											<div id='1' className={styles.frame}></div>
+											<div id='1' className={styles.type_title}>
+												<p id='1' className={[styles.frame_title, styles.frame_title2].join(" ")}>{ productType[1].text }</p>
+												<img id='1' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>Для кассовых аппаратов, пос-терминалов и фискальных регистров</p></div>
+									</div>
+
+									<div className={styles.image}>
+										<a id='2' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='2' src='/shop/image3.png' alt="Термоэтикетки" />
+											<div id='2' className={styles.frame}></div>
+											<div id='2' className={styles.type_title}>
+												<p id='2' className={[styles.frame_title, styles.frame_title3].join(" ")}>{ productType[2].text }</p>
+												<img id='2' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>Самоклеющиеся термоэтикетки (термотрансферная этикет-лента</p></div>
+									</div>
+
+									<div className={styles.image}>
+										<a id='3' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='3' src='/shop/image4.png' alt="Счётчики подсчёта посетителей" />
+											<div id='3' className={styles.frame}></div>
+											<div id='3' className={styles.type_title}>
+												<p id='3' className={[styles.frame_title, styles.frame_title4].join(" ")}>{ productType[3].text }</p>
+												<img id='3' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>Товары для статистики и маркетинговых исследований</p></div>
+									</div>
+
+									<div className={styles.image}>
+										<a id='4' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='4' src='/shop/image5.png' alt="Противокражное оборудование" />
+											<div id='4' className={styles.frame}></div>
+											<div id='4' className={styles.type_title}>
+												<p id='4' className={[styles.frame_title, styles.frame_title5].join(" ")}>{ productType[4].text }</p>
+												<img id='4' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>Антикражные ворота, радиочастотные датчики, антенны, этикетки и тд</p></div>
+									</div>
+
+									<div className={styles.image}>
+										<a id='5' onClick={() => handleSubmit} href="/shop/catalog/1">
+											<img id='5' src='/shop/image6.png' alt="Оборудование для автоматизации" />
+											<div id='5' className={styles.frame}></div>
+											<div id='5' className={styles.type_title}>
+												<p id='5' className={[styles.frame_title, styles.frame_title6].join(" ")}>{ productType[5].text }</p>
+												<img id='5' src='/shop/arrow.svg' alt="go arrow" />
+											</div>
+										</a>
+										<div className={styles.frame_text}><p>ПО, принтеры этикетов, сканеры, терминалы сбора данных и тд.</p></div>
+									</div>
 								</div>
 							</div>
+									
+							<div className={styles.request_content}>
+								<p className={styles.text}>Не нашли нужный товар? Свяжитесь с нами и мы уточним наличие</p>
+								<div className={styles.button} onClick={ modal }>
+									<Button text={ "Оставить заявку" }/>
+								</div>
+							</div>
+
+							<div className={styles.topproducts_content}>
+								<h3 className={styles.title}>Топ продаж на сайте</h3>
+
+								<div className={styles.icons}>
+									<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+
+								<TopProducts/>
+							</div>
+						</div>
 								
-							<Footer modal={ subscribe }/>
-						</>
-					}
-				</>
-			}
+						<Footer modal={ subscribe }/>
+					</>);
+			})()}
 		</div>
 	);
 }

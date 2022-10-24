@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
-import SubscribeModal from '../../../components/SubscribeModal';
+import BasketModal from '../../../components/Modals/BasketModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import ProductBox from '../../../components/ProductBox';
@@ -13,6 +14,18 @@ import styles from '../../../styles/catalog.module.css';
 
 export default function Shop() {
 	const router = useRouter();
+
+	// SUBSCRIBE AND BASKET MODAL
+	const [subscribeModal, setSubscribeModal] = useState(false);
+	const [basketModal, setBasketModal] = useState(false);
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
+	const basket = async(ev) => {
+		ev.preventDefault();
+		setBasketModal(!basketModal);
+	}
 	
 	// Sorting
 	function sortDefault(a, b) {
@@ -46,13 +59,6 @@ export default function Shop() {
 		}
 	}
 
-	// SUBSCRIBE MODAL
-	const [subscribeModal, setSubscribeModal] = useState(false);
-	const subscribe = async(ev) => {
-		ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
-	
 	// USE FILTER
 	let [openDropdown, setOpenDropdown] = useState([false, false, false, false, false]);
 	const handleToggle = (ev) => {
@@ -259,12 +265,18 @@ export default function Shop() {
 			</Head>
 
 			{(router.query.slug == 1) || pageNumbers.find((number) => router.query.slug == number) ?
-				<>
-					{subscribeModal ? 
-						<SubscribeModal modal={ subscribe }/>
-							:
-						<>
-							<Navbar/>
+				(() => {
+					if (basketModal)
+						return (
+							<BasketModal close={ basket }/> 
+						);
+					else if (subscribeModal)
+						return (
+							<SubscribeModal modal={ subscribe }/>
+						);
+					else
+						return (<>	
+							<Navbar modal={ basket }/>
 
 							<div className={styles.container}>
 								<div className={styles.header}>
@@ -278,7 +290,7 @@ export default function Shop() {
 
 									<p className={styles.subtitle}>Более сотни позиций для автоматизации вашего бизнеса.</p>
 								</div>
-											
+												
 								<div className={styles.filter_content}>
 									<div>
 										<div className={styles.filter_header}>
@@ -403,7 +415,7 @@ export default function Shop() {
 												);
 											}) }
 										</div>
-										
+											
 										<Pagination
 											pageNumbers={pageNumbers}
 											currentPage={currentPage}
@@ -419,9 +431,8 @@ export default function Shop() {
 							</div>
 										
 							<Footer modal={ subscribe }/>
-						</>
-					}
-				</>
+						</>);
+				})()
 					:
 				<></>
 			}

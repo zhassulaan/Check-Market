@@ -16,7 +16,7 @@ export function Reducer(state, action) {
 			return { ...state, product: [ ...state.product, action.payload] };
 	
 		case "ADD_TO_CART":
-			const inCart = state.basket.find(item => 
+			const inCart = state.cart.find(item => 
 				item.product.id === action.payload.id) ?
             	true
           			: 
@@ -24,7 +24,7 @@ export function Reducer(state, action) {
 
 					
 			if (inCart) {
-				state.basket.map(item => 
+				state.cart.map(item => 
 					(item.product.id === action.payload.id) 
 							?
 						item.quantity += 0.5
@@ -34,8 +34,8 @@ export function Reducer(state, action) {
 						
 				return {
 					...state,
-					basket: [
-						...state.basket,
+					cart: [
+						...state.cart,
 					]
 				};
 			}
@@ -43,8 +43,8 @@ export function Reducer(state, action) {
 			else
 				return {
 					...state,
-					basket: [ 
-						...state.basket, 
+					cart: [ 
+						...state.cart, 
 						{ 
 							product: action.payload, 
 							quantity: 1 
@@ -55,7 +55,7 @@ export function Reducer(state, action) {
 		case "REMOVE_FROM_CART":
 			return { 
 				...state, 
-				basket: state.basket.filter(item => 
+				cart: state.cart.filter(item => 
 					item.product.id !== action.payload.id
 				)
 			};
@@ -70,8 +70,8 @@ export function Reducer(state, action) {
 
 			return {
 				...state,
-				basket: [
-					...state.basket,
+				cart: [
+					...state.cart,
 				]
 			};
 		
@@ -85,8 +85,8 @@ export function Reducer(state, action) {
 
 			return {
 				...state,
-				basket: [
-					...state.basket,
+				cart: [
+					...state.cart,
 				]
 			};
 

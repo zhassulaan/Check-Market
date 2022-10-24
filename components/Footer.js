@@ -1,4 +1,4 @@
-import React, { useState, useContext  } from 'react';
+import { useState, useContext  } from 'react';
 import Image from 'next/image';
 import { Context } from '../context/Context';
 import styles from '../styles/footer.module.css';

@@ -5,14 +5,26 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import newsData from '../data/news-data';
 import articlesData from '../data/articles-data';
-import SubscribeModal from '../components/SubscribeModal';
 import BlogsPagination from '../components/BlogsPagination';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 
 export default function Blog() {
+	// SUBSCRIBE AND BASKET MODAL
 	const [subscribeModal, setSubscribeModal] = useState(false);
+	const [basketModal, setBasketModal] = useState(false);
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
+	const basket = async(ev) => {
+		ev.preventDefault();
+		setBasketModal(!basketModal);
+	}
+
 	const [option, setOption] = useState(1);
 	const [news, setNews] = useState(newsData.slice().reverse());
 	const [articles, setArticles] = useState(articlesData.slice().reverse());
@@ -27,11 +39,6 @@ export default function Blog() {
 	// following the API or data you're working with.
 	const [itemOffset, setItemOffset] = useState(0);
 	
-	const subscribe = async(ev) => {
-		ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
-
 	const chooseArticles = async(ev) => {
 		ev.preventDefault();
 		setOption(1);
@@ -79,72 +86,79 @@ export default function Blog() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{subscribeModal ?
-				<SubscribeModal modal={ subscribe }/>
-					:
-				<>
-					<Navbar/>
-					
-					<Wrapper>
-						<div className='container'>
-							<div className='header'>
-								<h3 className='title'>Блог</h3>
+			{(() => {
+				if (basketModal)
+					return (
+						<BasketModal close={ basket }/> 
+					);
+				else if (subscribeModal)
+					return (
+						<SubscribeModal modal={ subscribe }/>
+					);
+				else
+					return (<>
+						<Navbar modal={ basket }/>
+						
+						<Wrapper>
+							<div className='container'>
+								<div className='header'>
+									<h3 className='title'>Блог</h3>
 
-								<div className='icons'>
-									<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-									<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-									<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+									<div className='icons'>
+										<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+										<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+										<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+									</div>
+
+									<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
 								</div>
 
-								<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
+								<div className='buttons'>
+									<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
+										<Button text={"Статьи"}/>
+									</div>
+									<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
+										<Button text={"Новости"}/>
+									</div>
+								</div>
+
+								{option === 1 ?
+									<div className='blog-container'>
+										<BlogsPagination currentItems={currentArticles} option={"Статьи"}/>
+										<ReactPaginate
+											key="paginate1"
+											breakLabel="..."
+											nextLabel="Следующая"
+											onPageChange={handlePageClick}
+											marginPagesDisplayed={1}
+											pageRangeDisplayed={3}
+											pageCount={pageCountArticles}
+											previousLabel="Предыдущая"
+											renderOnZeroPageCount={null}
+										/>
+									</div>
+										:
+									<div className='blog-container'>
+										<BlogsPagination currentItems={currentNews} option={"Новости"}/>
+										<ReactPaginate
+											key="paginate2"
+											breakLabel="..."
+											nextLabel="Следующая"
+											onPageChange={handlePageClick}
+											marginPagesDisplayed={1}
+											pageRangeDisplayed={3}
+											pageCount={pageCountNews}
+											previousLabel="Предыдущая"
+											renderOnZeroPageCount={null}
+										/>
+									</div>
+								}
 							</div>
-
-							<div className='buttons'>
-								<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
-									<Button text={"Статьи"}/>
-								</div>
-								<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
-									<Button text={"Новости"}/>
-								</div>
-							</div>
-
-							{option === 1 ?
-								<div className='blog-container'>
-									<BlogsPagination currentItems={currentArticles} option={"Статьи"}/>
-									<ReactPaginate
-									  	key="paginate1"
-										breakLabel="..."
-										nextLabel="Следующая"
-										onPageChange={handlePageClick}
-										marginPagesDisplayed={1}
-          							pageRangeDisplayed={3}
-										pageCount={pageCountArticles}
-										previousLabel="Предыдущая"
-										renderOnZeroPageCount={null}
-									/>
-								</div>
-									:
-								<div className='blog-container'>
-									<BlogsPagination currentItems={currentNews} option={"Новости"}/>
-									<ReactPaginate
-									  	key="paginate2"
-										breakLabel="..."
-										nextLabel="Следующая"
-										onPageChange={handlePageClick}
-										marginPagesDisplayed={1}
-          							pageRangeDisplayed={3}
-										pageCount={pageCountNews}
-										previousLabel="Предыдущая"
-										renderOnZeroPageCount={null}
-									/>
-								</div>
-							}
-						</div>
-					</Wrapper>
-					
-					<Footer modal={ subscribe }/>
-				</>
-			}
+						</Wrapper>
+						
+						<Footer modal={ subscribe }/>
+					</>);
+			})()}
 		</div>
 	);
 }

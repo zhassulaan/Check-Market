@@ -4,23 +4,31 @@ import Head from 'next/head';
 import Image from 'next/image';
 import data from '../../../data/news-data';
 import Error from '../../_error';
-import SubscribeModal from '../../../components/SubscribeModal';
+import BasketModal from '../../../components/Modals/BasketModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import styles from '../../../styles/blog.module.css';
 
 export default function SingleBlog() {
+	const router = useRouter()
+  	const { slug } = router.query
+
+	const success = data.find(item => 
+		item.id == slug
+	);
+
+	// SUBSCRIBE AND BASKET MODAL
 	const [subscribeModal, setSubscribeModal] = useState(false);
-	
+	const [basketModal, setBasketModal] = useState(false);
 	const subscribe = async(ev) => {
 		ev.preventDefault();
 		setSubscribeModal(!subscribeModal);
 	}
-
-	const router = useRouter()
-  	const { slug } = router.query
-
-	const success = data.find(item => item.id == slug);
+	const basket = async(ev) => {
+		ev.preventDefault();
+		setBasketModal(!basketModal);
+	}
 
 	return (
 		<div>
@@ -36,44 +44,55 @@ export default function SingleBlog() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{ success ? 
-				subscribeModal ?
-					<SubscribeModal modal={ subscribe }/>
-						:
-					<>
-						<Navbar/>
-						
-						<div className={styles.container}>
-							<div className={styles.box}>
-								<div className={styles.title_content}>
-									<a href="/blog">
-										<Image src='/blog-icons/arrow2.svg' alt="open arrow" width={40} height={10} layout='fixed' />
-										<p>Вернуться</p>
-									</a>
-									<h6>Новости</h6>
-									<h3 className={styles.title}>{success.title}</h3>
-								</div>
+			{ slug !== undefined ?
+				success ? 
+					(() => {
+						if (basketModal)
+							return (
+								<BasketModal close={ basket }/> 
+							);
+						else if (subscribeModal)
+							return (
+								<SubscribeModal modal={ subscribe }/>
+							);
+						else
+							return (<>
+								<Navbar modal={ basket }/>
 								
-								<div className={styles.image_content}>
-									<Image src={success.image} alt="blog image" width={660} height={350} layout='fixed' />
-									<div className={styles.border}></div>
-																
-									<div className={styles.date}>
-										<h4>{success.date}</h4>
+								<div className={styles.container}>
+									<div className={styles.box}>
+										<div className={styles.title_content}>
+											<a href="/blog">
+												<Image src='/blog-icons/arrow2.svg' alt="open arrow" width={40} height={10} layout='fixed' />
+												<p>Вернуться</p>
+											</a>
+											<h6>Новости</h6>
+											<h3 className={styles.title}>{success.title}</h3>
+										</div>
+										
+										<div className={styles.image_content}>
+											<Image src={success.image} alt="blog image" width={660} height={350} layout='fixed' />
+											<div className={styles.border}></div>
+																		
+											<div className={styles.date}>
+												<h4>{success.date}</h4>
+											</div>
+										</div>
+									</div>
+									<div className={styles.text_content}>
+										<h6>Статьи</h6>
+										<p className={styles.text}>{success.text1}</p>
+										<p className={styles.text}>{success.text2}</p>
 									</div>
 								</div>
-							</div>
-							<div className={styles.text_content}>
-								<h6>Статьи</h6>
-								<p className={styles.text}>{success.text1}</p>
-								<p className={styles.text}>{success.text2}</p>
-							</div>
-						</div>
 
-						<Footer modal={ subscribe }/>
-					</>
+								<Footer modal={ subscribe }/>
+							</>);
+					})()
 						:
 					<Error/>
+					:
+				<></>
 			}
 		</div>
 	);

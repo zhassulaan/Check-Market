@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../Button';
 
 export default function SuccessModal({ sender, close }) {
 	return (
@@ -69,12 +69,14 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		background: var(--clr-white);
 		margin: 0 19.79167vw;
 		padding: 9.375rem 0 8.75rem;
 	}
 	
 	.container2 .box {
 		padding: 14.375rem 0 28.125rem;
+		background: transparent;
 	}
 
 	.mobile {

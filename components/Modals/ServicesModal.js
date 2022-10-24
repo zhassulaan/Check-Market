@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { Context } from '../context/Context';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { Context } from '../../context/Context';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 import SubscribeModal from './SubscribeModal';
 import SuccessModal from './SuccessModal';
-import Input from './Input';
-import Button from './Button';
+import Input from '../Input';
+import Button from '../Button';
 
 export default function ServicesModal({ type, close }) {
 	const { state, dispatch } = useContext(Context);

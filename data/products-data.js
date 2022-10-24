@@ -1,6 +1,9 @@
 import image1 from '../public/product-images/image1.png';
 import image2 from '../public/product-images/image2.png';
 import image3 from '../public/product-images/image3.png';
+import image4 from '../public/product-images/image4.png';
+import image5 from '../public/product-images/image5.png';
+import image6 from '../public/product-images/image6.png';
 
 // Все товары
 // Чековая лента
@@ -12,10 +15,10 @@ import image3 from '../public/product-images/image3.png';
 const topProducts = [
 	{
 		id: 1,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
+		name: "Сенсорный POS-терминал Mulex A8 MSR",
 		image: image1,
-		type: "Чековая лента",
-		price: 250,
+		type: "Оборудование для автоматизации",
+		price: 312400,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -43,10 +46,10 @@ const topProducts = [
 	},
 	{
 		id: 2,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
+		name: "Принтер этикеток TSC TTP-244 СЕ",
 		image: image2,
-		type: "Счётчики подсчёта посетителей",
-		price: 60000,
+		type: "Оборудование для автоматизации",
+		price: 121000,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -74,10 +77,10 @@ const topProducts = [
 	},
 	{
 		id: 3,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
+		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
 		image: image3,
 		type: "Термоэтикетки",
-		price: 850,
+		price: 900,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -105,10 +108,10 @@ const topProducts = [
 	},
 	{
 		id: 4,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image2,
-		type: "Счётчики подсчёта посетителей",
-		price: 60000,
+		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
+		image: image4,
+		type: "Термоэтикетки",
+		price: 250,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -136,10 +139,10 @@ const topProducts = [
 	},
 	{
 		id: 5,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image3,
-		type: "Термоэтикетки",
-		price: 850,
+		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
+		image: image5,
+		type: "Счётчики подсчёта посетителей",
+		price: 60000,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -167,10 +170,10 @@ const topProducts = [
 	},
 	{
 		id: 6,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image1,
-		type: "Чековая лента",
-		price: 250,
+		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
+		image: image6,
+		type: "Термоэтикетки",
+		price: 850,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -198,10 +201,10 @@ const topProducts = [
 	},
 	{
 		id: 7,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image3,
-		type: "Термоэтикетки",
-		price: 850,
+		name: "Сенсорный POS-терминал Mulex A8 MSR",
+		image: image1,
+		type: "Оборудование для автоматизации",
+		price: 312400,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -229,10 +232,10 @@ const topProducts = [
 	},
 	{
 		id: 8,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image1,
-		type: "Чековая лента",
-		price: 250,
+		name: "Принтер этикеток TSC TTP-244 СЕ",
+		image: image2,
+		type: "Оборудование для автоматизации",
+		price: 121000,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -260,10 +263,10 @@ const topProducts = [
 	},
 	{
 		id: 9,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image2,
-		type: "Счётчики подсчёта посетителей",
-		price: 60000,
+		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
+		image: image3,
+		type: "Термоэтикетки",
+		price: 900,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -292,8 +295,8 @@ const topProducts = [
 	{
 		id: 10,
 		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image1,
-		type: "Чековая лента",
+		image: image4,
+		type: "Термоэтикетки",
 		price: 250,
 		sale: null,
 		manufacturer: 'Kohler',
@@ -323,7 +326,7 @@ const topProducts = [
 	{
 		id: 11,
 		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image2,
+		image: image5,
 		type: "Счётчики подсчёта посетителей",
 		price: 60000,
 		sale: null,
@@ -354,7 +357,7 @@ const topProducts = [
 	{
 		id: 12,
 		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image3,
+		image: image6,
 		type: "Термоэтикетки",
 		price: 850,
 		sale: null,
@@ -384,10 +387,10 @@ const topProducts = [
 	},
 	{
 		id: 13,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image2,
-		type: "Счётчики подсчёта посетителей",
-		price: 60000,
+		name: "Сенсорный POS-терминал Mulex A8 MSR",
+		image: image1,
+		type: "Оборудование для автоматизации",
+		price: 312400,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -415,10 +418,10 @@ const topProducts = [
 	},
 	{
 		id: 14,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image3,
-		type: "Термоэтикетки",
-		price: 850,
+		name: "Принтер этикеток TSC TTP-244 СЕ",
+		image: image2,
+		type: "Оборудование для автоматизации",
+		price: 121000,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -446,10 +449,10 @@ const topProducts = [
 	},
 	{
 		id: 15,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image1,
-		type: "Чековая лента",
-		price: 250,
+		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
+		image: image3,
+		type: "Термоэтикетки",
+		price: 900,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -477,10 +480,10 @@ const topProducts = [
 	},
 	{
 		id: 16,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
-		image: image3,
+		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
+		image: image4,
 		type: "Термоэтикетки",
-		price: 850,
+		price: 250,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -508,10 +511,10 @@ const topProducts = [
 	},
 	{
 		id: 17,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
-		image: image1,
-		type: "Чековая лента",
-		price: 250,
+		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
+		image: image5,
+		type: "Счётчики подсчёта посетителей",
+		price: 60000,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -539,10 +542,10 @@ const topProducts = [
 	},
 	{
 		id: 18,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
-		image: image2,
-		type: "Счётчики подсчёта посетителей",
-		price: 60000,
+		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
+		image: image6,
+		type: "Термоэтикетки",
+		price: 850,
 		sale: null,
 		manufacturer: 'Kohler',
 		producingCountry: 'Россия',
@@ -565,8 +568,8 @@ const topProducts = [
 			<p>Самоклеющиеся термонаклейки 58*60 являются самыми недорогими и, как нельзя лучше, подходят для кратковременной маркировки различной продукции.</p>
 		</div>,
 		date: '2022-06-13',
-		inStock: true,
-		onOrder: false
+		inStock: false,
+		onOrder: true
 	}
 ]
 

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import SubscribeModal from '../components/SubscribeModal';
-import DirectionsModal from '../components/DirectionsModal';
+import DirectionsModal from '../components/Modals/DirectionsModal';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
@@ -12,7 +13,18 @@ import Recomendations from '../components/Recomendations';
 import Reviews from '../components/Reviews';
 
 export default function Home() {
+  // SUBSCRIBE AND BASKET MODAL
   const [subscribeModal, setSubscribeModal] = useState(false);
+  const [basketModal, setBasketModal] = useState(false);
+  const subscribe = async(ev) => {
+    ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
+  const basket = async(ev) => {
+    ev.preventDefault();
+		setBasketModal(!basketModal);
+	}
+
   const [openModal, setOpenModal] = useState(false);
 	const [directionType, setDirectionType] = useState([
 		{ id: 1, text: "Противокражные системы" },
@@ -21,11 +33,6 @@ export default function Home() {
 		{ id: 4, text: "Расходный материал" }
 	]);  
   const [selectedType, setSelectedType] = useState({});
-  
-	const subscribe = async(ev) => {
-    ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
 
   const modal = async( ev ) => {
     ev.preventDefault();
@@ -49,29 +56,34 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#da532c"/>
         <meta name="theme-color" content="#ffffff"/>
       </Head>
-
-      {openModal ? 
-				<DirectionsModal type={ selectedType } close={ modal }/> 
-					:
-        <>
-          {subscribeModal ?
+      
+      {(() => {
+        if (openModal)
+				  return (
+            <DirectionsModal type={ selectedType } close={ modal }/> 
+          );
+        else if (basketModal)
+				  return (
+            <BasketModal close={ basket }/> 
+          );
+        else if (subscribeModal)
+          return (
             <SubscribeModal modal={ subscribe }/>
-              :
-            <>
-              <Navbar home={ true }/>
+          );
+        else
+          return (<>
+            <Navbar home={ true } modal={ basket }/>
 
-              <Hero/>
-              <About/>
-              <Direction type={ directionType } action={ modal }/>
-              <Blog/>
-              <Recomendations/>
-              <Reviews/>
+            <Hero/>
+            <About/>
+            <Direction type={ directionType } action={ modal }/>
+            <Blog/>
+            <Recomendations/>
+            <Reviews/>
               
-              <Footer modal={ subscribe }/>
-            </>
-          }
-        </>
-      }
+            <Footer modal={ subscribe }/>
+          </>);
+      })()}
     </div>
   );
 }
