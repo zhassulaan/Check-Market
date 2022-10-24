@@ -1,0 +1,47 @@
+.container {
+	width: 100%;
+	position: fixed;
+	display: grid;
+	justify-content: center;
+	padding: 3.75rem 0 18.75rem;
+}
+
+.container {
+	text-align: center;
+}
+
+.title {
+	line-height: 13.75rem;
+	font-size: 200px;
+	margin-bottom: 2.5rem;
+}
+
+.subtitle {
+	position: relative;
+	line-height: 4.375rem;
+	margin-bottom: 1.875rem;
+	padding-bottom: 1.25rem;
+}
+
+.subtitle:after {
+	content: "";
+	position: absolute;
+	width: 60rem;
+	height: 2px;
+	bottom: 0;
+	left: -12.5rem;
+	background-color: var(--clr-primary-4);
+}
+
+.text {
+	width: 35rem;
+	line-height: 1.5625rem;
+	font-weight: 400;
+	margin-bottom: 2.5rem;
+}
+
+.section_button {
+	width: 27.5rem;
+	height: 4.375rem;
+	margin: auto;
+}

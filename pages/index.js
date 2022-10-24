@@ -1,22 +1,40 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import SubscribeModal from '../components/SubscribeModal';
+import DirectionsModal from '../components/DirectionsModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import Direction from '../components/Direction';
+import Direction, { selectedType, openModal } from '../components/Direction';
 import Blog from '../components/Blog';
 import Recomendations from '../components/Recomendations';
 import Reviews from '../components/Reviews';
 
 export default function Home() {
   const [subscribeModal, setSubscribeModal] = useState(false);
-	
+  const [openModal, setOpenModal] = useState(false);
+	const [directionType, setDirectionType] = useState([
+		{ id: 1, text: "Противокражные системы" },
+		{ id: 2, text: "Автоматизация торговли" },
+		{ id: 3, text: "Подсчёт посетителей" },
+		{ id: 4, text: "Расходный материал" }
+	]);  
+  const [selectedType, setSelectedType] = useState({});
+  
 	const subscribe = async(ev) => {
-		ev.preventDefault();
+    ev.preventDefault();
 		setSubscribeModal(!subscribeModal);
 	}
+
+  const modal = async( ev ) => {
+    ev.preventDefault();
+    if (!openModal)
+      setSelectedType(directionType.find(item => item.id == ev.target.id));
+    else
+      setSelectedType({});
+    setOpenModal(!openModal);
+  }
 
   return (
     <div>
@@ -32,22 +50,28 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff"/>
       </Head>
 
-      {subscribeModal ?
-				<SubscribeModal modal={ subscribe }/>
+      {openModal ? 
+				<DirectionsModal type={ selectedType } close={ modal }/> 
 					:
-				<>
-					<Navbar home={ true }/>
+        <>
+          {subscribeModal ?
+            <SubscribeModal modal={ subscribe }/>
+              :
+            <>
+              <Navbar home={ true }/>
 
-          <Hero/>
-          <About/>
-          <Direction/>
-          <Blog/>
-          <Recomendations/>
-          <Reviews/>
-				
-          <Footer modal={ subscribe }/>
-				</>
-			}
+              <Hero/>
+              <About/>
+              <Direction type={ directionType } action={ modal }/>
+              <Blog/>
+              <Recomendations/>
+              <Reviews/>
+              
+              <Footer modal={ subscribe }/>
+            </>
+          }
+        </>
+      }
     </div>
   );
 }

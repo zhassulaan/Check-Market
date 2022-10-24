@@ -100,10 +100,10 @@ export default function Blog() {
 							</div>
 
 							<div className='buttons'>
-								<div className={option === 1 ? 'blog-button' : 'blog-button non-active'} onClick={chooseArticles}>
+								<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
 									<Button text={"Статьи"}/>
 								</div>
-								<div className={option === 2 ? 'blog-button' : 'blog-button non-active'} onClick={chooseNews}>
+								<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
 									<Button text={"Новости"}/>
 								</div>
 							</div>
@@ -216,7 +216,6 @@ const Wrapper = styled.section`
 		li {
 			width: 1.875rem;
 			height: 1.875rem;
-			font-size: 18px;
 			font-weight: 400;
 			cursor: pointer;
 			margin: 0 .625rem;
@@ -228,6 +227,7 @@ const Wrapper = styled.section`
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			font-size: 18px;
 		}
 
 		.previous,
@@ -249,12 +249,13 @@ const Wrapper = styled.section`
 		.selected {
 			width: 3.125rem;
 			height: 3.125rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			background-color: var(--clr-primary-4);
 			border-radius: 5px;
 			margin: 0 .3125rem;
+		}
+
+		.selected p {
+			font-weight: 600;
 		}
 	}
 `

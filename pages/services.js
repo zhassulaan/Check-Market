@@ -49,7 +49,7 @@ export default function Services() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{openModal ? 
+			{ openModal ? 
 				<ServicesModal type={ selectedType } close={ modal }/> 
 					:
 				<>

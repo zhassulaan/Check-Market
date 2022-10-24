@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import ProductBox from '../../components/ProductBox';
-import Pagination from '../../components/Pagination';
-import SearchBar from '../../components/SearchBar';
-import data from '../../data/products-data';
-import data2 from '../../data/top-products';
-import styles from '../../styles/catalog.module.css';
+import SubscribeModal from '../../../components/SubscribeModal';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+import ProductBox from '../../../components/ProductBox';
+import Pagination from '../../../components/Pagination';
+import SearchBar from '../../../components/SearchBar';
+import data from '../../../data/products-data';
+import data2 from '../../../data/top-products';
+import styles from '../../../styles/catalog.module.css';
 
 export default function Shop() {
 	const router = useRouter();

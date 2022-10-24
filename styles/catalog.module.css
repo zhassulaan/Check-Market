@@ -1,7 +1,7 @@
 .container {
 	display: grid;
 	justify-content: center;
-	padding: 14.375rem 0 16.875rem;
+	padding: 14.375rem 0 25.625rem;
 }
 
 .header {
@@ -53,6 +53,7 @@
 	background-color: var(--clr-white);
 	border: 1px solid var(--clr-primary-4);
 	padding: 0 1.4375rem 1.875rem;
+	z-index: 3;
 }
 
 .hide {
@@ -110,7 +111,13 @@
 .product_content {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 	gap: 1.5625rem;
+	height: 125.625rem;
+}
+
+.product_box {
+	height: 40.625rem;
 }
 
 .notfound_content {

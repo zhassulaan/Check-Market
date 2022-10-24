@@ -69,7 +69,6 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background: var(--clr-white);
 		margin: 0 19.79167vw;
 		padding: 9.375rem 0 8.75rem;
 	}

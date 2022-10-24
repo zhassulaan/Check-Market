@@ -9,18 +9,19 @@ import styles from '../styles/contacts.module.css';
 
 export default function Contacts() {
 	const [openModal, setOpenModal] = useState(false);
+
+	// SUBSCRIBE MODAL
 	const [subscribeModal, setSubscribeModal] = useState(false);
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
 	
 	const modal = async(ev) => {
 		ev.preventDefault();
 		setOpenModal(!openModal);
 	}
 	
-	const subscribe = async(ev) => {
-		ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
-
 	return (
 		<div>
 			<Head>
@@ -39,7 +40,7 @@ export default function Contacts() {
 				<MessageModal close={ modal } send={ "SEND_MESSAGE" }/> 
 					:
 				<>
-					{subscribeModal ?
+					{ subscribeModal ?
 						<SubscribeModal modal={ subscribe }/>
 							:
 						<>

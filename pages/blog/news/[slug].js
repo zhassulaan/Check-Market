@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head';
 import Image from 'next/image';
 import data from '../../../data/news-data';
+import Error from '../../_error';
 import SubscribeModal from '../../../components/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
@@ -35,12 +36,13 @@ export default function SingleBlog() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{success ? 
+			{ success ? 
 				subscribeModal ?
 					<SubscribeModal modal={ subscribe }/>
 						:
 					<>
 						<Navbar/>
+						
 						<div className={styles.container}>
 							<div className={styles.box}>
 								<div className={styles.title_content}>
@@ -67,10 +69,11 @@ export default function SingleBlog() {
 								<p className={styles.text}>{success.text2}</p>
 							</div>
 						</div>
+
 						<Footer modal={ subscribe }/>
 					</>
-					:
-				<div></div>
+						:
+					<Error/>
 			}
 		</div>
 	);

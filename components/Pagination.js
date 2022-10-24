@@ -33,7 +33,11 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
 };
 
 const Wrapper = styled.nav`
+	position: relative;
+	
 	.pagination {
+		position: absolute;
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -45,6 +49,7 @@ const Wrapper = styled.nav`
 		width: 1.875rem;
 		height: 1.875rem;
 		font-weight: 400;
+		cursor: pointer;
 		margin: 0 .625rem;
 	}
 
@@ -63,7 +68,6 @@ const Wrapper = styled.nav`
 
 	.previous,
 	.next {
-		display: flex;
 		width: 10rem;
 		height: 1.875rem;
 		text-decoration: underline;
@@ -81,7 +85,6 @@ const Wrapper = styled.nav`
 	.selected {
 		width: 3.125rem;
 		height: 3.125rem;
-		fonw-weight: 600;
 		background-color: var(--clr-primary-4);
 		border-radius: 5px;
 		margin: 0 .3125rem;

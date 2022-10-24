@@ -1,12 +1,29 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function Reviews() {
 	const data = [
-		{name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021"},
-		{name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021"},
-		{name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021"},
+		{ id: 1, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
+		{ id: 2, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
+		{ id: 3, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
+		{ id: 4, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
+		{ id: 5, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
+		{ id: 6, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
+		{ id: 7, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
+		{ id: 8, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
+		{ id: 9, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" }
 	]
-	
+
+	const [element, setElement] = useState(3);
+
+	const handleSubmit = async(ev) => {
+		ev.preventDefault();
+		setElement(Number(ev.target.id));
+	}
+
+	const previous = (element / 3 - 1);
+	const next = Math.ceil(data.length / 3) - (element / 3);
+
 	return (
 		<Wrapper>
 			<div className='header'>
@@ -25,29 +42,51 @@ export default function Reviews() {
 
 			<div className='comments-content'>
 				{ data.map(comment =>
-					<div style={{position: "relative"}}>
-						<img src="/home/comment/comment.png" alt="comment background" className="comment-background"/>
-							
-						<div className="comment-data">
-							{(comment.image === null) ?
-								<img src="/home/comment/user.svg" alt="user icon" className="comment-image"/>
-									:
-								<img src={comment.image} alt="user icon" className="comment-image"/> 
-							}
+					(element >= comment.id && element - 3 < comment.id) ?
+						<div style={{position: "relative"}}>
+							<img src="/home/comment/comment.png" alt="comment background" className="comment-background"/>
+								
+							<div className="comment-data">
+								{(comment.image === null) ?
+									<img src="/home/comment/user.svg" alt="user icon" className="comment-image"/>
+										:
+									<img src={comment.image} alt="user icon" className="comment-image"/> 
+								}
 
-							<div className="comment-box">
-								<p className="comment-name">От: <span>{comment.name}</span></p>
-								<p className="comment-text">{comment.text}</p>
+								<div className="comment-box">
+									<p className="comment-name">От: <span>{comment.name}</span></p>
+									<p className="comment-text">{comment.text}</p>
 
-								{ [...Array(comment.star)].map((e, i) => 
-									<img  key={i} src="/home/comment/star.svg" alt="star number" className="comment-star"/>
-								) }
+									{ [...Array(comment.star)].map((e, i) => 
+										<img  key={i} src="/home/comment/star.svg" alt="star number" className="comment-star"/>
+									) }
+								</div>
 							</div>
+
+							<p className="comment-date">{comment.date}</p>
+						</div>
+							:
+						<></>
+				) }
+
+				<div className='buttons'>
+					{Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleSubmit }/>)}
+					<img src="/product-images/active.svg" alt="active" className='button'/>
+					{Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleSubmit }/>)}
+				</div>
+
+				<div style={{position: "relative"}}>
+					<img src="/home/comment/comment2.png" alt="comment background" className="admin-comment-background"/>
+								
+					<div className="admin-comment-data">
+						<div className="admin-comment-box">
+							<p className="comment-name">От: <span>Команда ЧЕК МАРКЕТ</span></p>
+							<p className="comment-text">Спасибо за обратную связь! Очень рады сотрудничеству!</p>
 						</div>
 
-						<p className="comment-date">{comment.date}</p>
+						<img src="/home/comment/logo.svg" alt="user icon" className="comment-image"/>
 					</div>
-				) }
+				</div>
 			</div>
 		</Wrapper>
 	);
@@ -61,7 +100,7 @@ const Wrapper = styled.section`
 
 	.header {
 		width: 43.75rem; 
-		margin-bottom: 4.375rem;
+		margin-bottom: 2.1875rem;
 	}
 
 	.title {
@@ -87,13 +126,13 @@ const Wrapper = styled.section`
 		width: 72.5rem;
 	}
 	
-		.comment-background {
-			margin-bottom: 2.1875rem;
-		}
+	.comment-background {
+		margin-top: 2.1875rem;
+	}
 
 	.comment-data {
 		position: absolute;
-		top: 0;
+		top: 2.1875rem;
 		display: flex;
 	}
 	
@@ -131,9 +170,32 @@ const Wrapper = styled.section`
 
 	.comment-date {
 		position: absolute;
-		top: 0;
+		top: 2.1875rem;
 		right: 0;
 		font-size: 18px;
 		margin: 1.25rem;
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: center;
+		gap: 1.25rem;
+		margin-top: 0.9375rem;
+	}
+
+	.admin-comment-background {
+		margin-top: 3.75rem;
+	}
+
+	.admin-comment-data {
+		position: absolute;
+		top: 3.75rem;
+		right: 0;
+		display: flex;
+	}
+
+	.admin-comment-box {
+		text-align: right;
+		margin: 2.8125rem 1.4375rem;
 	}
 `

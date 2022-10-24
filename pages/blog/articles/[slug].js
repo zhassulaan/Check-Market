@@ -3,23 +3,24 @@ import { useRouter } from 'next/router'
 import Head from 'next/head';
 import Image from 'next/image';
 import data from '../../../data/news-data';
+import Error from '../../_error';
 import SubscribeModal from '../../../components/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import styles from '../../../styles/blog.module.css';
 
 export default function SingleBlog() {
-	const [subscribeModal, setSubscribeModal] = useState(false);
-	
-	const subscribe = async(ev) => {
-		ev.preventDefault();
-		setSubscribeModal(!subscribeModal);
-	}
-
 	const router = useRouter()
   	const { slug } = router.query
 
 	const success = data.find(item => item.id == slug);
+
+	// SUBSCRIBE MODAL
+	const [subscribeModal, setSubscribeModal] = useState(false);
+	const subscribe = async(ev) => {
+		ev.preventDefault();
+		setSubscribeModal(!subscribeModal);
+	}
 
 	return (
 		<div>
@@ -41,6 +42,7 @@ export default function SingleBlog() {
 						:
 					<>
 						<Navbar/>
+
 						<div className={styles.container}>
 							<div className={styles.box}>
 								<div className={styles.title_content}>
@@ -67,10 +69,11 @@ export default function SingleBlog() {
 								<p className={styles.text}>{success.text2}</p>
 							</div>
 						</div>
+						
 						<Footer modal={ subscribe }/>
 					</>
-					:
-				<div></div>
+						:
+					<Error/>
 			}
 		</div>
 	);

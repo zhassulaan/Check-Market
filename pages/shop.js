@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { Context } from '../context/Context';
+import SubscribeModal from '../components/SubscribeModal';
 import MessageModal from '../components/MessageModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -83,7 +83,7 @@ export default function Shop() {
 									<h4 className={styles.title}>Выберите интересующий Вас раздел</h4>
 									<div className={styles.content}>
 										<div className={styles.image}>
-											<a id='0' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='0' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='0' src='/shop/image1.png' alt="Все товары"/>
 												<div id='0' className={styles.frame}></div>
 												<div id='0' className={styles.type_title}>
@@ -95,7 +95,7 @@ export default function Shop() {
 										</div>
 
 										<div className={styles.image}>
-											<a id='1' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='1' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='1' src='/shop/image2.png' alt="Чековая лента" />
 												<div id='1' className={styles.frame}></div>
 												<div id='1' className={styles.type_title}>
@@ -107,7 +107,7 @@ export default function Shop() {
 										</div>
 
 										<div className={styles.image}>
-											<a id='2' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='2' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='2' src='/shop/image3.png' alt="Термоэтикетки" />
 												<div id='2' className={styles.frame}></div>
 												<div id='2' className={styles.type_title}>
@@ -119,7 +119,7 @@ export default function Shop() {
 										</div>
 
 										<div className={styles.image}>
-											<a id='3' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='3' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='3' src='/shop/image4.png' alt="Счётчики подсчёта посетителей" />
 												<div id='3' className={styles.frame}></div>
 												<div id='3' className={styles.type_title}>
@@ -131,7 +131,7 @@ export default function Shop() {
 										</div>
 
 										<div className={styles.image}>
-											<a id='4' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='4' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='4' src='/shop/image5.png' alt="Противокражное оборудование" />
 												<div id='4' className={styles.frame}></div>
 												<div id='4' className={styles.type_title}>
@@ -143,7 +143,7 @@ export default function Shop() {
 										</div>
 
 										<div className={styles.image}>
-											<a id='5' onClick={() => handleSubmit} href="/catalog/1">
+											<a id='5' onClick={() => handleSubmit} href="/shop/catalog/1">
 												<img id='5' src='/shop/image6.png' alt="Оборудование для автоматизации" />
 												<div id='5' className={styles.frame}></div>
 												<div id='5' className={styles.type_title}>

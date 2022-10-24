@@ -5,7 +5,6 @@ import ProductBox from '../components/ProductBox';
 
 export default function TopProducts() {
 	const [element, setElement] = useState(3);
-	const [count, setCount] = useState(0);
 
 	const handleSubmit = async(ev) => {
 		ev.preventDefault();

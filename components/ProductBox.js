@@ -32,7 +32,9 @@ export default function ProductBox({ product }) {
 				</div>
 			}
 
-			<img src={ product.image.src } alt="product image" />
+			<a href={`/shop/product/${product.id}`}>
+				<img src={ product.image.src } alt="product image" />
+			</a>
 
 			<div className='product-data'>
 				<p className={'product-name'}>{ product.name }</p>
@@ -48,7 +50,7 @@ export default function ProductBox({ product }) {
 					</div>
 				}
 				
-				<p className={(product.inStock === true) ? 'product-instock' : 'product-notinstock'}>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии"  }</p>
+				<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
 				
 				{ (product.inStock === false && product.onOrder === false) ?
 					<div className='product-button nonactive'>

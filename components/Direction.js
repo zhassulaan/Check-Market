@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "./Button";
 
-export default function Direction() {
+export default function Direction({ type, action }) {
 	return (
 		<Wrapper>
 			<div>
@@ -13,44 +13,44 @@ export default function Direction() {
 						<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
 						<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
 					</div>
-					
+							
 					<p className='subtitle'>В настоящее время мы предлагаем широкий ассортимент решений и качественного оборудования и расходного материала в следующих категориях:</p>
 				</div>
 
 				<div className="direction-component">
 					<div className="direction-box">
-						<img src="/home/image1.png" alt="Противокражные системы" />
+						<img src="/home/directions/image1.png" alt="Противокражные системы"/>
 						<div className="direction-info">
 							<h4 className="direction-title">Противокражные системы</h4>
 							<p className="direction-paragraph">Антенны, датчики, сейфера, защитные этикетки, тросики</p>
-							<Button text={"Подробнее"}/>
+							<Button text={"Подробнее"} id={type[0].id} action={action}/>
 						</div>
 					</div>
 
 					<div className="direction-box">
-						<img src="/home/image2.png" alt="Автоматизация торговли" />
+						<img src="/home/directions/image2.png" alt="Автоматизация торговли"/>
 						<div className="direction-info">
 							<h4 className="direction-title">Автоматизация торговли</h4>
 							<p className="direction-paragraph">принтера этикеток, принтера чеков, сканеры, моноблоки</p>
-							<Button text={"Подробнее"}/>
+							<Button text={"Подробнее"} id={type[1].id} action={action}/>
 						</div>
 					</div>
 
 					<div className="direction-box">
-						<img src="/home/image3.png" alt="Подсчёт посетителей" />
+						<img src="/home/directions/image3.png" alt="Подсчёт посетителей"/>
 						<div className="direction-info">
 							<h4 className="direction-title">Подсчёт посетителей</h4>
 							<p className="direction-paragraph">Система для маркетинговых исследований</p>
-							<Button text={"Подробнее"}/>
+							<Button text={"Подробнее"} id={type[2].id} action={action}/>
 						</div>
 					</div>
 
 					<div className="direction-box">
-						<img src="/home/image4.png" alt="Расходный материал" />
+						<img src="/home/directions/image4.png" alt="Расходный материал"/>
 						<div className="direction-info">
 							<h4 className="direction-title">Расходный материал</h4>
 							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
-							<Button text={"Подробнее"}/>
+							<Button text={"Подробнее"} id={type[3].id} action={action}/>
 						</div>
 					</div>
 				</div>
