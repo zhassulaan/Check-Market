@@ -48,7 +48,7 @@ export default function Blog() {
 					) }
 				</div>
 
-				<a href="/blog" className="blog-link">Смотреть все статьи ></a>
+				<a href="/blog" className="blog-link">{"Смотреть все статьи >"}</a>
 			</div>
 		</Wrapper>
 	);
@@ -58,6 +58,16 @@ const Wrapper = styled.section`
 	display: grid;
 	justify-content: center; 
 	background-color: var(--clr-primary-8);
+
+	@keyframes moveToRight {
+		0% {
+			left: 0;
+			opacity: 100%;
+		} 50%, 100% {
+			left: 1.875rem;
+			opacity: 0;
+		}
+	}
 	
 	.header {
 		width: 22.5rem; 
@@ -117,6 +127,10 @@ const Wrapper = styled.section`
 		background-color: #00000050;
 	}
 
+	.blog-box:hover .frame {
+		opacity: 0;
+	}
+
 	.article-date {
 		position: absolute;
 		display: flex;
@@ -124,6 +138,11 @@ const Wrapper = styled.section`
 		top: 0;
 		left: 0;
 		margin: 1.875rem;
+	}
+
+	.blog-box:hover .article-date {
+		opacity: 0;
+		animation: moveToRight 0.8s ease-in-out;
 	}
 
 	.article-date h4 {

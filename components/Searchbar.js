@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function SearchBar({ value, changeInput, text }) {
+function SearchBar({ value, onChange, text }) {
   	return (
 		<Wrapper>
 			<input
-				type='text'
-				id='text'
+				type='search'
+				id='search-form'
+				name='search-form'
 				placeholder={text}
 				value={value}
-				onChange={changeInput}
+				onChange={onChange}
 			/>
 
 			<div className='button search_icon'>

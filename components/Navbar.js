@@ -62,7 +62,7 @@ function Navbar({ home, modal }) {
 							<a href='/' className={(router.pathname == "/") ? 'active' : ''}>Главная</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
-							<a href='/shop' className={(router.pathname == "/shop" || router.pathname == "/catalog/[...slug]") ? 'active' : ''}>Магазин</a>
+							<a href='/shop' className={(router.pathname == "/shop" || router.pathname == "/shop/catalog/[...slug]"  || router.pathname == "/shop/product/[...slug]") ? 'active' : ''}>Магазин</a>
 						</li>
 						<li className={home ? 'white item' : 'item'}>
 							<a href='/about' className={(router.pathname == "/about") ? 'active' : ''}>О нас</a>
@@ -128,6 +128,16 @@ const Wrapper = styled.header`
 	position: fixed;
 	top: 0;
 	z-index: 1;
+
+	@keyframes animate {
+		0% {
+			width: 50%;
+			left: -0.3125rem;
+		} 100% {
+			width: 100%;
+			left: 0;
+		}
+	}
 	
 	.container {
 		height: 100%;
@@ -156,6 +166,7 @@ const Wrapper = styled.header`
 		margin-right: 4.5rem;
 	}
 
+	.item:after,
 	.active:after {
 		content: "";
 		position: absolute;
@@ -163,7 +174,15 @@ const Wrapper = styled.header`
 		height: 2px;
 		bottom: -0.625rem;
 		left: 0;
+	}
+
+	.active:after {
 		background-color: var(--clr-primary-1);
+	}
+
+	.item:hover:after {
+		background-color: var(--clr-primary-1);
+		animation: animate 0.4s linear;
 	}
 
 	.white {

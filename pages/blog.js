@@ -207,6 +207,11 @@ const Wrapper = styled.section`
 		background-color: transparent;
 		border: 1px solid var(--clr-primary-1);
 	}
+	
+	.non-active:hover .button {
+		background-color: var(--clr-primary-1);;
+		border: none;
+	}
 
 	.blog-button .text {
 		font-size: 18px;
@@ -215,6 +220,10 @@ const Wrapper = styled.section`
 	
 	.non-active .text {
 		color: var(--clr-primary-1);
+	}
+	
+	.non-active:hover .text {
+		color: var(--clr-white);
 	}
 	
 	.blog-container {

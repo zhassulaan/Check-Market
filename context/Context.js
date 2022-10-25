@@ -12,6 +12,16 @@ const getLocalStorageProductPage = () => {
 		}
 	}
 }
+const getLocalStorageFilter = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("filter");
+		if (data) {
+			return JSON.parse(localStorage.getItem("filter"));
+		} else {
+			return [];
+		}
+	}
+}
 const getLocalStorageSubscription = () => {
 	if (typeof window !== "undefined") {
 		let data = localStorage.getItem("subscription");
@@ -76,6 +86,7 @@ const getLocalStorageBasket = () => {
 // initial state
 const initialState = {
 	page: getLocalStorageProductPage(),
+	filter: getLocalStorageFilter(),
 	subscription: getLocalStorageSubscription(),
 	message: getLocalStorageMessage(),
 	service: getLocalStorageService(),
@@ -94,6 +105,7 @@ function Provider({ children }) {
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			localStorage.setItem('page-item', JSON.stringify(state.page));
+			localStorage.setItem('filter', JSON.stringify(state.filter));
 			localStorage.setItem('subscription', JSON.stringify(state.subscription));
 			localStorage.setItem('message', JSON.stringify(state.message));
 			localStorage.setItem('service', JSON.stringify(state.service));
@@ -101,7 +113,7 @@ function Provider({ children }) {
 			localStorage.setItem('cart', JSON.stringify(state.cart));
 			localStorage.setItem('basket', JSON.stringify(state.basket));
 		}
-	}, [state.page, state.subscription, state.message, state.service, state.product, state.cart, state.basket]);
+	}, [state.page, state.filter, state.subscription, state.message, state.service, state.product, state.cart, state.basket]);
 
 	return (
 		<Context.Provider value={value}>

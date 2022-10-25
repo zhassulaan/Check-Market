@@ -9,6 +9,9 @@ export function Reducer(state, action) {
 		case "SAVE_PAGE":
 			return { ...state, page: [action.payload] };
 		
+		case "SAVE_FILTER":
+			return { ...state, filter: [action.payload] };
+		
 		case "SUBMIT_SERVICE_APPLICATION":
 			return { ...state, service: [ ...state.service, action.payload] };
 		

@@ -1,6 +1,7 @@
 import { useState, useContext  } from 'react';
 import Image from 'next/image';
 import { Context } from '../context/Context';
+import Scroll from './ScrollToTop';
 import styles from '../styles/footer.module.css';
 
 function Footer({ modal }) {
@@ -39,6 +40,7 @@ function Footer({ modal }) {
 
 	return (
 		<footer className={styles.footer}>
+			<Scroll/>
 			<div className={styles.container}>
 				<div className={styles.link_box}>
 					<div className={styles.contents}>

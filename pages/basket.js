@@ -117,30 +117,28 @@ export default function Basket() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 			
-			{ (cart.length !== 0) ?
-				(() => {
-					if (total === 0)
-						return (<></>);
-					else if (total < 10000)
-						return (<>
-							<Error/>
-						</>);
-					else if (successModal)
-						return (<>
-							<Navbar modal={ basket }/>
-							<SuccessModal sender={ 2 } close={ success }/>
-							<Footer modal={ subscribe }/>
-						</>);
-					else if (basketModal)
-						return (
-							<BasketModal close={ basket }/> 
-						);
-					else if (subscribeModal)
-						return (
-							<SubscribeModal modal={ subscribe }/>
-						);
-					else
-						return (<Wrapper>
+			{ (() => {
+				if  (successModal)
+					return (<>
+						<Navbar modal={ basket }/>
+						<SuccessModal sender={ 2 } close={ success }/>
+						<Footer modal={ subscribe }/>
+					</>);
+				else if (cart.length === 0)
+					return(
+						<Error/>
+					);
+				else if (basketModal)
+					return (
+						<BasketModal close={ basket }/> 
+					);
+				else if (subscribeModal)
+					return (
+						<SubscribeModal modal={ subscribe }/>
+					);
+				else
+					return ( (total > 10000 || total === 0) ?
+						<Wrapper>
 							<Navbar modal={ basket }/>
 
 							<div className={styles.container}>
@@ -277,11 +275,11 @@ export default function Basket() {
 							</div>
 							
 							<Footer modal={ subscribe }/>
-						</Wrapper>);
-				})()
-					:
-				<Error/>
-			}
+						</Wrapper>
+							:
+						<Error/>
+					);
+			})() }
 		</div>
   	);
 }

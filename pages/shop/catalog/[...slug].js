@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
+import { Context } from '../../../context/Context';
 import BasketModal from '../../../components/Modals/BasketModal';
 import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import Navbar from '../../../components/Navbar';
@@ -13,6 +14,7 @@ import data2 from '../../../data/top-products';
 import styles from '../../../styles/catalog.module.css';
 
 export default function Shop() {
+	const { state, dispatch } = useContext(Context);
 	const router = useRouter();
 
 	// SUBSCRIBE AND BASKET MODAL
@@ -58,14 +60,22 @@ export default function Shop() {
 			return (b.date > a.date) ? -1 : 1;
 		}
 	}
+	
+	// SEARCH
+	const [q, setQ] = useState("");
 
 	// USE FILTER
 	let [openDropdown, setOpenDropdown] = useState([false, false, false, false, false]);
-	const handleToggle = (ev) => {
-		let newOpenDropdown = [false, false, false, false, false];
-		newOpenDropdown[ev.target.id] = !openDropdown[ev.target.id];
-		setOpenDropdown(newOpenDropdown);
+	const handleClick = (ev) => {
+		if (ev.target.className == undefined)
+			setOpenDropdown(false, false, false, false, false);
+		else {
+			let newOpenDropdown = [false, false, false, false, false];
+			newOpenDropdown[ev.target.className] = !openDropdown[ev.target.className];
+			setOpenDropdown(newOpenDropdown);
+		}
 	};
+	console.log(openDropdown);
 	
 	// FILTER BY SECTION
 	const productType = [
@@ -76,7 +86,14 @@ export default function Shop() {
 		{ text: "Противокражное оборудование" },
 		{ text: "Оборудование для автоматизации" }
 	];
-	const [selectedType, setSelectedType]= useState([false, false, false, false, false, false]);	
+	const type = [];
+	for(let i = 0; i < 6; i++) { 
+		(i == Number(state.page)) ? 
+			type[i] = true 
+				: 
+			type[i] = false
+	}
+	const [selectedType, setSelectedType]= useState(type);	
 	const handleFilterByType = async(ev) => {
 		ev.preventDefault();
 		if (ev.target.id == 0)
@@ -91,6 +108,10 @@ export default function Shop() {
 			setSelectedType([false, false, false, false, !selectedType[4], false]);
 		if (ev.target.id == 5)
 			setSelectedType([false, false, false, false, false, !selectedType[5]]);
+		dispatch({
+			type: "SAVE_PAGE",
+			payload: ev.target.id
+		});
 	};
 
 	// FILTER BY PRICE
@@ -104,12 +125,6 @@ export default function Shop() {
 		if (ev.target.id == 2)
 			setSelectedPrice([false, false, !selectedPrice[2]]);
 	};
-	if (selectedPrice[0] === true)
-		data?.sort(sortDefault);
-	else if (selectedPrice[1] === true)
-		data?.sort(sortByPrice(true));
-	else if (selectedPrice[2] === true)
-		data?.sort(sortByPrice(false));
 
 	// FILTER BY AVIABILITY
 	const [selectedAviability, setSelectedAviability]= useState(false, false, false, false);
@@ -146,15 +161,16 @@ export default function Shop() {
 		if (ev.target.id == 2)
 			setSelectedSorting([false, false, !selectedSorting[2]]);
 	};
-	if (selectedSorting[0] === true)
-		data?.sort(sortDefault);
-	else if (selectedSorting[1] === true)
-		data?.sort(sortByDate);
-		
 
 	const [products, setProducts] = useState(data);
 	const applyFilters = () => {
 		let updatedList = data;
+
+		if (q !== "") {
+			updatedList = updatedList.filter(item => 
+				item.name.toLowerCase().indexOf(q.toLowerCase()) > -1
+			);
+		}
 
 		let i;
 		selectedType.find((item, index) => 
@@ -165,64 +181,80 @@ export default function Shop() {
 		);
 
 		if (selectedType[i] === true && i !== 0) {
-			updatedList = data;
 			updatedList = updatedList.filter(item => 
 				item.type == productType[i].text
 			);
 		}
-		
-		if (selectedSale[0] === true) {
-			updatedList = data;
-			updatedList = updatedList.filter(item =>
-				item.sale == null
-			);
-		}
-		else if (selectedSale[1] === true) {
-			updatedList = data;
-			updatedList = updatedList.filter((item) =>
-				item.sale !== null
-			);
-		}
-		
-		if (selectedAviability[1] === true) {
-			updatedList = data;
+
+		if (selectedPrice[0] === true) 
+			updatedList = updatedList.slice().sort(sortDefault);
+		else if (selectedPrice[1] === true) 
+			updatedList = updatedList.slice().sort(sortByPrice(true));
+		else if (selectedPrice[2] === true) 
+			updatedList = updatedList.slice().sort(sortByPrice(false));
+	
+		if (selectedAviability[1] === true)
 			updatedList = updatedList.filter(item => 
 				item.inStock === true
 			);
-		}
-		else if (selectedAviability[2] === true) {
-			updatedList = data;
-			updatedList = updatedList.filter(item => 
-				item.inStock === false && item.onOrder === false
-			);
-		}
-		else if (selectedAviability[3] === true) {
-			updatedList = data;
+		else if (selectedAviability[2] === true)
 			updatedList = updatedList.filter(item => 
 				item.onOrder === true
 			);
-		}
+		else if (selectedAviability[3] === true)
+			updatedList = updatedList.filter(item => 
+				item.inStock === false && item.onOrder === false
+			);
 		
-		if (selectedSorting[2] === true) {
+		if (selectedSale[0] === true)
+			updatedList = updatedList.filter(item =>
+				item.sale == null
+			);
+		else if (selectedSale[1] === true)
+			updatedList = updatedList.filter((item) =>
+				item.sale !== null
+			);
+
+		if (selectedSorting[0] === true) {
+			updatedList = updatedList.slice().sort(sortDefault);
+		}
+		else if (selectedSorting[1] === true) {
+			updatedList = updatedList.slice().sort(sortByDate);
+		}
+		else if (selectedSorting[2] === true) {
 			let data2Indexes = data2.map(item => item.id)
-			let temp = data.filter(item =>
+			let updatedList2 = updatedList.filter(item => data2Indexes.includes(item.id));
+			let temp = updatedList.filter(item =>
 				!data2Indexes.includes(item.id)
 			);
-			updatedList = data2.concat(temp);
-			console.log(updatedList);
-			console.log(selectedSorting);
+			updatedList = updatedList2.concat(temp);
 		}
 
 		setProducts(updatedList);
 	}
 
+	// CLEAR FILTERS
 	const handleClearFilter = () => {
-		setSelectedType([false, false, false, false, false, false]);
+		dispatch({
+			type: "SAVE_PAGE",
+			payload: 0
+		});
+		dispatch({
+			type: "SAVE_FILTER",
+			payload: ["", 0, 0, 0, 0]
+		});
+		setQ("")
+		setSelectedType([true, false, false, false, false, false]);
 		setSelectedPrice([false, false, false]);
 		setSelectedAviability([false, false, false, false]);
 		setSelectedSale([false, false]);
 		setSelectedSorting([false, false, false]);
+		setOpenDropdown([false, false, false, false, false]);
 	}
+
+	useEffect(() => {
+		applyFilters();
+	}, [q, selectedType, selectedPrice, selectedAviability, selectedSale, selectedSorting]);
 
 	// PAGINATION
 	const [productsPerPage] = useState(9);
@@ -232,22 +264,19 @@ export default function Shop() {
 	for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
 		pageNumbers.push(i);
 	}
-
+	
 	let currentPage = Number(router.query.slug);
-
- 	useEffect(() => {
-		applyFilters();
-	}, [selectedType, selectedPrice, selectedAviability, selectedSale, selectedSorting]);
- 
+	
 	// Get current posts
 	const indexOfLastProduct = currentPage * productsPerPage;
 	const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 	const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
+	
 	// Change page
 	const paginate = async(ev) => {
 		ev.preventDefault();
 		currentPage = ev.target.id;
+		
 	}
 
 	return (
@@ -278,7 +307,7 @@ export default function Shop() {
 						return (<>	
 							<Navbar modal={ basket }/>
 
-							<div className={styles.container}>
+							<div className={styles.container} onClick={ handleClick }>
 								<div className={styles.header}>
 									<h3 className={styles.title}>Интернет-магазин</h3>
 
@@ -294,8 +323,8 @@ export default function Shop() {
 								<div className={styles.filter_content}>
 									<div>
 										<div className={styles.filter_header}>
-											<p>Разделы:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' id='0' onClick={ handleToggle }/>
+											<p className='0'>Разделы:</p>
+											<img src='/catalog-icons/arrow.svg' alt='show button' className='0'/>
 										</div>
 
 										<ul className={(openDropdown[0] === true) ? styles.filter_options : styles.hide}>
@@ -322,8 +351,8 @@ export default function Shop() {
 
 									<div>
 										<div className={styles.filter_header}>
-											<p>Цена:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' id='1' onClick={ handleToggle }/>
+											<p className='1'>Цена:</p>
+											<img src='/catalog-icons/arrow.svg' alt='show button' className='1'/>
 										</div>
 
 										<ul className={(openDropdown[1] === true) ? styles.filter_options : styles.hide}>
@@ -341,8 +370,8 @@ export default function Shop() {
 
 									<div>
 										<div className={styles.filter_header}>
-											<p>Наличие:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' id='2' onClick={ handleToggle }/>
+											<p className='2'>Наличие:</p>
+											<img src='/catalog-icons/arrow.svg' alt='show button' className='2'/>
 										</div>
 
 										<ul className={(openDropdown[2] === true) ? styles.filter_options : styles.hide}>
@@ -363,8 +392,8 @@ export default function Shop() {
 
 									<div>
 										<div className={styles.filter_header}>
-											<p>Акции:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' id='3' onClick={ handleToggle }/>
+											<p className='3'>Акции:</p>
+											<img src='/catalog-icons/arrow.svg' alt='show button' className='3'/>
 										</div>
 
 										<ul className={(openDropdown[3] === true) ? styles.filter_options : styles.hide}>
@@ -379,8 +408,8 @@ export default function Shop() {
 
 									<div>
 										<div className={styles.filter_header}>
-										<p>Сортировка:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' id='4' onClick={ handleToggle }/>
+										<p className='4'>Сортировка:</p>
+											<img src='/catalog-icons/arrow.svg' alt='show button' className='4'/>
 										</div>
 
 										<ul className={(openDropdown[4] === true) ? styles.filter_options : styles.hide}>
@@ -398,13 +427,17 @@ export default function Shop() {
 
 									<div className={styles.filter_box}>
 										<div className={styles.search_box}>
-											<SearchBar text={ "Поиск товара..." }/>
+											<SearchBar
+												text={ "Поиск товара..." }
+												value={ q }
+												onChange={(e) => setQ(e.target.value)}
+												/>
 										</div>
 										<p className={styles.clear_filter} onClick={handleClearFilter}>Сбросить все фильтры</p>
 									</div>
 								</div>
-
-								{ (currentProducts.length > 1) ?
+								
+								{ (currentProducts.length > 0) ?
 									<>
 										<div className={styles.product_content}>
 											{ currentProducts.map(item => {

@@ -1,3 +1,13 @@
+@keyframes moveUp {
+	0% {
+		bottom: 0;
+		opacity: 100%;
+	} 100% {
+		bottom: 1.875rem;
+		opacity: 0;
+	}
+}
+
 .container {
 	padding: 14.375rem 0 6.25rem;
 	display: grid;
@@ -96,12 +106,22 @@
 	background-color: #00000050;
 }
 
+.image:hover .frame {
+	opacity: 0;
+	animation: moveUp 0.75s ease-in-out;
+}
+
 .frame_text {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	font-weight: 600;
 	color: var(--clr-white);
+}
+
+.image:hover .frame_text {
+	opacity: 0;
+	animation: moveUp 0.75s ease-in-out;
 }
 
 .image1 .frame_text,

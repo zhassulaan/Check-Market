@@ -34,6 +34,15 @@ const Wrapper = styled.div`
 		border: none;
 		border-radius: 0.625rem;
 	}
+	
+	.button:hover {
+		background-color: var(--clr-white);
+		border: 2px solid var(--clr-primary-1);
+	}
+	
+	.button:hover .text {
+		color: var(--clr-primary-1);
+	}
 
 	.text {
 		line-height: 1.875rem;
@@ -67,6 +76,15 @@ const Wrapper2 = styled.div`
 		align-items: center;
 		border: none;
 		border-radius: 0.625rem;
+	}
+
+	.button:hover {
+		background-color: var(--clr-white);
+		border: 2px solid var(--clr-primary-1);
+	}
+	
+	.button:hover .text {
+		color: var(--clr-primary-1);
 	}
 
 	.text {
