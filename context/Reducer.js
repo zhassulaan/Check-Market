@@ -14,6 +14,9 @@ export function Reducer(state, action) {
 		
 		case "SUBMIT_PRODUCT_APPLICATION":
 			return { ...state, product: [ ...state.product, action.payload] };
+		
+		case "PURCHASE":
+			return { ...state, cart: [], basket: [ ...state.basket, action.payload] };
 	
 		case "ADD_TO_CART":
 			const inCart = state.cart.find(item => 

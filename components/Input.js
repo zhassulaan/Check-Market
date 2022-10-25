@@ -1,47 +1,47 @@
 import MaskedInput from 'react-text-mask'
 import styled from 'styled-components';
 
-function Input({ type, name, id, placeholder, mask, value, onChange, className, ta }) {
+function Input({ type, name, id, placeholder, mask, value, onChange, className, ta, basket }) {
   	return (
     	<Wrapper>
 			{ mask !== undefined ?
 				<MaskedInput
-					type={type}
-					name={name}			
-					id={id}
-					placeholder={placeholder}
-					mask={mask}
-					value={value}
-					onChange={onChange}
-					className={className}
+					type={ type }
+					name={ name }			
+					id={ id }
+					placeholder={ placeholder }
+					mask={ mask }
+					value={ value }
+					onChange={ onChange }
+					className={ className }
 				/>
 					:
 				( ta !== true ?
 					<div className='input-container'>
 						<input
-							type={type}
-							name={name}			
-							id={id}
-							value={value}
-							onChange={onChange}
-							className={className}
+							type={ type }
+							name={ name }			
+							id={ id }
+							value={ value }
+							onChange={ onChange }
+							className={ className }
 						/>
-						<div class={(value === "") ? "placeholder" : "delete"}>
+						<div class={ (value === "") ? "placeholder" : "delete" }>
 							{placeholder}<span>*</span>
 						</div>
 					</div>
 						:
 					<div className='input-container'>
 						<textarea 
-							type={type}
-							name={name}
-							id={id}
-							value={value}
-							onChange={onChange}
-							className={className}
+							type={ type }
+							name={ name }
+							id={ id }
+							value={ value }
+							onChange={ onChange }
+							className={ className }
 						/>
-						<div class={(value === "") ? "placeholder" : "delete"}>
-							{placeholder}<span>*</span>
+						<div class={ (value === "") ? "placeholder" : "delete" }>
+							{ placeholder }{basket !== true ? <span>*</span> : <span></span>}
 						</div>
 					</div>
 				)
@@ -82,7 +82,7 @@ const Wrapper = styled.nav`
 	}
 
 	.placeholder span {
-		color: red;
+		color: var(--clr-primary-1);
 	}
 	
 	input {

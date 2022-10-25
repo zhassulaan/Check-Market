@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { Context } from '../../context/Context';
 import Button from '../Button';
-import ProductItem from './ProductItem';
+import ProductItem from '../ModalProductItem';
 
 export default function BasketModal({ close }) {
 	const { state, dispatch } = useContext(Context);
@@ -11,11 +11,11 @@ export default function BasketModal({ close }) {
 	const [total, setTotal] = useState();
 
 	useEffect(() => {
-		const totalArray = cart.map((item) =>
+		const totalArray = cart.map(item =>
 			(item.quantity * item.product.price)
 		)
 		setTotal(totalArray.reduce((acc, curr) => acc + Number(curr), 0))
-	}, [cart])
+	}, [cart]);
 	
 	return (
 	  <Wrapper>
@@ -37,11 +37,17 @@ export default function BasketModal({ close }) {
 							<h3>{total}</h3>
 						</div>
 
-						<a href="/basket">
+						{ (total > 10000) ? 
+							<a href="/basket">
+								<div className="module-button">
+									<Button text={ "Оформить заказ" }/>
+								</div>
+							</a>
+								:
 							<div className="module-button">
 								<Button text={ "Оформить заказ" }/>
 							</div>
-						</a>
+						}
 
 						{ (total < 10000) ?
 							<p className='module-requirements'>Минимальная сумма заказа 10000 тг.</p>

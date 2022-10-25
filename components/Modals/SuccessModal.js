@@ -5,50 +5,75 @@ import Button from '../Button';
 export default function SuccessModal({ sender, close }) {
 	return (
 		<Wrapper>
-			{ sender !== 1 ?
-				<div className="container">
-					<div className="box">
-						<div className='mobile'>
-							<Image src='/modal/like.svg' alt="close button" width={211} height={190} />
-						</div>
+			{(() => {
+				if (sender === 1)
+					return(
+						<div className="container2">
+							<div className="box">
+								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
-						<h3 className='title'>Спасибо! Ваш вопрос в обработке</h3>
+								<div className='icons'>
+									<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+									
+								<p className="text">Мы скоро свяжемся с Вами для уточнения деталей</p>
+								
+								<a href="/services" className='success-button'>
+									<Button text={"Вернуться к услугам"} />
+								</a>
+							</div>
+						</div>
+					);
+				else if (sender === 2)
+					return(
+						<div className="container2">
+							<div className="box">
+								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
-						<div className='icons laptop'>
-							<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-							<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-							<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								<div className='icons'>
+									<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+									
+								<p className="text">Мы скоро с Вами свяжемся</p>
+								
+								<a href="/shop" className='success-button'>
+									<Button text={"Вернуться к покупкам"} />
+								</a>
+							</div>
 						</div>
-							
-						<p className="text">Мы свяжемся с Вами как только найдем ответ</p>
-						
-						<div className='close-icon button' onClick={ close }>
-							<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
-								<path d="M1 1L30.9999 31" stroke-width="2"/>
-								<path d="M31 1L1 31" stroke-width="2"/>
-							</svg>
-						</div>
-					</div>
-				</div>
-					:
-				<div className="container2">
-					<div className="box">
-						<h3 className='title'>Спасибо! Ваш заявка принята</h3>
+					);
+				else
+					return (
+						<div className="container">
+							<div className="box">
+								<div className='mobile'>
+									<Image src='/modal/like.svg' alt="close button" width={211} height={190} />
+								</div>
 
-						<div className='icons'>
-							<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-							<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-							<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								<h3 className='title'>Спасибо! Ваш вопрос в обработке</h3>
+
+								<div className='icons laptop'>
+									<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
+									<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+								</div>
+									
+								<p className="text">Мы свяжемся с Вами как только найдем ответ</p>
+								
+								<div className='close-icon button' onClick={ close }>
+									<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L30.9999 31" stroke-width="2"/>
+										<path d="M31 1L1 31" stroke-width="2"/>
+									</svg>
+								</div>
+							</div>
 						</div>
-							
-						<p className="text">Мы скоро свяжемся с Вами для уточнения деталей</p>
-						
-						<a href="/services" className='success-button'>
-							<Button text={"Вернуться к услугам"} />
-						</a>
-					</div>
-				</div>
-			}
+					);
+			})()}
 		</Wrapper>
 	);
 }

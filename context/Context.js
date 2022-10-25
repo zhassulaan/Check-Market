@@ -62,6 +62,16 @@ const getLocalStorageCart = () => {
 		}
 	}
 }
+const getLocalStorageBasket = () => {
+	if (typeof window !== "undefined") {
+		let data = localStorage.getItem("basket");
+		if (data) {
+			return JSON.parse(localStorage.getItem("basket"));
+		} else {
+			return [];
+		}
+	}
+}
 
 // initial state
 const initialState = {
@@ -70,7 +80,8 @@ const initialState = {
 	message: getLocalStorageMessage(),
 	service: getLocalStorageService(),
 	product: getLocalStorageProduct(),
-	cart: getLocalStorageCart()
+	cart: getLocalStorageCart(),
+	basket: getLocalStorageBasket()
 };
 
 // create context
@@ -88,8 +99,9 @@ function Provider({ children }) {
 			localStorage.setItem('service', JSON.stringify(state.service));
 			localStorage.setItem('product', JSON.stringify(state.product));
 			localStorage.setItem('cart', JSON.stringify(state.cart));
+			localStorage.setItem('basket', JSON.stringify(state.basket));
 		}
-	}, [state.page, state.subscription, state.message, state.service, state.product, state.cart]);
+	}, [state.page, state.subscription, state.message, state.service, state.product, state.cart, state.basket]);
 
 	return (
 		<Context.Provider value={value}>

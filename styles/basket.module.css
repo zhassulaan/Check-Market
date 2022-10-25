@@ -1,0 +1,83 @@
+.container {
+	display: grid;
+	gap: 0 4.375rem;
+	justify-content: center;
+	padding: 14.375rem 0 20.375rem;
+}
+
+.header {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	margin-bottom: 3.75rem;
+}
+
+.title {
+	line-height: 3.125rem;
+	margin-bottom: 1.25rem;
+}
+
+.icons {
+	margin-bottom: 0.9375rem;
+}
+
+.subtitle {
+	line-height: 2.5rem;
+}
+
+.form {
+	width: 28.75rem;
+}
+
+.form_box {
+	margin-bottom: 1.25rem;
+}
+
+.form_text {
+	line-height: 1.875rem;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 0.625rem;
+}
+
+.form_input.address {
+	margin-top: 0.625rem;
+}
+
+.error_border {
+	border: 1px solid red;
+}
+
+.dafault_border {
+	border: 1px solid var(--clr-primary-5);
+}
+
+.term_of_use {
+	width: 20rem;
+	line-height: 1.375rem;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.total_price {
+	position: relative;
+	line-height: 3.125rem;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+	margin-top: 3.125rem;
+	padding-top: 2.5rem;
+}
+
+.total_price:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	top: 0;
+	left: 0;
+	background-color: var(--clr-primary-4);
+}
+
+.total_price b {
+	font-weight: 600;
+}

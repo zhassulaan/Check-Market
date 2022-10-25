@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled from "styled-components";
-import { Context } from '../../context/Context';
+import { Context } from '../context/Context';
 
 export default function ProductItem({ product, quantity }) {
 	const { state, dispatch } = useContext(Context);

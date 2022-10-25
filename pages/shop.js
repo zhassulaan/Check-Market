@@ -39,7 +39,7 @@ export default function Shop() {
 		ev.preventDefault();
 		setOpenModal(!openModal);
 	}
-	
+	console.log(selectedType);
 	const handleSubmit = async(ev) => {
 		ev.preventDefault();
 		setSelectedType(productType[ev.target.id]);
@@ -97,7 +97,7 @@ export default function Shop() {
 								<h4 className={styles.title}>Выберите интересующий Вас раздел</h4>
 								<div className={styles.content}>
 									<div className={styles.image}>
-										<a id='0' onClick={() => handleSubmit} href="/shop/catalog/1">
+										<a href='/shop/catalog/1' onClick={ handleSubmit }>
 											<img id='0' src='/shop/image1.png' alt="Все товары"/>
 											<div id='0' className={styles.frame}></div>
 											<div id='0' className={styles.type_title}>
@@ -109,7 +109,7 @@ export default function Shop() {
 									</div>
 
 									<div className={styles.image}>
-										<a id='1' onClick={() => handleSubmit} href="/shop/catalog/1">
+										<a href='/shop/catalog/1' onClick={ handleSubmit }>
 											<img id='1' src='/shop/image2.png' alt="Чековая лента" />
 											<div id='1' className={styles.frame}></div>
 											<div id='1' className={styles.type_title}>
@@ -121,7 +121,7 @@ export default function Shop() {
 									</div>
 
 									<div className={styles.image}>
-										<a id='2' onClick={() => handleSubmit} href="/shop/catalog/1">
+										<a href='/shop/catalog/1' onClick={ handleSubmit }>
 											<img id='2' src='/shop/image3.png' alt="Термоэтикетки" />
 											<div id='2' className={styles.frame}></div>
 											<div id='2' className={styles.type_title}>

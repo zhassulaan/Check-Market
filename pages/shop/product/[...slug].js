@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Error from '../../_error';

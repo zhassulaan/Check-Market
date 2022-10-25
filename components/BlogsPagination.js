@@ -45,9 +45,9 @@ export default function BlogsPagination({ currentItems, option }) {
 						<h4 className='blog-title'>{item.title}</h4>
 						<div className='blog-text'><p>{item.text1}</p></div>
 						{option === "Статьи" ?
-							<a href={`/blog/articles/${item.id}`} className='button'>Смотреть полностью ></a>
+							<a href={`/blog/articles/${item.id}`} className='button'>{"Смотреть полностью >"}</a>
 								:
-							<a href={`/blog/news/${item.id}`} className='button'>Смотреть полностью ></a>
+							<a href={`/blog/news/${item.id}`} className='button'>{"Смотреть полностью >"}</a>
 						}
 					</div>
 			  </div>
