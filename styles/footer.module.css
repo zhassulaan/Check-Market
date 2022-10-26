@@ -11,8 +11,8 @@
 }
 
 .link_box {
-	display: flex;
 	position: relative;
+	display: flex;
 	padding-bottom: 2.5rem;
 }
 
@@ -73,9 +73,9 @@
 .message input {
 	width: 100%;
 	height: 3.75rem;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	font-family: 'Open Sans', sans-serif;
 	border: none;
 	padding-left: 1.25rem;
 }
@@ -109,7 +109,7 @@
 	padding: 2.5rem 0 4.375rem;
 }
 
-.social_icon a {
+.social_icon {
 	width: 1.875rem;
 	height: 1.875rem;
 	display: flex;
@@ -124,9 +124,15 @@
 	justify-content: space-between;
 }
 
+@media (max-width: 1440px) {
+	.content {
+		width: 20.706rem;
+	}
+}
+
 @media (max-width: 1220px) {
 	.content {
-		width: 18rem;
+		width: 17.771rem;
 	}
 
 	.middle {
@@ -144,11 +150,11 @@
 	}
 
 	.content {
-		width: 20rem;
+		width: 41.421vw;
 	}
 
 	.middle {
-		margin-right: 0;
+		margin: 0 0 0 6.048vw;
 	}
 
 	.message {
@@ -275,7 +281,7 @@
 		padding: 0;
 	}
 	
-	.social_icon a {
+	.social_icon {
 		margin: 0 0.3125rem;
 	}
 

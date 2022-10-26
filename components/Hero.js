@@ -48,22 +48,7 @@ const Wrapper = styled.section`
 	justify-content: center;
 	padding: 6.25rem 19.79167vw;
 
-	@keyframes animate1 {
-		0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%{
-			color: var(--clr-white);
-			text-shadow: none;
-		}
-		18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%{
-			color: #fff;
-			text-shadow: 0 0 10px var(--clr-primary-1),
-							0 0 20px var(--clr-primary-1),
-							0 0 40px var(--clr-primary-1),
-							0 0 80px var(--clr-primary-1),
-							0 0 160px var(--clr-primary-1);
-		}
-	}
-
-	@keyframes animate2 {
+	@keyframes animate {
 		0%, 10%, 20%, 100% {
 			opacity: 100%;
 		}
@@ -83,7 +68,7 @@ const Wrapper = styled.section`
 	.logo {
 		width: 31.25rem;
 		height: 28.75rem;
-		animation: animate2 1.2s linear infinite;
+		animation: animate 1.2s linear infinite;
 	}
 
 	.hero-text-content {
@@ -92,7 +77,6 @@ const Wrapper = styled.section`
 
 	.hero-title {
 		line-height: 3.4375rem;
-		animation: animate1 3s linear infinite;
 	}
 
 	.hero-paragraph {

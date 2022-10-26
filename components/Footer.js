@@ -4,7 +4,7 @@ import { Context } from '../context/Context';
 import Scroll from './ScrollToTop';
 import styles from '../styles/footer.module.css';
 
-function Footer({ modal }) {
+export default function Footer({ modal }) {
 	const { state, dispatch } = useContext(Context);
 	const [detail, setDetail] = useState('');
 
@@ -39,69 +39,69 @@ function Footer({ modal }) {
 	}
 
 	return (
-		<footer className={styles.footer}>
+		<footer className={ styles.footer }>
 			<Scroll/>
-			<div className={styles.container}>
-				<div className={styles.link_box}>
-					<div className={styles.contents}>
-						<div className={isActive1 ? styles.active : null}>
-							<div className={styles.content}>
-								<div className={styles.header}>
-									<p className={styles.title}>НАВИГАЦИЯ</p>
-									<div className={[styles.mobile, styles.arrow].join(" ")} onClick={handleToggle1}>
+			<div className={ styles.container }>
+				<div className={ styles.link_box }>
+					<div className={ styles.contents }>
+						<div className={ isActive1 ? styles.active : null }>
+							<div className={ styles.content }>
+								<div className={ styles.header }>
+									<p className={ styles.title }>НАВИГАЦИЯ</p>
+									<div className={ [styles.mobile, styles.arrow].join(" ") } onClick={ handleToggle1 }>
 										<Image src='/footer-icons/arrow.svg' alt="message icon" width={20} height={10} layout='fixed' />
 									</div>
 								</div>
 
-								<ul className={styles.menu}>
-									<li className={styles.item}>
+								<ul className={ styles.menu }>
+									<li className={ styles.item }>
 										<a href="/">Главная</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/shop">Магазин</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/about">О нас</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/services">Услуги</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/blog">Блог</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/delivery">Доставка</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/contacts">Контакты</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 						
-						<div className={isActive2 ? styles.active : null}>
-							<div className={[styles.content, styles.middle].join(" ")}>
-								<div className={styles.header}>
-									<p className={styles.title}>ИНТЕРНЕТ-МАГАЗИН</p>
-									<div className={[styles.mobile, styles.arrow].join(" ")} onClick={handleToggle2}>
+						<div className={ isActive2 ? styles.active : null }>
+							<div className={ [styles.content, styles.middle].join(" ") }>
+								<div className={ styles.header }>
+									<p className={ styles.title }>ИНТЕРНЕТ-МАГАЗИН</p>
+									<div className={ [styles.mobile, styles.arrow].join(" ") } onClick={handleToggle2}>
 										<Image src='/footer-icons/arrow.svg' alt="message icon" width={20} height={10} layout='fixed' />
 									</div>
 								</div>
 
-								<ul className={styles.menu}>
-									<li className={styles.item}>
+								<ul className={ styles.menu }>
+									<li className={ styles.item }>
 										<a href="/">ЧЕКОВАЯ ЛЕНТА</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/">ТЕРМОЭТИКЕТКИ</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/">СЧЁТЧИКИ ПОДСЧЁТА ПОСЕТИТЕЛЕЙ</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/">ПРОТИВОКРАЖНОЕ ОБОРУДОВАНИЕ</a>
 									</li>
-									<li className={styles.item}>
+									<li className={ styles.item }>
 										<a href="/">ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ</a>
 									</li>
 								</ul>
@@ -109,74 +109,60 @@ function Footer({ modal }) {
 						</div>
 					</div>
 					
-					<div className={styles.content}>
-						<div className={styles.header}>
-							<p className={styles.title}>ОСТАВАЙТЕСЬ НА СВЯЗИ</p>
+					<div className={ styles.content }>
+						<div className={ styles.header }>
+							<p className={ styles.title }>ОСТАВАЙТЕСЬ НА СВЯЗИ</p>
 						</div>
 
-						<p className={styles.item}>Подпишитесь на нашу рассылку, чтобы узнавать об акциях, скидках и последних новостях от ЧЕК МАРКЕТ</p>
-						<form className={styles.message} onSubmit={ handleSubmit }>
+						<p className={ styles.item }>Подпишитесь на нашу рассылку, чтобы узнавать об акциях, скидках и последних новостях от ЧЕК МАРКЕТ</p>
+						<form className={ styles.message } onSubmit={ handleSubmit }>
 							<input 
 								type='email'
 								id='email'
 								placeholder='Введите ваш e-mail адрес'
-								onChange={e => setDetail({email: e.target.value})}
-								value={detail.email}
+								onChange={ e => setDetail({ email: e.target.value }) }
+								value={ detail.email }
 							/>
-							<button className={styles.icon}>
+							<button className={ styles.icon }>
 								<Image src='/footer-icons/message.svg' alt="message icon" width={25} height={20} layout='fixed' />
 							</button>
 						</form>
-						<div className={styles.mobile}>
-							<a className={styles.item}>+7 (707) 907-07-17</a>
-							<div className={styles.social_box}>
-								<div className={styles.social_icon}>
-									<a href="">
-										<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
-									</a>
+						<div className={ styles.mobile }>
+							<a className={ styles.item }>+7 (707) 907-07-17</a>
+							<div className={ styles.social_box }>
+								<div className={ styles.social_icon }>
+									<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
 								</div>
 								<div className={styles.social_icon}>
-									<a href="">
-										<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
-									</a>
+									<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
 								</div>
 								<div className={styles.social_icon}>
-									<a href="">
-										<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
-									</a>
+									<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
 								</div>
 							</div>
 						</div>
-						<p className={[styles.item, styles.athenaplus, styles.laptop].join(" ")}>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
+						<p className={ [styles.item, styles.athenaplus, styles.laptop].join(" ") }>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
 					</div>
 				</div>
 
-				<div className={[styles.social_box, styles.laptop].join(" ")}>
-					<div className={styles.social_icon}>
-						<a href="">
-							<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
-						</a>
+				<div className={ [styles.social_box, styles.laptop].join(" ") }>
+					<div className={ styles.social_icon }>
+						<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
 					</div>
 					<div className={styles.social_icon}>
-						<a href="">
-							<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
-						</a>
+						<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
 					</div>
 					<div className={styles.social_icon}>
-						<a href="">
-							<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
-						</a>
+						<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
 					</div>
 				</div>
 				
-				<div className={styles.policy_box}>
-					<p className={styles.item}>© 2012-2021 ЧЕК МАРКЕТ. Все права защищены</p>
-					<a href="tel:+77759764165" className={[styles.item, styles.laptop].join(" ")}>+7 (707) 907-07-17</a>
-					<p className={[styles.item, styles.athenaplus, styles.mobile].join(" ")}>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
+				<div className={ styles.policy_box }>
+					<p className={ styles.item }>© 2012-2021 ЧЕК МАРКЕТ. Все права защищены</p>
+					<a href="tel:+77759764165" className={ [styles.item, styles.laptop].join(" ") }>+7 (707) 907-07-17</a>
+					<p className={ [styles.item, styles.athenaplus, styles.mobile].join(" ") }>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
 				</div>
 			</div>
 		</footer>
 	);
 }
-
-export default Footer;
