@@ -55,22 +55,12 @@ export default function Shop() {
 				<meta name="msapplication-TileColor" content="#da532c"/>
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
+			
+			<>
+						{ openModal ?<MessageModal close={ modal } send={ "SUBMIT_PRODUCT_APPLICATION" }/>  : null };
+						{ basketModal ? <BasketModal close={ basket }/> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
 
-			{(() => {
-				if (openModal)
-					return (
-						<MessageModal close={ modal } send={ "SUBMIT_PRODUCT_APPLICATION" }/> 
-					);
-				else if (basketModal)
-					return (
-						<BasketModal close={ basket }/> 
-					);
-				else if (subscribeModal)
-					return (
-						<SubscribeModal modal={ subscribe }/>
-					);
-				else
-					return (<>
 						<Navbar modal={ basket }/>
 
 						<div className={styles.container}>
@@ -184,8 +174,7 @@ export default function Shop() {
 						</div>
 								
 						<Footer modal={ subscribe }/>
-					</>);
-			})()}
+			</>
 		</div>
 	);
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import styled from "styled-components";
 import DirectionsModal from '../components/Modals/DirectionsModal';
 import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
@@ -7,10 +8,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import Direction, { selectedType, openModal } from '../components/Direction';
+import Direction from '../components/Direction';
 import Blog from '../components/Blog';
 import Recomendations from '../components/Recomendations';
 import Reviews from '../components/Reviews';
+import Button from '../components/Button';
 
 export default function Home() {
   // SUBSCRIBE AND BASKET MODAL
@@ -26,21 +28,33 @@ export default function Home() {
 	}
 
   const [openModal, setOpenModal] = useState(false);
-	const [directionType, setDirectionType] = useState([
+	const directionType = [
 		{ id: 1, text: "Противокражные системы" },
 		{ id: 2, text: "Автоматизация торговли" },
 		{ id: 3, text: "Подсчёт посетителей" },
 		{ id: 4, text: "Расходный материал" }
-	]);  
+	];
   const [selectedType, setSelectedType] = useState({});
 
-  const modal = async( ev ) => {
+  const modal = async(ev) => {
     ev.preventDefault();
     if (!openModal)
-      setSelectedType(directionType.find(item => item.id == ev.target.id));
+      setSelectedType(directionType.find(item => 
+        item.id == ev.target.id
+      ));
     else
       setSelectedType({});
     setOpenModal(!openModal);
+  }
+
+  const [option, setOption] = useState(1);
+  const handleClickDirections = async(ev) => {
+    ev.preventDefault();
+    setOption(1);
+  }
+  const handleClickComments = async(ev) => {
+    ev.preventDefault();
+    setOption(2);
   }
 
   return (
@@ -57,33 +71,144 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff"/>
       </Head>
       
-      {(() => {
-        if (openModal)
-				  return (
-            <DirectionsModal type={ selectedType } close={ modal }/> 
-          );
-        else if (basketModal)
-				  return (
-            <BasketModal close={ basket }/> 
-          );
-        else if (subscribeModal)
-          return (
-            <SubscribeModal modal={ subscribe }/>
-          );
-        else
-          return (<>
-            <Navbar home={ true } modal={ basket }/>
+      <div>
+        { openModal ? <DirectionsModal type={ selectedType } close={ modal }/> : null };
+        { basketModal ? <BasketModal close={ basket }/> : null };
+        { subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+      
+        <Navbar home={ true } modal={ basket }/>
 
-            <Hero/>
-            <About/>
-            <Direction type={ directionType } action={ modal }/>
-            <Blog/>
-            <Recomendations/>
-            <Reviews/>
+        <Hero/>
+        <About/>
+
+        <Selecter>
+          <div className="option-selecter">
+            <p className={ option === 1 ? 'active' : '' } onClick={ handleClickDirections }>Направления</p>
+            <p className={ option === 2 ? 'active' : '' } onClick={ handleClickComments }>Отзывы</p>
+          </div>
+        </Selecter>
+
+        { (option === 1) ? 
+          <Direction type={ directionType } action={ modal }/>
+            :
+          window.innerWidth < 651 ? <Reviews/> : null
+        }
+
+        <Wrapper>
+					<p className='direction-paragraph'>Также Вы можете скачать прайс-лист</p>
+					<Button text={ "Скачать прайс" }/>
+				</Wrapper>
+
+        <Blog/>
+        <Recomendations/>
+        <Reviews/>
               
-            <Footer modal={ subscribe }/>
-          </>);
-      })()}
+        <Footer modal={ subscribe }/>
+      </div>
     </div>
   );
 }
+
+const Wrapper = styled.section`
+  padding-bottom: 7.5rem;
+  background-color: var(--clr-white);
+  
+  .direction-paragraph {
+    width: 35rem;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 6.5625rem 0 1.875rem;
+  }
+
+  .button {
+    width: 13.125rem;
+    height: 4.375rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1220px) {
+    .direction-paragraph {
+			font-size: 18px;
+			margin: 5rem auto 1.25rem;
+		}
+		
+		.button {
+			width: 11.875rem;
+			height: 3.125rem;
+			margin: 0 auto;
+		}
+		
+		.text {
+			font-size: 18px;
+		}
+  }
+ 
+  @media (max-width: 992px) {
+    .direction-paragraph {
+			font-size: 16px;
+			margin: 3.75rem auto 1.25rem;
+		}
+		
+		.button {
+			width: 11.875rem;
+			height: 2.5rem;
+			margin: 0 auto;
+		}
+		
+		.text {
+			font-size: 14px;
+		}
+  }
+`
+
+const Selecter =styled.div`
+  .option-selecter {
+    display: none;
+  }
+
+  @media (max-width: 650px) {
+    .option-selecter {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 5.556vw;
+    }
+    
+    .option-selecter:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--clr-primary-4);
+    }
+
+    p {
+      width: 9.6875rem;
+      line-height: 1.25rem;
+      gap: 0.625rem;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--clr-primary-3);
+    }
+
+    .active {
+      position: relative;
+      color: var(--clr-primary-1);
+      padding-bottom: 0.625rem;
+    }
+
+    .active:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--clr-primary-1);
+    }
+  }
+`

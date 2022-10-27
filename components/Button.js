@@ -24,6 +24,42 @@ const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
 
+	@keyframes animate {
+		0% {
+			background-color: var(--clr-primary-1);
+			border: none;
+		} 100% {
+			background-color: var(--clr-white);
+			color: var(--clr-primary-1);
+		}
+	}
+	
+	@keyframes animateText {
+		0% {
+			color: var(--clr-white);
+		} 100% {
+			color: var(--clr-primary-1);
+		}
+	}
+	
+	@keyframes animateOut {
+		0% {
+			background-color: var(--clr-white);
+			color: var(--clr-primary-1);
+		} 100% {
+			background-color: var(--clr-primary-1);
+			border: none;
+		}
+	}
+	
+	@keyframes animateTextOut {
+		0% {
+			color: var(--clr-primary-1);
+		} 100% {
+			color: var(--clr-white);
+		}
+	}
+	
 	.button {
 		background-color: var(--clr-primary-1);
 		width: 100%;
@@ -38,10 +74,23 @@ const Wrapper = styled.div`
 	.button:hover {
 		background-color: var(--clr-white);
 		border: 2px solid var(--clr-primary-1);
+		animation: animate 0.3s linear;
+	}
+	
+	.button:not(:hover) {
+		background-color: var(--clr-primary-1);
+		border: none;
+		animation: animateOut 0.3s linear;
 	}
 	
 	.button:hover .text {
 		color: var(--clr-primary-1);
+		animation: animateText 0.3s linear;
+	}
+	
+	.button:not(:hover) .text {
+		color: var(--clr-white);
+		animation: animateTextOut 0.3s linear;
 	}
 
 	.text {
@@ -67,6 +116,42 @@ const Wrapper = styled.div`
 `
 
 const Wrapper2 = styled.div`
+	@keyframes animate {
+		0% {
+			background-color: var(--clr-primary-1);
+			border: none;
+		} 100% {
+			background-color: var(--clr-white);
+			color: var(--clr-primary-1);
+		}
+	}
+
+	@keyframes animateText {
+		0% {
+			color: var(--clr-white);
+		} 100% {
+			color: var(--clr-primary-1);
+		}
+	}
+
+	@keyframes animateOut {
+		0% {
+			background-color: var(--clr-white);
+			color: var(--clr-primary-1);
+		} 100% {
+			background-color: var(--clr-primary-1);
+			border: none;
+		}
+	}
+
+	@keyframes animateTextOut {
+		0% {
+			color: var(--clr-primary-1);
+		} 100% {
+			color: var(--clr-white);
+		}
+	}
+
 	.button {
 		background-color: var(--clr-primary-1);
 		width: 100%;
@@ -81,10 +166,23 @@ const Wrapper2 = styled.div`
 	.button:hover {
 		background-color: var(--clr-white);
 		border: 2px solid var(--clr-primary-1);
+		animation: animate 0.3s linear;
+	}
+	
+	.button:not(:hover) {
+		background-color: var(--clr-primary-1);
+		border: none;
+		animation: animateOut 0.3s linear;
 	}
 	
 	.button:hover .text {
 		color: var(--clr-primary-1);
+		animation: animateText 0.3s linear;
+	}
+	
+	.button:not(:hover) .text {
+		color: var(--clr-white);
+		animation: animateTextOut 0.3s linear;
 	}
 
 	.text {

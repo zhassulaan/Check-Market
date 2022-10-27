@@ -94,13 +94,31 @@
 	padding: 20px 23px 20px 22px;
 }
 
+.icon:hover {
+	opacity: 0.95;
+}
+
+.icon:hover img {
+	transform: scale(1.1);
+}
+
 .athenaplus {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.625rem;
+}
+
+.athenaplus .item {
 	line-height: 1.875rem;
-	text-align: right;
 }
 
 .athenaplus a {
 	color: var(--clr-primary-1);
+}
+
+.athenaplus_url:hover {
+	transform: scale(1.05);
+	text-decoration: underline;
 }
 
 .social_box {
@@ -125,6 +143,10 @@
 }
 
 @media (max-width: 1440px) {
+	.footer {
+		padding-top: 5rem; 
+	}
+
 	.content {
 		width: 20.706rem;
 	}

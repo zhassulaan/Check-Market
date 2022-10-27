@@ -41,21 +41,11 @@ export default function Contacts() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{(() => {
-        		if (openModal)
-				  	return (
-						<MessageModal close={ modal } send={ "SEND_MESSAGE" }/> 
-					);
-				else if (basketModal)
-					return (
-						<BasketModal close={ basket }/> 
-					);
-        		else if (subscribeModal)
-          		return (
-						<SubscribeModal modal={ subscribe }/>
-					);
-        		else
-					return (<>
+			<>
+						{ openModal ? <MessageModal close={ modal } send={ "SEND_MESSAGE" }/>  : null };
+						{ basketModal ? <BasketModal close={ basket }/> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+
 						<Navbar modal={ basket }/>
 
 						<div className={styles.container}>
@@ -114,8 +104,7 @@ export default function Contacts() {
 						</div>
 						
 						<Footer modal={ subscribe }/>
-					</>);
-			})()}
+			</>
 		</div>
 	);
 }

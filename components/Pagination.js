@@ -6,14 +6,14 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
       	<ul className='pagination'>
 				{ (currentPage > 1)	?
 					<a href={`${currentPage - 1}`} id={currentPage - 1} onClick={() => paginate}>
-						<p className='previous'>Предыдущая</p>
+						<p className='previous button'>Предыдущая</p>
 					</a>
 						:
-					<p className='previous'>Предыдущая</p>
+					<p className='previous button'>Предыдущая</p>
 				}
 				
 				{pageNumbers.map(number => (
-          		<li key={number} className={currentPage === number ? 'selected' : 'link'}>
+          		<li key={number} className={currentPage === number ? 'button selected' : 'button link'}>
             		<a href={`${number}`} id={number} onClick={() => paginate}>
               			<p>{number}</p>
             		</a>
@@ -22,10 +22,10 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
 
 				{ (currentPage < pageNumbers.length) ?
 					<a href={`${currentPage + 1}`} id={currentPage + 1} onClick={() => paginate}>
-						<p className='next'>Следующая</p>
+						<p className='next button'>Следующая</p>
 					</a>
 						:
-					<p className='next'>Следующая</p>
+					<p className='next button'>Следующая</p>
 				}
       	</ul>
     	</Wrapper>

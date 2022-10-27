@@ -1,10 +1,24 @@
-@keyframes moveUp {
+@keyframes animateOut {
 	0% {
-		bottom: 0;
-		opacity: 100%;
+		transform: scale(1);
 	} 100% {
-		bottom: 1.875rem;
-		opacity: 0;
+		transform: scale(1.05);
+	}
+}
+
+@keyframes animateIn {
+	0% {
+		transform: scale(1);
+	} 100% {
+		transform: scale(0.95);
+	}
+}
+
+@keyframes animateDefault {
+	0% {
+		transform: scale(0.97);
+	} 100% {
+		transform: scale(1);
 	}
 }
 
@@ -62,6 +76,27 @@
 	cursor: pointer;
 }
 
+.image_content:hover .image {
+	transform: scale(1.05);
+	animation: animateOut 0.2s linear;
+}
+
+.image_content:hover .button {
+	transform: scale(1.05);
+	animation: animateOut 0.2s linear;
+}
+
+.image_content:hover .image:not(:hover),
+.image_content:hover .button:not(:hover) {
+	transform: scale(0.95);
+	animation: animateIn 0.2s linear;
+}
+
+.image_content:not(:hover) {
+	transform: scale(1);
+	animation: animateDefault 1s linear;
+}
+
 .image1 {
 	width: 25rem;
 	height: 17.5rem;
@@ -106,22 +141,12 @@
 	background-color: #00000050;
 }
 
-.image:hover .frame {
-	opacity: 0;
-	animation: moveUp 0.75s ease-in-out;
-}
-
 .frame_text {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	font-weight: 600;
 	color: var(--clr-white);
-}
-
-.image:hover .frame_text {
-	opacity: 0;
-	animation: moveUp 0.75s ease-in-out;
 }
 
 .image1 .frame_text,

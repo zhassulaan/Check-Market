@@ -16,6 +16,14 @@ export default function BasketModal({ close }) {
 		)
 		setTotal(totalArray.reduce((acc, curr) => acc + Number(curr), 0))
 	}, [cart]);
+
+	function price(numb) {
+		if (!numb) 
+			return numb;
+
+		const numbFmt = new Intl.NumberFormat('ru-RU').format(numb);
+		return numbFmt;
+	}
 	
 	return (
 	  <Wrapper>
@@ -34,7 +42,7 @@ export default function BasketModal({ close }) {
 					<div className="module-footer">
 						<div className="module-payment">
 							<p className='module-text'>К оплате:</p>
-							<h3>{total}</h3>
+							<h3>{price(total)} тг.</h3>
 						</div>
 
 						{ (total > 10000) ? 

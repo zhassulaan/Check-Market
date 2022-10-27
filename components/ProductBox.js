@@ -24,43 +24,45 @@ export default function ProductBox({ product }) {
 	
 	return (
 		<Wrapper>
-			{ (product.sale === null) ?
-				<div></div>
-					:
-				<div className='product-sale'>
-					<h6>-{product.sale}%</h6>
-				</div>
-			}
-
-			<a href={`/shop/product/${product.id}`}>
-				<img src={ product.image.src } alt="product image" />
-			</a>
-
-			<div className='product-data'>
-				<p className={'product-name'}>{ product.name }</p>
-				
+			<div className='product-container'>
 				{ (product.sale === null) ?
-					<div className='price'>
-						<p className='product-price'>{ price(product.price) } тг</p>
-					</div>
+					<div></div>
 						:
-					<div className='price'>
-						<p className='old-product-price'>{ price(product.price *  (100 - product.sale) / 100) }</p>
-						<p className='product-price'>{ price(product.price) } тг</p>
+					<div className='product-sale'>
+						<h6>-{product.sale}%</h6>
 					</div>
 				}
-				
-				<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
-				
-				{ (product.inStock === false && product.onOrder === false) ?
-					<div className='product-button nonactive'>
-						<Button text={ "Недоступно" }/>
-					</div>
-						:
-					<div className='product-button' onClick={ handleSubmit }>
-						<Button text={ "В корзину" }/>
-					</div>
-				}
+
+				<a href={`/shop/product/${product.id}`}>
+					<img src={ product.image.src } alt="product image" />
+				</a>
+
+				<div className='product-data'>
+					<p className={'product-name'}>{ product.name }</p>
+					
+					{ (product.sale === null) ?
+						<div className='price'>
+							<p className='product-price'>{ price(product.price) } тг</p>
+						</div>
+							:
+						<div className='price'>
+							<p className='old-product-price'>{ price(product.price *  (100 - product.sale) / 100) }</p>
+							<p className='product-price'>{ price(product.price) } тг</p>
+						</div>
+					}
+					
+					<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
+					
+					{ (product.inStock === false && product.onOrder === false) ?
+						<div className='product-button nonactive'>
+							<Button text={ "Недоступно" }/>
+						</div>
+							:
+						<div className='product-button' onClick={ handleSubmit }>
+							<Button text={ "В корзину" }/>
+						</div>
+					}
+				</div>
 			</div>
 		</Wrapper>
 	);
@@ -68,9 +70,38 @@ export default function ProductBox({ product }) {
 
 const Wrapper = styled.div`
 	position: relative;
-	width: 23.125rem;
-	height: 40.625rem;
-	background-color: var(--clr-white);
+
+	@keyframes animateIn {
+		0% {
+			transform: scale(1);
+		} 100% {
+			transform: scale(1.05);
+		}
+	}
+
+	@keyframes animateDefault {
+		0% {
+			transform: scale(1.05);
+		} 100% {
+			transform: scale(1);
+		}
+	}
+
+	.product-container {
+		width: 23.125rem;
+		height: 40.625rem;
+		background-color: var(--clr-white);
+	}
+
+	.product-container:hover {
+		transform: scale(1.05);
+		animation: animateIn 0.2s linear;
+	}
+
+	.product-container:not(:hover) {
+		transform: scale(1);
+		animation: animateDefault 0.2s linear;
+	}
 	
 	.product-sale {
 		display: flex;

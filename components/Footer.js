@@ -1,7 +1,6 @@
 import { useState, useContext  } from 'react';
 import Image from 'next/image';
 import { Context } from '../context/Context';
-import Scroll from './ScrollToTop';
 import styles from '../styles/footer.module.css';
 
 export default function Footer({ modal }) {
@@ -40,7 +39,6 @@ export default function Footer({ modal }) {
 
 	return (
 		<footer className={ styles.footer }>
-			<Scroll/>
 			<div className={ styles.container }>
 				<div className={ styles.link_box }>
 					<div className={ styles.contents }>
@@ -124,7 +122,7 @@ export default function Footer({ modal }) {
 								value={ detail.email }
 							/>
 							<button className={ styles.icon }>
-								<Image src='/footer-icons/message.svg' alt="message icon" width={25} height={20} layout='fixed' />
+								<img src='/footer-icons/message.svg' alt="message icon" width={25} height={20} layout='fixed' />
 							</button>
 						</form>
 						<div className={ styles.mobile }>
@@ -141,7 +139,12 @@ export default function Footer({ modal }) {
 								</div>
 							</div>
 						</div>
-						<p className={ [styles.item, styles.athenaplus, styles.laptop].join(" ") }>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
+						<div className={ styles.laptop }>
+							<div className={ styles.athenaplus }>
+								<p className={styles.item}>Сайт создан</p> 
+								<a href="http://athenaplus.kz/" className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -160,7 +163,12 @@ export default function Footer({ modal }) {
 				<div className={ styles.policy_box }>
 					<p className={ styles.item }>© 2012-2021 ЧЕК МАРКЕТ. Все права защищены</p>
 					<a href="tel:+77759764165" className={ [styles.item, styles.laptop].join(" ") }>+7 (707) 907-07-17</a>
-					<p className={ [styles.item, styles.athenaplus, styles.mobile].join(" ") }>Сайт создан <a href="http://athenaplus.kz/">athenaplus.kz</a></p>
+					<div className={ styles.mobile }>
+						<div className={ styles.athenaplus }>
+							<p className={styles.item}>Сайт создан</p> 
+							<a href="http://athenaplus.kz/" className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -59,16 +59,22 @@ const Wrapper = styled.section`
 	justify-content: center; 
 	background-color: var(--clr-primary-8);
 
-	@keyframes moveToRight {
+	@keyframes animateIn {
 		0% {
-			left: 0;
-			opacity: 100%;
-		} 50%, 100% {
-			left: 1.875rem;
-			opacity: 0;
+			transform: scale(1);
+		} 100% {
+			transform: scale(1.05);
 		}
 	}
-	
+
+	@keyframes animateDefault {
+		0% {
+			transform: scale(1.05);
+		} 100% {
+			transform: scale(1);
+		}
+	}
+
 	.header {
 		width: 22.5rem; 
 	}
@@ -113,6 +119,16 @@ const Wrapper = styled.section`
 		height: 29.375rem;
 		display: flex;
 		background-color: var(--clr-white);
+	}
+
+	.blog-box:hover {
+		transform: scale(1.05);
+		animation: animateIn 0.2s linear;
+	}
+
+	.blog-box:not(:hover) {
+		transform: scale(1);
+		animation: animateDefault 0.2s linear;
 	}
 
 	.image {

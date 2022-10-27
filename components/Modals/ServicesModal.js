@@ -210,20 +210,6 @@ const Wrapper = styled.div`
 	overflow-y: auto;
 	z-index: 10;
 
-	@keyframes animate {
-		0%, 16%, 28%, 40% {
-			color: var(--clr-primary-1);
-			text-shadow: none;
-		} 10%, 22%, 34%, 46% {
-			color: var(--clr-white);
-			text-shadow: 0 0 10px var(--clr-primary-1),
-							0 0 20px var(--clr-primary-1),
-							0 0 40px var(--clr-primary-1),
-							0 0 80px var(--clr-primary-1),
-							0 0 160px var(--clr-primary-1);
-		}
-	}
-
 	.module-container {
 		position: relative;
 		width: 72.5rem;
@@ -245,8 +231,7 @@ const Wrapper = styled.div`
 		font-weight: 600;
 		line-height: 3.125rem;
 		color: var(--clr-primary-1);
-		animation: animate 3s linear infinite;
-	}
+w	}
 	
 	.module-header:before {
 		content: "";

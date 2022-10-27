@@ -34,17 +34,10 @@ export default function About() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{(() => {
-				if (basketModal)
-					return (
-						<BasketModal close={ basket }/> 
-					);
-				else if (subscribeModal)
-					return (
-						<SubscribeModal modal={ subscribe }/>
-					);
-				else
-					return (<>
+			<>
+						{ basketModal ? <BasketModal close={ basket }/> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+
 						<Navbar modal={ basket }/>
 
 						<div className={styles.container}>
@@ -125,8 +118,7 @@ export default function About() {
 						</div>
 						
 						<Footer modal={ subscribe }/>
-					</>);
-			})()}
+			</>
 		</div>
 	);
 }

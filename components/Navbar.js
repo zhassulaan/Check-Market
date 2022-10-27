@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Context } from '../context/Context';
 import Image from 'next/image';
 import styled from 'styled-components';
+import Scroll from './ScrollToTop';
 import SearchBar from '../components/SearchBar';
 import Dropdown from '../components/Dropdown';
 
@@ -34,6 +35,8 @@ function Navbar({ home, modal }) {
 
 	return (
 		<Wrapper>
+			{/* <Scroll/> */}
+
 			{show ? 
 				<nav className={ home ? 'container white' : 'container' }>
 					<div className='icon button laptop searchIcon'>
@@ -59,25 +62,25 @@ function Navbar({ home, modal }) {
 				<nav className={ home ? 'container white' : 'container' }>
 					<ul className='shop-menu laptop'>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/' className={ (router.pathname == "/") ? 'active' : '' }>Главная</a>
+							<a href='/' className={ (router.pathname == "/") ? 'active' : 'notactive' }>Главная</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/shop' className={ (router.pathname == "/shop" || router.pathname == "/shop/catalog/[...slug]"  || router.pathname == "/shop/product/[...slug]") ? 'active' : '' }>Магазин</a>
+							<a href='/shop' className={ (router.pathname == "/shop" || router.pathname == "/shop/catalog/[...slug]"  || router.pathname == "/shop/product/[...slug]") ? 'active' : 'notactive' }>Магазин</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/about' className={ (router.pathname == "/about") ? 'active' : '' }>О нас</a>
+							<a href='/about' className={ (router.pathname == "/about") ? 'active' : 'notactive' }>О нас</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/services' className={ (router.pathname == "/services") ? 'active' : '' }>Услуги</a>
+							<a href='/services' className={ (router.pathname == "/services") ? 'active' : 'notactive' }>Услуги</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/blog' className={ (router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active' : '' }>Блог</a>
+							<a href='/blog' className={ (router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active' : 'notactive' }>Блог</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/delivery' className={ (router.pathname == "/delivery") ? 'active' : '' }>Доставка</a>
+							<a href='/delivery' className={ (router.pathname == "/delivery") ? 'active' : 'notactive' }>Доставка</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/contacts' className={ (router.pathname == "/contacts") ? 'active' : '' }>Контакты</a>
+							<a href='/contacts' className={ (router.pathname == "/contacts") ? 'active' : 'notactive' }>Контакты</a>
 						</li>
 					</ul>
 					
@@ -129,9 +132,9 @@ const Wrapper = styled.header`
 	top: 0;
 	z-index: 1;
 
-	@keyframes animate {
+	@keyframes animate3 {
 		0% {
-			width: 50%;
+			width: 25%;
 			left: -0.3125rem;
 		} 100% {
 			width: 100%;
@@ -166,7 +169,7 @@ const Wrapper = styled.header`
 		margin-right: 4.5rem;
 	}
 
-	.item:after,
+	.notactive:after,
 	.active:after {
 		content: "";
 		position: absolute;
@@ -180,9 +183,9 @@ const Wrapper = styled.header`
 		background-color: var(--clr-primary-1);
 	}
 
-	.item:hover:after {
+	.notactive:hover:after {
 		background-color: var(--clr-primary-1);
-		animation: animate 0.4s linear;
+		animation: animate3 0.3s linear;
 	}
 
 	.white {
@@ -241,6 +244,7 @@ const Wrapper = styled.header`
 
 		.item {
 			font-size: 18px;
+			margin-right: 4.507rem;
 		}
 	}
 	

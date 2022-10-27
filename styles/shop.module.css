@@ -1,3 +1,19 @@
+@keyframes animateIn {
+	0% {
+		transform: scale(1);
+	} 100% {
+		transform: scale(1.05);
+	}
+}
+
+@keyframes animateDefault {
+	0% {
+		transform: scale(1.05);
+	} 100% {
+		transform: scale(1);
+	}
+}
+
 .container {
 	display: grid;
 	justify-content: center;
@@ -37,6 +53,20 @@
 	position: relative;
 	width: 22.5rem;
 	height: 14.375rem;
+}
+
+.image:hover {
+	transform: scale(1.05);
+	animation: animateIn 0.2s linear;
+}
+
+.image:not(:hover) {
+	transform: scale(1);
+	animation: animateDefault 0.2s linear;
+}
+
+.image:hover {
+	transform: scale(1.1);
 }
 
 .frame {

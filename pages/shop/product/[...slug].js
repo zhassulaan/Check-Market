@@ -168,8 +168,12 @@ export default function Shop() {
 											
 										<div className='info-box'>
 											<div className="info-header">
-												<h5 className={ option === 1 ? 'active' : '' } onClick={ showCharacteristics }>Характеристики</h5>
-												<h5 className={ option === 2 ? 'active' : '' } onClick={ showDescription }>Описание</h5>
+												<div className={ option === 1 ? 'active button' : 'header-button button'}>
+													<h5 onClick={ showCharacteristics }>Характеристики</h5>
+												</div>
+												<div className={ option === 2 ? 'active button' : 'header-button button'}>
+													<h5 onClick={ showDescription }>Описание</h5>
+												</div>
 											</div>
 												
 											{ option === 1 ?
@@ -215,6 +219,16 @@ const Wrapper = styled.section`
 	flex-direction: column;
 	align-items: center;
 	padding: 14.375rem 0 10.625rem;
+
+	@keyframes animate3 {
+		0% {
+			width: 25%;
+			left: -0.3125rem;
+		} 100% {
+			width: 100%;
+			left: 0;
+		}
+	}
 
 	.content {
 		display: grid;
@@ -400,7 +414,26 @@ const Wrapper = styled.section`
 		width: 100%;
 		height: 3px;
 		bottom: 0;
+		left: 0;
 		background-color: var(--clr-primary-1);
+	}
+	
+	.header-button {
+		position: relative;
+	}
+
+	.header-button:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		bottom: 0;
+		left: 0;
+	}
+	
+	.header-button:hover:after {
+		background-color: var(--clr-primary-1);
+		animation: animate3 0.3s linear;
 	}
 
 	.info-menu {

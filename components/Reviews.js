@@ -54,12 +54,16 @@ export default function Reviews() {
 								}
 
 								<div className="comment-box">
-									<p className="comment-name">От: <span>{comment.name}</span></p>
-									<p className="comment-text">{comment.text}</p>
+									<div>
+										<p className="comment-name">От: <span>{comment.name}</span></p>
+										<p className="comment-text">{comment.text}</p>
+									</div>
 
+									<div className="stars">
 									{ [...Array(comment.star)].map((e, i) => 
 										<img  key={i} src="/home/comment/star.svg" alt="star number" className="comment-star"/>
 									) }
+									</div>
 								</div>
 							</div>
 
@@ -197,5 +201,101 @@ const Wrapper = styled.section`
 	.admin-comment-box {
 		text-align: right;
 		margin: 2.8125rem 1.4375rem;
+	}
+
+	@media (max-width: 650px) {
+		padding: 1.875rem 0 0;
+		.header {
+			display: none;
+		}
+		
+		.comments-content {
+			width: 88.889vw;
+			gap: 0.625rem;
+			margin: 0;
+		}
+		
+		.comment-background,
+		.admin-comment-background {
+			display: none;
+		}
+
+		.comment-data {
+			position: static;
+			height: 10.625rem;
+			background-color: var(--clr-white);
+			box-shadow: 0px 1px 22px rgba(0, 0, 0, 0.05);
+			border-radius: 0.625rem;
+			margin-bottom: 0.625rem;
+		}
+
+		.comment-image {
+			width: 3.375rem;
+			height: 3.125rem;
+			margin: 1.25rem 0 0 1.25rem;
+		}
+
+		.comment-box {
+			display: flex;
+			flex-direction: column-reverse;
+			margin: 1.4375rem 1.25rem 0.9375rem;
+		}
+
+		.comment-name,
+		.comment-text {
+			font-size: 15px;
+		}
+		
+		.comment-name {
+			line-height: 1.25rem;
+			margin: 0.5rem 0 0.9375rem;
+		}
+	
+		.comment-text {
+			line-height: 1.458rem;
+			margin-top: 0;
+			margin-left: -4.625rem;
+		}
+
+		.comment-star {
+			width: 0.9375rem;
+			height: 0.9375rem;
+			margin-top: 0;
+		}
+
+		.comment-date {
+			top: 0;
+			font-size: 15px;
+			margin: 1.25rem;
+		}
+
+		.buttons {
+			gap: 0.625rem;
+			margin-top: 1.25rem;
+		}
+
+		.buttons .button {
+			width: 0.625rem;
+			height: 0.625rem;
+		}
+
+		.admin-comment-data {
+			position: static;
+			height: 9.375rem;
+			flex-direction: row-reverse;
+			background-color: var(--clr-white);
+			box-shadow: 0px 1px 22px rgba(0, 0, 0, 0.05);
+			border-radius: 0.625rem;
+			margin-top: 1.25rem;
+		}
+
+		.admin-comment-box {
+			text-align: left;
+			margin: 2.125rem 1.25rem 0.9375rem;
+		}
+
+		.admin-comment-box .comment-name {
+			margin: 0 0 1.9375rem;
+		}
 	}
 `

@@ -56,21 +56,11 @@ export default function Services() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{(() => {
-				if (openModal)
-					return (
-						<ServicesModal type={ selectedType } close={ modal }/> 
-					);
-				else if (basketModal)
-					return (
-						<BasketModal close={ basket }/> 
-					);
-				else if (subscribeModal)
-					return (
-						<SubscribeModal modal={ subscribe }/>
-					);
-				else
-					return (<>
+			<>
+						{ openModal ? <ServicesModal type={ selectedType } close={ modal }/>  : null };
+						{ basketModal ? <BasketModal close={ basket }/> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+						
 						<Navbar modal={ basket }/>
 
 						<div className={styles.container}>
@@ -135,8 +125,7 @@ export default function Services() {
 						</div>
 
 						<Footer modal={ subscribe }/>
-					</>);
-			})()}
+			</>
 		</div>
 	);
 }

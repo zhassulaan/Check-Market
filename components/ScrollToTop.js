@@ -44,8 +44,6 @@ export default function ScrollToTop() {
 
 const Wrapper = styled.div`
 	position absolute;
-	right: 18.75rem;
-	margin-top: -12.5rem;
 
 	.button-box {
 		display: flex;
@@ -63,5 +61,9 @@ const Wrapper = styled.div`
 	
 	.button-box:hover svg {
 		fill: var(--clr-primary-1);
+	}
+
+	@media (max-width: 992px) {
+		display: none;
 	}
 `
