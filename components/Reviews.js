@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 
 export default function Reviews() {
 	const data = [
@@ -16,10 +16,17 @@ export default function Reviews() {
 
 	const [element, setElement] = useState(3);
 
-	const handleSubmit = async(ev) => {
+	const handleClick = async(ev) => {
 		ev.preventDefault();
 		setElement(Number(ev.target.id));
 	}
+
+	setTimeout(function() { 
+		(data.length <= element) ? 
+			setElement(3)
+				:
+			setElement(element + 3)
+	}, 5000);
 
 	const previous = (element / 3 - 1);
 	const next = Math.ceil(data.length / 3) - (element / 3);
@@ -30,65 +37,65 @@ export default function Reviews() {
 				<h3 className='title'>Отзывы наших клиентов</h3>
 
 				<div className='icons'>
-					<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-					<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-					<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+					<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+					<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+					<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
 				</div>
 						
 				<p className='subtitle'>Искреннее мнение наших клиентов о нас формирует один из важнейших аспектов компании, а именно имидж. Поэтому для нас так важно неизменно держать высокий уровень сервиса, предоставляя вам только лучшие условия для сотрудничества.</p>
-				<br />
+				<br/>
 				<p className='bold-subtitle'>Благодарим вас за ваш фидбэк!</p>
 			</div>
 
 			<div className='comments-content'>
 				{ data.map(comment =>
-					(element >= comment.id && element - 3 < comment.id) ?
-						<div style={{position: "relative"}}>
-							<img src="/home/comment/comment.png" alt="comment background" className="comment-background"/>
+					(element >= comment.id && (element - 3) < comment.id) ?
+						<div style={{ position: "relative" }} className='comment'>
+							<img src="/home/comment/comment.png" alt="comment background" className='comment-background'/>
 								
-							<div className="comment-data">
-								{(comment.image === null) ?
-									<img src="/home/comment/user.svg" alt="user icon" className="comment-image"/>
+							<div className='comment-data'>
+								{ (comment.image === null) ?
+									<img src="/home/comment/user.svg" alt="user icon" className='comment-image'/>
 										:
-									<img src={comment.image} alt="user icon" className="comment-image"/> 
+									<img src={ comment.image } alt="user icon" className='comment-image'/> 
 								}
 
-								<div className="comment-box">
+								<div className='comment-box'>
 									<div>
-										<p className="comment-name">От: <span>{comment.name}</span></p>
-										<p className="comment-text">{comment.text}</p>
+										<p className='comment-name'>От: <span>{ comment.name }</span></p>
+										<p className='comment-text'>{ comment.text }</p>
 									</div>
 
-									<div className="stars">
-									{ [...Array(comment.star)].map((e, i) => 
-										<img  key={i} src="/home/comment/star.svg" alt="star number" className="comment-star"/>
-									) }
+									<div className='stars'>
+										{ [...Array(comment.star)].map((e, index) =>
+											<img key={ index } src="/home/comment/star.svg" alt="star number" className='comment-star'/>
+										) }
 									</div>
 								</div>
 							</div>
 
-							<p className="comment-date">{comment.date}</p>
+							<p className='comment-date'>{ comment.date }</p>
 						</div>
 							:
 						<></>
 				) }
 
 				<div className='buttons'>
-					{Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleSubmit }/>)}
+					{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleClick }/>) }
 					<img src="/product-images/active.svg" alt="active" className='button'/>
-					{Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleSubmit }/>)}
+					{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleClick }/>) }
 				</div>
 
-				<div style={{position: "relative"}}>
-					<img src="/home/comment/comment2.png" alt="comment background" className="admin-comment-background"/>
+				<div style={{ position: "relative" }} className='comment'>
+					<img src="/home/comment/comment2.png" alt="comment background" className='admin-comment-background'/>
 								
-					<div className="admin-comment-data">
-						<div className="admin-comment-box">
-							<p className="comment-name">От: <span>Команда ЧЕК МАРКЕТ</span></p>
-							<p className="comment-text">Спасибо за обратную связь! Очень рады сотрудничеству!</p>
+					<div className='admin-comment-data'>
+						<div className='admin-comment-box'>
+							<p className='comment-name'>От: <span>Команда ЧЕК МАРКЕТ</span></p>
+							<p className='comment-text'>Спасибо за обратную связь! Очень рады сотрудничеству!</p>
 						</div>
 
-						<img src="/home/comment/logo.svg" alt="user icon" className="comment-image"/>
+						<img src="/home/comment/logo.svg" alt="user icon" className='comment-image'/>
 					</div>
 				</div>
 			</div>
@@ -101,6 +108,22 @@ const Wrapper = styled.section`
 	justify-content: center; 
 	background-color: var(--clr-primary-8);
 	padding: 7.1875rem 0;
+
+	@keyframes animateIn {
+		0% {
+			transform: scale(1);
+		} 100% {
+			transform: scale(1.05);
+		}
+	}
+
+	@keyframes animateDefault {
+		0% {
+			transform: scale(1.05);
+		} 100% {
+			transform: scale(1);
+		}
+	}
 
 	.header {
 		width: 43.75rem; 
@@ -130,6 +153,16 @@ const Wrapper = styled.section`
 		width: 72.5rem;
 	}
 	
+	.comment:hover {
+		transform: scale(1.05);
+		animation: animateIn 0.2s linear;
+	}
+
+	.comment:not(:hover) {
+		transform: scale(1);
+		animation: animateDefault 0.2s linear;
+	}
+
 	.comment-background {
 		margin-top: 2.1875rem;
 	}
@@ -141,7 +174,6 @@ const Wrapper = styled.section`
 	}
 	
 	.comment-image {
-		width: 6.0625rem;
 		height: 5.625rem;
 		margin: 2.5rem;
 	}
@@ -203,6 +235,206 @@ const Wrapper = styled.section`
 		margin: 2.8125rem 1.4375rem;
 	}
 
+	@media (max-width: 1440px) {
+		.comments-content,
+		.comment-background,
+		.admin-comment-background {
+			width: 69.375rem;
+		}
+
+		.comment-background,
+		.admin-comment-background {
+			height: 14.6875rem;
+		}
+	}
+	
+	@media (max-width: 1220px) {
+		padding: 5rem 0;
+
+		.title {
+			line-height: 2.8125rem;
+			font-size: 34px;
+			margin-bottom: 0.9375rem;
+		}
+		
+		.icons {
+			margin-bottom: 1.25rem;
+		}
+		
+		.icon-images img {
+			width: 5rem;
+			height: 4.625rem;
+			margin-right: 1.25rem;
+		}
+		
+		.subtitle,
+		.bold-subtitle {
+			line-height: 1.5625rem;
+			font-size: 17px;
+		}
+		
+		.comments-content,
+		.comment-background,
+		.admin-comment-background {
+			width: 57.3125rem;
+		}
+
+		.comment-background,
+		.admin-comment-background {
+			height: 14.0625rem;
+		}
+
+		.comment-background {
+			margin-top: 1.5625rem;
+		}
+		
+		.comment-data {
+			top: 1.5625rem;
+		}
+
+		.comment-image {
+			height: 5rem;
+			margin: 2.5rem;
+		}
+	
+		.comment-box {
+			margin: 2.1875rem 1.4375rem;
+		}
+	
+		.comment-name,
+		.comment-text {
+			line-height: 2.1875rem;
+		}
+		
+		.comment-name {
+			font-size: 19px;
+		}
+	
+		.comment-text {
+			font-size: 17px;
+		}
+		
+		.comment-star {
+			height: 1rem;
+		}
+	
+		.comment-date {
+			top: 1.5625rem;
+			font-size: 15px;
+		}
+	
+		.admin-comment-background {
+			margin-top: 2.5rem;
+		}
+	
+		.admin-comment-data {
+			top: 2.5rem;
+		}
+	}
+
+	@media (max-width: 992px) {
+		padding: 3.75rem 0;
+
+		.title {
+			line-height: 2.5rem;
+			font-size: 28px;
+			margin-bottom: 0.625rem;
+		}
+		
+		.header img {
+			height: 0.75rem;
+		}
+		
+		.icon-images img {
+			width: 4.6875rem;
+			height: 5rem;
+			margin-right: 0.9375rem;
+		}
+		
+		.icons {
+			margin-bottom: 0.3125rem;
+		}
+		
+		.subtitle,
+		.bold-subtitle {
+			font-size: 14px;
+		}
+
+		.header,
+		.comments-content,
+		.comment-background,
+		.admin-comment-background {
+			width: 88.889vw;
+		}
+		
+		.comment-background,
+		.admin-comment-background {
+			height: 11.25rem;
+		}
+
+		.comment-background {
+			margin-top: 0.9375rem;
+		}
+		
+		.comment-data,
+		.comment-date {
+			top: 0.9375rem;
+		}
+
+		.comment-image {
+			height: 3.75rem;
+			margin: 2.1875rem;
+		}
+
+		.comment-box {
+			margin: 1.375rem 1.25rem;
+		}
+	
+		.comment-name,
+		.comment-text {
+			line-height: 1.5625rem;
+		}
+		
+		.comment-name {
+			font-size: 16px;
+		}
+	
+		.comment-text {
+			height: 3.125rem;
+			font-size: 14px;
+		}
+		
+		.comment-star {
+			height: 0.75rem;
+		}
+
+		.comment-date {
+			font-size: 13px;
+			margin: 0.9375rem;
+		}
+
+		.buttons {
+			gap: 0.9375rem;
+			margin-top: 0.625rem;
+		}
+
+		.buttons img {
+			height: 0.9375rem;
+		}
+	
+		.admin-comment-background {
+			margin-top: 1.25rem;
+		}
+	
+		.admin-comment-data {
+			top: 1.25rem;
+		}
+
+		.admin-comment-box {
+			margin: 1.5rem 1.25rem;
+		}
+	}
+
 	@media (max-width: 650px) {
 		padding: 1.875rem 0 0;
 		.header {
@@ -252,6 +484,7 @@ const Wrapper = styled.section`
 		}
 	
 		.comment-text {
+			height: 4.375rem;
 			line-height: 1.458rem;
 			margin-top: 0;
 			margin-left: -4.625rem;

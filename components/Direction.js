@@ -112,6 +112,7 @@ const Wrapper = styled.section`
 		height: 15rem;
 		display: flex;
 		background-color: var(--clr-white);
+		box-shadow: 0px 1px 22px rgba(0, 0, 0, 0.05);
 	}
 
 	.direction-box:hover {
@@ -212,6 +213,8 @@ const Wrapper = styled.section`
 	}
 
 	@media (max-width: 992px) {
+		padding: 0 5.55556vw;
+
 		.title {
 			line-height: 2.5rem;
 			font-size: 28px;
@@ -219,7 +222,7 @@ const Wrapper = styled.section`
 		}
 
 		.header {
-			width: 36.111rem;
+			width: 75%;
 		}
 
 		.header img {
@@ -235,8 +238,8 @@ const Wrapper = styled.section`
 		}
 
 		.direction-content {
-			width: 36.111rem;
 			grid-template-columns: repeat(1, 1fr);
+			padding: 0 5vw;
 			gap: 0.611rem;
 		}
 
@@ -281,11 +284,11 @@ const Wrapper = styled.section`
 			width: 88.889vw;
 			gap: 0.625rem;
 			margin: 0;
+			padding: 1.875rem 0 0;
 		}
 		
 		.direction-box {
 			width: 88.889vw;
-			box-shadow: 0px 1px 22px rgba(0, 0, 0, 0.05);
 			border-radius: 0.625rem;
 		}
 

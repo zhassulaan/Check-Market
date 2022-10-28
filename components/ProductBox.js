@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Context } from '../context/Context';
 import Button from "./Button";
 
 export default function ProductBox({ product }) {
-	const { state, dispatch } = useContext(Context);
+	const { dispatch } = useContext(Context);
 
 	function price(numb) {
 		if (!numb) 
@@ -14,7 +14,7 @@ export default function ProductBox({ product }) {
 		return numbFmt;
 	}
 
-	const handleSubmit = e => {
+	const handleClick = e => {
 		e.preventDefault();
 		dispatch({
 			type: "ADD_TO_CART",
@@ -34,31 +34,33 @@ export default function ProductBox({ product }) {
 				}
 
 				<a href={`/shop/product/${product.id}`}>
-					<img src={ product.image.src } alt="product image" />
+					<img src={ product.image.src } alt="product image"/>
 				</a>
 
 				<div className='product-data'>
-					<p className={'product-name'}>{ product.name }</p>
-					
-					{ (product.sale === null) ?
-						<div className='price'>
-							<p className='product-price'>{ price(product.price) } тг</p>
-						</div>
-							:
-						<div className='price'>
-							<p className='old-product-price'>{ price(product.price *  (100 - product.sale) / 100) }</p>
-							<p className='product-price'>{ price(product.price) } тг</p>
-						</div>
-					}
-					
-					<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
+					<p className='product-name'>{ product.name }</p>
+						
+					<div className='swap'>
+						{ (product.sale === null) ?
+							<div className='price'>
+								<p className='product-price'>{ price(product.price) } тг</p>
+							</div>
+								:
+							<div className='price'>
+								<p className='old-product-price'>{ price(product.price *  (100 - product.sale) / 100) }</p>
+								<p className='product-price'>{ price(product.price) } тг</p>
+							</div>
+						}
+						
+						<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
+					</div>
 					
 					{ (product.inStock === false && product.onOrder === false) ?
 						<div className='product-button nonactive'>
 							<Button text={ "Недоступно" }/>
 						</div>
 							:
-						<div className='product-button' onClick={ handleSubmit }>
+						<div className='product-button' onClick={ handleClick }>
 							<Button text={ "В корзину" }/>
 						</div>
 					}
@@ -186,5 +188,191 @@ const Wrapper = styled.div`
 	.text {
 		font-size: 18px;
 		font-weight: 700;
+	}
+
+	@media (max-width: 1440px) {
+		.product-container {
+			width: 22.25rem;
+			height: 39.75rem;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		.product-container {
+			width: 18.4375rem;
+			height: 35.9375rem;
+		}
+	
+		.product-sale {
+			width: 4.375rem;
+			height: 4.375rem;
+			margin: 0.9375rem;
+		}
+		
+		.product-sale h6 {
+			font-size: 20px;
+		}
+	
+		img {
+			width: 100%;
+		}
+	
+		.product-data {
+			height: 17.5rem;
+			padding: 1.5625rem 1.5625rem 2.1875rem;
+		}
+	
+		.product-name {
+			font-size: 18px;
+		}
+	
+		.price {
+			margin-top: 0.625rem;
+		}
+	
+		.old-product-price,
+		.product-price {
+			line-height: 1.25rem;
+			font-size: 17px;
+		}
+	
+		.product-instock,
+		.product-notinstock {
+			font-size: 15px;
+		}
+		
+		.text {
+			font-size: 17px;
+		}
+	}
+
+	@media (max-width: 992px) {
+		.product-container {
+			width: 28.418vw;
+			height: calc(28.418vw + 14rem);
+		}
+
+		.product-sale {
+			width: 6.1445vw;
+			max-width: 3.125rem;
+			height: 6.1445vw;
+			max-height: 3.125rem;
+			margin: 0.9375rem;
+		}
+		
+		.product-sale h6 {
+			font-size: 15px;
+		}
+
+		.product-data {
+			height: 14rem;
+			padding: 1.85675rem 1.25rem 1.875rem;
+		}
+	
+		.product-name {
+			height: 3.75rem;
+			line-height: 1.25rem;
+			font-size: 15px;
+			margin-bottom: 1.25rem;
+		}
+	
+		.price {
+			margin-bottom: 0.3125rem;
+		}
+	
+		.old-product-price,
+		.product-price {
+			line-height: 1.25rem;
+			font-size: 14px;
+		}
+
+		.product-instock,
+		.product-notinstock {
+			line-height: 1.25rem;
+			font-size: 13px;
+			margin-bottom: 0.625rem;
+		}
+		
+		.product-button {
+			width: 80%;
+			height: 1.5625rem;
+		}
+
+		.text {
+			font-size: 12px;
+		}
+	}
+	
+	@media (max-width: 650px) {
+		.product-container {
+			width: 9.6875rem;
+			height: calc(9.6875rem + 12.188rem);
+		}
+
+		img {
+			width: 100%;
+			padding: 0.5rem 0.5rem 0.4375rem 0.4375rem;
+		}
+
+		.product-sale {
+			width: 6.1445vw;
+			max-width: 3.125rem;
+			height: 6.1445vw;
+			max-height: 3.125rem;
+			margin: 0.9375rem;
+		}
+		
+		.product-sale h6 {
+			font-size: 15px;
+		}
+
+		.product-data {
+			height: 12.188rem;
+			padding: 0.3125rem 0.5rem 0.625rem 0.4375rem;
+		}
+	
+		.product-name {
+			position: relative;
+			height: 4.375rem;
+			line-height: 1.25rem;
+			font-size: 14px;
+			margin-bottom: 0.3125rem;
+			padding-bottom: 0.625rem;
+		}
+
+		.product-name:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 1px;
+			background-color: var(--clr-primary-4);
+		}
+
+		.swap {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	
+		.price {
+			margin: 0 0 1.875rem;
+		}
+	
+		.old-product-price,
+		.product-price {
+			font-size: 16px;
+		}
+
+		.product-instock,
+		.product-notinstock {
+			font-size: 14px;
+			margin-bottom: 0.3125rem;
+		}
+		
+		.product-button {
+			width: 8.75rem;
+			height: 1.875rem;
+		}
 	}
 `

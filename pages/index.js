@@ -95,13 +95,17 @@ export default function Home() {
         }
 
         <Wrapper>
-					<p className='direction-paragraph'>Также Вы можете скачать прайс-лист</p>
-					<Button text={ "Скачать прайс" }/>
-				</Wrapper>
+          <div className='wrapper'>
+            <Section>
+              <p className='direction-paragraph'>Также Вы можете скачать прайс-лист</p>
+              <Button text={ "Скачать прайс" }/>
+            </Section>
+            <Blog/>
+          </div>
+          <Recomendations/>
+        </Wrapper>
 
-        <Blog/>
-        <Recomendations/>
-        <Reviews/>
+        { window.innerWidth > 650 ? <Reviews/> : null }
               
         <Footer modal={ subscribe }/>
       </div>
@@ -110,6 +114,13 @@ export default function Home() {
 }
 
 const Wrapper = styled.section`
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+`
+
+const Section = styled.section`
   padding-bottom: 7.5rem;
   background-color: var(--clr-white);
   
@@ -131,7 +142,7 @@ const Wrapper = styled.section`
   @media (max-width: 1220px) {
     .direction-paragraph {
 			font-size: 18px;
-			margin: 5rem auto 1.25rem;
+			padding: 5rem 0 1.25rem;
 		}
 		
 		.button {
@@ -148,7 +159,7 @@ const Wrapper = styled.section`
   @media (max-width: 992px) {
     .direction-paragraph {
 			font-size: 16px;
-			margin: 3.75rem auto 1.25rem;
+			padding: 3.75rem 0 1.25rem;
 		}
 		
 		.button {
@@ -159,6 +170,25 @@ const Wrapper = styled.section`
 		
 		.text {
 			font-size: 14px;
+		}
+  }
+  
+  @media (max-width: 650px) {
+    padding-bottom: 0;
+    background-color: var(--clr-primary-8);
+
+    .direction-paragraph {
+      width: 20rem;
+			font-size: 15px;
+			padding: 3.125rem 0 0.625rem;
+		}
+		
+		.button {
+			width: 8.75rem;
+		}
+		
+		.text {
+			font-size: 13px;
 		}
   }
 `

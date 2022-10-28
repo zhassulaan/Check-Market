@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import bg from '../public/home/home.png';
-import bg2 from '../public/home/home2.png';
 
 export default function About() {
 	return (
@@ -10,9 +9,9 @@ export default function About() {
 					<h3 className='title'>Что такое «ЧЕК МАРКЕТ»?</h3>
 
 					<div className='icons'>
-						<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout='fixed' />
-						<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout='fixed' />
-						<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout='fixed' />
+						<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+						<img src="/modal/triangle.svg" alt="triangle" className='middle' width={40} height={15} layout="fixed"/>
+						<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
 					</div>
 						
 					<p className='subtitle'>Узнайте подробнее о нашей компании</p>
@@ -34,8 +33,8 @@ const Wrapper = styled.section`
 	background-color: var(--clr-white);
 	background-image: url(${bg.src});
 	background-repeat: no-repeat;
-	background-size: 41.406vw 51.25rem;
-	background-position: right;
+	background-position: center center;
+	background-size: cover;  
 	padding: 9.375rem 0 10rem;
 	
 	.about-content {
@@ -91,9 +90,6 @@ const Wrapper = styled.section`
 	}
 
 	@media (max-width: 1220px) {
-		background-image: url(${bg2.src});
-		background-size: 50vw 51.25rem;
-
 		.about-content {
 			width: 35rem;
 			margin-right: 22.3125rem;
@@ -134,11 +130,10 @@ const Wrapper = styled.section`
 
 	@media (max-width: 992px) {
 		justify-content: flex-start;
-		background-size: 41.406vw 32rem;
-		padding: 7rem 0 7.5rem;
+		padding: 5rem 0 5.3125rem;
 
 		.about-content {
-			width: 63.902vw;
+			width: 60vw;
 			margin: 0 0 0 5.55556vw;
 		}
 
@@ -195,15 +190,24 @@ const Wrapper = styled.section`
 		.title {
 			line-height: 1.875rem;
 			font-size: 18px;
-			margin: 0;
+			margin-bottom: 0;
 		}
-
+	  
 		.icons {
-			margin: 0;
+			margin-bottom: 0.9375rem;
+		}
+		
+		.icons img {
+			height: 0.625rem;
 		}
 
-		img {
-			height: 0.625rem;
+		.middle {
+			width: 1.875rem
+		}
+	  
+		.subtitle {
+			line-height: 1.25rem;
+			font-size: 15px;
 		}
 	
 		.about-title {

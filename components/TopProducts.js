@@ -1,26 +1,34 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 import data from '../data/top-products';
 import ProductBox from '../components/ProductBox';
 
 export default function TopProducts() {
-	const [element, setElement] = useState(3);
+	let numb = (window.innerWidth > 545) ? 3 : 2;
+	const [element, setElement] = useState(numb);
 
-	const handleSubmit = async(ev) => {
+	const handleClick = async(ev) => {
 		ev.preventDefault();
 		setElement(Number(ev.target.id));
 	}
 
-	const previous = (element / 3 - 1);
-	const next = Math.ceil(data.length / 3) - (element / 3);
+	const previous = (element / numb - 1);
+	const next = Math.ceil(data.length / numb) - (element / numb);
+
+	setTimeout(function() { 
+		(data.length <= element) ? 
+			setElement(numb)
+				:
+			setElement(element + numb)
+	}, 5000);
 
 	return (
 		<Wrapper>
 			<div className='products'>
 				{ data.map(item => {
 					return(
-						(element >= item.id && element - 3 < item.id) ?
-							<div id={item.id}>
+						(element >= item.id && element - numb < item.id) ?
+							<div id={ item.id }>
 								<ProductBox key={ item.id } product={ item }/>
 							</div>
 								:
@@ -30,11 +38,11 @@ export default function TopProducts() {
 			</div>
 
 			<div className='buttons'>
-				<img src="/product-images/left.svg" alt="previous" id={ (element !== 3) ? element - 3 : element } className='arrow button' onClick={ handleSubmit }/>
-				{Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleSubmit }/>)}
+				<img src="/product-images/left.svg" alt="previous" id={ (element !== numb) ? element - numb : element } className='arrow button' onClick={ handleClick }/>
+				{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb } alt="passive" className='button' onClick={ handleClick }/>)}
 				<img src="/product-images/active.svg" alt="active" className='button'/>
-				{Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleSubmit }/>)}
-				<img src="/product-images/right.svg" alt="next" id={(element < data.length) ? element + 3 : element} className='arrow button' onClick={ handleSubmit }/>
+				{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb + element } alt="passive" className='button' onClick={ handleClick }/>)}
+				<img src="/product-images/right.svg" alt="next" id={ (element < data.length) ? element + numb : element } className='arrow button' onClick={ handleClick }/>
 			</div>
 		</Wrapper>
 	);
@@ -45,6 +53,7 @@ const Wrapper = styled.div`
 
 	.products {
 		display: flex;
+		justify-content: center;
 		gap: 1.5625rem;
 	}
 
@@ -57,5 +66,60 @@ const Wrapper = styled.div`
 
 	.arrow {
 		margin: 0 0.625rem;
+	}
+
+	@media (max-width: 1440px) {
+		.products {
+			gap: 1.3125rem;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		.products {
+			gap: 1rem;
+		}
+
+		.buttons {
+			gap: 1.875rem;
+			margin-top: 3.75rem;
+		}
+	}
+	
+	@media (max-width: 992px) {
+		.products {
+			gap: 1.818vw;
+		}
+		
+		.buttons {
+			gap: 1.5625vw;
+			margin-top: 2.5rem;
+		}
+		
+		.buttons img {
+			width: 0.9375rem;
+			height: 0.9375rem;
+		}
+	}
+	
+	@media (max-width: 650px) {
+		margin-top: 1.25rem;
+		
+		.products {
+			gap: 2x2.778vw;
+		}
+
+		.buttons {
+			gap: 2x2.778vw;
+			margin-top: 1.25rem;
+		}
+
+		.buttons img {
+			width: 0.625rem;
+			height: 0.625rem;
+		}
+
+		.arrow {
+			display: none;
+		}
 	}
 `

@@ -46,4 +46,81 @@ const Wrapper = styled.section`
 		line-height: 1.875rem;
 		font-size: 22px;
 	}
+	
+	@media (max-width: 1220px) {
+		padding: 5rem 0;
+
+		.title {
+			line-height: 2.8125rem;
+			font-size: 34px;
+			margin-bottom: 0.9375rem;
+		}
+
+		.icons {
+			margin-bottom: 1.25rem;
+		}
+
+		.subtitle {
+			line-height: 1.5625rem;
+			font-size: 17px;
+		}
+	}
+
+	@media (max-width: 992px) {
+		padding: 3.75rem 0;
+
+		.header {
+			width: 36.111rem;
+		}
+		
+		.title {
+			line-height: 2.5rem;
+			font-size: 28px;
+			margin-bottom: 0.625rem;
+		}
+		
+		.header img {
+			height: 0.75rem;
+		}
+		
+		.icons {
+			margin-bottom: 0.3125rem;
+		}
+		
+		.subtitle {
+			font-size: 14px;
+		}
+	}
+	
+	@media (max-width: 650px) {
+		padding: 3.125rem 0 0;
+		
+		.header {
+			width: 88.889vw;
+			text-align: left; 
+		}
+	
+		.title {
+			line-height: 1.875rem;
+			font-size: 18px;
+			margin-bottom: 0;
+		}
+	  
+		.icons {
+			margin-bottom: 0.9375rem;
+		}
+		
+		.icons img {
+			height: 0.625rem;
+		}
+
+		.middle {
+			width: 1.875rem
+		}
+	  
+		.subtitle {
+			line-height: 1.25rem;
+			font-size: 15px;
+		}
+	}
 `

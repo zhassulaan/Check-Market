@@ -24,16 +24,16 @@ const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
 
-	@keyframes animate {
+	@keyframes animateBg {
 		0% {
 			background-color: var(--clr-primary-1);
 			border: none;
 		} 100% {
 			background-color: var(--clr-white);
-			color: var(--clr-primary-1);
+			border: 2px solid var(--clr-primary-1);
 		}
 	}
-	
+
 	@keyframes animateText {
 		0% {
 			color: var(--clr-white);
@@ -41,8 +41,8 @@ const Wrapper = styled.div`
 			color: var(--clr-primary-1);
 		}
 	}
-	
-	@keyframes animateOut {
+
+	@keyframes animateBgOut {
 		0% {
 			background-color: var(--clr-white);
 			color: var(--clr-primary-1);
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 			border: none;
 		}
 	}
-	
+
 	@keyframes animateTextOut {
 		0% {
 			color: var(--clr-primary-1);
@@ -74,13 +74,13 @@ const Wrapper = styled.div`
 	.button:hover {
 		background-color: var(--clr-white);
 		border: 2px solid var(--clr-primary-1);
-		animation: animate 0.3s linear;
+		animation: animateBg 0.3s linear;
 	}
 	
 	.button:not(:hover) {
 		background-color: var(--clr-primary-1);
 		border: none;
-		animation: animateOut 0.3s linear;
+		animation: animateBgOut 0.3s linear;
 	}
 	
 	.button:hover .text {
@@ -116,13 +116,13 @@ const Wrapper = styled.div`
 `
 
 const Wrapper2 = styled.div`
-	@keyframes animate {
+	@keyframes animateBg {
 		0% {
 			background-color: var(--clr-primary-1);
 			border: none;
 		} 100% {
 			background-color: var(--clr-white);
-			color: var(--clr-primary-1);
+			border: 2px solid var(--clr-primary-1);
 		}
 	}
 
@@ -134,7 +134,7 @@ const Wrapper2 = styled.div`
 		}
 	}
 
-	@keyframes animateOut {
+	@keyframes animateBgOut {
 		0% {
 			background-color: var(--clr-white);
 			color: var(--clr-primary-1);
@@ -166,18 +166,18 @@ const Wrapper2 = styled.div`
 	.button:hover {
 		background-color: var(--clr-white);
 		border: 2px solid var(--clr-primary-1);
-		animation: animate 0.3s linear;
+		animation: animateBg 0.2s linear;
 	}
 	
 	.button:not(:hover) {
 		background-color: var(--clr-primary-1);
 		border: none;
-		animation: animateOut 0.3s linear;
+		animation: animateBgOut 0.3s linear;
 	}
 	
 	.button:hover .text {
 		color: var(--clr-primary-1);
-		animation: animateText 0.3s linear;
+		animation: animateText 0.2s linear;
 	}
 	
 	.button:not(:hover) .text {

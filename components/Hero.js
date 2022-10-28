@@ -21,7 +21,9 @@ export default function Hero() {
 	return (
 		<Wrapper>
          <div className='hero'>
-           <img src="/home/logo.svg" alt="logo" className='logo'/>
+				<div className='logo-box'>
+	           <img src="/home/logo.svg" alt="logo" className='logo'/>
+				</div>
           
 			  	<div className='hero-text-content'>
 					<h2 className='hero-title'>Лидер в области автоматизации торговли</h2>
@@ -69,6 +71,22 @@ const Wrapper = styled.section`
 		}
 	}
 	
+	@keyframes logoAnimation {
+		0% {
+			top: 0;
+			opacity: 0;
+		} 10% {
+			opacity: 1;
+		} 50% {
+			top: 100%;
+		} 90% {
+			opacity: 1;
+		} 100% {
+			top: 0;
+			opacity: 0;
+		}
+	}
+	
 	.hero {
 		display: flex;
 		gap: 6.25rem;
@@ -76,9 +94,23 @@ const Wrapper = styled.section`
 		margin: 12.5rem 0;
 	}
 
+	.logo-box {
+		position: relative;
+	}
+
 	.logo {
 		width: 31.25rem;
-		animation: animate 1.2s linear;
+		// animation: animate 1.2s linear;
+	}
+
+	.logo-box:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 0.6875rem;
+		background-color: var(--clr-primary-1);
+		opacity: 0;
+		animation: logoAnimation 1s linear;
 	}
 	
 	.hero-text-content {
