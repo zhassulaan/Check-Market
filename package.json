@@ -26,4 +26,8 @@
   "resolutions": {
     "styled-components": "^5"
   }
+  "homepage" : "https://{your_github_username}.github.io/{app-name}"
+
+  #{your_github_username} - Your GitHub username
+  # {app-name} - Name of your application
 }
