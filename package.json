@@ -1,5 +1,6 @@
 {
   "name": "check-market",
+  "homepage" : "https://{zhassulaan}.github.io/{check-market}",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,9 +27,4 @@
   "resolutions": {
     "styled-components": "^5"
   }
-
-  "homepage" : "https://{zhassulaan}.github.io/{check-market}"
-
-  #{zhassulaan} - Your GitHub username
-  # {check-market} - Name of your application
 }
