@@ -75,11 +75,15 @@ const Wrapper = styled.section`
 		0% {
 			top: 0;
 			opacity: 0;
-		} 10% {
+		} 5% {
 			opacity: 1;
-		} 50% {
+		} 25% {
 			top: 100%;
-		} 90% {
+		} 50% {
+			top: 0%;
+		} 75% {
+			top: 100%;
+		} 95% {
 			opacity: 1;
 		} 100% {
 			top: 0;
@@ -100,7 +104,7 @@ const Wrapper = styled.section`
 
 	.logo {
 		width: 31.25rem;
-		// animation: animate 1.2s linear;
+		animation: animate 1.2s linear;
 	}
 
 	.logo-box:before {
@@ -110,7 +114,7 @@ const Wrapper = styled.section`
 		height: 0.6875rem;
 		background-color: var(--clr-primary-1);
 		opacity: 0;
-		animation: logoAnimation 1s linear;
+		animation: logoAnimation 1.2s linear;
 	}
 	
 	.hero-text-content {

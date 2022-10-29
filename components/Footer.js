@@ -1,10 +1,12 @@
 import { useState, useContext  } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
 import { Context } from '../context/Context';
 import styles from '../styles/footer.module.css';
 
 export default function Footer({ modal }) {
 	const { state, dispatch } = useContext(Context);
+	const router = useRouter();
 	const [detail, setDetail] = useState('');
 
 	const [isActive1, setActive1] = useState(false);
@@ -35,6 +37,15 @@ export default function Footer({ modal }) {
 				modal(e);
 			}
 		}
+	}
+
+	const handleClick = async(ev) => {
+		ev.preventDefault();
+		dispatch({
+			type: "SAVE_PAGE",
+			payload: ev.target.id
+		})
+		router.push("/shop/catalog/1");
 	}
 
 	return (
@@ -87,20 +98,20 @@ export default function Footer({ modal }) {
 								</div>
 
 								<ul className={ styles.menu }>
-									<li className={ styles.item }>
-										<a href="/">ЧЕКОВАЯ ЛЕНТА</a>
+									<li id='1' className={ styles.item } onClick={ handleClick }>
+										<a id='1' href="/">ЧЕКОВАЯ ЛЕНТА</a>
 									</li>
-									<li className={ styles.item }>
-										<a href="/">ТЕРМОЭТИКЕТКИ</a>
+									<li id='2' className={ styles.item } onClick={ handleClick }>
+										<a id='2' href="/">ТЕРМОЭТИКЕТКИ</a>
 									</li>
-									<li className={ styles.item }>
-										<a href="/">СЧЁТЧИКИ ПОДСЧЁТА ПОСЕТИТЕЛЕЙ</a>
+									<li id='3' className={ styles.item } onClick={ handleClick }>
+										<a id='3' href="/">СЧЁТЧИКИ ПОДСЧЁТА ПОСЕТИТЕЛЕЙ</a>
 									</li>
-									<li className={ styles.item }>
-										<a href="/">ПРОТИВОКРАЖНОЕ ОБОРУДОВАНИЕ</a>
+									<li id='4' className={ styles.item } onClick={ handleClick }>
+										<a id='4' href="/">ПРОТИВОКРАЖНОЕ ОБОРУДОВАНИЕ</a>
 									</li>
-									<li className={ styles.item }>
-										<a href="/">ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ</a>
+									<li id='5' className={ styles.item } onClick={ handleClick }>
+										<a id='5' href="/">ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ</a>
 									</li>
 								</ul>
 							</div>
