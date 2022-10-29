@@ -89,7 +89,6 @@ const Wrapper = styled.div`
 	}
 	
 	.button:not(:hover) .text {
-		color: var(--clr-white);
 		animation: animateTextOut 0.3s linear;
 	}
 

@@ -26,4 +26,9 @@
   "resolutions": {
     "styled-components": "^5"
   }
+
+  "homepage" : "https://{zhassulaan}.github.io/{check-market}"
+
+  #{zhassulaan} - Your GitHub username
+  # {check-market} - Name of your application
 }

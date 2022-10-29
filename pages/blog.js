@@ -159,6 +159,39 @@ const Wrapper = styled.section`
 	display: flex;
 	justify-content: center;
 
+	@keyframes animateBg2 {
+		0% {
+			opacity: 100%
+		} 100% {
+			opacity: 80%
+		}
+	}
+
+	@keyframes animateText2 {
+		0% {
+			opacity: 100%
+		} 100% {
+			opacity: 80%
+		}
+	}
+
+	@keyframes animateBgOut2 {
+		0% {
+			opacity: 80%
+			border: none;
+		} 100% {
+			opacity: 100%
+		}
+	}
+
+	@keyframes animateTextOut2 {
+		0% {
+			opacity: 80%
+		} 100% {
+			opacity: 100%
+		}
+	}
+
 	.container {
 		position: relative;
 		width: 72.5rem;
@@ -195,27 +228,38 @@ const Wrapper = styled.section`
 		margin-right: 1.25rem;
 	}
 
-	.non-active .button {
-		background-color: transparent;
-		border: 1px solid var(--clr-primary-1);
-	}
-	
-	.non-active:hover .button {
-		background-color: var(--clr-primary-1);;
-		border: none;
-	}
-
 	.blog-button .text {
 		font-size: 18px;
 		font-weight: 700;
 	}
-	
+
+	.non-active .button {
+		background-color: transparent;
+		border: 1px solid var(--clr-primary-1);
+	}
+
 	.non-active .text {
 		color: var(--clr-primary-1);
 	}
 	
-	.non-active:hover .text {
-		color: var(--clr-white);
+	.blog-button:hover .button {
+		opacity: 80%
+		animation: animateBg2 0.3s linear;
+	}
+	
+	.blog-button:hover .text {
+		opacity: 80%
+		animation: animateText2 0.3s linear;
+	}
+	
+	.blog-button:(not):hover .button {
+		opacity: 100%
+		animation: animateBgOut2 0.3s linear;
+	}
+	
+	.blog-button:(not):hover .text {
+		opacity: 100%
+		animation: animateTextOut2 0.3s linear;
 	}
 	
 	.blog-container {

@@ -77,11 +77,7 @@ const Wrapper = styled.section`
 			opacity: 0;
 		} 5% {
 			opacity: 1;
-		} 25% {
-			top: 100%;
 		} 50% {
-			top: 0%;
-		} 75% {
 			top: 100%;
 		} 95% {
 			opacity: 1;
@@ -106,15 +102,19 @@ const Wrapper = styled.section`
 		width: 31.25rem;
 		animation: animate 1.2s linear;
 	}
-
+	
 	.logo-box:before {
 		content: "";
 		position: absolute;
 		width: 100%;
-		height: 0.6875rem;
+		height: 0.3rem;
 		background-color: var(--clr-primary-1);
 		opacity: 0;
-		animation: logoAnimation 1.2s linear;
+		animation: logoAnimation 2s linear;
+	}
+	
+	.logo-box:active {
+		animation: animate 1.2s linear;
 	}
 	
 	.hero-text-content {
