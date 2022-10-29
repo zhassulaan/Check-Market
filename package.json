@@ -1,10 +1,12 @@
 {
   "name": "check-market",
-  "homepage" : "https://{zhassulaan}.github.io/{check-market}",
+  "homepage": "https://{zhassulaan}.github.io/{check-market}",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -22,7 +24,8 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "gh-pages": "^4.0.0"
   },
   "resolutions": {
     "styled-components": "^5"
