@@ -5,21 +5,21 @@ import Button from '../Button';
 export default function SubscribeModal({ modal }) {
 	return (
 		<Wrapper>
-			<div className="box">
+			<div className='box'>
 				<div className='mobile'>
-					<Image src='/modal/like.svg' alt="close button" width={211} height={190} />
+					<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
 				</div>
 
 				<h4 className='title'>Благодарим за подписку!</h4>
 
-				<p className="paragraph">Все выгодные предложения от ЧЕК МАРКЕТ всегда с Вами</p>
+				<p className='paragraph'>Все выгодные предложения от ЧЕК МАРКЕТ всегда с Вами</p>
 				
-				<a href="/">
-					<Button text={"Вернуться на главную"} />
+				<a href='/'>
+					<Button text={ "Вернуться на главную" }/>
 				</a>
 				
 				<div className='close-icon button' onClick={ modal }>
-					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke={(window.innerWidth > 992) ? "white" : "black"} xmlns="http://www.w3.org/2000/svg">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke={ (window.innerWidth > 992) ? "white" : "black" } xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 1L30.9999 31" stroke-width="2"/>
 						<path d="M31 1L1 31" stroke-width="2"/>
 					</svg>
@@ -33,6 +33,7 @@ const Wrapper = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 100%;
+	top: 0;
 	background: rgba(0, 0, 0, 0.4);
 	padding-top: 3.75rem;
 	z-index: 10;
@@ -85,18 +86,24 @@ const Wrapper = styled.div`
 		margin-right: -5.729vw;
 	}	
 
-	@media (max-width: 1280px) {
+	@media (max-width: 1440px) {
+		padding-top: 3.125rem;
+
+		.box {
+			width: 77.083vw;
+		}
+
 		.title {
-			font-size: 27px;
 			width: 35rem;
-			line-height: 2.5rem;
+			line-height: 2.8125rem;
+			font-size: 27px;
 		}
 	
 		.paragraph {
-			font-size: 17px;
 			width: 35rem;
-			line-height: 2.5rem;
-			margin-bottom: 2.5rem;
+			line-height: 2.1875rem;
+			font-size: 18px;
+			margin-bottom: 2.9125rem;
 		}
 	
 		.box button {
@@ -105,12 +112,39 @@ const Wrapper = styled.div`
 		}	
 		
 		.text {
-			font-size: 17px;
+			font-size: 18px;
 		}
 
 		.close-icon svg {
 			width: 1.5625rem;
 			height: 1.5625rem;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		.title {
+			line-height: 2.5rem;
+			font-size: 24px;
+		}
+
+		.paragraph {
+			line-height: 1.875rem;
+			font-size: 17px;
+			margin-bottom: 2.5rem;
+		}
+
+		.box button {
+			height: 3.125rem;
+		}	
+
+		.text {
+			line-height: 1.875rem;
+			font-size: 17px;
+		}
+
+		.close-icon svg {
+			width: 1.25rem;
+			height: 1.25rem;
 		}
 	}
 
@@ -122,9 +156,9 @@ const Wrapper = styled.div`
 		}
 
 		.box {
-			width: 88.889vw;
-			border-radius: 10px;
-			padding: 3.75rem 5.55556vw 2.5rem;
+			width: 36.25rem;
+			border-radius: 0.625rem;
+			padding: 3.75rem 3.75rem 2.5rem;
 		}
 
 		.box button {
@@ -133,7 +167,7 @@ const Wrapper = styled.div`
 		}	
 		
 		.text {
-			font-size: 13px;
+			font-size: 15px;
 			font-weight: 600;
 		}
 
@@ -145,9 +179,10 @@ const Wrapper = styled.div`
 	
 		.title {
 			position: relative;
-			font-size: 16px;
+			line-height: 1.875rem;
+			font-size: 20px;
 			color: var(--clr-primary-1);
-			margin: 1.25rem 0;
+			margin: 2.5rem 0 1.25rem;
 			padding-top: 1.25rem;
 		}
 		
@@ -162,17 +197,30 @@ const Wrapper = styled.div`
 		}
 
 		.paragraph {
+			line-height: 1.25rem;
 			font-size: 15px;
 			margin-bottom: 1.875rem;
 		}
 
 		.close-icon {
-			margin: 1.25rem 1.25rem 0 0;
+			margin: 1.25rem;
 		}
 		
 		.close-icon svg {
 			width: 0.9375rem;
 			height: 0.9375rem;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.box {
+			width: 88.889vw;
+			padding: 3.75rem 1.25rem 2.5rem;
+		}
+
+		.title {
+			line-height: 1.25rem;
+			font-size: 16px;
 		}
 	}
 `

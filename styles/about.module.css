@@ -30,6 +30,7 @@
 }
 
 .text {
+	line-height: 1.875rem;
 	font-weight: 400;
 }
 
@@ -49,15 +50,44 @@
 	margin-top: 2.5rem;
 }
 
+@media (max-width: 1440px) {
+	.content {
+		width: 69.375rem;
+	}	
+}
+
 @media (max-width: 1220px) {
 	.content {
-		width: 58rem;
+		width: 57.3125rem;
 	}	
+	
+	.header {
+		margin-bottom: 2.1875rem;
+	}
+	
+	.title {
+		line-height: 2.8125rem;
+		font-size: 34px;
+		margin-bottom: 0.9375rem;
+	}
+	
+	.icons {
+		margin-bottom: 0.625rem;
+	}
+	
+	.subtitle {
+		line-height: 1.875rem;
+		font-size: 17px;
+	}
+	
+	.text {
+		line-height: 1.5625rem;
+		font-size: 17px;
+	}
 }
 
 @media (max-width: 992px) {
 	.container {
-		background-color: var(--clr-primary-6);
 		padding: 7.5rem 0 4.375rem;
 	}
 

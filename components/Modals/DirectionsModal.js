@@ -7,6 +7,9 @@ export default function DirectionsModal({ type, close }) {
 	if (type.id === 1)
 		content = <div className='module-content'>
 			<img src="/home/directions/image1.png" alt="Противокражные системы" className='module-image'/>
+			<div className='module-header'>
+				<h2 className='module-title'>{ type.text }</h2>
+			</div>
 			<div className='module-text'>
 				<p>Оборудование для защиты товаров находящихся в открытом доступе. Данное оборудование идеально подходит для магазинов одежды и обуви, продуктовых магазинов, аудио-видео магазинов.</p>
 				<br />
@@ -17,6 +20,9 @@ export default function DirectionsModal({ type, close }) {
 	else if (type.id === 2)
 		content = <div className='module-content'>
 			<img src="/home/directions/image2.png" alt="Автоматизация торговли" className='module-image'/>
+			<div className='module-header'>
+				<h2 className='module-title'>{ type.text }</h2>
+			</div>
 			<div className='module-text'>
 				<p>Оборудование для автоматизации торговли: чековые принтеры, принтеры этикеток, сканеры штрих-кодов, Pos-системы.</p>
 				<br/>
@@ -27,6 +33,9 @@ export default function DirectionsModal({ type, close }) {
 	else if (type.id === 3)
 		content = <div className='module-content'>
 			<img src="/home/directions/image3.png" alt="Подсчёт посетителей" className='module-image'/>
+			<div className='module-header'>
+				<h2 className='module-title'>{ type.text }</h2>
+			</div>
 			<div className='module-text'>
 				<p>Счетчик SM COUNTER (СМ КАУНТЕР) - маленький, питается от батареек и не требует подведения проводов. Применяется для подсчета посетителей в магазинах (торговых и выставочных центрах, библиотеках, и других местах) для обеспечения объективной информацией при принятии маркетинговых решений и повышения прибыльности торгового бизнеса. Устанавливается на входе или выходе из торгового зала в магазинах, на выставках.</p>
 			</div>
@@ -35,6 +44,9 @@ export default function DirectionsModal({ type, close }) {
 	else if (type.id === 4)
 		content = <div className='module-content'>
 			<img src="/home/directions/image4.png" alt="Расходный материал" className='module-image'/>
+			<div className='module-header'>
+				<h2 className='module-title'>{ type.text }</h2>
+			</div>
 			<div className='module-text'>
 				<p><b>Чековая лента</b> предназначена для контрольно-кассовых машин,пос-терминалов и фискальных регистраторов и представляет собой маленький рулон, внутри которого располагается втулка, или ролик. У каждого рулона есть своя индивидуальная характеристика: тип ленты, ширина, внешний и внутренний диаметры рулончика. 
 				<br />
@@ -112,6 +124,10 @@ const Wrapper = styled.div`
 		justify-content: space-between;
 	}
 
+	.module-content .module-header {
+		display: none;
+	}
+
 	.module-image {
 		width: 18.75rem;
 		height: 18.75rem;
@@ -162,7 +178,7 @@ const Wrapper = styled.div`
 	@media (max-width: 1220px) {
 		.module-container {
 			width: 51.1875rem;
-			padding: 2.5rem 3.125rem 3.75rem;
+			padding: 2.8125rem 3.125rem 4.0625rem;
 		}
 
 		.module-header {
@@ -198,22 +214,33 @@ const Wrapper = styled.div`
 	@media (max-width: 992px) {
 		.module-container {
 			width: 36.25rem;
-			padding: 3.125rem 1.875rem 2.5rem;
+			padding: 2.5rem 1.875rem;
 			border-radius: 0.625rem;
 		}
 
 		.module-header {
-			margin-bottom: 1.875rem;
+			display: none;
+			margin: 1.875rem 0 1.25rem;
+			padding: 1.25rem 0 0;
+		}
+
+		.module-header:before {
+			top: 0;
+			left: 0;
 		}
 
 		.module-title {
 			line-height: 1.875rem;
-			font-size: 21px;
+			text-align: center;
+			font-size: 20px;
 		}
 
 		.module-content {
 			flex-direction: column;
-			text-align: center;
+		}
+
+		.module-content .module-header {
+			display: block;
 		}
 
 		.module-image {
@@ -236,58 +263,29 @@ const Wrapper = styled.div`
 		}	
 
 		.close-icon svg {
-			width: 1.25rem;
-			height: 1.25rem;
+			width: 0.9375rem;
+			height: 0.9375rem;
 		}
 	}
 
 	@media (max-width: 650px) {
 		.module-container {
-			width: 36.25rem;
-			padding: 3.125rem 1.875rem 2.5rem;
-			border-radius: 0.625rem;
+			width: 88.889vw;
+			padding: 1.875rem 1.25rem;
 		}
 
-		.module-header {
-			margin-bottom: 1.875rem;
+		.module-image {
+			width: 14.375rem;
+			height: 14.375rem;
 		}
 
 		.module-title {
-			line-height: 1.875rem;
-			font-size: 21px;
-		}
-
-		.center .module-text {
-			padding: 0.9375rem 0 1.5625rem;
-		}
-
-		.module-footer {
-			margin-top: 1.25rem;
-		}
-
-		.module-button {
-			width: 15rem;
-			height: 2.8125rem;
-			margin-top: 0.9375rem;
-		}
-	
-		.module-button .text {
+			line-height: 1.25rem;
 			font-size: 16px;
 		}
 
-		.module-requirements {
-			line-height: 1.25rem;
-			font-size: 13px;
-			bottom: -1.25rem;
-		}
-
-		.close-icon {
-			margin: 1.25rem;
-		}	
-
-		.close-icon svg {
-			width: 1.25rem;
-			height: 1.25rem;
+		p {
+			line-height: 1.3rem;
 		}
 	}
 `

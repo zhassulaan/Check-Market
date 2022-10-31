@@ -7,7 +7,7 @@ import Button from '../Button';
 
 export default function MessageModal({ close, send }) {
 	const [details, setDetails] = useState({ name: "", surename: "", phone: "", email: "", message: "" });
-	const { state, dispatch } = useContext(Context);
+	const { dispatch } = useContext(Context);
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
 	let disp = send;
@@ -34,89 +34,89 @@ export default function MessageModal({ close, send }) {
 
 	return (
 		<>
-			{success ?
+			{ success ?
 				<SuccessModal close={ close }/>
 					:
 				<Wrapper>
-					<div className="form-container">
-						<div className="form-header">
+					<div className='form-container'>
+						<div className='form-header'>
 							<h2 className='form-title'>Задать нам вопрос</h2>
 						</div>
 
 						<form className='form-box' onSubmit={ handleSubmit }>
-							<div className="form-group">
-								<div className="form-label">
+							<div className='form-group'>
+								<div className='form-label'>
 									<label htmlFor="text">ФИО:</label>
 								</div>
 								<Input 
-									type={"text"}
-									name={"name"}
-									id={"name"}
-									placeholder={'Имя '}
-									value={details.name}
-									onChange={e => setDetails({...details, name: e.target.value})}
-									className={error ? "error-border" : "dafault-border"}
+									type={ "text" }
+									name={ "name" }
+									id={ "name" }
+									placeholder={ "Имя " }
+									value={ details.name }
+									onChange={ e => setDetails({ ...details, name: e.target.value }) }
+									className={ error ? 'error-border' : 'dafault-border' }
 								/>
 								<Input 
-									type={"text"}
-									name={"surename"}
-									id={"surename"}
-									placeholder={'Фамилия '}
-									value={details.surename}
-									onChange={e => setDetails({...details, surename: e.target.value})}
-									className={error ? "error-border" : "dafault-border"}
+									type={ "text" }
+									name={ "surename" }
+									id={ "surename" }
+									placeholder={ "Фамилия " }
+									value={ details.surename }
+									onChange={ e => setDetails({ ...details, surename: e.target.value }) }
+									className={ error ? 'error-border' : 'dafault-border' }
 								/>
 							</div>
 										
-							<div className="form-group">
-								<div className="form-label">
+							<div className='form-group'>
+								<div className='form-label'>
 									<label htmlFor="number">Телефон:</label>
 								</div>
-								<Input 
-									type={"text"}
-									name={"phone"}
-									id={"phone"}
-									placeholder={'+7 (___) ___-__-__'}
-									mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]}
-									value={details.phone}
-									onChange={e => setDetails({...details, phone: e.target.value})}
-									className={"dafault-border"}
+								<Input
+									type={ "text" }
+									name={ "phone" }
+									id={ "phone" }
+									placeholder={ "+7 (___) ___-__-__" }
+									mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
+									value={ details.phone }
+									onChange={ e => setDetails({ ...details, phone: e.target.value }) }
+									className={ 'dafault-border' }
 								/>
 							</div>
 							
-							<div className="form-group">
-								<div className="form-label">
+							<div className='form-group'>
+								<div className='form-label'>
 									<label htmlFor="email">E-mail:</label>
 								</div>
-								<Input 
-									type={"text"}
-									name={"email"}
-									id={"email"}
-									placeholder={'Укажите свой e-mail '}
-									value={details.email}
-									onChange={e => setDetails({...details, email: e.target.value})}
-									className={error ? "error-border" : "dafault-border"}
+								<Input
+									type={ "text" }
+									name={ "email" }
+									id={ "email" }
+									placeholder={ "Укажите свой e-mail " }
+									value={ details.email }
+									onChange={ e => setDetails({ ...details, email: e.target.value }) }
+									className={ error ? 'error-border' : 'dafault-border' }
 								/>
 							</div>
 							
-							<div className="form-group">
-								<div className="form-label">
+							<div className='form-group'>
+								<div className='form-label'>
 									<label htmlFor="text">Что бы Вы хотели узнать/уточнить?</label>
 								</div>
 								<Input 
-									type={"text"}
-									name={"message"}
-									id={"message"}
-									placeholder={'Опишите Вашу проблему '}
-									value={details.message}
-									onChange={e => setDetails({...details, message: e.target.value})}
-									ta={true}
-									className={error ? "error-border" : "dafault-border"}
+									type={ "text" }
+									name={ "message" }
+									id={ "message" }
+									placeholder={ "Опишите Вашу проблему " }
+									value={ details.message }
+									onChange={ e => setDetails({ ...details, message: e.target.value }) }
+									ta={ true }
+									className={ error ? 'error-border' : 'dafault-border' }
 								/>
 							</div>
 
-							<div className="form-button">
-								<Button text={"Отправить"}/>
+							<div className='form-button'>
+								<Button text={ "Отправить" }/>
 							</div>
 						</form>
 

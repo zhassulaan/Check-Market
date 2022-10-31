@@ -110,7 +110,7 @@ const Wrapper = styled.section`
 		}
 	
 		.subtitle {
-			line-height: 1.25rem;
+			line-height: 1.875rem;
 			font-size: 17px;
 		}
 		

@@ -21,35 +21,35 @@ export default function Hero() {
 	return (
 		<Wrapper>
          <div className='hero'>
-				<div className='logo-box'>
-	           <img src="/home/logo.svg" alt="logo" className='logo'/>
-				</div>
+			<div className='logo-box'>
+	           	<img src="/home/logo.svg" alt="logo" className='logo'/>
+			</div>
           
-			  	<div className='hero-text-content'>
-					<h2 className='hero-title'>Лидер в области автоматизации торговли</h2>
-					<p className='hero-paragraph'>Самые выгодные решения для Вашего бизнеса уже сегодня</p>
+		  	<div className='hero-text-content'>
+				<h2 className='hero-title'>Лидер в области автоматизации торговли</h2>
+				<p className='hero-paragraph'>Самые выгодные решения для Вашего бизнеса уже сегодня</p>
 					
-					<div onClick={ handleClick }>
-						<Button hero={ true } text={ "Открыть каталог" }/>
-					</div>
+				<div onClick={ handleClick }>
+					<Button hero={ true } text={ "Открыть каталог" }/>
+				</div>
 
-					<div className='hero-icons'>
-						<div className='hero-item'>
-							<img src="/home/rectangle.svg" alt="rectangle"/>
-							<h6>Лучшие цены </h6>
-							<p>С нами всегда выгоднее</p>
-						</div>
-						<div className='hero-item'>
-							<img src="/home/triangle.svg" alt="triangle"/>
-							<h6>Поддержка 24/7</h6>
-							<p>Ответим в любое время суток</p>
-						</div>
-						<div className='hero-item'>
-							<img src="/home/ellipse.svg" alt="circle"/>
-							<h6>Быстрая доставка</h6>
-							<p>Оперативно доставим в руки</p>
-						</div>
+				<div className='hero-icons'>
+					<div className='hero-item'>
+						<img src="/home/rectangle.svg" alt="rectangle"/>
+						<h6>Лучшие цены </h6>
+						<p>С нами всегда выгоднее</p>
 					</div>
+					<div className='hero-item'>
+						<img src="/home/triangle.svg" alt="triangle"/>
+						<h6>Поддержка 24/7</h6>
+						<p>Ответим в любое время суток</p>
+					</div>
+					<div className='hero-item'>
+						<img src="/home/ellipse.svg" alt="circle"/>
+						<h6>Быстрая доставка</h6>
+						<p>Оперативно доставим в руки</p>
+					</div>
+				</div>
       	   </div>
    	   </div>
 		</Wrapper>
