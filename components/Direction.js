@@ -18,39 +18,39 @@ export default function Direction({ type, action }) {
 				</div>
 
 				<div className="direction-content">
-					<div className="direction-box">
-						<img src="/home/directions/image1.png" alt="Противокражные системы"/>
-						<div className="direction-info">
-							<h4 className="direction-title">Противокражные системы</h4>
-							<p className="direction-paragraph">Антенны, датчики, сейфера, защитные этикетки, тросики</p>
-							<Button text={"Подробнее"} id={type[0].id} action={action}/>
+					<div id={ type[0].id } className="direction-box" onClick={ action }>
+						<img id={ type[0].id } src="/home/directions/image1.png" alt="Противокражные системы"/>
+						<div id={ type[0].id } className="direction-info">
+							<h4 id={ type[0].id } className="direction-title">Противокражные системы</h4>
+							<p id={ type[0].id } className="direction-paragraph">Антенны, датчики, сейфера, защитные этикетки, тросики</p>
+							<Button text={ "Подробнее" } id={ type[0].id } action={ action }/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/directions/image2.png" alt="Автоматизация торговли"/>
-						<div className="direction-info">
-							<h4 className="direction-title">Автоматизация торговли</h4>
-							<p className="direction-paragraph">принтера этикеток, принтера чеков, сканеры, моноблоки</p>
-							<Button text={"Подробнее"} id={type[1].id} action={action}/>
+					<div id={ type[1].id } className="direction-box" onClick={ action }>
+						<img id={ type[1].id } src="/home/directions/image2.png" alt="Автоматизация торговли"/>
+						<div id={ type[1].id } className="direction-info">
+							<h4 id={ type[1].id } className="direction-title">Автоматизация торговли</h4>
+							<p id={ type[1].id } className="direction-paragraph">принтера этикеток, принтера чеков, сканеры, моноблоки</p>
+							<Button text={ "Подробнее" } id={ type[1].id } action={ action }/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/directions/image3.png" alt="Подсчёт посетителей"/>
-						<div className="direction-info">
-							<h4 className="direction-title">Подсчёт посетителей</h4>
-							<p className="direction-paragraph">Система для маркетинговых исследований</p>
-							<Button text={"Подробнее"} id={type[2].id} action={action}/>
+					<div id={ type[2].id } className="direction-box" onClick={ action }>
+						<img id={ type[2].id } src="/home/directions/image3.png" alt="Подсчёт посетителей"/>
+						<div id={ type[2].id } className="direction-info">
+							<h4 id={ type[2].id } className="direction-title">Подсчёт посетителей</h4>
+							<p id={ type[2].id } className="direction-paragraph">Система для маркетинговых исследований</p>
+							<Button text={ "Подробнее" } id={ type[2].id } action={ action }/>
 						</div>
 					</div>
 
-					<div className="direction-box">
-						<img src="/home/directions/image4.png" alt="Расходный материал"/>
-						<div className="direction-info">
-							<h4 className="direction-title">Расходный материал</h4>
-							<p className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
-							<Button text={"Подробнее"} id={type[3].id} action={action}/>
+					<div id={ type[3].id } className="direction-box" onClick={ action }>
+						<img id={ type[3].id } src="/home/directions/image4.png" alt="Расходный материал"/>
+						<div id={ type[3].id } className="direction-info">
+							<h4 id={ type[3].id } className="direction-title">Расходный материал</h4>
+							<p id={ type[3].id } className="direction-paragraph">Чековая лента, этикет лента, бумага ЛПУ, бумага А4</p>
+							<Button text={ "Подробнее" } id={ type[3].id } action={ action }/>
 						</div>
 					</div>
 				</div>

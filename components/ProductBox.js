@@ -265,7 +265,7 @@ const Wrapper = styled.div`
 		}
 
 		.product-data {
-			height: 14rem;
+			height: 14.675rem;
 			padding: 1.85675rem 1.25rem 1.875rem;
 		}
 	
@@ -295,7 +295,7 @@ const Wrapper = styled.div`
 		
 		.product-button {
 			width: 80%;
-			height: 1.5625rem;
+			height: 2.5rem;
 		}
 
 		.text {

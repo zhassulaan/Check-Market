@@ -191,6 +191,10 @@ const Wrapper = styled.section`
 			margin: 10rem 0;
 		}
 		
+		.logo-box {
+			width: 26.25rem;
+		}
+
 		.logo {
 			width: 26.25rem;
 			height: 24.15rem;
@@ -249,6 +253,11 @@ const Wrapper = styled.section`
 			flex-direction: column;
 			gap: 1.875rem;
 			margin: 0;
+		}
+
+		.logo-box {
+			width: 15.625rem;
+			margin: 0 auto;
 		}
 
 		.logo {
@@ -314,6 +323,10 @@ const Wrapper = styled.section`
 		.hero {
 			width: 11.5625rem;
 			gap: 0;
+		}
+
+		.logo-box {
+			width: 11.5625rem;
 		}
 
 		.logo {

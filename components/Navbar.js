@@ -30,13 +30,11 @@ function Navbar({ home, modal }) {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		modal(e);
+		(window.innerWidth > 650) ? modal(e) : router.push('/basket');
 	}
 
 	return (
 		<Wrapper>
-			{/* <Scroll/> */}
-
 			{show ? 
 				<nav className={ home ? 'container white' : 'container' }>
 					<div className='icon button laptop searchIcon'>

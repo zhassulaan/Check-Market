@@ -5,14 +5,14 @@ export default function Button({ hero, text, id, action }) {
 		<>
 			{hero ?
 				<Wrapper2>
-					<button id={id} className="button" onClick={action}>
-						<p id={id} className="text">{text}</p>
+					<button id={ id } className="button" onClick={ action }>
+						<p id={ id } className="text">{  text }</p>
 					</button>
 				</Wrapper2>
 					:
 				<Wrapper>
-					<button id={id} className="button" onClick={action}>
-						<p id={id} className="text">{text}</p>
+					<button id={ id } className="button" onClick={ action }>
+						<p id={ id } className="text">{  text }</p>
 					</button>
 				</Wrapper>
 			}

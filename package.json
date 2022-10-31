@@ -1,15 +1,15 @@
 {
-  "name": "check-market",
   "homepage": "https://zhassulaan.github.io/check-market",
+  "name": "check-market",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",

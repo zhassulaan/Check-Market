@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Button from '../components/Button';
 import styles from '../styles/error.module.css';
+import styled from 'styled-components';
 
 export default function NotFound() {
    return (
@@ -22,11 +23,50 @@ export default function NotFound() {
 					<h3 className={styles.subtitle}>Страница не найдена</h3>
 					<p className={styles.text}>Запрашиваемая страница не найдена, возможно она была удалена</p>
 					<a href='/'>
-						<div className={styles.section_button}>
-							<Button text={" Вернуться на главную "}/>
-						</div>
+						<ButtonContainer>
+							<Button text={ "Вернуться на главную" }/>
+						</ButtonContainer>
 					</a>
 				</div>
         </div>
     );
 }
+
+const ButtonContainer = styled.div`
+	width: 27.5rem;
+	height: 4.375rem;
+	margin: auto;
+
+	@media (max-width: 1440px) {
+		.text {
+			font-size: 20px;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		width: 22.5rem;
+		height: 3.75rem;
+
+		.text {
+			font-size: 18px;
+		}
+	}
+	
+	@media (max-width: 992px) {
+		width: 20rem;
+		height: 3.125rem;
+
+		.text {
+			font-size: 15px;
+		}
+	}
+	
+	@media (max-width: 650px) {
+		width: 13.125rem;
+		height: 2.5rem;
+
+		.text {
+			font-size: 13px;
+		}
+	}
+`

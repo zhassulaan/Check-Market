@@ -10,7 +10,7 @@ import Input from '../Input';
 import Button from '../Button';
 
 export default function ServicesModal({ type, close }) {
-	const { state, dispatch } = useContext(Context);
+	const { dispatch } = useContext(Context);
 	const [details, setDetails] = useState({ type: type.text, name: "", surename: "", phone: "", email: "" });
 	const [subscribeModal, setSubscribeModal] = useState(false);
 	const [error, setError] = useState(false);

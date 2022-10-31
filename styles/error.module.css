@@ -40,8 +40,101 @@
 	margin-bottom: 2.5rem;
 }
 
-.section_button {
-	width: 27.5rem;
-	height: 4.375rem;
-	margin: auto;
+@media (max-width: 1440px) {
+	.title {
+		line-height: 11.25rem;
+		font-size: 160px;
+		margin-bottom: 1.875rem;
+	}
+
+	.subtitle {
+		line-height: 3.75rem;
+		font-size: 35px;
+		padding-bottom: 0.9375rem;
+	}
+}
+
+@media (max-width: 1220px) {
+	.container {
+		padding-top: 5rem;
+	}
+
+	.title {
+		line-height: 10rem;
+		font-size: 150px;
+		margin-bottom: 1.875rem;
+	}
+	
+	.subtitle {
+		line-height: 3.125rem;
+		font-size: 32px;
+	}
+	
+	.subtitle:after {
+		width: 45rem;
+		left: -9.5rem;
+	}
+	
+	.text {
+		width: 26rem;
+		font-size: 17px;
+		margin-bottom: 1.875rem;
+	}
+}
+
+@media (max-width: 992px) {
+	.container {
+		padding-top: 6.25rem;
+	}
+
+	.title {
+		line-height: 7.5rem;
+		font-size: 120px;
+		margin-bottom: 1.25rem;
+	}
+	
+	.subtitle {
+		line-height: 2.5rem;
+		font-size: 28px;
+		margin-bottom: 1.5625rem
+	}
+	
+	.subtitle:after {
+		width: 30rem;
+		left: -5rem;
+	}
+	
+	.text {
+		width: 20rem;
+		font-size: 14px;
+		margin-bottom: 1.5625rem
+	}
+}
+
+@media (max-width: 650px) {
+	.container {
+		padding-top: 8.75rem;
+	}
+
+	.title {
+		line-height: 5.625rem;
+		font-size: 80px;
+	}
+
+	.subtitle {
+		line-height: 1.875rem;
+		font-size: 24px;
+		margin-bottom: 1.25rem;
+		padding-bottom: 1.25rem;
+	}
+
+	.subtitle:after {
+		width: 20rem;
+		left: 0rem;
+	}
+
+	.text {
+		font-size: 16px;
+		margin-bottom: 1.25rem
+	}
 }
