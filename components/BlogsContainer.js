@@ -1,53 +1,53 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export default function BlogsPagination({ currentItems, option }) {
+export default function BlogsContainer({ currentItems, option }) {
 	const firstElement = currentItems[0];
 
 	return (
 	  	<Wrapper>
-			<div className="blog-box">
+			<div className='blog-box'>
 				<div className='image-content'>
-					<Image src={firstElement.image} alt="blog image" width={660} height={350} layout='fixed' />
+					<Image src={ firstElement.image } alt="blog image" width={660} height={350} layout="fixed"/>
 					<div className="frame"></div>
 												
 					<div className='blog-date'>
-						<h4>{firstElement.date}</h4>
-						<Image src='/blog-icons/arrow.svg' alt="open arrow" width={50} height={15} layout='fixed' />
+						<h4>{ firstElement.date }</h4>
+						<Image src="/blog-icons/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
 					</div>
 				</div>
 
 				<div className='text-content'>
-					<h6>{option}</h6>
-					<h4 className='blog-title'>{firstElement.title}</h4>
-					<div className='blog-text'><p>{firstElement.text1}</p></div>
-					{option === "Статьи" ?
-						<a href={`/blog/articles/${firstElement.id}`} className='button'>{"Смотреть полностью >"}</a>
+					<h6>{ option }</h6>
+					<h4 className='blog-title'>{ firstElement.title }</h4>
+					<div className='blog-text'><p>{ firstElement.text1 }</p></div>
+					{ option === "Статьи" ?
+						<a href={ `/blog/articles/${ firstElement.id }` } className='button'>{ "Смотреть полностью >" }</a>
 							:
-						<a href={`/blog/news/${firstElement.id}`} className='button'>{"Смотреть полностью >"}</a>
+						<a href={ `/blog/news/${ firstElement.id }` } className='button'>{ "Смотреть полностью >" }</a>
 					}
 				</div>
 			</div>
 		 	
-			{currentItems && currentItems.map(item => (
+			{ currentItems && currentItems.map(item => (
 			  	(item.id !== firstElement.id) ?
 				<div className='blog-box mini'>
 					<div className='mini-image-content'>
-						<Image src={item.image} alt="blog image" width={260} height={260} layout='fixed' />
-						<div className="frame"></div>
+						<Image src={ item.image } alt="blog image" width={260} height={260} layout="fixed"/>
+						<div className='frame'></div>
 					</div>
 
 					<div className='text-content'>
 						<div className='text-content-header'>
-							<h6>{item.date}</h6>
-							<h6>{option}</h6>
+							<h6>{ item.date }</h6>
+							<h6>{ option }</h6>
 						</div>
-						<h4 className='blog-title'>{item.title}</h4>
-						<div className='blog-text'><p>{item.text1}</p></div>
-						{option === "Статьи" ?
-							<a href={`/blog/articles/${item.id}`} className='button'>{"Смотреть полностью >"}</a>
+						<h4 className='blog-title'>{ item.title }</h4>
+						<div className='blog-text'><p>{ item.text1 }</p></div>
+						{ option === "Статьи" ?
+							<a href={ `/blog/articles/${ item.id }` } className='button'>{ "Смотреть полностью >" }</a>
 								:
-							<a href={`/blog/news/${item.id}`} className='button'>{"Смотреть полностью >"}</a>
+							<a href={ `/blog/news/${ item.id }` } className='button'>{ "Смотреть полностью >" }</a>
 						}
 					</div>
 			  </div>

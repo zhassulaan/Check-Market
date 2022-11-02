@@ -66,7 +66,7 @@ export default function Services() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           	<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
 					</div>
 				</div>
 
@@ -100,19 +100,19 @@ export default function Services() {
 							<div className={ [styles.image, styles.image1].join(" ") }>
 								<img src="/services/image1.png" alt="image 1" width={360} height={240} layout="fixed"/>
 								<div id={ serviceType[0].id } className={ styles.frame } onClick={ modal }></div>
-								<h6 className={ styles.frame_text }>Автоматизация <br /> розничной торговли</h6>
+								<h6 className={ styles.frame_text }>Автоматизация <br className={ styles.br }/> розничной торговли</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image2].join(" ") }>
 								<img src="/services/image2.png" alt="image 2" width={213.22} height={280} layout="fixed"/>
 								<div id={ serviceType[1].id } className={ styles.frame } onClick={ modal }></div>
-								<h6 className={ styles.frame_text }>Автоматизация <br /> ресторанного бизнеса</h6>
+								<h6 className={ styles.frame_text }>Автоматизация <br className={ styles.br }/> ресторанного бизнеса</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image3].join(" ") }>
 								<img src="/services/image3.png" alt="image 3" width={200} height={130} layout="fixed"/>
 								<div id={ serviceType[2].id } className={ styles.frame } onClick={ modal }></div>
-								<h6 className={ styles.frame_text }>Доставка <br /> расходного материала</h6>
+								<h6 className={ styles.frame_text }>Доставка <br className={ styles.br }/> расходного материала</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image4].join(" ") }>
@@ -130,9 +130,9 @@ export default function Services() {
 
 						<div className={ styles.text_content }>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<br/>
+							<br className={ styles.br }/>
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-							<br/>
+							<br className={ styles.br }/>
 						</div>
 					</div>
 				</div>

@@ -33,74 +33,80 @@ export default function Delivery() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			<>
-						{ basketModal ? <BasketModal close={ basket }/> : null };
-						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+			<div>
+				{ basketModal ? <BasketModal close={ basket }/> : null };
+				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
 
-						<Navbar modal={ basket }/>
+				<Navbar modal={ basket }/>
 
-						<div className={styles.container}>
-							<div className={styles.header}>
-								<h3 className={styles.title}>Доставка и оплата</h3>
+				<div className={ styles.logo_container }>
+					<div className={ styles.logo_box }>
+		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+					</div>
+				</div>
 
-								<div className={styles.icons}>
-									<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-									<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-									<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
-								</div>
+				<div className={ styles.container }>
+					<div className={ styles.header }>
+						<h3 className={ styles.title }>Доставка и оплата</h3>
 
-								<p className={styles.subtitle}>Условия доставки и оплаты</p>
-							</div>
+						<div className={ styles.icons }>
+							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+						</div>
 
-							<div className={styles.content}>
-								<div className={styles.main}>
-									<p className={styles.text}>Доставка "Самовывоз" — <span className={styles.green1}>Бесплатно</span></p>
-									<p className={styles.text}>Обязательно связаться перед выездом на склад!</p>
-									<br />
-									<p className={styles.text}>Транспортная компания <span className={styles.green2}>Бесплатно при стоимости заказа от 70000 Тг.</span></p>
-									<p className={styles.text}>по Алматы до транспортной компании для отправки в регионы доставка бесплатная. В каждый регион у транспортной компании свои цены на доставку. Средняя цена за отправку в регион от 500 тенге за коробку 20 кг!</p>
-									<br />
-									<p className={styles.text}>Доставка — <span className={styles.green3}>Бесплатно</span></p>
-								</div>
+						<p className={ styles.subtitle }>Условия доставки и оплаты</p>
+					</div>
+
+					<div className={ styles.content }>
+						<div className={ styles.main }>
+							<p className={ styles.text }>Доставка "Самовывоз" — <span className={ styles.green1 }>Бесплатно</span></p>
+							<p className={ styles.text }>Обязательно связаться перед выездом на склад!</p>
+							<br className={ styles.br }/>
+							<p className={ styles.text }>Транспортная компания <span className={ styles.green2 }>Бесплатно при стоимости заказа от 70000 Тг.</span></p>
+							<p className={ styles.text }>по Алматы до транспортной компании для отправки в регионы доставка бесплатная. В каждый регион у транспортной компании свои цены на доставку. Средняя цена за отправку в регион от 500 тенге за коробку 20 кг!</p>
+							<br className={ styles.br }/>
+							<p className={ styles.text }>Доставка — <span className={ styles.green3 }>Бесплатно</span></p>
+						</div>
 								
-								<div className={styles.payment_method}>
-									<h6>Способы оплаты:</h6>
-									<ul>
-										<li><p className={styles.text}>Наличными</p></li>
-										<li><p className={styles.text}>Безналичный расчет</p></li>
-									</ul>
-								</div>
+						<div className={ styles.payment_method }>
+							<h6>Способы оплаты:</h6>
+							<ul>
+								<li><p className={ styles.text }>Наличными</p></li>
+								<li><p className={ styles.text }>Безналичный расчет</p></li>
+							</ul>
+						</div>
 
-								<div className={styles.delivery_region}>
-									<h6>Регионы доставки:</h6>
-									<div className={styles.regions}>
-										<ul>
-											<li><p className={styles.text}>Акмолинская область</p></li>
-											<li><p className={styles.text}>Актюбинская область</p></li>
-											<li><p className={styles.text}>Алматинская область</p></li>
-											<li><p className={styles.text}>Жамбылская область</p></li>
-											<li><p className={styles.text}>Туркестанская область</p></li>
-										</ul>
+						<div className={ styles.delivery_region }>
+							<h6>Регионы доставки:</h6>
+							<div className={ styles.regions }>
+								<ul>
+									<li><p className={ styles.text }>Акмолинская область</p></li>
+									<li><p className={ styles.text }>Актюбинская область</p></li>
+									<li><p className={ styles.text }>Алматинская область</p></li>
+									<li><p className={ styles.text }>Жамбылская область</p></li>
+									<li><p className={ styles.text }>Туркестанская область</p></li>
+								</ul>
 
-										<ul>
-											<li><p className={styles.text}>Актау</p></li>
-											<li><p className={styles.text}>Алматы</p></li>
-											<li><p className={styles.text}>Атырау</p></li>
-											<li><p className={styles.text}>Байконур</p></li>
-											<li><p className={styles.text}>Караганда</p></li>
-										</ul>
+								<ul>
+									<li><p className={ styles.text }>Актау</p></li>
+									<li><p className={ styles.text }>Алматы</p></li>
+									<li><p className={ styles.text }>Атырау</p></li>
+									<li><p className={ styles.text }>Байконур</p></li>
+									<li><p className={ styles.text }>Караганда</p></li>
+								</ul>
 
-										<ul>
-											<li><p className={styles.text}>Павлодар</p></li>
-											<li><p className={styles.text}>Петропавловск</p></li>
-										</ul>
-									</div>
-								</div>
+								<ul>
+									<li><p className={ styles.text }>Павлодар</p></li>
+									<li><p className={ styles.text }>Петропавловск</p></li>
+								</ul>
 							</div>
 						</div>
+					</div>
+				</div>
 						
-						<Footer modal={ subscribe }/>
-			</>
+				<Footer modal={ subscribe }/>
+			</div>
 		</div>
 	);
 }

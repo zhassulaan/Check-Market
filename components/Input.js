@@ -88,12 +88,12 @@ const Wrapper = styled.nav`
 	
 	input {
 		height: 2.5rem;
-		padding: 9px 10rem 11px 0.625rem;
+		padding: 0.5625rem 0.625rem 0.6875rem;
 	}
 
 	textarea {
 		height: 8.75rem;
-		padding: 9px 0.625rem 10px;
+		padding: 0.5625rem 0.625rem 0.625rem;
 	}
 `
 

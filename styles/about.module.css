@@ -80,7 +80,7 @@
 
 @media (max-width: 1440px) {
 	.container {
-		padding: 11.5625rem 0 13.75rem;
+		padding: 11.5625rem 0 14.375rem;
 	}
 
 	.content {
@@ -90,7 +90,7 @@
 
 @media (max-width: 1220px) {
 	.container {
-		padding: 9.6875rem 0 11.25rem;
+		padding: 9.6875rem 0 12.5rem;
 	}
 
 	.content {
@@ -200,7 +200,7 @@
 	.br {
 		content: "";
 		display: block;
-	   margin: 0.75rem;
+	   	margin: 0.75rem;
 	}
 
 	.footer {
@@ -235,7 +235,7 @@
 	.br {
 		content: "";
 		display: block;
-	   margin: 0.75rem;
+	   margin: 0.5rem;
 	}
 	
 	.title {

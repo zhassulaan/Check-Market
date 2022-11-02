@@ -180,7 +180,7 @@ export default function ServicesModal({ type, close }) {
 										type={ "text" }
 										name={ "email" }
 										id={ "email" }
-										placeholder={ 'Укажите адрес электронной почты ' }
+										placeholder={ 'Укажите свой e-mail ' }
 										value={ details.email }
 										onChange={ e => setDetails({ ...details, email: e.target.value }) }
 										className={ error ? 'error-border' : 'dafault-border' }

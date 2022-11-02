@@ -43,7 +43,7 @@ export default function About() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           	<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
 					</div>
 				</div>
 

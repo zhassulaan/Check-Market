@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import newsData from '../data/news-data';
 import articlesData from '../data/articles-data';
-import BlogsPagination from '../components/BlogsPagination';
+import Blogs from '../components/BlogsContainer';
 import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
@@ -26,8 +26,8 @@ export default function Blog() {
 	}
 
 	const [option, setOption] = useState(1);
-	const [news, setNews] = useState(newsData.slice().reverse());
-	const [articles, setArticles] = useState(articlesData.slice().reverse());
+	const news = newsData.slice().reverse();
+	const articles = articlesData.slice().reverse();
 	const [blogs, setBlogs] = useState(articles);
 
 	// We start with an empty list of items.
@@ -86,71 +86,71 @@ export default function Blog() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			<>
-						{ basketModal ? <BasketModal close={ basket }/> : null };
-						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+			<div>
+				{ basketModal ? <BasketModal close={ basket }/> : null };
+				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
 
-						<Navbar modal={ basket }/>
+				<Navbar modal={ basket }/>
 						
-						<Wrapper>
-							<div className='container'>
-								<div className='header'>
-									<h3 className='title'>Блог</h3>
+				<Wrapper>
+					<div className='container'>
+						<div className='header'>
+							<h3 className='title'>Блог</h3>
 
-									<div className='icons'>
-										<Image src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-										<Image src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-										<Image src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
-									</div>
-
-									<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
-								</div>
-
-								<div className='buttons'>
-									<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
-										<Button text={"Статьи"}/>
-									</div>
-									<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
-										<Button text={"Новости"}/>
-									</div>
-								</div>
-
-								{option === 1 ?
-									<div className='blog-container'>
-										<BlogsPagination currentItems={currentArticles} option={"Статьи"}/>
-										<ReactPaginate
-											key="paginate1"
-											breakLabel="..."
-											nextLabel="Следующая"
-											onPageChange={handlePageClick}
-											marginPagesDisplayed={1}
-											pageRangeDisplayed={3}
-											pageCount={pageCountArticles}
-											previousLabel="Предыдущая"
-											renderOnZeroPageCount={null}
-										/>
-									</div>
-										:
-									<div className='blog-container'>
-										<BlogsPagination currentItems={currentNews} option={"Новости"}/>
-										<ReactPaginate
-											key="paginate2"
-											breakLabel="..."
-											nextLabel="Следующая"
-											onPageChange={handlePageClick}
-											marginPagesDisplayed={1}
-											pageRangeDisplayed={3}
-											pageCount={pageCountNews}
-											previousLabel="Предыдущая"
-											renderOnZeroPageCount={null}
-										/>
-									</div>
-								}
+							<div className='icons'>
+								<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+								<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+								<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
 							</div>
-						</Wrapper>
+
+							<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
+						</div>
+
+						<div className='buttons'>
+							<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
+								<Button text={ "Статьи" }/>
+							</div>
+							<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
+								<Button text={ "Новости" }/>
+							</div>
+						</div>
+
+						{option === 1 ?
+							<div className='blog-container'>
+								<Blogs currentItems={ currentArticles } option={ "Статьи" }/>
+								<ReactPaginate
+									key="paginate1"
+									breakLabel="..."
+									nextLabel="Следующая"
+									onPageChange={ handlePageClick }
+									marginPagesDisplayed={1}
+									pageRangeDisplayed={3}
+									pageCount={ pageCountArticles }
+									previousLabel="Предыдущая"
+									renderOnZeroPageCount={ null }
+								/>
+							</div>
+								:
+							<div className='blog-container'>
+								<Blogs currentItems={ currentNews } option={ "Новости" }/>
+								<ReactPaginate
+									key="paginate2"
+									breakLabel="..."
+									nextLabel="Следующая"
+									onPageChange={ handlePageClick }
+									marginPagesDisplayed={1}
+									pageRangeDisplayed={3}
+									pageCount={ pageCountNews }
+									previousLabel="Предыдущая"
+									renderOnZeroPageCount={ null }
+								/>
+							</div>
+						}
+					</div>
+				</Wrapper>
 						
-						<Footer modal={ subscribe }/>
-			</>
+				<Footer modal={ subscribe }/>
+			</div>
 		</div>
 	);
 }
@@ -270,6 +270,7 @@ const Wrapper = styled.section`
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			border: 2px solid blue;
 		}
 		
 		li {
@@ -317,4 +318,22 @@ const Wrapper = styled.section`
 			font-weight: 600;
 		}
 	}
+
+	@media (max-width: 1440px) {
+		.container {	
+			margin: 13.125rem 0 11.1875rem;
+		}
+		
+		.content {
+			width: 69.375rem;
+		}
+	}
+	
+	@media (max-width: 1220px) {}
+	
+	@media (max-width: 992px) {}
+	
+	@media (max-width: 768px) {}
+	
+	@media (max-width: 650px) {}
 `
