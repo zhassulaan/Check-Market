@@ -65,7 +65,7 @@ export default function BasketModal({ close }) {
 					</div>
 
 					<div className='close-icon button' onClick={ close }>
-						<svg width="32" height="32" viewBox="0 0 32 32" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="32" height="32" viewBox="0 0 32 32" stroke="var(--clr-white)" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M1 1L30.9999 31" stroke-width="2"/>
 							<path d="M31 1L1 31" stroke-width="2"/>
 						</svg>
@@ -82,7 +82,7 @@ export default function BasketModal({ close }) {
 					</a>
 
 					<div className='close-icon button' onClick={ close }>
-						<svg width="32" height="32" viewBox="0 0 32 32" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="32" height="32" viewBox="0 0 32 32" stroke="var(--clr-white)" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M1 1L30.9999 31" stroke-width="2"/>
 							<path d="M31 1L1 31" stroke-width="2"/>
 						</svg>
@@ -339,6 +339,10 @@ const Wrapper = styled.section`
 			line-height: 1.25rem;
 			font-size: 13px;
 			bottom: -1.25rem;
+		}
+
+		svg {
+			stroke: var(--clr-black);
 		}
 
 		.close-icon {

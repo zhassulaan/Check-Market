@@ -5,6 +5,7 @@ import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 import styles from '../styles/about.module.css';
 
 export default function About() {
@@ -40,12 +41,13 @@ export default function About() {
 
 				<Navbar modal={ basket }/>
 
-				<div className={ styles.container }>
-					<div className={ styles.mobile }>
-						<img src="/main/frame.png" alt="logo frame" className={ styles.frame }/>
-						<img src="/main/logo.png" alt="co. logo" className={ styles.logo }/>
+				<div className={ styles.logo_container }>
+					<div className={ styles.logo_box }>
+		           	<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
 					</div>
-							
+				</div>
+
+				<div className={ styles.container }>
 					<div className={ styles.header }>
 						<h3 className={ styles.title }>О нас</h3>
 
@@ -60,27 +62,27 @@ export default function About() {
 
 					<div className={ styles.content }>
 						<p className={ styles.text }>Наша компания создана с целью помогать. Помогать вам в решении ваших задач и проблем. Основной принцип работы нашей компании – подбор оптимальных решений по безопасности предприятий торговли и оказание профессиональных услуг по автоматизации производства, установке и обслуживанию оборудования, а также предоставление качественного расходного материала!</p>
-						<br />
+						<br className={ styles.br }/>
 
 						<p className={ styles.text }>В настоящее время мы предлагаем широкий ассортимент решений и качественного оборудования и расходного материала в следующих категориях:</p>
-						<br />
+						<br className={ styles.br }/>
 
 						<ul className={ styles.options }>
 							<li>
 								<p className={ styles.text }>противокражные системы (антенны, датчики, сейфера, защитные этикетки, тросики)</p>
-								<br />
+								<br className={ styles.br }/>
 							</li>
 							<li>
 								<p className={ styles.text }>автоматизация торговли (принтера этикеток, принтера чеков, сканера штрих кодов, моноблоки и.т.д)</p>
-								<br />
+								<br className={ styles.br }/>
 							</li>
 							<li>
 								<p className={ styles.text }>системы подсчёта посетителей (для маркетинговых исследований)</p>
-								<br />
+								<br className={ styles.br }/>
 							</li>
 							<li>
 								<p className={ styles.text }>расходный материал (чековая лента для принтеров и кассовых аппаратов, этикет лента, бумага ЛПУ, бумага А4)</p>
-								<br />
+								<br className={ styles.br }/>
 							</li>
 						</ul>
 					</div>
@@ -117,6 +119,8 @@ export default function About() {
 					</div>
 				</div>
 						
+				<ScrollToTop/>
+        
 				<Footer modal={ subscribe }/>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import styled from "styled-components";
+import CookieConsent from 'react-cookie-consent';
 import DirectionsModal from '../components/Modals/DirectionsModal';
 import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
@@ -13,6 +14,7 @@ import Blog from '../components/Blog';
 import Recomendations from '../components/Recomendations';
 import Reviews from '../components/Reviews';
 import Button from '../components/Button';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function Home() {
   // SUBSCRIBE AND BASKET MODAL
@@ -107,11 +109,110 @@ export default function Home() {
 
         { window.innerWidth > 650 ? <Reviews/> : null }
               
+        <ScrollToTop/>
+        
+        <CookieContainer>
+          <CookieConsent
+            debug={ true }
+            location="bottom"
+            buttonClasses="cookie-button"
+            containerClasses="cookie-alert"
+            contentClasses="cookie-text"
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100vw', background: 'var(--clr-white)' }}
+            contentStyle={{ textAlign: 'center', color: 'var(--clr-black)', fontWeight: '400', margin: '1.25rem 0 1.042vw' }}
+            buttonStyle={{ background: 'var(--clr-primary-1)', color: 'var(--clr-white)', fontWeight: '600', borderRadius: '0.625rem', margin: '1.042vw 0 1.25rem' }}
+            buttonText="Принять и закрыть"
+          >
+            <p>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, Вы даете согласие на их использование в соотвествии с</p>
+            <a href='/'>Пользовательским соглашением.</a>
+          </CookieConsent>
+        </CookieContainer>
+
         <Footer modal={ subscribe }/>
       </div>
     </div>
   );
 }
+
+const CookieContainer = styled.div`
+  .cookie-button,
+  p,
+  a {
+    font-size: 16px;
+  }
+
+  a {
+    font-weight: 300;
+    text-decoration: underline;
+  }
+
+  .cookie-text {
+    max-height: 2.5rem;
+    line-height: 1.25rem;
+  }
+
+  .cookie-button {
+    width: 13.542vw;
+    height: 3.125rem;
+  }
+
+  @media (max-width: 1440px) {
+    .cookie-button,
+    p,
+    a {
+      font-size: 15px;
+    }
+
+    .cookie-button {
+      width: 15.278vw;
+      height: 2.8125rem;
+    }
+  }
+  
+  @media (max-width: 1220px) {
+    .cookie-button,
+    p,
+    a {
+      font-size: 14px;
+    }
+    
+    .cookie-text {
+      width: 64.516vw;
+      max-height: 3.75rem;
+    }
+
+    .cookie-button {
+      width: 18.145vw;
+      height: 2.5rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .cookie-text {
+      width: 73.733vw;
+    }
+
+    .cookie-button {
+      width: 30.769vw;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .cookie-text {
+      width: 88.889vw;
+    }
+
+    .cookie-button {
+      width: 50vw;
+    }
+  }
+  
+  @media (max-width: 492px) {
+    .cookie-text {
+      max-height: 5rem;
+    }
+  }
+`
 
 const Wrapper = styled.section`
   @media (max-width: 650px) {

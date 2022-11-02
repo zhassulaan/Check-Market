@@ -69,7 +69,7 @@ function Navbar({ home, modal }) {
 							<a href='/about' className={ (router.pathname == "/about") ? 'active' : 'notactive' }>О нас</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<a href='/services' className={ (router.pathname == "/services") ? 'active' : 'notactive' }>Услуги</a>
+							<a href='/services' className={ (router.pathname == "/services" || router.pathname == "/basket" || router.pathname == "/order") ? 'active' : 'notactive' }>Услуги</a>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
 							<a href='/blog' className={ (router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active' : 'notactive' }>Блог</a>

@@ -77,7 +77,7 @@ function Dropdown({ close }) {
 					</a>
 				</li>
 				
-				<li className={(router.pathname == "/services") ? 'active dropdown-item' : 'dropdown-item'}>
+				<li className={(router.pathname == "/services" || router.pathname == "/basket" || router.pathname == "/order") ? 'active dropdown-item' : 'dropdown-item'}>
 					<div>
 						<a href='/services'>
 							<svg width="16" height="15" viewBox="0 0 16 15" fill="black" xmlns="http://www.w3.org/2000/svg">

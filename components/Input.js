@@ -60,7 +60,7 @@ const Wrapper = styled.nav`
 		width: 100%;
 		font-family: 'Open Sans';
 		font-style: normal;
-		font-size: 16px;
+		font-size: 15px;
 		font-weight: 300;
 		::placeholder {
 			color: var(--clr-black);
@@ -78,6 +78,7 @@ const Wrapper = styled.nav`
 		pointer-events: none;
 		top: 19px;
 		left: 11px;
+		font-size: 15px;
 		margin: auto;
 	}
 

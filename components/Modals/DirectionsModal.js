@@ -68,7 +68,7 @@ export default function DirectionsModal({ type, close }) {
 				{ content }
 
 				<div className='close-icon button' onClick={ close }>
-					<svg width="32" height="32" viewBox="0 0 32 32" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg width="32" height="32" viewBox="0 0 32 32" stroke="var(--clr-white)" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 1L30.9999 31" stroke-width="2"/>
 						<path d="M31 1L1 31" stroke-width="2"/>
 					</svg>
@@ -214,7 +214,7 @@ const Wrapper = styled.div`
 	@media (max-width: 992px) {
 		.module-container {
 			width: 36.25rem;
-			padding: 2.5rem 1.875rem;
+			padding: 2.5rem 5.556vw;
 			border-radius: 0.625rem;
 		}
 
@@ -265,13 +265,14 @@ const Wrapper = styled.div`
 		.close-icon svg {
 			width: 0.9375rem;
 			height: 0.9375rem;
+			stroke: var(--clr-black);
 		}
 	}
 
 	@media (max-width: 650px) {
 		.module-container {
 			width: 88.889vw;
-			padding: 1.875rem 1.25rem;
+			padding: 1.875rem 5.556vw;
 		}
 
 		.module-image {
