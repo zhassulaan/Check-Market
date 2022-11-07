@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-export default function Button({ hero, text, id, action }) {
+export default function Button({ hero, blog, text, id, action }) {
 	return (
 		<>
 			{hero ?
 				<Wrapper2>
-					<button id={ id } className="button" onClick={ action }>
-						<p id={ id } className="text">{  text }</p>
+					<button id={ id } className='button' onClick={ action }>
+						<p id={ id } className='text'>{ text }</p>
 					</button>
 				</Wrapper2>
 					:
 				<Wrapper>
-					<button id={ id } className="button" onClick={ action }>
-						<p id={ id } className="text">{  text }</p>
+					<button id={ id } className={ blog ? 'button' : 'default-button button' } onClick={ action }>
+						<p id={ id } className='text'>{  text }</p>
 					</button>
 				</Wrapper>
 			}
@@ -71,24 +71,24 @@ const Wrapper = styled.div`
 		border-radius: 0.625rem;
 	}
 	
-	.button:hover {
+	.button.default-button:hover {
 		background-color: var(--clr-white);
 		border: 2px solid var(--clr-primary-1);
 		animation: animateBg 0.3s linear;
 	}
 	
-	.button:not(:hover) {
+	.button.default-button:not(:hover) {
 		background-color: var(--clr-primary-1);
 		border: none;
 		animation: animateBgOut 0.3s linear;
 	}
 	
-	.button:hover .text {
+	.button.default-button:hover .text {
 		color: var(--clr-primary-1);
 		animation: animateText 0.3s linear;
 	}
 	
-	.button:not(:hover) .text {
+	.button.default-button:not(:hover) .text {
 		animation: animateTextOut 0.3s linear;
 	}
 

@@ -54,7 +54,7 @@ export default function DeliveryModal({ close }) {
 				</div>
 
 				<div className='close-icon button' onClick={ close }>
-					<Image src='/modal/close.svg' alt="close button" width={30} height={30} />
+					<Image src="/modal/close.svg" alt="close button" width={30} height={30}/>
 				</div>
 			</div>
 		</Wrapper>
@@ -155,4 +155,9 @@ const Wrapper = styled.section`
 		right: 0;
 		margin-right: -6.875rem;
 	}	
+
+	@media (max-width: 1440px) {}
+	@media (max-width: 1220px) {}
+	@media (max-width: 992px) {}
+	@media (max-width: 650px) {}
 `

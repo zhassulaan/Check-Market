@@ -253,11 +253,13 @@ const Wrapper = styled.div`
 		}
 
 		.product-sale {
-			width: 6.1445vw;
-			max-width: 3.125rem;
-			height: 6.1445vw;
-			max-height: 3.125rem;
-			margin: 0.9375rem;
+			width: 9.23vw;
+			max-width: 5rem;
+			height: 4.615vw;
+			max-height: 2.5rem;
+			left: 0;
+			border-radius: 0.625rem;
+			margin: 0;
 		}
 		
 		.product-sale h6 {
@@ -315,15 +317,12 @@ const Wrapper = styled.div`
 		}
 
 		.product-sale {
-			width: 6.1445vw;
-			max-width: 3.125rem;
-			height: 6.1445vw;
-			max-height: 3.125rem;
-			margin: 0.9375rem;
+			width: 4.375rem;
+			height: 1.875rem;
 		}
 		
 		.product-sale h6 {
-			font-size: 15px;
+			font-size: 14px;
 		}
 
 		.product-data {

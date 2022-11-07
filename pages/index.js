@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styled from "styled-components";
 import CookieConsent from 'react-cookie-consent';
@@ -59,6 +59,12 @@ export default function Home() {
     setOption(2);
   }
 
+  const [canShow , setCanShow] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout( () => setCanShow(true) , 3000);
+    return () => clearTimeout(timer);
+  });
+
   return (
     <div>
       <Head>
@@ -110,23 +116,27 @@ export default function Home() {
         { window.innerWidth > 650 ? <Reviews/> : null }
               
         <ScrollToTop/>
-        
-        <CookieContainer>
-          <CookieConsent
-            debug={ true }
-            location="bottom"
-            buttonClasses="cookie-button"
-            containerClasses="cookie-alert"
-            contentClasses="cookie-text"
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100vw', background: 'var(--clr-white)' }}
-            contentStyle={{ textAlign: 'center', color: 'var(--clr-black)', fontWeight: '400', margin: '1.25rem 0 1.042vw' }}
-            buttonStyle={{ background: 'var(--clr-primary-1)', color: 'var(--clr-white)', fontWeight: '600', borderRadius: '0.625rem', margin: '1.042vw 0 1.25rem' }}
-            buttonText="Принять и закрыть"
-          >
-            <p>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, Вы даете согласие на их использование в соотвествии с</p>
-            <a href='/'>Пользовательским соглашением.</a>
-          </CookieConsent>
-        </CookieContainer>
+
+        { canShow  ?
+          <CookieContainer>
+            <CookieConsent
+              debug={ true }
+              location="bottom"
+              buttonClasses="cookie-button"
+              containerClasses="cookie-alert"
+              contentClasses="cookie-text"
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100vw', background: 'var(--clr-white)' }}
+              contentStyle={{ textAlign: 'center', color: 'var(--clr-black)', fontWeight: '400', margin: '1.25rem 0 1.042vw' }}
+              buttonStyle={{ background: 'var(--clr-primary-1)', color: 'var(--clr-white)', fontWeight: '600', borderRadius: '0.625rem', margin: '1.042vw 0 1.25rem' }}
+              buttonText="Принять и закрыть"
+            >
+              <p>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, Вы даете согласие на их использование в соотвествии с</p>
+              <a href='/'>Пользовательским соглашением.</a>
+            </CookieConsent>
+          </CookieContainer>
+            :
+          <></> 
+        }
 
         <Footer modal={ subscribe }/>
       </div>
@@ -273,6 +283,13 @@ const Section = styled.section`
 			font-size: 14px;
 		}
   }
+
+  @media (max-width: 768px) {
+    .direction-paragraph {
+			line-height: 1.25rem;
+			font-size: 15px;
+		}
+	}
   
   @media (max-width: 650px) {
     padding-bottom: 0;

@@ -8,17 +8,20 @@ export default function BlogsContainer({ currentItems, option }) {
 	  	<Wrapper>
 			<div className='blog-box'>
 				<div className='image-content'>
-					<Image src={ firstElement.image } alt="blog image" width={660} height={350} layout="fixed"/>
+					<Image src={ firstElement.image } alt="blog image" width="100%" height="100%" layout="fill" />
 					<div className="frame"></div>
 												
 					<div className='blog-date'>
 						<h4>{ firstElement.date }</h4>
-						<Image src="/blog-icons/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
+						<img src="/blog-icons/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
 					</div>
 				</div>
 
 				<div className='text-content'>
-					<h6>{ option }</h6>
+					<div className='text-content-header'>
+						<h6 style={ (window.innerWidth > 650) ? { display: "none" } : { display: "block" } }>{ firstElement.date }</h6>
+						<h6>{ option }</h6>
+					</div>
 					<h4 className='blog-title'>{ firstElement.title }</h4>
 					<div className='blog-text'><p>{ firstElement.text1 }</p></div>
 					{ option === "Статьи" ?
@@ -33,7 +36,7 @@ export default function BlogsContainer({ currentItems, option }) {
 			  	(item.id !== firstElement.id) ?
 				<div className='blog-box mini'>
 					<div className='mini-image-content'>
-						<Image src={ item.image } alt="blog image" width={260} height={260} layout="fixed"/>
+						<Image src={ item.image } alt="blog image" width="100%" height="100%" layout="fill"/>
 						<div className='frame'></div>
 					</div>
 
@@ -182,5 +185,243 @@ const Wrapper = styled.div`
 	
 	.mini .blog-text p {
 		-webkit-line-clamp: 3;
+	}
+
+	@media (max-width: 1440px) {
+		.image-content {
+			width: 39.4719828rem;
+		}
+
+		.text-content {
+			width: 27.5107758rem;
+		}
+
+		.mini {
+			margin-top: 4.375rem
+		}
+
+		.mini .text-content {
+			width: 50.9375rem;
+		}
+	}
+	
+	@media (max-width: 1220px) {
+		.image-content {
+			width: 31.25rem;
+			height: 19.375rem;
+		}
+
+		.blog-date {
+			margin: 0.9375rem;
+		}
+
+		.blog-date h4 {
+			width: 8.75rem;
+			font-size: 24px;
+		}
+		
+		.blog-date img {
+			width: 2.5rem;
+		}
+
+		.text-content {
+			width: 23.75rem;
+		}
+
+		.text-content h6 {
+			line-height: 1.25rem;
+			font-size: 16px;
+		}
+		
+		.blog-title {
+			line-height: 1.875rem;
+			font-size: 24px;
+		}
+	
+		.blog-text {
+			margin-bottom: 1.25rem;
+		}
+		
+		.blog-text p {
+			font-size: 17px;
+		}
+	
+		.text-content .button {
+			line-height: 1.25rem;
+			font-size: 16px;
+		}
+
+		.mini {
+			margin-top: 3.75rem
+		}
+
+		.mini-image-content {
+			width: 15rem;
+			height: 15rem;
+		}
+
+		.mini .text-content {
+			width: 40rem;
+		}
+
+		.mini .blog-title {
+			line-height: 2.5rem;
+			font-size: 22px;
+		}
+	}
+
+	@media (max-width: 992px) {
+		.image-content {
+			width: 48.387vw;
+			height: 36.923vw;
+			max-height: 15.625rem;
+		}
+
+		.blog-date {
+			margin: 0.625rem;
+		}
+
+		.blog-date h4 {
+			width: 7.5rem;
+			font-size: 20px;
+		}
+		
+		.blog-date img {
+			width: 2.1875rem;
+		}
+
+		.text-content {
+			width: 37.298vw;
+		}
+
+		.text-content h6 {
+			line-height: 0.9375rem;
+			font-size: 14px;
+		}
+		
+		.blog-title {
+			line-height: 1.5625rem;
+			font-size: 21px;
+			margin-bottom: 0.9375rem;
+		}
+	
+		.blog-text {
+			height: 5.75rem;
+			margin-bottom: 1.25rem;
+		}
+		
+		.blog-text p {
+			line-height: 1.4375rem;
+			font-size: 14px;
+		}
+	
+		.text-content .button {
+			font-size: 14px;
+		}
+
+		.mini {
+			margin-top: 2.5rem
+		}
+
+		.mini-image-content {
+			width: 22.581vw;
+			min-width: 13rem;
+			height: 12.5rem;
+		}
+
+		.mini .text-content {
+			width: 63.308vw;
+			margin-left: 3vw;
+		}
+
+		.text-content-header h6 {
+			margin-bottom: 0.3125rem;
+		}
+
+		.mini .blog-title {
+			line-height: 1.5625rem;
+			font-size: 19px;
+		}
+
+		.mini .blog-text {
+			height: 4.125rem;
+			margin-bottom: 0.9375rem;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.blog-box {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.image-content,
+		.mini-image-content {
+			width: 100%;
+			max-width: 25rem;
+			height: 8.75rem;
+			overflow: hidden;
+		}
+
+		.image-content,
+		.mini-image-content,
+		.frame {
+			border-radius: 0.625rem;
+		}
+
+		.text-content,
+		.mini .text-content {
+			width: 100%;
+			max-width: 25rem;
+			background-color: var(--clr-white);
+			border-radius: 0 0 0.625rem 0.625rem;
+			z-index: 1;
+			margin: -0.625rem 0 0;
+			padding: 1.25rem 0.625rem 1.875rem;
+		}
+
+		.text-content h6 {
+			line-height: 1.25rem;
+			font-size: 13px;
+			margin: 0 0 0.625rem;
+		}
+		
+		.blog-date {
+			display: none;
+		}
+		
+		.blog-title,
+		.mini .blog-title {
+			line-height: 1.25rem;
+			font-size: 15px;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			margin-bottom: 0.625rem;
+			padding-bottom: 0.9375rem;
+		}
+
+		.blog-title:after {
+			height: 0.9375rem;
+			background-color: var(--clr-white);
+			border-bottom: 1px solid var(--clr-primary-4)
+		}
+	
+		.blog-text,
+		.mini .blog-text {
+			height: 3.75rem;
+			margin-bottom: 0.9375rem;
+		}
+		
+		.blog-text p {
+			line-height: 1.25rem;
+			font-size: 14px;
+			-webkit-line-clamp: 3;
+		}
+
+		.mini {
+			margin-top: 0.625rem
+		}
 	}
 `

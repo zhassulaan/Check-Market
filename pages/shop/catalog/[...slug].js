@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { Context } from '../../../context/Context';
 import BasketModal from '../../../components/Modals/BasketModal';
 import SubscribeModal from '../../../components/Modals/SubscribeModal';
@@ -276,7 +276,6 @@ export default function Shop() {
 	const paginate = async(ev) => {
 		ev.preventDefault();
 		currentPage = ev.target.id;
-		
 	}
 
 	return (
@@ -293,7 +292,7 @@ export default function Shop() {
 				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 
-			{(router.query.slug == 1) || pageNumbers.find((number) => router.query.slug == number) ?
+			{ (router.query.slug == 1) || pageNumbers.find((number) => router.query.slug == number) ?
 				(() => {
 					if (basketModal)
 						return (
@@ -307,142 +306,152 @@ export default function Shop() {
 						return (<>	
 							<Navbar modal={ basket }/>
 
-							<div className={styles.container} onClick={ handleClick }>
-								<div className={styles.header}>
-									<h3 className={styles.title}>Интернет-магазин</h3>
+							<div className={ styles.container } onClick={ handleClick }>
+								<div className={ styles.header }>
+									<h3 className={ styles.title }>Интернет-магазин</h3>
 
-									<div className={styles.icons}>
-										<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-										<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-										<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+									<div className={ styles.icons }>
+										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
 									</div>
 
-									<p className={styles.subtitle}>Более сотни позиций для автоматизации вашего бизнеса.</p>
+									<p className={ styles.subtitle }>Более сотни позиций для автоматизации вашего бизнеса.</p>
 								</div>
 												
-								<div className={styles.filter_content}>
+								<div className={ styles.filter_content }>
 									<div>
-										<div className={styles.filter_header}>
+										<div className={ styles.filter_header }>
 											<p className='0'>Разделы:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' className='0'/>
+											<div className='0'>
+												<img className='0' src="/catalog-icons/arrow.svg" alt="show button"/>
+											</div>
 										</div>
 
-										<ul className={(openDropdown[0] === true) ? styles.filter_options : styles.hide}>
-											<li className={selectedType[0] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='0' className={styles.filter_minitext} onClick={handleFilterByType}>Все товары</p>
+										<ul className={ (openDropdown[0] === true) ? styles.filter_options : styles.hide }>
+											<li className={ selectedType[0] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByType }>Все товары</p>
 											</li>
-											<li className={selectedType[1] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='1' className={styles.filter_minitext} onClick={handleFilterByType}>Чековая лента</p>
+											<li className={ selectedType[1] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByType }>Чековая лента</p>
 											</li>
-											<li className={selectedType[2] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='2' className={styles.filter_minitext} onClick={handleFilterByType}>Термоэтикетки</p>
+											<li className={ selectedType[2] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByType }>Термоэтикетки</p>
 											</li>
-											<li className={selectedType[3] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='3' className={styles.filter_bigtext} onClick={handleFilterByType}>Счётчики подсчёта посетителей</p>
+											<li className={ selectedType[3] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='3' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Счётчики подсчёта посетителей</p>
 											</li>
-											<li className={selectedType[4] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='4' className={styles.filter_bigtext} onClick={handleFilterByType}>Противокражное оборудование</p>
+											<li className={ selectedType[4] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='4' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Противокражное оборудование</p>
 											</li>
-											<li className={selectedType[5] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='5' className={styles.filter_bigtext} onClick={handleFilterByType}>Оборудование для автоматизации</p>
+											<li className={ selectedType[5] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='5' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Оборудование для автоматизации</p>
 											</li>
 										</ul>
 									</div>
 
 									<div>
-										<div className={styles.filter_header}>
+										<div className={ styles.filter_header }>
 											<p className='1'>Цена:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' className='1'/>
+											<div className='1'>
+												<img className='1' src="/catalog-icons/arrow.svg" alt="show button"/>
+											</div>
 										</div>
 
-										<ul className={(openDropdown[1] === true) ? styles.filter_options : styles.hide}>
-											<li className={selectedPrice[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='0' className={styles.filter_minitext} onClick={handleFilterByPrice}>Все цены</p>
+										<ul className={ (openDropdown[1] === true) ? styles.filter_options : styles.hide }>
+											<li className={ selectedPrice[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Все цены</p>
 											</li>
-											<li className={selectedPrice[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='1' className={styles.filter_minitext} onClick={handleFilterByPrice}>Цены по возрастанию</p>
+											<li className={ selectedPrice[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по возрастанию</p>
 											</li>
-											<li className={selectedPrice[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='2' className={styles.filter_minitext} onClick={handleFilterByPrice}>Цены по убыванию</p>
+											<li className={ selectedPrice[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по убыванию</p>
 											</li>
 										</ul>
 									</div>
 
 									<div>
-										<div className={styles.filter_header}>
+										<div className={ styles.filter_header }>
 											<p className='2'>Наличие:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' className='2'/>
+											<div className='2'>
+												<img className='2' src="/catalog-icons/arrow.svg" alt="show button"/>
+											</div>
 										</div>
 
-										<ul className={(openDropdown[2] === true) ? styles.filter_options : styles.hide}>
-											<li className={selectedAviability[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='0' className={styles.filter_minitext} onClick={handleFilterByAvailability}>Все позиции</p>
+										<ul className={ (openDropdown[2] === true) ? styles.filter_options : styles.hide }>
+											<li className={ selectedAviability[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Все позиции</p>
 											</li>
-											<li className={selectedAviability[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='1' className={styles.filter_minitext} onClick={handleFilterByAvailability}>В наличии</p>
+											<li className={ selectedAviability[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>В наличии</p>
 											</li>
-											<li className={selectedAviability[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='2' className={styles.filter_minitext} onClick={handleFilterByAvailability}>Под заказ</p>
+											<li className={ selectedAviability[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Под заказ</p>
 											</li>
-											<li className={selectedAviability[3] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='3' className={styles.filter_minitext} onClick={handleFilterByAvailability}>Нет в наличии</p>
+											<li className={ selectedAviability[3] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='3' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Нет в наличии</p>
 											</li>
 										</ul>
 									</div>
 
 									<div>
-										<div className={styles.filter_header}>
+										<div className={ styles.filter_header }>
 											<p className='3'>Акции:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' className='3'/>
+											<div className='3'>
+												<img className='3' src="/catalog-icons/arrow.svg" alt="show button"/>
+											</div>
 										</div>
 
-										<ul className={(openDropdown[3] === true) ? styles.filter_options : styles.hide}>
-											<li className={selectedSale[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='0' className={styles.filter_minitext} onClick={handleFilterBySale}>Позиции без скидок</p>
+										<ul className={ (openDropdown[3] === true) ? styles.filter_options : styles.hide }>
+											<li className={ selectedSale[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции без скидок</p>
 											</li>
-											<li className={selectedSale[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='1' className={styles.filter_minitext} onClick={handleFilterBySale}>Позиции со скидками</p>
+											<li className={ selectedSale[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции со скидками</p>
 											</li>
 										</ul>
 									</div>
 
 									<div>
-										<div className={styles.filter_header}>
+										<div className={ styles.filter_header }>
 										<p className='4'>Сортировка:</p>
-											<img src='/catalog-icons/arrow.svg' alt='show button' className='4'/>
+											<div className='4'>
+												<img className='4' src="/catalog-icons/arrow.svg" alt="show button"/>
+											</div>
 										</div>
 
-										<ul className={(openDropdown[4] === true) ? styles.filter_options : styles.hide}>
-											<li className={selectedSorting[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='0' className={styles.filter_minitext} onClick={handleSorting}>По порядку</p>
+										<ul className={ (openDropdown[4] === true) ? styles.filter_options : styles.hide }>
+											<li className={ selectedSorting[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='0' className={ styles.filter_minitext } onClick={ handleSorting }>По порядку</p>
 											</li>
-											<li className={selectedSorting[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='1' className={styles.filter_minitext} onClick={handleSorting}>По новизне</p>
+											<li className={ selectedSorting[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='1' className={ styles.filter_minitext } onClick={ handleSorting }>По новизне</p>
 											</li>
-											<li className={selectedSorting[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item}>
-												<p id='2' className={styles.filter_minitext} onClick={handleSorting}>Самые популярные</p>
+											<li className={ selectedSorting[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+												<p id='2' className={ styles.filter_minitext } onClick={ handleSorting }>Самые популярные</p>
 											</li>
 										</ul>
 									</div>
 
-									<div className={styles.filter_box}>
-										<div className={styles.search_box}>
+									<div className={ styles.filter_box }>
+										<div className={ styles.search_box }>
 											<SearchBar
 												text={ "Поиск товара..." }
 												value={ q }
-												onChange={(e) => setQ(e.target.value)}
+												onChange={ (e) => setQ(e.target.value) }
 												/>
 										</div>
-										<p className={styles.clear_filter} onClick={handleClearFilter}>Сбросить все фильтры</p>
+										<p className={ styles.clear_filter } onClick={ handleClearFilter }>Сбросить все фильтры</p>
 									</div>
 								</div>
 								
 								{ (currentProducts.length > 0) ?
 									<>
-										<div className={styles.product_content}>
+										<div className={ styles.product_content }>
 											{ currentProducts.map(item => {
 												return(
-													<div id={item.id}>
+													<div id={ item.id } className={ styles.product }>
 														<ProductBox key={ item.id } product={ item }/>
 													</div>
 												);
@@ -450,13 +459,13 @@ export default function Shop() {
 										</div>
 											
 										<Pagination
-											pageNumbers={pageNumbers}
-											currentPage={currentPage}
-											paginate={paginate}
+											pageNumbers={ pageNumbers }
+											currentPage={ currentPage }
+											paginate={ paginate }
 										/>
 									</>
 										:
-									<div className={styles.notfound_content}>
+									<div className={ styles.notfound_content }>
 										<img src="/product-images/not-found.svg" alt="not found" />
 										<p>По Вашему запросу нет результатов. Попробуйте сбросить все фильтры или обновить страницу.</p>
 									</div>

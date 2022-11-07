@@ -18,7 +18,7 @@ export default function Direction({ type, action }) {
 				</div>
 
 				<div className="direction-content">
-					<div id={ type[0].id } className="direction-box" onClick={ action }>
+					<div id={ type[0].id } className="direction-box button" onClick={ action }>
 						<img id={ type[0].id } src="/home/directions/image1.png" alt="Противокражные системы"/>
 						<div id={ type[0].id } className="direction-info">
 							<h4 id={ type[0].id } className="direction-title">Противокражные системы</h4>
@@ -27,7 +27,7 @@ export default function Direction({ type, action }) {
 						</div>
 					</div>
 
-					<div id={ type[1].id } className="direction-box" onClick={ action }>
+					<div id={ type[1].id } className="direction-box button" onClick={ action }>
 						<img id={ type[1].id } src="/home/directions/image2.png" alt="Автоматизация торговли"/>
 						<div id={ type[1].id } className="direction-info">
 							<h4 id={ type[1].id } className="direction-title">Автоматизация торговли</h4>
@@ -36,7 +36,7 @@ export default function Direction({ type, action }) {
 						</div>
 					</div>
 
-					<div id={ type[2].id } className="direction-box" onClick={ action }>
+					<div id={ type[2].id } className="direction-box button" onClick={ action }>
 						<img id={ type[2].id } src="/home/directions/image3.png" alt="Подсчёт посетителей"/>
 						<div id={ type[2].id } className="direction-info">
 							<h4 id={ type[2].id } className="direction-title">Подсчёт посетителей</h4>
@@ -45,7 +45,7 @@ export default function Direction({ type, action }) {
 						</div>
 					</div>
 
-					<div id={ type[3].id } className="direction-box" onClick={ action }>
+					<div id={ type[3].id } className="direction-box button" onClick={ action }>
 						<img id={ type[3].id } src="/home/directions/image4.png" alt="Расходный материал"/>
 						<div id={ type[3].id } className="direction-info">
 							<h4 id={ type[3].id } className="direction-title">Расходный материал</h4>
@@ -217,7 +217,7 @@ const Wrapper = styled.section`
 
 		.title {
 			line-height: 2.5rem;
-			font-size: 28px;
+			font-size: 30px;
 			margin-bottom: 0.625rem;
 		}
 
@@ -234,7 +234,7 @@ const Wrapper = styled.section`
 		}
 	
 		.subtitle {
-			font-size: 14px;
+			font-size: 16px;
 		}
 
 		.direction-content {
@@ -270,6 +270,18 @@ const Wrapper = styled.section`
 	
 		.direction-box .text {
 			font-size: 11px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.title {
+			line-height: 1.875rem;
+			font-size: 24px;
+		}
+		
+		.subtitle {
+			line-height: 1.25rem;
+			font-size: 15px;
 		}
 	}
 

@@ -317,10 +317,6 @@ const Wrapper = styled.section`
 			margin-bottom: 0.3125rem;
 		}
 		
-		.subtitle {
-			font-size: 14px;
-		}
-		
 		.blog-content {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 0.9375rem;
@@ -364,6 +360,7 @@ const Wrapper = styled.section`
 		}
 	}
 
+	
 	@media (max-width: 650px) {
 		.icon-images {
 			display: none;
@@ -391,11 +388,6 @@ const Wrapper = styled.section`
 			width: 1.875rem
 		}
 	  
-		.subtitle {
-			line-height: 1.25rem;
-			font-size: 15px;
-		}
-	
 		.blog-container {
 			padding: 3.125rem 0 3.75rem;
 		}

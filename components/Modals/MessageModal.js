@@ -121,7 +121,7 @@ export default function MessageModal({ close, send }) {
 						</form>
 
 						<div className='close-icon button' onClick={ close }>
-							<svg viewBox="0 0 32 32" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
+							<svg viewBox="0 0 32 32" fill="none" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1L30.9999 31" stroke-width="2"/>
 								<path d="M31 1L1 31" stroke-width="2"/>
 							</svg>
@@ -137,6 +137,7 @@ const Wrapper = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 100%;
+	top: 0;
 	background: rgba(0, 0, 0, 0.4);
 	padding: 3.75rem 0 6.25rem;
 	overflow-y: auto;
@@ -144,11 +145,11 @@ const Wrapper = styled.div`
 
 	.form-container {
 		position: relative;
-		width: 60.4167vw;
+		width: 72.5rem;
 		background: var(--clr-white);
 		font-family: 'Open Sans';
 		font-style: normal;
-		margin: 0 19.79167vw;
+		margin: 0 auto;
 		padding: 3.125rem 3.75rem 5rem;
 	}
 
@@ -192,9 +193,9 @@ const Wrapper = styled.div`
 	}
 
 	.form-label {
+		line-height: 1.875rem;
 		font-size: 18px;
 		font-weight: 600;
-		line-height: 1.875rem;
 	}
 
 	.error-border {
@@ -224,46 +225,56 @@ const Wrapper = styled.div`
 		margin-right: -6.875rem;
 	}	
 
-	@media (max-width: 1600px) {
-		.form-group,
-		.form-button {
-			width: 30rem;
-		}		
-	}
-	
-	@media (max-width: 1280px) {
+	@media (max-width: 1440px) {
+		padding-top: 3.125rem;
+
 		.form-container {
-			width: 75.806vw;
-			margin: 0 12.0968vw;
+			width: 63.25rem;
 			padding: 3.125rem 3.125rem 5rem;
 		}
 
-		.form-group,
-		.form-button {
-			width: 25rem;
-		}
-
 		.form-header {
-			padding-bottom: 1.25rem;
-			margin-bottom: 1.875rem;
+			margin-bottom: 2.1875rem;
+			padding-bottom: 1.5625rem;
 		}
 
 		.form-title {
-			line-height: 2.1875rem;
+			line-height: 2.8125rem;
+			font-size: 27px;
+		}
+
+		.close-icon {
+			margin-right: -4.125rem;
+		}	
+		
+		.close-icon svg {
+			width: 1.5625rem;
+			height: 1.5625rem;
+		}
+	}
+
+	@media (max-width: 1220px) {
+		.form-container {
+			width: 51.1875rem;
+			padding: 2.8125rem 2.5rem 4.0625rem;
+		}
+
+		.form-header {
+			margin-bottom: 1.875rem;
+			padding-bottom: 1.25rem;
+		}
+
+		.form-title {
+			line-height: 2.5rem;
 			font-size: 24px;
 		}
 
 		.form-label {
-			line-height: 1.5625rem;
-			font-size: 16px;
-		}
-
-		.input-container {
-			font-size: 15px;
+			font-size: 17px;
 		}
 
 		.form-button {
-			height: 3.125rem;
+			height: 3.75rem;
 		}
 
 		.form-button .text {
@@ -271,63 +282,86 @@ const Wrapper = styled.div`
 		}
 
 		.close-icon {
-			width: 1.5625rem;
-			heigth: 1.5625rem;
-			margin-right: -4.375rem;
+			margin-right: -3.4375rem;
 		}	
+		
+		.close-icon svg {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
 	}
 	
-	@media (max-width: 768px) {
-		padding: 1.875rem 0 6.25rem;
-
+	@media (max-width: 992px) {
 		.form-container {
-			width: 88.889vw;
+			width: 36.25rem;
 			border-radius: 0.625rem;
-			margin: 0 5.556vw;
-			padding: 3.125rem 5.556vw 2.5rem;
+			padding: 3.75rem 5.556vw 3.125rem;
 		}
-
-		.form-group {
-			width: 100%;
-		}		
 		
-		.form-button {
-			width: calc(100% - 27.77778vw);
-		}
-
 		.form-header {
 			margin-bottom: 1.25rem;
-		}
-
-		.form-title {
-			line-height: 1.25rem;
-			font-size: 16px;
-			text-align: center;
 		}
 		
 		.form-header:before {
 			height: 1px;
 		}
 
+		.form-title {
+			line-height: 1.875rem;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		.form-group {
+			width: 100%;
+		}	
+		
+		
+		.form-label {
+			line-height: 1.5625rem;
+			font-size: 16px;
+		}
+
 		.form-button {
-			height: 2.5rem;
+			width: calc(100% - 27.77778vw);
+			height: 2.8125rem;
 			margin-top: 0;
 		}
 		
 		.form-button .text {
-			font-size: 13px;
+			font-size: 15px;
 		}
 
 		.close-icon {
-			width: 0.9375rem;
-			heigth: 0.9375rem;
 			margin: 1.25rem;
 		}	
 
 		.close-icon svg {
 			width: 0.9375rem;
 			heigth: 0.9375rem;
-			stroke: black;
+			stroke: var(--clr-black);
 		}	
+	}
+
+	@media (max-width: 650px) {
+		.form-container {
+			width: 88.889vw;
+			padding: 3.125rem 5.556vw 2.5rem;
+		}
+
+		.form-title {
+			line-height: 1.25rem;
+			font-size: 16px;
+		}
+
+		.form-button {
+			width: 12.5rem;
+			height: 2.5rem;
+			margin: 0 auto;
+		}
+
+		.form-button .text {
+			font-size: 13px;
+		}
 	}
 `

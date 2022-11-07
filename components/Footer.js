@@ -172,7 +172,7 @@ export default function Footer({ modal }) {
 				</div>
 				
 				<div className={ styles.policy_box }>
-					<p className={ styles.item }>© 2012-2021 ЧЕК МАРКЕТ. Все права защищены</p>
+					<p className={ styles.item }>© 2012-{ new Date().getFullYear() } ЧЕК МАРКЕТ. Все права защищены</p>
 					<a href="tel:+77759764165" className={ [styles.item, styles.laptop].join(" ") }>+7 (707) 907-07-17</a>
 					<div className={ styles.mobile }>
 						<div className={ styles.athenaplus }>

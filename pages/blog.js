@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import Head from 'next/head';
-import Image from 'next/image';
 import styled from 'styled-components';
 import newsData from '../data/news-data';
 import articlesData from '../data/articles-data';
@@ -11,6 +10,7 @@ import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import bg from '../public/modal/background.png';
 
 export default function Blog() {
 	// SUBSCRIBE AND BASKET MODAL
@@ -91,6 +91,12 @@ export default function Blog() {
 				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
 
 				<Navbar modal={ basket }/>
+
+				<LogoContainer>
+					<div className='logo-box'>
+		        		<img src="/home/logo.svg" alt="logo" className='logo'/>
+					</div>
+				</LogoContainer>
 						
 				<Wrapper>
 					<div className='container'>
@@ -108,10 +114,10 @@ export default function Blog() {
 
 						<div className='buttons'>
 							<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
-								<Button text={ "Статьи" }/>
+								<Button blog={ true } text={ "Статьи" }/>
 							</div>
 							<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
-								<Button text={ "Новости" }/>
+								<Button blog={ true } text={ "Новости" }/>
 							</div>
 						</div>
 
@@ -120,13 +126,13 @@ export default function Blog() {
 								<Blogs currentItems={ currentArticles } option={ "Статьи" }/>
 								<ReactPaginate
 									key="paginate1"
-									breakLabel="..."
-									nextLabel="Следующая"
+									breakLabel={ (window.innerWidth > 650) ? "..." : null }
+									nextLabel={ (window.innerWidth > 992) ? "Следующая" : <img src="/blog-icons/next.svg" alt="next arrow"/> }
 									onPageChange={ handlePageClick }
-									marginPagesDisplayed={1}
-									pageRangeDisplayed={3}
+									marginPagesDisplayed={ (window.innerWidth > 650) ? 1 : 0 }
+									pageRangeDisplayed={ (window.innerWidth > 650) ? 3 : 2 }
 									pageCount={ pageCountArticles }
-									previousLabel="Предыдущая"
+									previousLabel={ (window.innerWidth > 992) ? "Предыдущая" : <img src="/blog-icons/previous.svg" alt="previous arrow"/> }
 									renderOnZeroPageCount={ null }
 								/>
 							</div>
@@ -134,14 +140,14 @@ export default function Blog() {
 							<div className='blog-container'>
 								<Blogs currentItems={ currentNews } option={ "Новости" }/>
 								<ReactPaginate
-									key="paginate2"
+									key="paginate1"
 									breakLabel="..."
-									nextLabel="Следующая"
+									nextLabel={ (window.innerWidth > 992) ? "Следующая" : <img src="/blog-icons/next.svg" alt="next arrow"/> }
 									onPageChange={ handlePageClick }
-									marginPagesDisplayed={1}
-									pageRangeDisplayed={3}
-									pageCount={ pageCountNews }
-									previousLabel="Предыдущая"
+									marginPagesDisplayed={ (window.innerWidth > 992) ? 1 : 0 }
+									pageRangeDisplayed={ 3 }
+									pageCount={ pageCountArticles }
+									previousLabel={ (window.innerWidth > 992) ? "Предыдущая" : <img src="/blog-icons/previous.svg" alt="previous arrow"/> }
 									renderOnZeroPageCount={ null }
 								/>
 							</div>
@@ -155,42 +161,93 @@ export default function Blog() {
 	);
 }
 
+const LogoContainer = styled.section`
+	@keyframes animate {
+		50%, 60%, 70%, 100% {
+			opacity: 100%;
+		} 0%, 55%, 65% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes logoAnimation {
+		0% {
+			top: 0;
+			opacity: 0;
+		} 5% {
+			opacity: 1;
+		} 50% {
+			top: 100%;
+		} 95% {
+			opacity: 1;
+		} 100% {
+			top: 0;
+			opacity: 0;
+		}
+	}
+
+	display: none;
+
+	@media (max-width: 992px) {
+		display: flex;
+		align-items: center;
+		background-image: url(${bg.src}); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 23.75rem;
+		margin-top: 1.5625rem;
+		padding: 5.625rem 0;
+	
+		.logo-box {
+			position: relative;
+			width: calc(100% - 39.0421vw * 2);
+			margin: 0 39.0421vw;
+		}
+		
+		.logo-box:before {
+			content: "";
+			position: absolute;
+			width: calc(100vw - 39.0421vw * 2);
+			height: 0.1rem;
+			background-color: var(--clr-primary-1);
+			opacity: 0;
+			animation: logoAnimation 2s linear;
+		}
+	
+		.logo-box:active {
+			animation: animate 1.2s linear;
+		}
+	
+		.logo {
+			width: calc(100vw - 39.0421vw * 2);
+			animation: animate 1.2s linear;
+		}
+	}
+
+	@media (max-width: 650px) {
+		height: 52.778vw;
+		padding: 11.11112vw 0;
+	
+		.logo-box {
+			width: 33.33334vw;
+			margin: 0 33.33334vw;
+		}
+		
+		.logo-box:before {
+			width: calc(100vw - 33.33334vw * 2);
+		}
+	
+		.logo {
+			width: 33.33334vw;
+		}
+	}
+`
+
 const Wrapper = styled.section`
 	display: flex;
 	justify-content: center;
-
-	@keyframes animateBg2 {
-		0% {
-			opacity: 100%
-		} 100% {
-			opacity: 80%
-		}
-	}
-
-	@keyframes animateText2 {
-		0% {
-			opacity: 100%
-		} 100% {
-			opacity: 80%
-		}
-	}
-
-	@keyframes animateBgOut2 {
-		0% {
-			opacity: 80%
-			border: none;
-		} 100% {
-			opacity: 100%
-		}
-	}
-
-	@keyframes animateTextOut2 {
-		0% {
-			opacity: 80%
-		} 100% {
-			opacity: 100%
-		}
-	}
 
 	.container {
 		position: relative;
@@ -242,26 +299,6 @@ const Wrapper = styled.section`
 		color: var(--clr-primary-1);
 	}
 	
-	.blog-button:hover .button {
-		opacity: 80%
-		animation: animateBg2 0.3s linear;
-	}
-	
-	.blog-button:hover .text {
-		opacity: 80%
-		animation: animateText2 0.3s linear;
-	}
-	
-	.blog-button:(not):hover .button {
-		opacity: 100%
-		animation: animateBgOut2 0.3s linear;
-	}
-	
-	.blog-button:(not):hover .text {
-		opacity: 100%
-		animation: animateTextOut2 0.3s linear;
-	}
-	
 	.blog-container {
 		ul {
 			position: absolute;
@@ -270,7 +307,6 @@ const Wrapper = styled.section`
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			border: 2px solid blue;
 		}
 		
 		li {
@@ -278,7 +314,7 @@ const Wrapper = styled.section`
 			height: 1.875rem;
 			font-weight: 400;
 			cursor: pointer;
-			margin: 0 .625rem;
+			margin: 0 0.625rem;
 		}
 
 		li a {
@@ -298,11 +334,11 @@ const Wrapper = styled.section`
 			margin: 0 3.75rem;
 		}
 		
-		.previous {
+		.previous a {
 			justify-content: flex-end;
 		}
 		
-		.next {
+		.next a {
 			justify-content: flex-start;
 		}
 		
@@ -310,8 +346,8 @@ const Wrapper = styled.section`
 			width: 3.125rem;
 			height: 3.125rem;
 			background-color: var(--clr-primary-4);
-			border-radius: 5px;
-			margin: 0 .3125rem;
+			border-radius: 0.3155rem;
+			margin: 0 0.3125rem;
 		}
 
 		.selected p {
@@ -321,19 +357,205 @@ const Wrapper = styled.section`
 
 	@media (max-width: 1440px) {
 		.container {	
+			width: 69.375rem;
+			height: 91.875rem;
 			margin: 13.125rem 0 11.1875rem;
 		}
+	}	
+	
+	@media (max-width: 1220px) {
+		.container {
+			width: 57.3125rem;
+			height: 79.78125rem;
+			margin: 10rem 0 9.3125rem;
+		}	
 		
-		.content {
-			width: 69.375rem;
+		.header {
+			margin-bottom: 2.1875rem;
+		}
+		
+		.title {
+			line-height: 2.8125rem;
+			font-size: 34px;
+			margin-bottom: 0.9375rem;
+		}
+		
+		.icons {
+			margin-bottom: 0.625rem;
+		}
+		
+		.subtitle {
+			line-height: 1.5625rem;
+			font-size: 17px;
+		}
+
+		.blog-button {
+			width: 9.375rem;
+			height: 3.125rem;
+			margin-right: 0.9375rem;
+		}
+	
+		.blog-button .text {
+			font-size: 16px;
+		}
+
+		.blog-container {
+			li a {
+				font-size: 16px;
+			}
+	
+			.previous,
+			.next {
+				width: 8.75rem;
+			}
+			
+			.selected {
+				width: 2.8125rem;
+				height: 2.8125rem;
+			}
 		}
 	}
 	
-	@media (max-width: 1220px) {}
+	@media (max-width: 992px) {
+		.container {
+			width: 88.889vw;
+			height: 63.53125rem;
+			margin: 3.75rem 0 6.25rem;
+		}	
+
+		.header {
+			margin-bottom: 1.25rem;
+		}
 	
-	@media (max-width: 992px) {}
+		.title {
+			line-height: 2.1875rem;
+			font-size: 30px;
+			margin-bottom: 0.625rem;
+		}
+		
+		.icons {
+			margin-bottom: 0.625rem;
+		}
+		
+		.icons img {
+			height: 0.625rem;
+		}
+		
+		.subtitle {
+			line-height: 1.25rem;
+			font-size: 16px;
+		}
 	
-	@media (max-width: 768px) {}
+		.blog-button {
+			width: 9.6875rem;
+			height: 2.5rem;
+			margin-right: 0.9375rem;
+		}
 	
-	@media (max-width: 650px) {}
+		.blog-button .text {
+			font-size: 13px;
+		}
+
+		.blog-container {
+			li {
+				cursor: pointer;
+				margin: 0 0.625rem;
+			}
+	
+			li a {
+				font-size: 16px;
+			}
+	
+			.previous,
+			.next {
+				width: 0.625rem;
+				margin: 0 2.5rem;
+			}
+			
+			.previous a {
+				justify-content: flex-end;
+			}
+			
+			.next a {
+				justify-content: flex-start;
+			}
+			
+			.selected {
+				width: 2.5rem;
+				height: 2.5rem;
+				margin: 0 0.3125rem;
+			}
+	
+			.selected p {
+				font-weight: 600;
+			}
+		}
+	}
+	
+	@media (max-width: 650px) {
+		.container {
+			height: 85.59375rem;
+			margin: 1.875rem 0 5.625rem;
+		}
+
+		.header {
+			width: 100%;
+			margin-bottom: 1.25rem;
+		}
+	
+		.title {
+			line-height: 1.5625rem;
+			font-size: 18px;
+		}
+			
+		.icons {
+			height: 0.625rem; 
+			margin-bottom: 1.25rem;
+		}
+			
+		.icons img {
+			height: 100%;
+		}
+
+		.subtitle {
+			font-size: 15px;
+		}
+
+		.blog-container {
+			li a {
+				font-size: 15px;
+			}
+	
+			.previous,
+			.next {
+				width: 0.625rem;
+			}
+			
+			.previous {
+				margin: 0 1.875rem 0 0;
+			}
+
+			.next {
+				margin: 0 0 0 1.875rem;
+			}
+			
+			.previous a {
+				justify-content: flex-end;
+			}
+			
+			.next a {
+				justify-content: flex-start;
+			}
+			
+			.selected {
+				width: 2.5rem;
+				height: 2.5rem;
+				margin: 0 0.3125rem;
+			}
+	
+			.selected p {
+				font-weight: 600;
+			}
+		}
+	}
 `

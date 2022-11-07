@@ -109,22 +109,6 @@ const Wrapper = styled.section`
 	background-color: var(--clr-primary-8);
 	padding: 7.1875rem 0;
 
-	@keyframes animateIn {
-		0% {
-			transform: scale(1);
-		} 100% {
-			transform: scale(1.05);
-		}
-	}
-
-	@keyframes animateDefault {
-		0% {
-			transform: scale(1.05);
-		} 100% {
-			transform: scale(1);
-		}
-	}
-
 	.header {
 		width: 43.75rem; 
 		margin-bottom: 2.1875rem;
@@ -153,16 +137,6 @@ const Wrapper = styled.section`
 		width: 72.5rem;
 	}
 	
-	.comment:hover {
-		transform: scale(1.05);
-		animation: animateIn 0.2s linear;
-	}
-
-	.comment:not(:hover) {
-		transform: scale(1);
-		animation: animateDefault 0.2s linear;
-	}
-
 	.comment-background {
 		margin-top: 2.1875rem;
 	}
@@ -337,7 +311,7 @@ const Wrapper = styled.section`
 
 		.title {
 			line-height: 2.5rem;
-			font-size: 28px;
+			font-size: 30px;
 			margin-bottom: 0.625rem;
 		}
 		
@@ -353,11 +327,6 @@ const Wrapper = styled.section`
 		
 		.icons {
 			margin-bottom: 0.3125rem;
-		}
-		
-		.subtitle,
-		.bold-subtitle {
-			font-size: 14px;
 		}
 
 		.header,
@@ -432,6 +401,19 @@ const Wrapper = styled.section`
 
 		.admin-comment-box {
 			margin: 1.5rem 1.25rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.title {
+			line-height: 1.875rem;
+			font-size: 24px;
+		}
+		
+		.subtitle,
+		.bold-subtitle {
+			line-height: 1.25rem;
+			font-size: 15px;
 		}
 	}
 

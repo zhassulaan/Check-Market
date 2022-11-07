@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import ServicesModal from '../components/Modals/ServicesModal';
 import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
@@ -22,6 +21,8 @@ export default function Services() {
 		setBasketModal(!basketModal);
 	}
 
+	window.onbeforeunload = ()=>"If you leave this page, you'll also leave the call";
+
 	const [openModal, setOpenModal] = useState(false);
 	const serviceType = [
 		{ id: 1, text: "Автоматизация розничной торговли" },
@@ -42,7 +43,7 @@ export default function Services() {
 	
 		setOpenModal(!openModal);
 	}
-	
+
 	return (
 		<div>
 			<Head>
@@ -69,7 +70,6 @@ export default function Services() {
 		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
 					</div>
 				</div>
-
 
 				<div className={styles.container}>
 					<div className={styles.header}>

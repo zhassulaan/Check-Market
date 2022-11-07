@@ -1,9 +1,6 @@
 import { useState, useContext } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../../context/Context';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
 import SubscribeModal from './SubscribeModal';
 import SuccessModal from './SuccessModal';
 import Input from '../Input';
@@ -108,15 +105,16 @@ export default function ServicesModal({ type, close }) {
 
 	return (
 		<>
-			{success ?
-				<>
-					{ basketModal ? <BasketModal close={ basket }/> : null };
-					{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+			{ basketModal ? <BasketModal close={ basket }/> : null };
+			{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+			{ success ?
+				(window.innerWidth > 992) ?
+					<></>
+						:
+					<>
+						<SuccessModal close={ close }/>
+					</>
 					
-					<Navbar modal={ basket }/>
-					<SuccessModal sender={ 1 } close={ close }/>
-					<Footer modal={ subscribe }/>
-				</>
 					:
 				<Wrapper>
 					<div className='module-container'>
@@ -210,6 +208,7 @@ const Wrapper = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 100%;
+	top: 0;
 	background: rgba(0, 0, 0, 0.4);
 	padding: 3.75rem 0 6.25rem;
 	overflow-y: auto;

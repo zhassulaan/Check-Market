@@ -1,22 +1,14 @@
-@keyframes animateOut {
-	0% {
-		transform: scale(1);
-	} 100% {
-		transform: scale(1.05);
-	}
-}
-
 @keyframes animateIn {
 	0% {
 		transform: scale(1);
 	} 100% {
-		transform: scale(0.95);
+		transform: scale(1.03);
 	}
 }
 
 @keyframes animateDefault {
 	0% {
-		transform: scale(0.97);
+		transform: scale(1.05);
 	} 100% {
 		transform: scale(1);
 	}
@@ -104,25 +96,14 @@
 	cursor: pointer;
 }
 
-.image_content:hover .image {
-	transform: scale(1.05);
-	animation: animateOut 0.2s linear;
-}
-
-.image_content:hover .button {
-	transform: scale(1.05);
-	animation: animateOut 0.2s linear;
-}
-
-.image_content:hover .image:not(:hover),
-.image_content:hover .button:not(:hover) {
-	transform: scale(0.95);
+.image:hover {
+	transform: scale(1.03);
 	animation: animateIn 0.2s linear;
 }
 
-.image_content:not(:hover) {
+.image:not(:hover) {
 	transform: scale(1);
-	animation: animateDefault 1s linear;
+	animation: animateDefault 0.2s linear;
 }
 
 .image1 {
@@ -298,7 +279,7 @@
 	}
 	
 	.subtitle {
-		line-height: 1.875rem;
+		line-height: 1.5625rem;
 		font-size: 17px;
 	}
 	
@@ -420,10 +401,6 @@
 }
 
 @media (max-width: 992px) {
-	.container {
-		padding: 2.5rem 0 5rem;
-	}
-
 	.logo_container {
 		display: flex;
 		align-items: center;
@@ -460,6 +437,10 @@
 	.logo {
 		width: calc(100vw - 39.0421vw * 2);
 		animation: animate 1.2s linear;
+	}
+
+	.container {
+		padding: 3.75rem 0 5rem;
 	}
 
 	.header {
@@ -516,6 +497,10 @@
 	}
 	
 	.image .frame_text {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 5rem;
 		line-height: 1.25rem;
 		font-size: 15px;
 		margin: 0;
@@ -620,6 +605,7 @@
 	}
 
 	.title {
+		line-height: 1.5625rem;
 		font-size: 18px;
 	}
 		

@@ -112,7 +112,7 @@
 	}
 	
 	.subtitle {
-		line-height: 1.875rem;
+		line-height: 1.5625rem;
 		font-size: 17px;
 	}
 	
@@ -162,7 +162,7 @@
 	}
 
 	.container {
-		padding: 2.5rem 0 5rem;
+		padding: 3.75rem 0 5rem;
 	}
 
 	.header {
@@ -282,6 +282,7 @@
 	}
 
 	.title {
+		line-height: 1.5625rem;
 		font-size: 18px;
 	}
 		

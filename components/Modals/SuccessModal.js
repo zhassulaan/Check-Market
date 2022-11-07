@@ -10,6 +10,10 @@ export default function SuccessModal({ sender, close }) {
 					return(
 						<div className='container2'>
 							<div className='box'>
+								<div className='mobile'>
+									<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
+								</div>
+
 								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
 								<div className='icons'>
@@ -26,10 +30,15 @@ export default function SuccessModal({ sender, close }) {
 							</div>
 						</div>
 					);
+
 				else if (sender === 2)
 					return(
 						<div className='container2'>
 							<div className='box'>
+								<div className='mobile'>
+									<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
+								</div>
+
 								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
 								<div className='icons'>
@@ -46,6 +55,7 @@ export default function SuccessModal({ sender, close }) {
 							</div>
 						</div>
 					);
+
 				else
 					return (
 						<div className='container'>
@@ -83,6 +93,7 @@ const Wrapper = styled.div`
 		position: fixed;
 		width: 100%;
 		height: 100%;
+		top: 0;
 		background: rgba(0, 0, 0, 0.4);
 		padding-top: 3.75rem;
 		z-index: 10;
@@ -90,18 +101,18 @@ const Wrapper = styled.div`
 	
 	.box {
 		position: relative;
-		width: 60.4167vw;
+		width: 72.5rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background: var(--clr-white);
-		margin: 0 19.79167vw;
+		margin: 0 auto;
 		padding: 9.375rem 0 8.75rem;
 	}
 	
 	.container2 .box {
-		padding: 14.375rem 0 28.125rem;
 		background: transparent;
+		padding: 14.375rem 0 28.125rem;
 	}
 
 	.mobile {
@@ -143,41 +154,93 @@ const Wrapper = styled.div`
 		margin-right: -6.875rem;
 	}	
 
-	@media (max-width: 1600px) {
-		.title {
-			line-height: 3.125rem;
-			font-size: 30px;
-		}
-	
-		.text {
-			line-height: 1.875rem;
-			font-size: 16px;
-		}
-	}
-
-	@media (max-width: 1280px) {
+	@media (max-width: 1440px) {
 		.box {
-			width: 75.806vw;
-			margin: 0 12.0968vw;
+			width: 63.25rem;
+			padding: 8.125rem 0 7.5rem;
+		}
+		
+		.container2 .box {
+			padding: 13.125rem 0 26.675rem;
 		}
 
 		.close-icon {
-			width: 1.5625rem;
-			heigth: 1.5625rem;
-			margin-right: -4.375rem;
+			margin-right: -4.125rem;
 		}	
+		
+		.close-icon svg {
+			width: 1.5625rem;
+			height: 1.5625rem;
+		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1220px) {
+		.box {
+			width: 51.1875rem;
+			padding: 6.25rem 0 5.625rem;
+		}
+		
+		.container2 .box {
+			padding: 11.25rem 0 24.8rem;
+		}
+
+		.header {
+			margin-bottom: 2.1875rem;
+		}
+		
+		.title {
+			line-height: 2.8125rem;
+			font-size: 34px;
+			margin-bottom: 0.9375rem;
+		}
+		
+		.icons {
+			margin-bottom: 0.625rem;
+		}
+		
+		.text {
+			line-height: 1.5625rem;
+			font-size: 17px;
+			margin-top: 0.625rem;
+		}
+
+		.success-button {
+			margin-top: 1.25rem;
+		}
+	
+		.success-button button {
+			width: 20rem;
+			height: 3.75rem;
+		}	
+		
+		.success-button .text {
+			line-height: 1.5625rem;
+			font-size: 17px;
+		}
+
+		.close-icon {
+			margin-right: -3.4375rem;
+		}	
+		
+		.close-icon svg {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+	}
+
+	@media (max-width: 992px) {
 		.container {
-			padding: 1.875rem 0 6.25rem;
+			padding: 2.5rem 0 6.25rem;
 		}
 
 		.box {
-			width: 88.889vw;
+			width: 36.25rem;
 			border-radius: 0.625rem;
-			margin: 0 5.556vw;
-			padding: 3.75rem 5.556vw 2.5rem;
+			padding: 4.375rem 2.5rem 3.125rem;
+		}
+
+		.container2 .box {
+			padding: 0 0 6.25rem;
 		}
 
 		.laptop {
@@ -190,20 +253,24 @@ const Wrapper = styled.div`
 
 		.title,
 		.text {
-			line-height: 1.25rem;
 			text-align: center;
 		}
 
 		.title {
 			position: relative;
 			width: 100%;
-			font-size: 16px;
+			line-height: 1.875rem;
+			font-size: 24px;
 			color: var(--clr-primary-1);
-			margin: 2.5rem 0 0;
 			padding-top: 1.25rem;
+			margin-bottom: 0;
 		}
 
-		.title:before {
+		.container .title {
+			margin-top: 2.5rem;
+		}
+
+		.container title:before {
 			content: "";
 			position: absolute;
 			width: 100%;
@@ -212,22 +279,72 @@ const Wrapper = styled.div`
 			left: 0;
 			background-color: var(--clr-primary-4);
 		}
-	
+
+		.icons {
+			display: none;
+		}
+
 		.text {
-			font-size: 15px;
+			font-size: 16px;
 			margin-top: 1.25rem;
+		}
+		
+		.container2 .text {
+			margin-top: 0.625rem;
+		}
+
+		.success-button button {
+			width: 17.5rem;
+			height: 3.125rem;
+		}	
+
+		.success-button .text {
+			font-size: 15px;
+			margin: 0;
 		}
 
 		.close-icon {
-			width: 0.9375rem;
-			heigth: 0.9375rem;
 			margin: 1.25rem;
 		}	
 
 		.close-icon svg {
 			width: 0.9375rem;
-			heigth: 0.9375rem;
-			stroke: black;
+			height: 0.9375rem;
+			stroke: var(--clr-black);
+		}
+	}
+
+	@media (max-width: 650px) {
+		.container {
+			padding: 1.875rem 5.556vw 5.625rem;
+		}
+
+		.box {
+			width: 88.889vw;
+		}
+
+		.container2 .box {
+			padding-bottom: 5.625rem;
+		}
+
+		.title {
+			line-height: 1.25rem;
+			font-size: 16px;
+		}
+		
+		.text {
+			line-height: 1.25rem;
+			font-size: 15px;
+		}
+
+		.success-button button {
+			width: 13.125rem;
+			height: 2.5rem;
 		}	
+
+		.success-button .text {
+			line-height: 1.25rem;
+			font-size: 13px;
+		}
 	}
 `

@@ -102,6 +102,17 @@ export default function Basket() {
 			success(e);
 		}
 	}
+	// console.log(window.scrollY );
+
+	const [checkoutForm, setcheckoutForm] = useState(true);
+	const scrolling = () => {
+		if (window.scrollY >= 327) {
+			setcheckoutForm(true);
+		} else {
+			setcheckoutForm(false);
+		}
+	};
+	window.addEventListener('scroll', scrolling);
 
   	return (
 	 	<div>
@@ -118,159 +129,192 @@ export default function Basket() {
 			</Head>
 			
 			{ (() => {
-				if  (successModal)
+				if (successModal)
 					return (<>
 						<Navbar modal={ basket }/>
+						<div className={ styles.logo_container }>
+							<div className={ styles.logo_box }>
+									<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+							</div>
+						</div>
+
+						{ (window.innerWidth < 993) ?
+							<div className={styles.header_container}>
+								<div className={styles.header}>
+									<h3 className={styles.title}>Услуги</h3>
+
+									<div className={styles.icons}>
+										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+									</div>
+								</div>
+							</div>
+								:
+							<></>
+						}
 						<SuccessModal sender={ 2 } close={ success }/>
 						<Footer modal={ subscribe }/>
 					</>);
+
 				else if (cart.length === 0)
 					return(
 						<Error/>
 					);
+
 				else if (basketModal)
 					return (
 						<BasketModal close={ basket }/> 
 					);
+
 				else if (subscribeModal)
 					return (
 						<SubscribeModal modal={ subscribe }/>
 					);
+
 				else
-					return ( (total > 10000 || total === 0) ?
+					return ( (total >= 10000 || total === 0) ?
 						<Wrapper>
 							<Navbar modal={ basket }/>
 
-							<div className={styles.container}>
-								<div className={styles.header}>
-									<h3 className={styles.title}>Оформление заказа</h3>
+							<div className={ styles.logo_container }>
+								<div className={ styles.logo_box }>
+										<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+								</div>
+							</div>
 
-									<div className={styles.icons}>
-										<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-										<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-										<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+							<div className={ styles.container }>
+								<div className={ styles.header }>
+									<h3 className={ styles.title }>Оформление заказа</h3>
+
+									<div className={ styles.icons }>
+										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
 									</div>
 
-									<p className={styles.subtitle}>Укажите детали Вашего заказа</p>
+									<p className={ styles.subtitle }>Укажите детали Вашего заказа</p>
 								</div>
 
-								<form className={styles.form} onSubmit={handleSubmit}>
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Способ оплаты:</p>
-										<Select 
-											placeholderText={ "Выберите способ оплаты" }
-											options={ payment_method }
-											value={ details.paymentMethod }
-											onChange={ handleChange1 }
-											className={ error ? styles.error_border : styles.dafault_border }
-										/>
-									</div>
-									
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Способ доставки:</p>
-										<Select 
-											placeholderText={ "Выберите способ доставки" }
-											options={ delivery_method }
-											value={ details.deliveryMethod }
-											onChange={ handleChange2 }
-											className={ error ? styles.error_border : styles.dafault_border }
-										/>
-									</div>	
-
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Адресная информация:</p>
-										<Select 
-											placeholderText={ "Выберите свой город" }
-											options={ region }
-											value={ details.city }
-											onChange={ handleChange3 }
-											className={ error ? styles.error_border : styles.dafault_border }
-										/>
-										<div className={[styles.form_input, styles.address].join(" ")}>
-											<Input 
-												type={ "text" }
-												name={ "address" }
-												id={ "address" }
-												placeholder={ 'Адрес ' }
-												value={ details.address }
-												onChange={ e => setDetails({...details, address: e.target.value}) }
-												className={ error ? styles.error_border : styles.dafault_border }
-											/>	
-										</div>
-									</div>	
-
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Информация о получателе:</p>
-										<div className={styles.form_input}>
-											<Input 
-												type={ "text" }
-												name={ "name" }
-												id={ "name" }
-												placeholder={ 'Имя ' }
-												value={ details.name }
-												onChange={ e => setDetails({...details, name: e.target.value}) }
+								<div className={ styles.content }>
+									<form className={ styles.form } style={ checkoutForm ? { position: 'sticky', top: '6.25rem' } : null } onSubmit={ handleSubmit }>
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Способ оплаты:</p>
+											<Select 
+												placeholderText={ "Выберите способ оплаты" }
+												options={ payment_method }
+												value={ details.paymentMethod }
+												onChange={ handleChange1 }
 												className={ error ? styles.error_border : styles.dafault_border }
 											/>
 										</div>
-										<div className={styles.form_input}>
-											<Input 
-												type={ "text" }
-												name={ "surename" }
-												id={ "surename" }
-												placeholder={ 'Фамилия ' }
-												value={ details.surename }
-												onChange={ e => setDetails({...details, surename: e.target.value}) }
+										
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Способ доставки:</p>
+											<Select 
+												placeholderText={ "Выберите способ доставки" }
+												options={ delivery_method }
+												value={ details.deliveryMethod }
+												onChange={ handleChange2 }
 												className={ error ? styles.error_border : styles.dafault_border }
 											/>
-										</div>
-									</div>			
-									
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Телефон:</p>
-										<div className={styles.form_input}>
-											<Input 
-												type={ "text" }
-												name={ "phone" }
-												id={ "phone" }
-												placeholder={ '+7 (___) ___-__-__' }
-												mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
-												value={ details.phone }
-												onChange={ e => setDetails({...details, phone: e.target.value}) }
+										</div>	
+
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Адресная информация:</p>
+											<Select 
+												placeholderText={ "Выберите свой город" }
+												options={ region }
+												value={ details.city }
+												onChange={ handleChange3 }
 												className={ error ? styles.error_border : styles.dafault_border }
 											/>
+											<div className={ [styles.form_input, styles.address].join(" ") }>
+												<Input 
+													type={ "text" }
+													name={ "address" }
+													id={ "address" }
+													placeholder={ "Адрес " }
+													value={ details.address }
+													onChange={ e => setDetails({...details, address: e.target.value}) }
+													className={ error ? styles.error_border : styles.dafault_border }
+												/>	
+											</div>
+										</div>	
+
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text }>Информация о получателе:</p>
+											<div className={ styles.form_input }>
+												<Input 
+													type={ "text" }
+													name={ "name" }
+													id={ "name" }
+													placeholder={ "Имя " }
+													value={ details.name }
+													onChange={ e => setDetails({...details, name: e.target.value}) }
+													className={ error ? styles.error_border : styles.dafault_border }
+												/>
+											</div>
+											<div className={ styles.form_input }>
+												<Input 
+													type={ "text" }
+													name={ "surename" }
+													id={ "surename" }
+													placeholder={ "Фамилия " }
+													value={ details.surename }
+													onChange={ e => setDetails({...details, surename: e.target.value}) }
+													className={ error ? styles.error_border : styles.dafault_border }
+												/>
+											</div>
+										</div>			
+										
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text }>Телефон:</p>
+											<div className={ styles.form_input }>
+												<Input 
+													type={ "text" }
+													name={ "phone" }
+													id={ "phone" }
+													placeholder={ "+7 (___) ___-__-__" }
+													mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
+													value={ details.phone }
+													onChange={ e => setDetails({...details, phone: e.target.value}) }
+													className={ error ? styles.error_border : styles.dafault_border }
+												/>
+											</div>
 										</div>
-									</div>
 
-									<div className={styles.form_box}>
-										<p className={styles.form_text}>Ваш комментарий:</p>
-										<div className='form-textarea'>
-											<Input 
-												type={ "text" }
-												name={ "message" }
-												id={ "message" }
-												placeholder={ 'Опишите Вашу проблему ' }
-												value={ details.message }
-												onChange={ e => setDetails({...details, message: e.target.value}) }
-												ta={ true }
-												basket={ true }
-												className={ styles.dafault_border }
-											/>
+										<div className={ styles.form_box }>
+											<p className={ styles.form_text }>Ваш комментарий:</p>
+											<div className='form-textarea'>
+												<Input 
+													type={ "text" }
+													name={ "message" }
+													id={ "message" }
+													placeholder={ "Опишите Вашу проблему " }
+													value={ details.message }
+													onChange={ e => setDetails({...details, message: e.target.value}) }
+													ta={ true }
+													basket={ true }
+													className={ styles.dafault_border }
+												/>
+											</div>
 										</div>
+
+										<div className='form_button'>
+											<Button text={ "Подтвердить заказ" }/>
+										</div>
+
+										<p className={ styles.term_of_use }>Подтверждая заказ вы соглашаетесь с <a href="/term_of_use">пользовательским соглашением</a></p>
+									</form>
+
+									<div className={styles.products}>
+										{ cart.map(item => 
+											<ProductItem product={ item.product } quantity={ item.quantity }/>
+										) }
+
+										<h6 className={ styles.total_price }><b>Итоговая сумма:</b> { total } тг.</h6>
 									</div>
-
-									<div className='form_button'>
-										<Button text={ "Подтвердить заказ" }/>
-									</div>
-
-									<p className={styles.term_of_use}>Подтверждая заказ вы соглашаетесь с <a href="/term_of_use">пользовательским соглашением</a></p>
-								</form>
-
-								<div className={styles.products}>
-									{ cart.map(item => 
-										<ProductItem product={ item.product } quantity={ item.quantity }/>
-									) }
-
-									<h6 className={styles.total_price}><b>Итоговая сумма:</b> {total} тг.</h6>
 								</div>
 							</div>
 							
@@ -286,7 +330,7 @@ export default function Basket() {
 
 const Wrapper = styled.div`
 	.form-textarea textarea { 
-		height: 9.375rem;
+		height: 9.25rem;
 	}
 
 	.form_button {

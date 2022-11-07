@@ -87,7 +87,7 @@ const Wrapper = styled.nav`
 	}
 	
 	input {
-		height: 2.5rem;
+		height: 2.375rem;
 		padding: 0.5625rem 0.625rem 0.6875rem;
 	}
 

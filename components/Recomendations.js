@@ -75,7 +75,7 @@ const Wrapper = styled.section`
 		
 		.title {
 			line-height: 2.5rem;
-			font-size: 28px;
+			font-size: 30px;
 			margin-bottom: 0.625rem;
 		}
 		
@@ -88,7 +88,20 @@ const Wrapper = styled.section`
 		}
 		
 		.subtitle {
-			font-size: 14px;
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.title {
+			line-height: 1.875rem;
+			font-size: 24px;
+		}
+		
+		.subtitle,
+		.bold-subtitle {
+			line-height: 1.25rem;
+			font-size: 15px;
 		}
 	}
 	
@@ -116,11 +129,6 @@ const Wrapper = styled.section`
 
 		.middle {
 			width: 1.875rem
-		}
-	  
-		.subtitle {
-			line-height: 1.25rem;
-			font-size: 15px;
 		}
 	}
 `

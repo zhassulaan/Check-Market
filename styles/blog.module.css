@@ -1,5 +1,34 @@
+@keyframes animate {
+	50%, 60%, 70%, 100% {
+		opacity: 100%;
+	} 0%, 55%, 65% {
+		opacity: 0;
+	}
+}
+
+@keyframes logoAnimation {
+	0% {
+		top: 0;
+		opacity: 0;
+	} 5% {
+		opacity: 1;
+	} 50% {
+		top: 100%;
+	} 95% {
+		opacity: 1;
+	} 100% {
+		top: 0;
+		opacity: 0;
+	}
+}
+
+.logo_container,
+.header {
+	display: none;
+}
+
 .container {
-	padding: 18.125rem 0 5rem;
+	padding: 17.1875rem 0 12.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -43,8 +72,7 @@
 	height: 21.875rem;
 }
 
-
-.border {
+.frame {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -112,4 +140,260 @@
 	display: -webkit-box;
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
+}
+
+@media  (max-width: 1440px) {
+	.container {	
+		padding: 15.9375rem 0 11.25rem;
+	}
+
+	.box {
+		gap: 1.875rem;
+	}
+
+	.title_content {
+		width: 26.25rem;
+	}
+	
+	.text_content {
+		width: 69.375rem;
+	}
+}
+
+@media  (max-width: 1220px) {
+	.container {	
+		padding: 11.5625rem 0 9.375rem;
+	}
+
+	.box {
+		gap: 1.875rem;
+	}
+
+	.title_content {
+		width: 24.1875rem;
+	}
+
+	.title_content p,
+	.title_content h6,
+	.text_content h6 {
+		line-height: 1.25rem;
+		font-size: 16px;
+	}
+	
+	.title {
+		line-height: 2.8125rem;
+		font-size: 34px;
+		margin-bottom: 0.9375rem;
+	}
+
+	.image_content {
+		width: 31.25rem;
+		height: 19.375rem;
+	}
+
+	.text_content {
+		width: 57.3125rem;
+	}
+
+	.text {
+		font-size: 17px;
+		margin-top: 1.875rem;
+	}
+}
+
+@media  (max-width: 992px) {
+	.logo_container {
+		display: flex;
+		align-items: center;
+		background-image: url(../public/modal/background.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 23.75rem;
+		margin-top: 1.5625rem;
+		padding: 5.625rem 0;
+	}
+	
+	.logo_box {
+		position: relative;
+		width: calc(100% - 39.0421vw * 2);
+		margin: 0 39.0421vw;
+	}
+		
+	.logo_box:before {
+		content: "";
+		position: absolute;
+		width: calc(100vw - 39.0421vw * 2);
+		height: 0.1rem;
+		background-color: var(--clr-primary-1);
+		opacity: 0;
+		animation: logoAnimation 2s linear;
+	}
+	
+	.logo_box:active {
+		animation: animate 1.2s linear;
+	}
+	
+	.logo {
+		width: calc(100vw - 39.0421vw * 2);
+		animation: animate 1.2s linear;
+	}
+
+	.container {
+		padding: 2.5rem 0 5rem;
+	}
+
+	.header {
+		display: block;
+		width: 88.889vw;
+		margin-bottom: 1.875rem;
+	}
+
+	.title {
+		line-height: 2.1875rem;
+		font-size: 30px;
+		margin-bottom: 0.625rem;
+	}
+	
+	.icons {
+		margin-bottom: 0.625rem;
+	}
+	
+	.icons img {
+		height: 0.625rem;
+	}
+	
+	.subtitle {
+		line-height: 1.25rem;
+		font-size: 16px;
+	}
+
+	.box {	
+		flex-direction: column-reverse;
+		width: 88.889vw;
+	}
+
+	.title_content {
+		width: 88.889vw;
+	}
+
+	.title_content a {
+		display: none;
+	}
+
+	.title_content_header {
+		display: flex;
+		justify-content: space-between;		
+	}
+
+	.title_content h6 {
+		margin: 0 0 1.25rem;
+	}
+	
+	.title_content .title {
+		margin: 0;
+	}
+	
+	.image_content {
+		width: 88.889vw;
+		max-width: 25rem;
+		height: 88.889vw;
+		max-height: 25rem;
+		margin: 0 auto;
+	}
+
+	.image_content img {
+		border-radius: 0.625rem;
+	}
+	
+	.frame,
+	.date {
+		display: none;
+	}
+
+	.text_content {
+		width: 88.889vw;
+		margin: 0;
+	}
+
+	.text_content h6 {
+		display: none;
+	}
+	
+	.text {
+		line-height: 1.5675rem;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		margin-bottom: 1.875rem;
+	}
+	
+	.title {
+		line-height: 1.875rem;
+		font-size: 24px;
+	}
+	
+	.subtitle,
+	.text {
+		font-size: 15px;
+	}
+}
+
+@media  (max-width: 650px) {
+	.logo_container {
+		height: 52.778vw;
+		padding: 11.11112vw 0;
+	}
+
+	.logo_box {
+		width: 33.33334vw;
+		margin: 0 33.33334vw;
+	}
+	
+	.logo_box:before {
+		width: calc(100vw - 33.33334vw * 2);
+	}
+
+	.logo {
+		width: 33.33334vw;
+	}
+
+	.container {
+		padding: 1.875rem 0 4.375rem;
+	}
+
+	.header {
+		margin-bottom: 1.25rem;
+	}
+
+	.title {
+		line-height: 1.5625rem;
+		font-size: 18px;
+	}
+		
+	.icons {
+		height: 0.625rem; 
+		margin-bottom: 1.25rem;
+	}
+		
+	.icons img {
+		height: 100%;
+	}
+
+	.image_content {
+		width: 88.889vw;
+		max-width: 20rem;
+		height: 88.889vw;
+		max-height: 20rem;
+		margin: 0 auto;
+	}
+
+	.subtitle,
+	.text {
+		margin-top: 1.25rem;
+	}
 }

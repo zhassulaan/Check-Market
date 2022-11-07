@@ -5,44 +5,44 @@ import ProductBox from '../components/ProductBox';
 
 export default function TopProducts() {
 	let numb = (window.innerWidth > 545) ? 3 : 2;
-	const [element, setElement] = useState(numb);
+	const [current, setCurrent] = useState(numb);
 
 	const handleClick = async(ev) => {
 		ev.preventDefault();
-		setElement(Number(ev.target.id));
+		setCurrent(Number(ev.target.id));
 	}
 
-	const previous = (element / numb - 1);
-	const next = Math.ceil(data.length / numb) - (element / numb);
+	const previous = (current / numb - 1);
+	const next = Math.ceil(data.length / numb) - (current / numb);
 
-	setTimeout(function() { 
-		(data.length <= element) ? 
-			setElement(numb)
-				:
-			setElement(element + numb)
-	}, 5000);
+	// setTimeout(function() { 
+	// 	(data.length <= current) ? 
+	// 		setCurrent(numb)
+	// 			:
+	// 		setCurrent(current + numb)
+	// }, 5000);
 
 	return (
 		<Wrapper>
 			<div className='products'>
 				{ data.map(item => {
 					return(
-						(element >= item.id && element - numb < item.id) ?
+						(current >= item.id && current - numb < item.id) ?
 							<div id={ item.id }>
 								<ProductBox key={ item.id } product={ item }/>
 							</div>
 								:
 							<></>
-					);
+						);
 				}) }
 			</div>
 
 			<div className='buttons'>
-				<img src="/product-images/left.svg" alt="previous" id={ (element !== numb) ? element - numb : element } className='arrow button' onClick={ handleClick }/>
+				<img src="/product-images/left.svg" alt="previous" id={ (current !== numb) ? current - numb : current } className='arrow button' onClick={ handleClick }/>
 				{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb } alt="passive" className='button' onClick={ handleClick }/>)}
 				<img src="/product-images/active.svg" alt="active" className='button'/>
-				{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb + element } alt="passive" className='button' onClick={ handleClick }/>)}
-				<img src="/product-images/right.svg" alt="next" id={ (element < data.length) ? element + numb : element } className='arrow button' onClick={ handleClick }/>
+				{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb + current } alt="passive" className='button' onClick={ handleClick }/>)}
+				<img src="/product-images/right.svg" alt="next" id={ (current < data.length) ? current + numb : current } className='arrow button' onClick={ handleClick }/>
 			</div>
 		</Wrapper>
 	);

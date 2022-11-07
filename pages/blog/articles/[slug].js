@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
 import data from '../../../data/news-data';
@@ -46,49 +46,65 @@ export default function SingleBlog() {
 
 			{ slug !== undefined ?
 				success ? 
-					(() => {
-						if (basketModal)
-							return (
-								<BasketModal close={ basket }/> 
-							);
-						else if (subscribeModal)
-							return (
-								<SubscribeModal modal={ subscribe }/>
-							);
-						else
-							return (<>
-								<Navbar modal={ basket }/>
+					<div>
+						{ basketModal ? <BasketModal close={ basket }/> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+								
+						<Navbar modal={ basket }/>
 
-								<div className={styles.container}>
-									<div className={styles.box}>
-										<div className={styles.title_content}>
-											<a href="/blog">
-												<Image src='/blog-icons/arrow2.svg' alt="open arrow" width={40} height={10} layout='fixed' />
-												<p>Вернуться</p>
-											</a>
-											<h6>Статьи</h6>
-											<h3 className={styles.title}>{success.title}</h3>
-										</div>
-										
-										<div className={styles.image_content}>
-											<Image src={success.image} alt="blog image" width={660} height={350} layout='fixed' />
-											<div className={styles.border}></div>
-																		
-											<div className={styles.date}>
-												<h4>{success.date}</h4>
-											</div>
-										</div>
-									</div>
-									<div className={styles.text_content}>
+						<div className={ styles.logo_container }>
+							<div className={ styles.logo_box }>
+									<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+							</div>
+						</div>
+								
+						<div className={ styles.container }>
+							<div className={ styles.header }>
+								<h3 className={ styles.title }>Блог</h3>
+
+								<div className={ styles.icons }>
+									<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
+									<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
+									<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+								</div>
+
+								<p className={ styles.subtitle }>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
+							</div>
+
+							<div className={ styles.box }>
+								<div className={ styles.title_content }>
+									<a href="/blog">
+										<Image src="/blog-icons/arrow2.svg" alt="back arrow" width={40} height={10} layout="fixed"/>
+										<p>Вернуться</p>
+									</a>
+
+									<div className={  styles.title_content_header }>
+										<h6 style={ (window.innerWidth > 992) ? { display: "none" } : { display: "block" } }>{ success.date }</h6>
 										<h6>Статьи</h6>
-										<p className={styles.text}>{success.text1}</p>
-										<p className={styles.text}>{success.text2}</p>
+									</div>
+									
+									<h3 className={ styles.title }>{ success.title }</h3>
+								</div>
+										
+								<div className={ styles.image_content }>
+									<Image src={ success.image } alt="blog image" width="100%" height="100%" layout="fill"/>
+									<div className={ styles.frame }></div>
+																		
+									<div className={ styles.date }>
+										<h4>{ success.date }</h4>
 									</div>
 								</div>
-								
-								<Footer modal={ subscribe }/>
-							</>);
-					})()
+							</div>
+							
+							<div className={ styles.text_content }>
+								<h6>Статьи</h6>
+								<p className={ styles.text }>{ success.text1 }</p>
+								<p className={ styles.text }>{ success.text2 }</p>
+							</div>
+						</div>
+
+						<Footer modal={ subscribe }/>
+					</div>
 						:
 					<Error/>
 					:
