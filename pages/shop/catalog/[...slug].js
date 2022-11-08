@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
 import { Context } from '../../../context/Context';
 import BasketModal from '../../../components/Modals/BasketModal';
 import SubscribeModal from '../../../components/Modals/SubscribeModal';
@@ -9,9 +10,11 @@ import Footer from '../../../components/Footer';
 import ProductBox from '../../../components/ProductBox';
 import Pagination from '../../../components/Pagination';
 import SearchBar from '../../../components/SearchBar';
+import Button from '../../../components/Button';
 import data from '../../../data/products-data';
 import data2 from '../../../data/top-products';
 import styles from '../../../styles/catalog.module.css';
+import bg from '../../../public/home/background.png';
 
 export default function Shop() {
 	const { state, dispatch } = useContext(Context);
@@ -67,15 +70,14 @@ export default function Shop() {
 	// USE FILTER
 	let [openDropdown, setOpenDropdown] = useState([false, false, false, false, false]);
 	const handleClick = (ev) => {
-		if (ev.target.className == undefined)
-			setOpenDropdown(false, false, false, false, false);
-		else {
-			let newOpenDropdown = [false, false, false, false, false];
-			newOpenDropdown[ev.target.className] = !openDropdown[ev.target.className];
-			setOpenDropdown(newOpenDropdown);
-		}
+			if (ev.target.className == undefined)
+				setOpenDropdown(false, false, false, false, false);
+			else {
+				let newOpenDropdown = [false, false, false, false, false];
+				newOpenDropdown[ev.target.className] = !openDropdown[ev.target.className];
+				setOpenDropdown(newOpenDropdown);
+			}
 	};
-	console.log(openDropdown);
 	
 	// FILTER BY SECTION
 	const productType = [
@@ -257,7 +259,7 @@ export default function Shop() {
 	}, [q, selectedType, selectedPrice, selectedAviability, selectedSale, selectedSorting]);
 
 	// PAGINATION
-	const [productsPerPage] = useState(9);
+	const [productsPerPage] = useState((window.innerWidth > 540) ? 9 : 8);
 
 	const totalProducts = products.length;
 	const pageNumbers = [];
@@ -276,6 +278,12 @@ export default function Shop() {
 	const paginate = async(ev) => {
 		ev.preventDefault();
 		currentPage = ev.target.id;
+	}
+
+	const [filter, setFilter] = useState(false);
+	const openFilter = async(ev) => {
+		ev.preventDefault();
+		setFilter(!filter)
 	}
 
 	return (
@@ -306,6 +314,14 @@ export default function Shop() {
 						return (<>	
 							<Navbar modal={ basket }/>
 
+							<LogoContainer>
+								<div className='logo-box'>
+									<img src="/home/logo.svg" alt="logo" className='logo'/>
+								</div>
+							</LogoContainer>
+
+							{ (window.innerWidth < 769 && filter) ? <div className={ styles.frame }></div> : null}
+
 							<div className={ styles.container } onClick={ handleClick }>
 								<div className={ styles.header }>
 									<h3 className={ styles.title }>Интернет-магазин</h3>
@@ -320,119 +336,171 @@ export default function Shop() {
 								</div>
 												
 								<div className={ styles.filter_content }>
-									<div>
-										<div className={ styles.filter_header }>
-											<p className='0'>Разделы:</p>
-											<div className='0'>
-												<img className='0' src="/catalog-icons/arrow.svg" alt="show button"/>
-											</div>
+									{ window.innerWidth < 769 ? 
+										<div className={ styles.filter_opener } onClick={ openFilter }>
+											<h5>Фильтр</h5> 
+											<img src="/catalog-icons/filter.svg" alt="filter icon"/>
 										</div>
+											: 
+										null }
+									
+									{ (window.innerWidth > 768 || filter) ?
+										<div className={ styles.filter_boxes }>
+											<svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={ openFilter }>
+												<path d="M1 1L30.9999 31" stroke="black" stroke-width="2"/>
+												<path d="M31 1L1 31" stroke="black" stroke-width="2"/>
+											</svg>
+											<h4>Выберите нужные фильтры</h4>
 
-										<ul className={ (openDropdown[0] === true) ? styles.filter_options : styles.hide }>
-											<li className={ selectedType[0] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByType }>Все товары</p>
-											</li>
-											<li className={ selectedType[1] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByType }>Чековая лента</p>
-											</li>
-											<li className={ selectedType[2] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByType }>Термоэтикетки</p>
-											</li>
-											<li className={ selectedType[3] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='3' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Счётчики подсчёта посетителей</p>
-											</li>
-											<li className={ selectedType[4] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='4' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Противокражное оборудование</p>
-											</li>
-											<li className={ selectedType[5] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='5' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Оборудование для автоматизации</p>
-											</li>
-										</ul>
-									</div>
+											<div className='0' style={{ position: "relative" }}>
+												<div className={ styles.filter_header }>
+													<p className='0'>Разделы:</p>
+													<div className='0'>
+														{ (window.innerWidth > 768) ?
+															<img className='0' src="/catalog-icons/arrow.svg" alt="show button"/>
+																:
+															<img className='0' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+														}
+													</div>
+												</div>
 
-									<div>
-										<div className={ styles.filter_header }>
-											<p className='1'>Цена:</p>
-											<div className='1'>
-												<img className='1' src="/catalog-icons/arrow.svg" alt="show button"/>
+												<ul className={ (openDropdown[0] === true) ? styles.filter_options : styles.hide }>
+													<li className={ selectedType[0] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByType }>Все товары</p>
+													</li>
+													<li className={ selectedType[1] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByType }>Чековая лента</p>
+													</li>
+													<li className={ selectedType[2] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByType }>Термоэтикетки</p>
+													</li>
+													<li className={ selectedType[3] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='3' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Счётчики подсчёта посетителей</p>
+													</li>
+													<li className={ selectedType[4] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='4' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Противокражное оборудование</p>
+													</li>
+													<li className={ selectedType[5] ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='5' className={ styles.filter_bigtext } onClick={ handleFilterByType }>Оборудование для автоматизации</p>
+													</li>
+												</ul>
 											</div>
-										</div>
 
-										<ul className={ (openDropdown[1] === true) ? styles.filter_options : styles.hide }>
-											<li className={ selectedPrice[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Все цены</p>
-											</li>
-											<li className={ selectedPrice[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по возрастанию</p>
-											</li>
-											<li className={ selectedPrice[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по убыванию</p>
-											</li>
-										</ul>
-									</div>
+											<div className='1' style={{ position: "relative" }}>
+												<div className={ styles.filter_header }>
+													<p className='1'>Цена:</p>
+													<div className='1'>
+														{ (window.innerWidth > 768) ?
+															<img className='1' src="/catalog-icons/arrow.svg" alt="show button"/>
+																:
+															<img className='1' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+														}
+													</div>
+												</div>
 
-									<div>
-										<div className={ styles.filter_header }>
-											<p className='2'>Наличие:</p>
-											<div className='2'>
-												<img className='2' src="/catalog-icons/arrow.svg" alt="show button"/>
+												<ul className={ (openDropdown[1] === true) ? styles.filter_options : styles.hide }>
+													<li className={ selectedPrice[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Все цены</p>
+													</li>
+													<li className={ selectedPrice[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по возрастанию</p>
+													</li>
+													<li className={ selectedPrice[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByPrice }>Цены по убыванию</p>
+													</li>
+												</ul>
 											</div>
-										</div>
 
-										<ul className={ (openDropdown[2] === true) ? styles.filter_options : styles.hide }>
-											<li className={ selectedAviability[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Все позиции</p>
-											</li>
-											<li className={ selectedAviability[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>В наличии</p>
-											</li>
-											<li className={ selectedAviability[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Под заказ</p>
-											</li>
-											<li className={ selectedAviability[3] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='3' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Нет в наличии</p>
-											</li>
-										</ul>
-									</div>
+											<div className='2' style={{ position: "relative" }}>
+												<div className={ styles.filter_header }>
+													<p className='2'>Наличие:</p>
+													<div className='2'>
+														{ (window.innerWidth > 768) ?
+															<img className='2' src="/catalog-icons/arrow.svg" alt="show button"/>
+																:
+															<img className='2' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+														}
+													</div>
+												</div>
 
-									<div>
-										<div className={ styles.filter_header }>
-											<p className='3'>Акции:</p>
-											<div className='3'>
-												<img className='3' src="/catalog-icons/arrow.svg" alt="show button"/>
+												<ul className={ (openDropdown[2] === true) ? styles.filter_options : styles.hide }>
+													<li className={ selectedAviability[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='0' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Все позиции</p>
+													</li>
+													<li className={ selectedAviability[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='1' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>В наличии</p>
+													</li>
+													<li className={ selectedAviability[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='2' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Под заказ</p>
+													</li>
+													<li className={ selectedAviability[3] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='3' className={ styles.filter_minitext } onClick={ handleFilterByAvailability }>Нет в наличии</p>
+													</li>
+												</ul>
 											</div>
-										</div>
 
-										<ul className={ (openDropdown[3] === true) ? styles.filter_options : styles.hide }>
-											<li className={ selectedSale[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='0' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции без скидок</p>
-											</li>
-											<li className={ selectedSale[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='1' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции со скидками</p>
-											</li>
-										</ul>
-									</div>
+											<div className='3' style={{ position: "relative" }}>
+												<div className={ styles.filter_header }>
+													<p className='3'>Акции:</p>
+													<div className='3'>
+														{ (window.innerWidth > 768) ?
+															<img className='3' src="/catalog-icons/arrow.svg" alt="show button"/>
+																:
+															<img className='3' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+														}
+													</div>
+												</div>
 
-									<div>
-										<div className={ styles.filter_header }>
-										<p className='4'>Сортировка:</p>
-											<div className='4'>
-												<img className='4' src="/catalog-icons/arrow.svg" alt="show button"/>
+												<ul className={ (openDropdown[3] === true) ? styles.filter_options : styles.hide }>
+													<li className={ selectedSale[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='0' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции без скидок</p>
+													</li>
+													<li className={ selectedSale[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+														<p id='1' className={ styles.filter_minitext } onClick={ handleFilterBySale }>Позиции со скидками</p>
+													</li>
+												</ul>
 											</div>
-										</div>
 
-										<ul className={ (openDropdown[4] === true) ? styles.filter_options : styles.hide }>
-											<li className={ selectedSorting[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='0' className={ styles.filter_minitext } onClick={ handleSorting }>По порядку</p>
-											</li>
-											<li className={ selectedSorting[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='1' className={ styles.filter_minitext } onClick={ handleSorting }>По новизне</p>
-											</li>
-											<li className={ selectedSorting[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
-												<p id='2' className={ styles.filter_minitext } onClick={ handleSorting }>Самые популярные</p>
-											</li>
-										</ul>
-									</div>
+											{ (window.innerWidth > 768) ?
+												<div className='4' style={{ position: "relative" }}>
+													<div className={ styles.filter_header }>
+														<p className='4'>Сортировка:</p>
+														<div className='4'>
+															<img className='4' src="/catalog-icons/arrow.svg" alt="show button"/>
+														</div>
+													</div>
+												
+													<ul className={ (openDropdown[4] === true) ? styles.filter_options : styles.hide }>
+														<li className={ selectedSorting[0] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+															<p id='0' className={ styles.filter_minitext } onClick={ handleSorting }>По порядку</p>
+														</li>
+														<li className={ selectedSorting[1] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+															<p id='1' className={ styles.filter_minitext } onClick={ handleSorting }>По новизне</p>
+														</li>
+														<li className={ selectedSorting[2] === true ? [styles.filter_item, styles.active].join(" ") : styles.filter_item }>
+															<p id='2' className={ styles.filter_minitext } onClick={ handleSorting }>Самые популярные</p>
+														</li>
+													</ul>
+												</div>
+													:
+												<div></div>
+											}
+
+											{ (window.innerWidth < 769) ?
+												<div className={ styles.mobile_fliter } style={{ position: "relative" }}>
+													<div style={{ width: "9.6875rem", height: "2.5rem" }} onClick={ openFilter }>
+														<Button text={ "Применить" }/>
+													</div>
+												
+													<p className={ styles.clear_filter } onClick={ handleClearFilter }>Сбросить все фильтры</p>
+												</div>
+													:
+												<div></div>
+											}
+										</div>
+											:
+										<div></div>
+									}
 
 									<div className={ styles.filter_box }>
 										<div className={ styles.search_box }>
@@ -442,7 +510,11 @@ export default function Shop() {
 												onChange={ (e) => setQ(e.target.value) }
 												/>
 										</div>
-										<p className={ styles.clear_filter } onClick={ handleClearFilter }>Сбросить все фильтры</p>
+										{ (window.innerWidth > 768) ?
+											<p className={ styles.clear_filter } onClick={ handleClearFilter }>Сбросить все фильтры</p>
+												:
+											<div></div>
+										}
 									</div>
 								</div>
 								
@@ -466,7 +538,7 @@ export default function Shop() {
 									</>
 										:
 									<div className={ styles.notfound_content }>
-										<img src="/product-images/not-found.svg" alt="not found" />
+										<img src="/product-images/not-found.svg" alt="not found"/>
 										<p>По Вашему запросу нет результатов. Попробуйте сбросить все фильтры или обновить страницу.</p>
 									</div>
 								}
@@ -481,3 +553,87 @@ export default function Shop() {
 		</div>
 	);
 }
+
+const LogoContainer = styled.div`
+	@keyframes animate {
+		50%, 60%, 70%, 100% {
+			opacity: 100%;
+		} 0%, 55%, 65% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes logoAnimation {
+		0% {
+			top: 0;
+			opacity: 0;
+		} 5% {
+			opacity: 1;
+		} 50% {
+			top: 100%;
+		} 95% {
+			opacity: 1;
+		} 100% {
+			top: 0;
+			opacity: 0;
+		}
+	}
+
+	display: none;
+
+	@media (max-width: 992px) {
+		display: flex;
+		align-items: center;
+		background-image: url(${bg.src}); 
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 23.75rem;
+		margin-top: 1.5625rem;
+		padding: 5.625rem 0;
+
+		.logo-box {
+			position: relative;
+			width: calc(100% - 39.0421vw * 2);
+			margin: 0 39.0421vw;
+		}
+		
+		.logo-box:before {
+			content: "";
+			position: absolute;
+			width: calc(100vw - 39.0421vw * 2);
+			height: 0.1rem;
+			background-color: var(--clr-primary-1);
+			opacity: 0;
+			animation: logoAnimation 2s linear;
+		}
+
+		.logo-box:active {
+			animation: animate 1.2s linear;
+		}
+
+		.logo {
+			width: calc(100vw - 39.0421vw * 2);
+			animation: animate 1.2s linear;
+		}
+	}
+
+	@media (max-width: 650px) {
+		height: 52.778vw;
+		padding: 11.11112vw 0;
+
+		.logo-box {
+			width: 33.33334vw;
+			margin: 0 33.33334vw;
+		}
+		
+		.logo-box:before {
+			width: calc(100vw - 33.33334vw * 2);
+		}
+
+		.logo {
+			width: 33.33334vw;
+		}
+	}
+`

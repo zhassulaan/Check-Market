@@ -4,7 +4,7 @@ import data from '../data/top-products';
 import ProductBox from '../components/ProductBox';
 
 export default function TopProducts() {
-	let numb = (window.innerWidth > 545) ? 3 : 2;
+	let numb = (window.innerWidth > 540) ? 3 : 2;
 	const [current, setCurrent] = useState(numb);
 
 	const handleClick = async(ev) => {

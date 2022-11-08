@@ -99,14 +99,14 @@ export default function Basket() {
 				type: "PURCHASE",
 				payload: details,
 			})
+			window.scrollTo({ top: 0 });
 			success(e);
 		}
 	}
-	// console.log(window.scrollY );
 
 	const [checkoutForm, setcheckoutForm] = useState(true);
 	const scrolling = () => {
-		if (window.scrollY >= 327) {
+		if (window.scrollY >= 327 && window.innerWidth > 768) {
 			setcheckoutForm(true);
 		} else {
 			setcheckoutForm(false);
@@ -132,6 +132,7 @@ export default function Basket() {
 				if (successModal)
 					return (<>
 						<Navbar modal={ basket }/>
+
 						<div className={ styles.logo_container }>
 							<div className={ styles.logo_box }>
 									<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
@@ -341,5 +342,47 @@ const Wrapper = styled.div`
 	.form_button .text {
 		font-size: 20px;
 		font-weight: 700;
+	}
+
+	@media (max-width: 1220px) {
+		.form_button {
+			height: 3.75rem;
+			margin: 1.5625rem 0 0.9375rem;
+		}
+
+		.form_button .text {
+			font-size: 17px;
+		}
+	}
+	
+	@media (max-width: 992px) {
+		.form_button {
+			height: 3.125rem;
+			margin: 1.5625rem 0 0.9375rem;
+		}
+
+		.form_button .text {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.form_button {
+			margin: 0;
+		}
+
+		.form_button .text {
+			font-size: 14px;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.form_button {
+			height: 2.5rem;
+		}
+
+		.form_button .text {
+			font-size: 13px;
+		}
 	}
 `

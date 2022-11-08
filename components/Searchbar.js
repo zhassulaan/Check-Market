@@ -26,8 +26,6 @@ const Wrapper = styled.section`
 	margin: auto 0;
 
 	input {
-		width: 100%;
-		height: 100%;
 		font-family: 'Open Sans', sans-serif;
 		padding: 0 2.5rem 0 0.625rem;
 		font-weight: 400;
@@ -45,10 +43,6 @@ const Wrapper = styled.section`
 	.search_icon img {
 		width: 1.25rem;
 		height: 1.25rem;
-	}
-
-	@media (max-width: 992px) {
-		width: 65.27778vw;
 	}
 `
 export default SearchBar;

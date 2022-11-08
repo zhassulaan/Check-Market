@@ -10,7 +10,6 @@ import Error from './_error';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProductItem from '../components/ModalProductItem';
-import bg from '../public/modal/background.png';
 import bg2 from '../public/home/background.png';
 
 export default function Basket() {
@@ -69,11 +68,11 @@ export default function Basket() {
 
 					<Navbar modal={ basket }/>
 					
-					<Logo>
+					<LogoContainer>
 						<div className='logo-box'>
 							<img src="/home/logo.svg" alt="logo" className='logo'/>
 						</div>
-					</Logo>
+					</LogoContainer>
 
 					<Wrapper>
 						<div className='container'>
@@ -142,7 +141,7 @@ export default function Basket() {
 	);
 }
 
-const Logo = styled.div`
+const LogoContainer = styled.div`
 	height: 15.625rem;
 	display: grid;
 	justify-content: center;

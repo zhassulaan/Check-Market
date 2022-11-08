@@ -308,7 +308,7 @@ const Wrapper = styled.div`
 	@media (max-width: 650px) {
 		.product-container {
 			width: 9.6875rem;
-			height: calc(9.6875rem + 12.188rem);
+			height: calc(9.6875rem + 12.1875rem);
 		}
 
 		img {
@@ -326,7 +326,7 @@ const Wrapper = styled.div`
 		}
 
 		.product-data {
-			height: 12.188rem;
+			height: 12.1875rem;
 			padding: 0.3125rem 0.5rem 0.625rem 0.4375rem;
 		}
 	
@@ -372,6 +372,13 @@ const Wrapper = styled.div`
 		.product-button {
 			width: 8.75rem;
 			height: 1.875rem;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.product-container {
+			width: 44.815vw;
+			height: calc(44.815vw + 12.1875rem);
 		}
 	}
 `

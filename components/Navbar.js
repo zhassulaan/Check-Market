@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { Context } from '../context/Context';
 import Image from 'next/image';
 import styled from 'styled-components';
-import Scroll from './ScrollToTop';
 import SearchBar from '../components/SearchBar';
 import Dropdown from '../components/Dropdown';
 
@@ -215,12 +214,9 @@ const Wrapper = styled.header`
 		color: var(--clr-white);
 	}
 
-	.search {
+	.search input {
 		width: 35rem;
 		height: 3.125rem;
-	}
-	
-	.search input {
 		border: none;
 	}
 	
@@ -296,12 +292,9 @@ const Wrapper = styled.header`
 			padding: 0;
 		}
 
-		.search {
+		.search input {
 			height: 1.875rem;
 			width: 65.27778vw;
-		}
-
-		.search input {
 			border: 1px solid var(--clr-primary-4);;
 		}
 
@@ -310,8 +303,9 @@ const Wrapper = styled.header`
 			color: var(--clr-primary-4);
 		}
 	
-		.search img {
+		.search .search_icon {
 			width: 1.875rem;
+			height: 1.875rem;
 		}
 	
 		.closeButton {

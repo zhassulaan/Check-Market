@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import styled from 'styled-components';
@@ -15,7 +15,8 @@ import data from '../../../data/products-data';
 import bg from '../../../public/modal/background.png';
 
 export default function Shop() {
-	const { dispatch } = useContext(Context);
+	const { state, dispatch } = useContext(Context);
+	const cart = state.cart;
 	const router = useRouter()
   	const { slug } = router.query
 	
@@ -64,14 +65,24 @@ export default function Shop() {
 		setOption(2);
 	}
 
+	const [total, setTotal] = useState();
+	useEffect(() => {
+		const totalArray = cart.map(item =>
+			(item.quantity * item.product.price *  (100 - item.product.sale) / 100)
+		)
+		setTotal(totalArray.reduce((acc, curr) => acc + Number(curr), 0))
+	}, [cart]);
+
 	const handleClick = async(ev) => {
 		ev.preventDefault();
 		dispatch({
 			type: "ADD_TO_CART",
 			payload: success,
 		})
-		if (ev.target.id == 1)
+		if (ev.target.id == 1 && total >= 10000)
 			router.push("/order");
+		else
+			router.push("/shop/catalog/1");
 	}
 
 	const [showSale, setShowSale] = useState(false);

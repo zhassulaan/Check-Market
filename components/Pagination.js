@@ -6,10 +6,17 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
       	<ul className='pagination'>
 				{ (currentPage > 1)	?
 					<a href={`${currentPage - 1}`} id={currentPage - 1} onClick={() => paginate}>
-						<p className='previous button'>Предыдущая</p>
+						{ (window.innerWidth > 992) ? 
+							<p className='previous button'>Предыдущая</p>
+								:
+							<img src="/catalog-icons/previous.svg" alt="previous button" className='previous button'/>
+						}
 					</a>
 						:
-					<p className='previous button'>Предыдущая</p>
+					(window.innerWidth > 992) ? 
+						<p className='previous button'>Предыдущая</p>
+							:
+						<img src="/catalog-icons/previous.svg" alt="previous button" className='previous button'/>
 				}
 				
 				{pageNumbers.map(number => (
@@ -22,10 +29,17 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
 
 				{ (currentPage < pageNumbers.length) ?
 					<a href={`${currentPage + 1}`} id={currentPage + 1} onClick={() => paginate}>
-						<p className='next button'>Следующая</p>
+						{ (window.innerWidth > 992) ? 
+							<p className='next button'>Следующая</p>
+								:
+							<img src="/catalog-icons/next.svg" alt="next button" className='next button'/>
+						}
 					</a>
 						:
-					<p className='next button'>Следующая</p>
+					(window.innerWidth > 992) ? 
+						<p className='next button'>Следующая</p>
+							:
+						<img src="/catalog-icons/next.svg" alt="next button" className='next button'/>
 				}
       	</ul>
     	</Wrapper>
@@ -75,10 +89,14 @@ const Wrapper = styled.nav`
 	}
 	
 	.previous {
+		display: flex;
+		align-items: center;
 		justify-content: flex-end;
 	}
 		
 	.next {
+		display: flex;
+		align-items: center;
 		justify-content: flex-start;
 	}
 		
@@ -92,6 +110,76 @@ const Wrapper = styled.nav`
 
 	.selected p {
 		font-weight: 600;
+	}
+
+	@media (max-width: 1220px) {
+		.pagination {
+			height: 2.8125rem;
+		}
+	
+		.previous,
+		.next,
+		.link p,
+		.selected p {
+			font-size: 19px;
+		}
+	
+		.selected {
+			width: 2.8125rem;
+			height: 2.8125rem;
+		}
+	}
+
+	@media (max-width: 992px) {
+		.pagination {
+			height: 2.5rem;
+			margin-top: 4.375rem;
+		}
+	
+		.previous,
+		.next,
+		.link p,
+		.selected p {
+			font-size: 17px;
+		}
+	
+		.selected {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.pagination {
+			margin-top: 2.5rem;
+		}
+
+		.selected {
+			margin: 0 0.625rem;
+		}
+
+		.link p,
+		.selected p {
+			font-size: 16px;
+		}
+	
+		.previous,
+		.next {
+			width: 0.625rem;
+			margin: 0 2.5rem;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.link p,
+		.selected p {
+			font-size: 15px;
+		}
+
+		.previous,
+		.next {
+			margin: 0 1.25rem;
+		}
 	}
 `
 
