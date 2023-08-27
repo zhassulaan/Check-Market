@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
 import SuccessModal from '../components/Modals/SuccessModal';
@@ -145,9 +146,9 @@ export default function Basket() {
 									<h3 className={styles.title}>Услуги</h3>
 
 									<div className={styles.icons}>
-										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+										<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+										<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+										<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 									</div>
 								</div>
 							</div>
@@ -310,8 +311,8 @@ export default function Basket() {
 									</form>
 
 									<div className={styles.products}>
-										{ cart.map(item => 
-											<ProductItem product={ item.product } quantity={ item.quantity }/>
+										{ cart.map((item, idx) => 
+											<ProductItem product={ item.product } quantity={ item.quantity } key={ idx } />
 										) }
 
 										<h6 className={ styles.total_price }><b>Итоговая сумма:</b> { total } тг.</h6>

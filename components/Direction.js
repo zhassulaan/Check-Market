@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -9,9 +10,9 @@ export default function Direction({ type, action }) {
 					<h3 className='title'>Наши направления</h3>
 
 					<div className='icons'>
-						<img src='/modal/rectangle.svg' alt="rectangle" width={15} height={15} layout='fixed' />
-						<img src='/modal/triangle.svg' alt="triangle" width={40} height={15} layout='fixed' />
-						<img src='/modal/ellipse.svg' alt="ellipse" width={15} height={15} layout='fixed' />
+						<Image src='/modal/rectangle.svg' alt="rectangle" width={ 15 } height={ 15 } layout='fixed' />
+						<Image src='/modal/triangle.svg' alt="triangle" width={ 40 } height={ 15 } layout='fixed' />
+						<Image src='/modal/ellipse.svg' alt="ellipse" width={ 15 } height={ 15 } layout='fixed' />
 					</div>
 							
 					<p className='subtitle'>В настоящее время мы предлагаем широкий ассортимент решений и качественного оборудования и расходного материала в следующих категориях:</p>

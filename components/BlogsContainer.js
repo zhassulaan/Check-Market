@@ -8,12 +8,12 @@ export default function BlogsContainer({ currentItems, option }) {
 	  	<Wrapper>
 			<div className='blog-box'>
 				<div className='image-content'>
-					<Image src={ firstElement.image } alt="blog image" width="100%" height="100%" layout="fill" />
+					<Image src={ firstElement.image } alt='blog image' width='100%' height='100%' layout='fill' />
 					<div className="frame"></div>
 												
 					<div className='blog-date'>
 						<h4>{ firstElement.date }</h4>
-						<img src="/blog-icons/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
+						<Image src='/blog-icons/arrow.svg' alt='open arrow' width={ 50 } height={ 15 } layout='fixed' />
 					</div>
 				</div>
 
@@ -47,10 +47,10 @@ export default function BlogsContainer({ currentItems, option }) {
 						</div>
 						<h4 className='blog-title'>{ item.title }</h4>
 						<div className='blog-text'><p>{ item.text1 }</p></div>
-						{ option === "Статьи" ?
-							<a href={ `/blog/articles/${ item.id }` } className='button'>{ "Смотреть полностью >" }</a>
+						{ option === 'Статьи' ?
+							<a href={ `/blog/articles/${ item.id }` } className='button'>{ 'Смотреть полностью >' }</a>
 								:
-							<a href={ `/blog/news/${ item.id }` } className='button'>{ "Смотреть полностью >" }</a>
+							<a href={ `/blog/news/${ item.id }` } className='button'>{ 'Смотреть полностью >' }</a>
 						}
 					</div>
 			  </div>

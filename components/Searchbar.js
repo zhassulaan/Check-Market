@@ -14,7 +14,7 @@ function SearchBar({ value, onChange, text }) {
 			/>
 
 			<div className='button search_icon'>
-				<img src='/navbar-icons/search2.svg' alt="search button"/>
+				<img src='/navbar-icons/search2.svg' alt='search button' />
 			</div>
 		</Wrapper>
   	);

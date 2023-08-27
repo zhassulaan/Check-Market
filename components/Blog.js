@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
 import data from '../data/articles-data';
 
@@ -28,24 +30,24 @@ export default function Blog() {
 					<h3 className='title'>Наш блог</h3>
 
 					<div className='icons'>
-						<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed" />
-						<img src="/modal/triangle.svg" alt="triangle" className='middle' width={40} height={15} layout="fixed" />
-						<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed" />
+						<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+						<Image src='/modal/triangle.svg' alt='triangle' className='middle' width={ 40 } height={ 15 } layout='fixed' />
+						<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 					</div>
 						
 					<p className='subtitle'>Читайте самые свежие статьи из мира ЧЕК МАРКЕТ</p>
 				</div>
 
 				<div className='blog-content'>
-					{ (window.innerWidth > 992 ? articles6 : (window.innerWidth > 650 ? articles4 : articles2)).map(article => 
-						<div className='blog-box'>
+					{ (window.innerWidth > 992 ? articles6 : (window.innerWidth > 650 ? articles4 : articles2)).map((article, idx) => 
+						<div className='blog-box' key={ idx }>
 							<a href={ `/blog/articles/${article.id}` }>
-								<img src={ article.image.src } alt="blog image" className='image' width={370} height={470} layout="fixed"/>
+								<Image src={ article.image.src } alt='blog image' className='image' width={ 370 } height={ 470 } layout='fixed' />
 								<div className='frame'></div>
 																
 								<div className='article-date'>
 									<h4>{ article.date }</h4>
-									<img src="/blog-icons/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
+									<Image src="/blog-icons/arrow.svg" alt='open arrow' width={ 50 } height={ 15 } layout='fixed' />
 								</div>
 
 								<div className='article-info'>
@@ -56,7 +58,7 @@ export default function Blog() {
 					) }
 				</div>
 
-				<a href="/blog" className="blog-link">{ "Смотреть все статьи >" }</a>
+				<Link href='/blog' className='blog-link'>{ 'Смотреть все статьи >' }</Link>
 			</div>
 		</Wrapper>
 	);

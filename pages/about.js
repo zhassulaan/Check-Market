@@ -52,9 +52,9 @@ export default function About() {
 						<h3 className={ styles.title }>О нас</h3>
 
 						<div className={ styles.icons }>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<p className={ styles.subtitle }>Узнайте подробнее о ЧЕК МАРКЕТ</p>
@@ -98,22 +98,22 @@ export default function About() {
 
 						<div className={ styles.images }>
 							<div className={ styles.brand }>
-								<Image src="/about-icons/torgsoft.png" alt="ТОРГСОФТ" width={140} height={70} layout="fixed"/>
+								<Image src='/about-icons/torgsoft.png' alt='ТОРГСОФТ' width={ 140 } height={ 70 } layout='fixed' />
 							</div>
 							<div className={ styles.brand }>
-								<Image src="/about-icons/aokia.png" alt="AOKIA" width={160} height={40} layout="fixed"/>
+								<Image src='/about-icons/aokia.png' alt='AOKIA' width={ 160 } height={ 40 } layout='fixed' />
 							</div>
 							<div className={ styles.brand }>
-								<Image src="/about-icons/xprinter.png" alt="Xprinter" width={160} height={48} layout="fixed"/>
+								<Image src='/about-icons/xprinter.png' alt='Xprinter' width={ 160 } height={ 48 } layout='fixed' />
 							</div>
 							<div className={ styles.brand }>
-								<Image src="/about-icons/tsc.png" alt="TSC" width={127} height={50} layout="fixed"/>
+								<Image src='/about-icons/tsc.png' alt='TSC' width={ 127 } height={ 50 } layout='fixed' />
 							</div>
 							<div className={styles.brand}>
-								<Image src="/about-icons/rongta.png" alt="RONGTA" width={120} height={70} layout="fixed"/>
+								<Image src='/about-icons/rongta.png' alt='RONGTA' width={ 120 } height={ 70 } layout='fixed' />
 							</div>
 							<div className={ styles.brand }>
-								<Image src="/about-icons/massa_k.png" alt="MASSA-K" width={80} height={80} layout="fixed"/>
+								<Image src='/about-icons/massa_k.png' alt='MASSA-K' width={ 80 } height={ 80 } layout='fixed' />
 							</div>
 						</div>
 					</div>

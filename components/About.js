@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 import bg from '../public/home/home.png';
 
 export default function About() {
@@ -9,14 +10,13 @@ export default function About() {
 					<h3 className='title'>Что такое «ЧЕК МАРКЕТ»?</h3>
 
 					<div className='icons'>
-						<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-						<img src="/modal/triangle.svg" alt="triangle" className='middle' width={40} height={15} layout="fixed"/>
-						<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+						<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+						<Image src='/modal/triangle.svg' alt='triangle' className='middle' width={ 40 } height={ 15 } layout='fixed' />
+						<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 					</div>
 						
 					<p className='subtitle'>Узнайте подробнее о нашей компании</p>
 				</div>
-
 				
 				<h4 className='about-title'>О Компании</h4>
 				<p className='about-paragraph'>ЧЕК МАРКЕТ начал свое существование в 2012 году. Вот уже 10 лет мы являемся поставщиками товаров для автоматизации торговых процессов.</p>
@@ -31,7 +31,7 @@ const Wrapper = styled.section`
 	display: flex;
 	justify-content: center;
 	background-color: var(--clr-white);
-	background-image: url(${bg.src});
+	background-image: url(${ bg.src });
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;  

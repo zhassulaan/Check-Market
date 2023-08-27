@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Button from '../Button';
@@ -14,9 +15,9 @@ export default function SubscribeModal({ modal }) {
 
 				<p className='paragraph'>Все выгодные предложения от ЧЕК МАРКЕТ всегда с Вами</p>
 				
-				<a href='/'>
+				<Link href='/'>
 					<Button text={ "Вернуться на главную" }/>
-				</a>
+				</Link>
 				
 				<div className='close-icon button' onClick={ modal }>
 					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke={ (window.innerWidth > 992) ? "white" : "black" } xmlns="http://www.w3.org/2000/svg">

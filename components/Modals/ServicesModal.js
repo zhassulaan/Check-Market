@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { Context } from '../../context/Context';
+import BasketModal from './BasketModal';
 import SubscribeModal from './SubscribeModal';
 import SuccessModal from './SuccessModal';
 import Input from '../Input';

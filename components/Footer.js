@@ -1,6 +1,7 @@
 import { useState, useContext  } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router'
+import Link from 'next/link';
+import Image from 'next/image';
 import { Context } from '../context/Context';
 import styles from '../styles/footer.module.css';
 
@@ -31,7 +32,7 @@ export default function Footer({ modal }) {
 			
 			if (!inCart) {
 				dispatch({
-					type: "SUBSCRIBE",
+					type: 'SUBSCRIBE',
 					payload: detail,
 				});
 				modal(e);
@@ -42,10 +43,10 @@ export default function Footer({ modal }) {
 	const handleClick = async(ev) => {
 		ev.preventDefault();
 		dispatch({
-			type: "SAVE_PAGE",
+			type: 'SAVE_PAGE',
 			payload: ev.target.id
 		})
-		router.push("/shop/catalog/1");
+		router.push('/shop/catalog/1');
 	}
 
 	return (
@@ -58,31 +59,31 @@ export default function Footer({ modal }) {
 								<div className={ styles.header }>
 									<p className={ styles.title }>НАВИГАЦИЯ</p>
 									<div className={ [styles.mobile, styles.arrow].join(" ") } onClick={ handleToggle1 }>
-										<Image src='/footer-icons/arrow.svg' alt="message icon" width={20} height={10} layout='fixed' />
+										<Image src='/footer-icons/arrow.svg' alt="message icon" width={ 20 } height={ 10 } layout='fixed' />
 									</div>
 								</div>
 
 								<ul className={ styles.menu }>
 									<li className={ styles.item }>
-										<a href="/">Главная</a>
+										<Link href='/'>Главная</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/shop">Магазин</a>
+										<Link href='/shop'>Магазин</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/about">О нас</a>
+										<Link href='/about'>О нас</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/services">Услуги</a>
+										<Link href='/services'>Услуги</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/blog">Блог</a>
+										<Link href='/blog'>Блог</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/delivery">Доставка</a>
+										<Link href='/delivery'>Доставка</Link>
 									</li>
 									<li className={ styles.item }>
-										<a href="/contacts">Контакты</a>
+										<Link href='/contacts'>Контакты</Link>
 									</li>
 								</ul>
 							</div>
@@ -99,19 +100,19 @@ export default function Footer({ modal }) {
 
 								<ul className={ styles.menu }>
 									<li id='1' className={ styles.item } onClick={ handleClick }>
-										<a id='1' href="/">ЧЕКОВАЯ ЛЕНТА</a>
+										<Link id='1' href='/'>ЧЕКОВАЯ ЛЕНТА</Link>
 									</li>
 									<li id='2' className={ styles.item } onClick={ handleClick }>
-										<a id='2' href="/">ТЕРМОЭТИКЕТКИ</a>
+										<Link id='2' href='/'>ТЕРМОЭТИКЕТКИ</Link>
 									</li>
 									<li id='3' className={ styles.item } onClick={ handleClick }>
-										<a id='3' href="/">СЧЁТЧИКИ ПОДСЧЁТА ПОСЕТИТЕЛЕЙ</a>
+										<Link id='3' href='/'>СЧЁТЧИКИ ПОДСЧЁТА ПОСЕТИТЕЛЕЙ</Link>
 									</li>
 									<li id='4' className={ styles.item } onClick={ handleClick }>
-										<a id='4' href="/">ПРОТИВОКРАЖНОЕ ОБОРУДОВАНИЕ</a>
+										<Link id='4' href='/'>ПРОТИВОКРАЖНОЕ ОБОРУДОВАНИЕ</Link>
 									</li>
 									<li id='5' className={ styles.item } onClick={ handleClick }>
-										<a id='5' href="/">ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ</a>
+										<Link id='5' href='/'>ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ</Link>
 									</li>
 								</ul>
 							</div>
@@ -133,27 +134,27 @@ export default function Footer({ modal }) {
 								value={ detail.email }
 							/>
 							<button className={ styles.icon }>
-								<img src='/footer-icons/message.svg' alt="message icon" width={25} height={20} layout='fixed' />
+								<Image src='/footer-icons/message.svg' alt='message icon' width={ 25 } height={ 20 } layout='fixed' />
 							</button>
 						</form>
 						<div className={ styles.mobile }>
 							<a className={ styles.item }>+7 (707) 907-07-17</a>
 							<div className={ styles.social_box }>
 								<div className={ styles.social_icon }>
-									<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
+									<Image src='/footer-icons/whatsapp.svg' alt='whatsapp icon' width={ 20 } height={ 20 } layout='fixed' />
 								</div>
 								<div className={styles.social_icon}>
-									<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
+									<Image src='/footer-icons/instagram.svg' alt='instagram icon' width={ 20 } height={ 20 } layout='fixed' />
 								</div>
 								<div className={styles.social_icon}>
-									<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
+									<Image src='/footer-icons/telegram.svg' alt='telegram icon' width={ 20 } height={ 17 } layout='fixed' />
 								</div>
 							</div>
 						</div>
 						<div className={ styles.laptop }>
 							<div className={ styles.athenaplus }>
 								<p className={styles.item}>Сайт создан</p> 
-								<a href="http://athenaplus.kz/" className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
+								<a href='http://athenaplus.kz/' className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
 							</div>
 						</div>
 					</div>
@@ -161,23 +162,23 @@ export default function Footer({ modal }) {
 
 				<div className={ [styles.social_box, styles.laptop].join(" ") }>
 					<div className={ styles.social_icon }>
-						<Image src='/footer-icons/whatsapp.svg' alt="message icon" width={20} height={20} layout='fixed' />
+						<Image src='/footer-icons/whatsapp.svg' alt='whatsapp icon' width={ 20 } height={ 20 } layout='fixed' />
 					</div>
 					<div className={styles.social_icon}>
-						<Image src='/footer-icons/instagram.svg' alt="message icon" width={20} height={20} layout='fixed' />
+						<Image src='/footer-icons/instagram.svg' alt='instagram icon' width={ 20 } height={ 20 } layout='fixed' />
 					</div>
 					<div className={styles.social_icon}>
-						<Image src='/footer-icons/telegram.svg' alt="message icon" width={20} height={17} layout='fixed' />
+						<Image src='/footer-icons/telegram.svg' alt='telegram icon' width={ 20 } height={ 17 } layout='fixed' />
 					</div>
 				</div>
 				
 				<div className={ styles.policy_box }>
 					<p className={ styles.item }>© 2012-{ new Date().getFullYear() } ЧЕК МАРКЕТ. Все права защищены</p>
-					<a href="tel:+77759764165" className={ [styles.item, styles.laptop].join(" ") }>+7 (707) 907-07-17</a>
+					<a href='tel:+77759764165' className={ [styles.item, styles.laptop].join(" ") }>+7 (707) 907-07-17</a>
 					<div className={ styles.mobile }>
 						<div className={ styles.athenaplus }>
 							<p className={styles.item}>Сайт создан</p> 
-							<a href="http://athenaplus.kz/" className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
+							<a href='http://athenaplus.kz/' className={ [styles.item, styles.athenaplus_url].join(" ") }>athenaplus.kz</a>
 						</div>
 					</div>
 				</div>

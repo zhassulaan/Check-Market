@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export default function Reviews() {
@@ -37,9 +38,9 @@ export default function Reviews() {
 				<h3 className='title'>Отзывы наших клиентов</h3>
 
 				<div className='icons'>
-					<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-					<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-					<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+					<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+					<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+					<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 				</div>
 						
 				<p className='subtitle'>Искреннее мнение наших клиентов о нас формирует один из важнейших аспектов компании, а именно имидж. Поэтому для нас так важно неизменно держать высокий уровень сервиса, предоставляя вам только лучшие условия для сотрудничества.</p>
@@ -81,9 +82,9 @@ export default function Reviews() {
 				) }
 
 				<div className='buttons'>
-					{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleClick }/>) }
+					{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" key={ index } id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleClick }/>) }
 					<img src="/product-images/active.svg" alt="active" className='button'/>
-					{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleClick }/>) }
+					{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" key={ index } id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleClick }/>) }
 				</div>
 
 				<div style={{ position: "relative" }} className='comment'>

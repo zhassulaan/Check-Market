@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Button from '../Button';
@@ -17,16 +18,16 @@ export default function SuccessModal({ sender, close }) {
 								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
 								<div className='icons'>
-									<Image src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-									<Image src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-									<Image src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+									<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+									<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 								</div>
 									
 								<p className='text'>Мы скоро свяжемся с Вами для уточнения деталей</p>
 								
-								<a href='/services' className='success-button'>
-									<Button text={ "Вернуться к услугам" }/>
-								</a>
+								<Link href='/services' className='success-button'>
+									<Button text={ 'Вернуться к услугам' }/>
+								</Link>
 							</div>
 						</div>
 					);
@@ -36,22 +37,22 @@ export default function SuccessModal({ sender, close }) {
 						<div className='container2'>
 							<div className='box'>
 								<div className='mobile'>
-									<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
+									<Image src='/modal/like.svg' alt='close button' width={ 211 } height={ 190 } />
 								</div>
 
 								<h3 className='title'>Спасибо! Ваш заявка принят</h3>
 
 								<div className='icons'>
-									<Image src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-									<Image src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-									<Image src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+									<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+									<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 								</div>
 									
 								<p className='text'>Мы скоро с Вами свяжемся</p>
 								
-								<a href='/shop' className='success-button'>
-									<Button text={ "Вернуться к покупкам" }/>
-								</a>
+								<Link href='/shop' className='success-button'>
+									<Button text={ 'Вернуться к покупкам' }/>
+								</Link>
 							</div>
 						</div>
 					);
@@ -67,9 +68,9 @@ export default function SuccessModal({ sender, close }) {
 								<h3 className='title'>Спасибо! Ваш вопрос в обработке</h3>
 
 								<div className='icons laptop'>
-									<Image src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-									<Image src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-									<Image src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+									<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+									<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 								</div>
 									
 								<p className='text'>Мы свяжемся с Вами как только найдем ответ</p>

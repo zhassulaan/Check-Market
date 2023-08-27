@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
+import LinK from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
@@ -70,7 +71,7 @@ export default function Basket() {
 					
 					<LogoContainer>
 						<div className='logo-box'>
-							<img src="/home/logo.svg" alt="logo" className='logo'/>
+							<img src="/home/logo.svg" alt='logo' className='logo'/>
 						</div>
 					</LogoContainer>
 
@@ -80,17 +81,17 @@ export default function Basket() {
 								<h3 className='title'>Корзина</h3>
 
 								<div className='icons'>
-									<Image src="/modal/rectangle.svg" alt="rectangle" width={10} height={10} layout="fixed"/>
-									<Image src="/modal/triangle.svg" alt="triangle" width={28} height={10} layout="fixed"/>
-									<Image src="/modal/ellipse.svg" alt="ellipse" width={10} height={10} layout="fixed"/>
+									<Image src='/modal/rectangle.svg' alt='rectangle' width={ 10 } height={ 10 } layout='fixed' />
+									<Image src='/modal/triangle.svg' alt='triangle' width={ 28 } height={ 10 } layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt='ellipse' width={ 10 } height={ 10 } layout='fixed' />
 								</div>
 							</div>
 
 							{ (cart.length) ?
 								<div>
 									<div className='content'>
-										{ cart.map(item => 
-											<ProductItem product={ item.product } quantity={ item.quantity }/>
+										{ cart.map((item, idx) =>
+											<ProductItem product={ item.product } quantity={ item.quantity } key={ idx } />
 										) }
 									</div>
 
@@ -107,11 +108,11 @@ export default function Basket() {
 										</div>
 
 										{ (total > 10000) ? 
-											<a href='/order'>
+											<LinK href='/order'>
 												<div className='basket-button'>
 													<Button text={ "Оформить заказ" }/>
 												</div>
-											</a>
+											</LinK>
 												:
 											<div className='basket-button'>
 												<Button text={ "Оформить заказ" }/>
@@ -124,11 +125,11 @@ export default function Basket() {
 									<Image src="/basket/empty.svg" alt="empty basket" width={200} height={190} layout="fixed"/>
 									<h3 className='title'>Ваша корзина пуста</h3>
 									<div className='basket-text'>Выберите необходимые товары, чтобы пополнить её</div>
-									<a href='/shop/catalog/1'>
+									<LinK href='/shop/catalog/1'>
 										<div className='basket-button'>
 											<Button text={ "Начать покупки" }/>
 										</div>
-									</a>
+									</LinK>
 								</div>
 							}
 						</div>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
 export default function DeliveryModal({ close }) {
@@ -10,7 +9,7 @@ export default function DeliveryModal({ close }) {
 				</div>
 
 				<div className='main'>
-					<p className='module-text'>Доставка "Самовывоз" — <span className='green1'>Бесплатно</span></p>
+					<p className='module-text'>Доставка &ldquo;Самовывоз&rdquo; — <span className='green1'>Бесплатно</span></p>
 					<p className='module-text'>Обязательно связаться перед выездом на склад!</p>
 					<br />
 					<p className='module-text'>Транспортная компания <span className='green2'>Бесплатно при стоимости заказа от 70000 Тг.</span></p>

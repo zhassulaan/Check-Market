@@ -121,7 +121,7 @@ export default function MessageModal({ close, send }) {
 						</form>
 
 						<div className='close-icon button' onClick={ close }>
-							<svg viewBox="0 0 32 32" fill="none" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg viewBox="0 0 32 32" fill="none" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1L30.9999 31" stroke-width="2"/>
 								<path d="M31 1L1 31" stroke-width="2"/>
 							</svg>

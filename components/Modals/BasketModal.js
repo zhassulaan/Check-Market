@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { Context } from '../../context/Context';
 import Button from '../Button';
@@ -34,8 +35,8 @@ export default function BasketModal({ close }) {
 					</div>
 
 					<div className='module-content'>
-						{ cart.map(item => 
-							<ProductItem product={ item.product } quantity={ item.quantity }/>
+						{ cart.map((item, idx) => 
+							<ProductItem product={ item.product } quantity={ item.quantity } key={ idx } />
 						) }
 					</div>
 
@@ -46,14 +47,14 @@ export default function BasketModal({ close }) {
 						</div>
 
 						{ (total > 10000) ? 
-							<a href='/order'>
+							<Link href='/order'>
 								<div className='module-button'>
-									<Button text={ "Оформить заказ" }/>
+									<Button text={ 'Оформить заказ' }/>
 								</div>
-							</a>
+							</Link>
 								:
 							<div className='module-button'>
-								<Button text={ "Оформить заказ" }/>
+								<Button text={ 'Оформить заказ' }/>
 							</div>
 						}
 
@@ -75,11 +76,11 @@ export default function BasketModal({ close }) {
 				<div className='module-container center'>
 					<h3 className='module-title'>Ваша корзина пуста</h3>
 					<div className='module-text'>Выберите необходимые товары, чтобы пополнить её</div>
-					<a href='/shop/catalog/1'>
+					<Link href='/shop/catalog/1'>
 						<div className='module-button'>
-							<Button text={ "Начать покупки" }/>
+							<Button text={ 'Начать покупки' }/>
 						</div>
-					</a>
+					</Link>
 
 					<div className='close-icon button' onClick={ close }>
 						<svg width="32" height="32" viewBox="0 0 32 32" stroke="var(--clr-white)" fill="none" xmlns="http://www.w3.org/2000/svg">
