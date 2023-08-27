@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from 'styled-components';
 import newsData from '../data/news-data';
 import articlesData from '../data/articles-data';
@@ -104,9 +105,9 @@ export default function Blog() {
 							<h3 className='title'>Блог</h3>
 
 							<div className='icons'>
-								<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-								<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-								<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+								<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+								<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+								<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 							</div>
 
 							<p className='subtitle'>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Context } from '../context/Context';
 import MessageModal from '../components/Modals/MessageModal';
@@ -75,9 +76,9 @@ export default function Shop() {
 						<h3 className={ styles.title }>Интернет-магазин</h3>
 
 						<div className={ styles.icons }>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<p className={ styles.subtitle }>Более сотни позиций для автоматизации вашего бизнеса.</p>
@@ -88,11 +89,11 @@ export default function Shop() {
 						<div className={ styles.content }>
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='0' src="/shop/image1.png" alt="Все товары"/>
+									<img id='0' src='/shop/image1.png' alt='Все товары' />
 									<div id='0' className={ styles.frame }></div>
 									<div id='0' className={ styles.type_title }>
 										<p id='0' className={ [styles.frame_title, styles.frame_title1].join(" ") }>Все товары</p>
-										<img id='0' src="/shop/arrow.svg" alt="go arrow"/>
+										<img id='0' src='/shop/arrow.svg' alt='go arrow' />
 									</div>
 								</div>
 								<div className={ styles.frame_text }><p>Смотреть полный каталог товаров</p></div>
@@ -100,11 +101,11 @@ export default function Shop() {
 
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='1' src="/shop/image2.png" alt="Чековая лента"/>
+									<img id='1' src='/shop/image2.png' alt='Чековая лента' />
 									<div id='1' className={ styles.frame }></div>
 									<div id='1' className={ styles.type_title }>
 										<p id='1' className={ [styles.frame_title, styles.frame_title2].join(" ") }>Чековая лента</p>
-										<img id='1' src="/shop/arrow.svg" alt="go arrow"/>
+										<img id='1' src='/shop/arrow.svg' alt='go arrow' />
 									</div>
 								</div>
 								<div className={ styles.frame_text }><p>Для кассовых аппаратов, пос-терминалов и фискальных регистров</p></div>
@@ -171,9 +172,9 @@ export default function Shop() {
 						<h3 className={ styles.title }>Топ продаж на сайте</h3>
 
 						<div className={ styles.icons }>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<TopProducts/>

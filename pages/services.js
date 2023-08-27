@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import ServicesModal from '../components/Modals/ServicesModal';
 import BasketModal from '../components/Modals/BasketModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
@@ -67,7 +68,7 @@ export default function Services() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+		           		<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 
@@ -76,9 +77,9 @@ export default function Services() {
 						<h3 className={styles.title}>Услуги</h3>
 
 						<div className={styles.icons}>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<p className={styles.subtitle}>Автоматизируем Ваш бизнес от 0 до 100%</p>
@@ -88,41 +89,41 @@ export default function Services() {
 						<div className={styles.image_content}>
 							<div className={styles.button}>
 								<h4>ВЫБЕРИТЕ УСЛУГУ</h4>
-								<img src="/services/arrow.svg" alt="open arrow" width={50} height={15} layout="fixed"/>
+								<Image src='/services/arrow.svg' alt='open arrow' width={ 50 } height={ 15 } layout='fixed' />
 							</div>
 
 							<div className={ [styles.image, styles.image6].join(" ") }>
-								<img src="/services/image6.png" alt="image 6" width={360} height={430} layout="fixed"/>
+								<Image src='/services/image6.png' alt='image 6' width={ 360 } height={ 430 } layout='fixed' />
 								<div id={ serviceType[5].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Установка и настройка ПО на торговом оборудовании</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image1].join(" ") }>
-								<img src="/services/image1.png" alt="image 1" width={360} height={240} layout="fixed"/>
+								<Image src='/services/image1.png' alt='image 1' width={ 360 } height={ 240 } layout='fixed' />
 								<div id={ serviceType[0].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Автоматизация <br className={ styles.br }/> розничной торговли</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image2].join(" ") }>
-								<img src="/services/image2.png" alt="image 2" width={213.22} height={280} layout="fixed"/>
+								<Image src='/services/image2.png' alt='image 2" wid'h={ 213.22 } height={ 280 } layout='fixed' />
 								<div id={ serviceType[1].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Автоматизация <br className={ styles.br }/> ресторанного бизнеса</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image3].join(" ") }>
-								<img src="/services/image3.png" alt="image 3" width={200} height={130} layout="fixed"/>
+								<Image src='/services/image3.png' alt='image 3' width={ 200 } height={ 130 } layout='fixed' />
 								<div id={ serviceType[2].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Доставка <br className={ styles.br }/> расходного материала</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image4].join(" ") }>
-								<img src="/services/image4.png" alt="image 4" width={190} height={190} layout="fixed"/>
+								<Image src='/services/image4.png' alt='image 4' width={ 190 } height={ 190 } layout='fixed' />
 								<div id={ serviceType[3].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Установка/настройка противокражных систем</h6>
 							</div>
 
 							<div className={ [styles.image, styles.image5].join(" ") }>
-								<img src="/services/image5.png" alt="image 5" width={166} height={190} layout="fixed"/>
+								<Image src='/services/image5.png' alt='image 5' width={ 166 } height={ 190 } layout='fixed' />
 								<div id={ serviceType[4].id } className={ styles.frame } onClick={ modal }></div>
 								<h6 className={ styles.frame_text }>Установка/настройка счётчиков подсчёта посетителей</h6>
 							</div>

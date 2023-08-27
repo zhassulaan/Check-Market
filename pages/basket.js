@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
-import LinK from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
@@ -108,11 +108,11 @@ export default function Basket() {
 										</div>
 
 										{ (total > 10000) ? 
-											<LinK href='/order'>
+											<Link href='/order'>
 												<div className='basket-button'>
 													<Button text={ "Оформить заказ" }/>
 												</div>
-											</LinK>
+											</Link>
 												:
 											<div className='basket-button'>
 												<Button text={ "Оформить заказ" }/>
@@ -122,14 +122,14 @@ export default function Basket() {
 								</div>
 									:
 								<div className='center'>
-									<Image src="/basket/empty.svg" alt="empty basket" width={200} height={190} layout="fixed"/>
+									<Image src='/basket/empty.svg' alt='empty basket' width={ 200 } height={ 190 } layout='fixed' />
 									<h3 className='title'>Ваша корзина пуста</h3>
 									<div className='basket-text'>Выберите необходимые товары, чтобы пополнить её</div>
-									<LinK href='/shop/catalog/1'>
+									<Link href='/shop/catalog/1'>
 										<div className='basket-button'>
-											<Button text={ "Начать покупки" }/>
+											<Button text={ 'Начать покупки' }/>
 										</div>
-									</LinK>
+									</Link>
 								</div>
 							}
 						</div>
