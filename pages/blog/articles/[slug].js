@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
 import data from '../../../data/news-data';
 import Error from '../../_error';
@@ -63,9 +64,9 @@ export default function SingleBlog() {
 								<h3 className={ styles.title }>Блог</h3>
 
 								<div className={ styles.icons }>
-									<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-									<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-									<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+									<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+									<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+									<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 								</div>
 
 								<p className={ styles.subtitle }>Читайте полезные статьи и последние новости от ЧЕК МАРКЕТ</p>
@@ -73,10 +74,10 @@ export default function SingleBlog() {
 
 							<div className={ styles.box }>
 								<div className={ styles.title_content }>
-									<a href="/blog">
+									<Link href="/blog">
 										<Image src="/blog-icons/arrow2.svg" alt="back arrow" width={40} height={10} layout="fixed"/>
 										<p>Вернуться</p>
-									</a>
+									</Link>
 
 									<div className={  styles.title_content_header }>
 										<h6 style={ (window.innerWidth > 992) ? { display: "none" } : { display: "block" } }>{ success.date }</h6>

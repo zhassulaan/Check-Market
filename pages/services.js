@@ -26,21 +26,21 @@ export default function Services() {
 
 	const [openModal, setOpenModal] = useState(false);
 	const serviceType = [
-		{ id: 1, text: "Автоматизация розничной торговли" },
-		{ id: 2, text: "Автоматизация ресторанного бизнеса" },
-		{ id: 3, text: "Доставка расходного материала" },
-		{ id: 4, text: "Установка/настройка противокражных систем" },
-		{ id: 5, text: "Установка/настройка счётчиков подсчёта посетителей" },
-		{ id: 6, text: "Установка и настройка ПО на торговом оборудовании" }
+		{ id: 1, text: 'Автоматизация розничной торговли' },
+		{ id: 2, text: 'Автоматизация ресторанного бизнеса' },
+		{ id: 3, text: 'Доставка расходного материала' },
+		{ id: 4, text: 'Установка/настройка противокражных систем' },
+		{ id: 5, text: 'Установка/настройка счётчиков подсчёта посетителей' },
+		{ id: 6, text: 'Установка и настройка ПО на торговом оборудовании' }
 	];
-	const [selectedType, setSelectedType] = useState({ id: 0, text: "" });
+	const [selectedType, setSelectedType] = useState({ id: 0, text: '' });
 	
 	const modal = async( ev ) => {
 		ev.preventDefault();
 		if (!openModal)
 			setSelectedType({ id: ev.target.id, text: serviceType.find(item => item.id == ev.target.id).text });
 		else
-			setSelectedType({ id: 0, text: "" });
+			setSelectedType({ id: 0, text: '' });
 	
 		setOpenModal(!openModal);
 	}
