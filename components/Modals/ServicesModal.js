@@ -9,7 +9,7 @@ import Button from '../Button';
 
 export default function ServicesModal({ type, close }) {
 	const { dispatch } = useContext(Context);
-	const [details, setDetails] = useState({ type: type.text, name: "", surename: "", phone: "", email: "" });
+	const [details, setDetails] = useState({ type: type.text, name: '', surename: '', phone: '', email: '' });
 	
 	// SUBSCRIBE AND BASKET MODAL
 	const [subscribeModal, setSubscribeModal] = useState(false);
@@ -32,13 +32,13 @@ export default function ServicesModal({ type, close }) {
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		if ((details.name === "") || (details.surename === "") || (details.email === "") || !details.email.includes("@")) {
+		if ((details.name === '') || (details.surename === '') || (details.email === '') || !details.email.includes('@')) {
 			setError(true);
 		}
 		else {
 			setError(false);
 			dispatch({
-				type: "SUBMIT_SERVICE_APPLICATION",
+				type: 'SUBMIT_SERVICE_APPLICATION',
 				payload: details,
 			})
 			successModal(e);
@@ -136,19 +136,19 @@ export default function ServicesModal({ type, close }) {
 										<label htmlFor="text">ФИО:</label>
 									</div>
 									<Input 
-										type={ "text" }
-										name={ "name" }
-										id={ "name" }
-										placeholder={ "Имя " }
+										type={ 'text' }
+										name={ 'name' }
+										id={ 'name' }
+										placeholder={ 'Имя ' }
 										value={ details.name }
 										onChange={ e => setDetails({ ...details, name: e.target.value }) }
 										className={ error ? 'error-border' : 'dafault-border' }
 									/>
 									<Input 
-										type={ "text" }
-										name={ "surename" }
-										id={ "surename" }
-										placeholder={ "Фамилия " }
+										type={ 'text' }
+										name={ 'surename' }
+										id={ 'surename' }
+										placeholder={ 'Фамилия ' }
 										value={ details.surename }
 										onChange={ e => setDetails({ ...details, surename: e.target.value }) }
 										className={ error ? 'error-border' : 'dafault-border' }
@@ -157,12 +157,12 @@ export default function ServicesModal({ type, close }) {
 											
 								<div className='form-group'>
 									<div className='form-label'>
-										<label htmlFor="number">Телефон:</label>
+										<label htmlFor='number'>Телефон:</label>
 									</div>
 									<Input 
-										type={ "text" }
-										name={ "phone" }
-										id={ "phone" }
+										type={ 'text' }
+										name={ 'phone' }
+										id={ 'phone' }
 										placeholder={ '+7 (___) ___-__-__' }
 										mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
 										value={ details.phone }
@@ -173,12 +173,12 @@ export default function ServicesModal({ type, close }) {
 								
 								<div className='form-group'>
 									<div className='form-label'>
-										<label htmlFor="email">E-mail:</label>
+										<label htmlFor='email'>E-mail:</label>
 									</div>
 									<Input 
-										type={ "text" }
-										name={ "email" }
-										id={ "email" }
+										type={ 'text' }
+										name={ 'email' }
+										id={ 'email' }
 										placeholder={ 'Укажите свой e-mail ' }
 										value={ details.email }
 										onChange={ e => setDetails({ ...details, email: e.target.value }) }
@@ -187,7 +187,7 @@ export default function ServicesModal({ type, close }) {
 								</div>
 								
 								<div className='form-button'>
-									<Button text={ "Отправить заявку" }/>
+									<Button text={ 'Отправить заявку' }/>
 								</div>
 							</form>
 						</div>

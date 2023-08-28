@@ -58,7 +58,7 @@ export default function Reviews() {
 								{ (comment.image === null) ?
 									<img src='/home/comment/user.svg' alt='user icon' className='comment-image' />
 										:
-									<img src={ comment.image } alt='user icon' className='comment-image'/ > 
+									<img src={ comment.image } alt='user icon' className='comment-image' /> 
 								}
 
 								<div className='comment-box'>

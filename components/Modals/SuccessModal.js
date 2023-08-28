@@ -62,7 +62,7 @@ export default function SuccessModal({ sender, close }) {
 						<div className='container'>
 							<div className='box'>
 								<div className='mobile'>
-									<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
+									<Image src='/modal/like.svg' alt='close button' width={ 211 } height={ 190 } />
 								</div>
 
 								<h3 className='title'>Спасибо! Ваш вопрос в обработке</h3>

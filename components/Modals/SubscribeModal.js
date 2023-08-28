@@ -8,7 +8,7 @@ export default function SubscribeModal({ modal }) {
 		<Wrapper>
 			<div className='box'>
 				<div className='mobile'>
-					<Image src="/modal/like.svg" alt="close button" width={211} height={190}/>
+					<Image src='/modal/like.svg' alt='close button' width={ 211 } height={ 190 } />
 				</div>
 
 				<h4 className='title'>Благодарим за подписку!</h4>
@@ -16,7 +16,7 @@ export default function SubscribeModal({ modal }) {
 				<p className='paragraph'>Все выгодные предложения от ЧЕК МАРКЕТ всегда с Вами</p>
 				
 				<Link href='/'>
-					<Button text={ "Вернуться на главную" }/>
+					<Button text={ 'Вернуться на главную' }/>
 				</Link>
 				
 				<div className='close-icon button' onClick={ modal }>

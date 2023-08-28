@@ -6,7 +6,7 @@ import Input from '../Input';
 import Button from '../Button';
 
 export default function MessageModal({ close, send }) {
-	const [details, setDetails] = useState({ name: "", surename: "", phone: "", email: "", message: "" });
+	const [details, setDetails] = useState({ name: '', surename: '', phone: '', email: '', message: '' });
 	const { dispatch } = useContext(Context);
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
@@ -19,7 +19,7 @@ export default function MessageModal({ close, send }) {
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		if ((details.name === "") || (details.surename === "") || (details.email === "") || (details.message === "") || !details.email.includes("@")) {
+		if ((details.name === '') || (details.surename === '') || (details.email === '') || (details.message === '') || !details.email.includes('@')) {
 			setError(true);
 		}
 		else {
@@ -49,19 +49,19 @@ export default function MessageModal({ close, send }) {
 									<label htmlFor="text">ФИО:</label>
 								</div>
 								<Input 
-									type={ "text" }
-									name={ "name" }
-									id={ "name" }
-									placeholder={ "Имя " }
+									type={ 'text' }
+									name={ 'name' }
+									id={ 'name' }
+									placeholder={ 'Имя ' }
 									value={ details.name }
 									onChange={ e => setDetails({ ...details, name: e.target.value }) }
 									className={ error ? 'error-border' : 'dafault-border' }
 								/>
 								<Input 
-									type={ "text" }
-									name={ "surename" }
-									id={ "surename" }
-									placeholder={ "Фамилия " }
+									type={ 'text' }
+									name={ 'surename' }
+									id={ 'surename' }
+									placeholder={ 'Фамилия ' }
 									value={ details.surename }
 									onChange={ e => setDetails({ ...details, surename: e.target.value }) }
 									className={ error ? 'error-border' : 'dafault-border' }
@@ -70,13 +70,13 @@ export default function MessageModal({ close, send }) {
 										
 							<div className='form-group'>
 								<div className='form-label'>
-									<label htmlFor="number">Телефон:</label>
+									<label htmlFor='number'>Телефон:</label>
 								</div>
 								<Input
-									type={ "text" }
-									name={ "phone" }
-									id={ "phone" }
-									placeholder={ "+7 (___) ___-__-__" }
+									type={ 'text' }
+									name={ 'phone' }
+									id={ 'phone' }
+									placeholder={ '+7 (___) ___-__-__' }
 									mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
 									value={ details.phone }
 									onChange={ e => setDetails({ ...details, phone: e.target.value }) }
@@ -86,13 +86,13 @@ export default function MessageModal({ close, send }) {
 							
 							<div className='form-group'>
 								<div className='form-label'>
-									<label htmlFor="email">E-mail:</label>
+									<label htmlFor='email'>E-mail:</label>
 								</div>
 								<Input
-									type={ "text" }
-									name={ "email" }
-									id={ "email" }
-									placeholder={ "Укажите свой e-mail " }
+									type={ 'text' }
+									name={ 'email' }
+									id={ 'email' }
+									placeholder={ 'Укажите свой e-mail ' }
 									value={ details.email }
 									onChange={ e => setDetails({ ...details, email: e.target.value }) }
 									className={ error ? 'error-border' : 'dafault-border' }
@@ -101,13 +101,13 @@ export default function MessageModal({ close, send }) {
 							
 							<div className='form-group'>
 								<div className='form-label'>
-									<label htmlFor="text">Что бы Вы хотели узнать/уточнить?</label>
+									<label htmlFor='text'>Что бы Вы хотели узнать/уточнить?</label>
 								</div>
 								<Input 
-									type={ "text" }
-									name={ "message" }
-									id={ "message" }
-									placeholder={ "Опишите Вашу проблему " }
+									type={ 'text' }
+									name={ 'message' }
+									id={ 'message' }
+									placeholder={ 'Опишите Вашу проблему ' }
 									value={ details.message }
 									onChange={ e => setDetails({ ...details, message: e.target.value }) }
 									ta={ true }
@@ -116,12 +116,12 @@ export default function MessageModal({ close, send }) {
 							</div>
 
 							<div className='form-button'>
-								<Button text={ "Отправить" }/>
+								<Button text={ 'Отправить' }/>
 							</div>
 						</form>
 
 						<div className='close-icon button' onClick={ close }>
-							<svg viewBox="0 0 32 32" fill="none" stroke={ (window.innerWidth > 992) ? "var(--clr-white)" : "var(--clr-black)" } xmlns="http://www.w3.org/2000/svg">
+							<svg viewBox="0 0 32 32" fill="none" stroke={ (window.innerWidth > 992) ? 'var(--clr-white)' : 'var(--clr-black)' } xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1L30.9999 31" stroke-width="2"/>
 								<path d="M31 1L1 31" stroke-width="2"/>
 							</svg>

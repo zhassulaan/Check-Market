@@ -17,7 +17,7 @@ export default function ProductItem({ product, quantity }) {
 
 	return (
 	 	<Wrapper>
-			<img src={ product.image.src } alt="product image" className='product-image'/>
+			<img src={ product.image.src } alt='product image' className='product-image' />
 
 			<div className='product-info-content'>
 				<h6 className='product-title'>{ product.name }</h6>

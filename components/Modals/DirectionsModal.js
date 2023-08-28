@@ -6,7 +6,7 @@ export default function DirectionsModal({ type, close }) {
 
 	if (type.id === 1)
 		content = <div className='module-content'>
-			<img src="/home/directions/image1.png" alt="Противокражные системы" className='module-image'/>
+			<img src='/home/directions/image1.png' alt='Противокражные системы' className='module-image' />
 			<div className='module-header'>
 				<h2 className='module-title'>{ type.text }</h2>
 			</div>
@@ -19,20 +19,20 @@ export default function DirectionsModal({ type, close }) {
 
 	else if (type.id === 2)
 		content = <div className='module-content'>
-			<img src="/home/directions/image2.png" alt="Автоматизация торговли" className='module-image'/>
+			<img src='/home/directions/image2.png' alt='Автоматизация торговли' className='module-image' />
 			<div className='module-header'>
 				<h2 className='module-title'>{ type.text }</h2>
 			</div>
 			<div className='module-text'>
 				<p>Оборудование для автоматизации торговли: чековые принтеры, принтеры этикеток, сканеры штрих-кодов, Pos-системы.</p>
 				<br/>
-				<p>Мы также предлагаем <b>уникальное</b> решение для Вашего бизнеса в виде специализированного программного обеспечения "<b><span>ТОРГСОФТ</span></b>". Это – простая и функциональная компьютерная программа для Торговли и Складского учета с использованием штрих-кодов.</p>
+				<p>Мы также предлагаем <b>уникальное</b> решение для Вашего бизнеса в виде специализированного программного обеспечения &ldquo;<b><span>ТОРГСОФТ</span></b>&rdquo;. Это – простая и функциональная компьютерная программа для Торговли и Складского учета с использованием штрих-кодов.</p>
 			</div>
 		</div>;
 
 	else if (type.id === 3)
 		content = <div className='module-content'>
-			<img src="/home/directions/image3.png" alt="Подсчёт посетителей" className='module-image'/>
+			<img src='/home/directions/image3.png' alt='Подсчёт посетителей' className='module-image' />
 			<div className='module-header'>
 				<h2 className='module-title'>{ type.text }</h2>
 			</div>
@@ -43,7 +43,7 @@ export default function DirectionsModal({ type, close }) {
 
 	else if (type.id === 4)
 		content = <div className='module-content'>
-			<img src="/home/directions/image4.png" alt="Расходный материал" className='module-image'/>
+			<img src='/home/directions/image4.png' alt='Расходный материал' className='module-image' />
 			<div className='module-header'>
 				<h2 className='module-title'>{ type.text }</h2>
 			</div>
