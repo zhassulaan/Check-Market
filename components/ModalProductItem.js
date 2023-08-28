@@ -17,11 +17,11 @@ export default function ProductItem({ product, quantity }) {
 
 	return (
 	 	<Wrapper>
-			<img src={ product.image.src } alt="product image" className='product-image'/>
+			<img src={ product.image.src } alt='product image' className='product-image' />
 
 			<div className='product-info-content'>
 				<h6 className='product-title'>{ product.name }</h6>
-				<p className='product-text'>{ (product.inStock === true) ? "В наличии" : "Под заказ" }</p>
+				<p className='product-text'>{ (product.inStock === true) ? 'В наличии' : 'Под заказ' }</p>
 				<p className='product-text'>Цена: { price(productPrice) } тг.</p>
 			</div>
 
@@ -33,7 +33,7 @@ export default function ProductItem({ product, quantity }) {
 						className='button product-count-adder'
 						onClick={ () =>
 							dispatch({
-								type: "DECREMENT_QUANTITY",
+								type: 'DECREMENT_QUANTITY',
 								payload: product,
 							})
 						}
@@ -45,7 +45,7 @@ export default function ProductItem({ product, quantity }) {
 						className='button product-count-remover'
 						onClick={ () =>
 							dispatch({
-								type: "INCREMENT_QUANTITY",
+								type: 'INCREMENT_QUANTITY',
 								payload: product,
 							})
 						}
@@ -62,10 +62,10 @@ export default function ProductItem({ product, quantity }) {
 
 			<div className='product-remove-content button'>
 				{ (window.innerWidth > 650) ?
-					<img src="/basket/bin.svg" alt="recycle bin"
+					<img src='/basket/bin.svg' alt='recycle bin'
 						onClick={ () =>
 							dispatch({
-								type: "REMOVE_FROM_CART",
+								type: 'REMOVE_FROM_CART',
 								payload: product,
 							})
 						}
@@ -74,7 +74,7 @@ export default function ProductItem({ product, quantity }) {
 					<svg width="10" height="10" viewBox="0 0 32 32" stroke="var(--clr-black)" fill="none" xmlns="http://www.w3.org/2000/svg"
 						onClick={ () =>
 							dispatch({
-								type: "REMOVE_FROM_CART",
+								type: 'REMOVE_FROM_CART',
 								payload: product,
 							})
 						}	

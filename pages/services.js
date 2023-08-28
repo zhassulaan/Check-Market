@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import ServicesModal from '../components/Modals/ServicesModal';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import BasketModal from '../components/Modals/BasketModal';
+import ServicesModal from '../components/Modals/ServicesModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import styles from '../styles/services.module.css';
 
 export default function Services() {
@@ -22,7 +22,7 @@ export default function Services() {
 		setBasketModal(!basketModal);
 	}
 
-	window.onbeforeunload = ()=>"If you leave this page, you'll also leave the call";
+	window.onbeforeunload = () => "If you leave this page, you'll also leave the call";
 
 	const [openModal, setOpenModal] = useState(false);
 	const serviceType = [
@@ -60,15 +60,15 @@ export default function Services() {
 			</Head>
 
 			<div>
-				{ openModal ? <ServicesModal type={ selectedType } close={ modal }/>  : null };
-				{ basketModal ? <BasketModal close={ basket }/> : null };
-				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+				{ openModal ? <ServicesModal type={ selectedType } close={ modal } /> : null };
+				{ basketModal ? <BasketModal close={ basket } /> : null };
+				{ subscribeModal ? <SubscribeModal modal={ subscribe } /> : null };
 						
 				<Navbar modal={ basket }/>
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           		<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
+						<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 

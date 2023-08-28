@@ -1,82 +1,82 @@
-import { useEffect, useReducer, createContext } from "react";
-import { Reducer } from "./Reducer";
+import { useEffect, useReducer, createContext } from 'react';
+import { Reducer } from './Reducer';
 
 // loacl storage
 const getLocalStorageProductPage = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("page-item");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('page-item');
 		if (data) {
-			return JSON.parse(localStorage.getItem("page-item"));
+			return JSON.parse(localStorage.getItem('page-item'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageFilter = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("filter");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('filter');
 		if (data) {
-			return JSON.parse(localStorage.getItem("filter"));
+			return JSON.parse(localStorage.getItem('filter'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageSubscription = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("subscription");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('subscription');
 		if (data) {
-			return JSON.parse(localStorage.getItem("subscription"));
+			return JSON.parse(localStorage.getItem('subscription'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageMessage = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("message");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('message');
 		if (data) {
-			return JSON.parse(localStorage.getItem("message"));
+			return JSON.parse(localStorage.getItem('message'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageService = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("service");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('service');
 		if (data) {
-			return JSON.parse(localStorage.getItem("service"));
+			return JSON.parse(localStorage.getItem('service'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageProduct = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("product");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('product');
 		if (data) {
-			return JSON.parse(localStorage.getItem("product"));
+			return JSON.parse(localStorage.getItem('product'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageCart = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("cart");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('cart');
 		if (data) {
-			return JSON.parse(localStorage.getItem("cart"));
+			return JSON.parse(localStorage.getItem('cart'));
 		} else {
 			return [];
 		}
 	}
 }
 const getLocalStorageBasket = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("basket");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('basket');
 		if (data) {
-			return JSON.parse(localStorage.getItem("basket"));
+			return JSON.parse(localStorage.getItem('basket'));
 		} else {
 			return [];
 		}

@@ -177,7 +177,7 @@
 	}
 	
 	.logo_box:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: calc(100vw - 39.0421vw * 2);
 		height: 0.1rem;
@@ -238,7 +238,7 @@
 	}
 
 	.br {
-		content: "";
+		content: '';
 		display: block;
 	   	margin: 0.75rem;
 	}
@@ -250,7 +250,7 @@
 	}
 
 	.br {
-		content: "";
+		content: '';
 		display: block;
 		margin: 0.5rem;
 	}

@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
-import styled from "styled-components";
 import CookieConsent from 'react-cookie-consent';
-import DirectionsModal from '../components/Modals/DirectionsModal';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
+import Head from 'next/head';
+import Link from 'next/link';
+import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Hero from '../components/Hero';
 import About from '../components/About';
-import Direction from '../components/Direction';
 import Blog from '../components/Blog';
+import Button from '../components/Button';
+import Direction from '../components/Direction';
+import Hero from '../components/Hero';
 import Recomendations from '../components/Recomendations';
 import Reviews from '../components/Reviews';
-import Button from '../components/Button';
 import ScrollToTop from '../components/ScrollToTop';
+import BasketModal from '../components/Modals/BasketModal';
+import DirectionsModal from '../components/Modals/DirectionsModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 
 export default function Home() {
   // SUBSCRIBE AND BASKET MODAL
@@ -31,10 +32,10 @@ export default function Home() {
 
   const [openModal, setOpenModal] = useState(false);
 	const directionType = [
-		{ id: 1, text: "Противокражные системы" },
-		{ id: 2, text: "Автоматизация торговли" },
-		{ id: 3, text: "Подсчёт посетителей" },
-		{ id: 4, text: "Расходный материал" }
+		{ id: 1, text: 'Противокражные системы' },
+		{ id: 2, text: 'Автоматизация торговли' },
+		{ id: 3, text: 'Подсчёт посетителей' },
+		{ id: 4, text: 'Расходный материал' }
 	];
   const [selectedType, setSelectedType] = useState({});
 
@@ -90,7 +91,7 @@ export default function Home() {
         <About/>
 
         <Selecter>
-          <div className="option-selecter">
+          <div className='option-selecter'>
             <p className={ option === 1 ? 'active' : '' } onClick={ handleClickDirections }>Направления</p>
             <p className={ option === 2 ? 'active' : '' } onClick={ handleClickComments }>Отзывы</p>
           </div>
@@ -106,7 +107,7 @@ export default function Home() {
           <div className='wrapper'>
             <Section>
               <p className='direction-paragraph'>Также Вы можете скачать прайс-лист</p>
-              <Button text={ "Скачать прайс" }/>
+              <Button text={ 'Скачать прайс' }/>
             </Section>
             <Blog/>
           </div>
@@ -121,17 +122,17 @@ export default function Home() {
           <CookieContainer>
             <CookieConsent
               debug={ true }
-              location="bottom"
-              buttonClasses="cookie-button"
-              containerClasses="cookie-alert"
-              contentClasses="cookie-text"
+              location='bottom'
+              buttonClasses='cookie-button'
+              containerClasses='cookie-alert'
+              contentClasses='cookie-text'
               style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100vw', background: 'var(--clr-white)' }}
               contentStyle={{ textAlign: 'center', color: 'var(--clr-black)', fontWeight: '400', margin: '1.25rem 0 1.042vw' }}
               buttonStyle={{ background: 'var(--clr-primary-1)', color: 'var(--clr-white)', fontWeight: '600', borderRadius: '0.625rem', margin: '1.042vw 0 1.25rem' }}
-              buttonText="Принять и закрыть"
+              buttonText='Принять и закрыть'
             >
               <p>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, Вы даете согласие на их использование в соотвествии с</p>
-              <a href='/'>Пользовательским соглашением.</a>
+              <Link href='/'>Пользовательским соглашением.</Link>
             </CookieConsent>
           </CookieContainer>
             :
@@ -325,7 +326,7 @@ const Selecter =styled.div`
     }
     
     .option-selecter:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       height: 1px;
@@ -350,7 +351,7 @@ const Selecter =styled.div`
     }
 
     .active:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       height: 1px;

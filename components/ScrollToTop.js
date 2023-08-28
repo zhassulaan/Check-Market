@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 export default function ScrollToTop() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -10,7 +10,7 @@ export default function ScrollToTop() {
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: "smooth"
+			behavior: 'smooth',
 		});
 		setCount(1);
 	};
@@ -26,9 +26,9 @@ export default function ScrollToTop() {
 			}
 		};
 
-		window.addEventListener("scroll", toggleVisibility);
+		window.addEventListener('scroll', toggleVisibility);
 
-		return () => window.removeEventListener("scroll", toggleVisibility);
+		return () => window.removeEventListener('scroll', toggleVisibility);
 	}, []);
 
 	return (

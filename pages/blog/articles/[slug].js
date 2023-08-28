@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import data from '../../../data/news-data';
 import Error from '../../_error';
-import BasketModal from '../../../components/Modals/BasketModal';
-import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
+import BasketModal from '../../../components/Modals/BasketModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import styles from '../../../styles/blog.module.css';
 
 export default function SingleBlog() {
@@ -55,7 +55,7 @@ export default function SingleBlog() {
 
 						<div className={ styles.logo_container }>
 							<div className={ styles.logo_box }>
-									<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+									<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 							</div>
 						</div>
 								
@@ -74,13 +74,13 @@ export default function SingleBlog() {
 
 							<div className={ styles.box }>
 								<div className={ styles.title_content }>
-									<Link href="/blog">
-										<Image src="/blog-icons/arrow2.svg" alt="back arrow" width={40} height={10} layout="fixed"/>
+									<Link href='/blog'>
+										<Image src='/blog-icons/arrow2.svg' alt='back arrow' width={40} height={10} layout='fixed' />
 										<p>Вернуться</p>
 									</Link>
 
 									<div className={  styles.title_content_header }>
-										<h6 style={ (window.innerWidth > 992) ? { display: "none" } : { display: "block" } }>{ success.date }</h6>
+										<h6 style={ (window.innerWidth > 992) ? { display: 'none' } : { display: 'block' } }>{ success.date }</h6>
 										<h6>Статьи</h6>
 									</div>
 									
@@ -88,7 +88,7 @@ export default function SingleBlog() {
 								</div>
 										
 								<div className={ styles.image_content }>
-									<Image src={ success.image } alt="blog image" width="100%" height="100%" layout="fill"/>
+									<Image src={ success.image } alt='blog image' width='100%' height='100%' layout='fill' />
 									<div className={ styles.frame }></div>
 																		
 									<div className={ styles.date }>

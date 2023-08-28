@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import data from '../../../data/news-data';
 import Error from '../../_error';
-import BasketModal from '../../../components/Modals/BasketModal';
-import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
+import BasketModal from '../../../components/Modals/BasketModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import styles from '../../../styles/blog.module.css';
 
 export default function SingleBlog() {

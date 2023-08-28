@@ -70,7 +70,7 @@ const Wrapper = styled.section`
 	}
 
 	.about-title:after {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;	
 		height: 1px;	

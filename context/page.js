@@ -1,12 +1,12 @@
-import { useEffect, useReducer, createContext } from "react";
-import { Reducer } from "./Reducer";
+import { useEffect, useReducer, createContext } from 'react';
+import { Reducer } from './Reducer';
 
 // loacl storage
 const getLocalStorageProductPage = () => {
-	if (typeof window !== "undefined") {
-		let data = localStorage.getItem("page-item");
+	if (typeof window !== 'undefined') {
+		let data = localStorage.getItem('page-item');
 		if (data) {
-			return JSON.parse(localStorage.getItem("page-item"));
+			return JSON.parse(localStorage.getItem('page-item'));
 		} else {
 			return [];
 		}
@@ -26,7 +26,7 @@ function Provider({ children }) {
   	const value = { state, dispatch };
 
 	useEffect(() => {
-		if (typeof window !== "undefined") {
+		if (typeof window !== 'undefined') {
 			localStorage.setItem('page-item', JSON.stringify(state.page));
 		}
 	}, [state.page]);

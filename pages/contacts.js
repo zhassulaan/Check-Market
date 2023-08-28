@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import MessageModal from '../components/Modals/MessageModal';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import BasketModal from '../components/Modals/BasketModal';
+import MessageModal from '../components/Modals/MessageModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import styles from '../styles/contacts.module.css';
 
 export default function Contacts() {
@@ -44,7 +44,7 @@ export default function Contacts() {
 			</Head>
 
 			<div>
-				{ openModal ? <MessageModal close={ modal } send={ "SEND_MESSAGE" }/>  : null };
+				{ openModal ? <MessageModal close={ modal } send={ 'SEND_MESSAGE' }/> : null };
 				{ basketModal ? <BasketModal close={ basket }/> : null };
 				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
 
@@ -52,7 +52,7 @@ export default function Contacts() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+						<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 
@@ -101,7 +101,7 @@ export default function Contacts() {
 					<ContentFooter>
 						<p className='paragraph'>Есть вопросы? Мы с радостью Вам ответим</p>
 						<div className='contacts-button' onClick={ modal }>
-							<Button text={ "Написать нам" }/>
+							<Button text={ 'Написать нам' } />
 						</div>
 					</ContentFooter>
 				</div>

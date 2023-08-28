@@ -4,15 +4,15 @@ import styled from 'styled-components';
 
 export default function Reviews() {
 	const data = [
-		{ id: 1, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
-		{ id: 2, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
-		{ id: 3, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
-		{ id: 4, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
-		{ id: 5, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
-		{ id: 6, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
-		{ id: 7, name: 'Владимир', image: null, text: "Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!", star: 5, date: "09.11.2021" },
-		{ id: 8, name: 'Покупатель', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" },
-		{ id: 9, name: 'Светлана', image: null, text: "Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество", star: 5, date: "23.06.2021" }
+		{ id: 1, name: 'Владимир', image: null, text: 'Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!', star: 5, date: '09.11.2021' },
+		{ id: 2, name: 'Покупатель', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
+		{ id: 3, name: 'Светлана', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
+		{ id: 4, name: 'Владимир', image: null, text: 'Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!', star: 5, date: '09.11.2021' },
+		{ id: 5, name: 'Покупатель', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
+		{ id: 6, name: 'Светлана', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
+		{ id: 7, name: 'Владимир', image: null, text: 'Большое спасибо! Заказ доставили быстро, обслуживание на высшем уровне!', star: 5, date: '09.11.2021' },
+		{ id: 8, name: 'Покупатель', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
+		{ id: 9, name: 'Светлана', image: null, text: 'Рахмет, хорошие продавцы, честные. Вежливые. Все как на сайте, хорошее качество', star: 5, date: '23.06.2021' },
 	]
 
 	const [element, setElement] = useState(3);
@@ -51,14 +51,14 @@ export default function Reviews() {
 			<div className='comments-content'>
 				{ data.map(comment =>
 					(element >= comment.id && (element - 3) < comment.id) ?
-						<div style={{ position: "relative" }} className='comment'>
-							<img src="/home/comment/comment.png" alt="comment background" className='comment-background'/>
+						<div style={{ position: 'relative' }} className='comment'>
+							<img src='/home/comment/comment.png' alt='comment background' className='comment-background' />
 								
 							<div className='comment-data'>
 								{ (comment.image === null) ?
-									<img src="/home/comment/user.svg" alt="user icon" className='comment-image'/>
+									<img src='/home/comment/user.svg' alt='user icon' className='comment-image' />
 										:
-									<img src={ comment.image } alt="user icon" className='comment-image'/> 
+									<img src={ comment.image } alt='user icon' className='comment-image'/ > 
 								}
 
 								<div className='comment-box'>
@@ -69,7 +69,7 @@ export default function Reviews() {
 
 									<div className='stars'>
 										{ [...Array(comment.star)].map((e, index) =>
-											<img key={ index } src="/home/comment/star.svg" alt="star number" className='comment-star'/>
+											<img key={ index } src='/home/comment/star.svg' alt='star number' className='comment-star' />
 										) }
 									</div>
 								</div>
@@ -82,13 +82,13 @@ export default function Reviews() {
 				) }
 
 				<div className='buttons'>
-					{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" key={ index } id={ (index + 1) * 3 } alt="passive" className='button' onClick={ handleClick }/>) }
-					<img src="/product-images/active.svg" alt="active" className='button'/>
-					{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" key={ index } id={ (index + 1) * 3 + element } alt="passive" className='button' onClick={ handleClick }/>) }
+					{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src='/product-images/passive.svg' key={ index } id={ (index + 1) * 3 } alt='passive' className='button' onClick={ handleClick } />) }
+					<img src='/product-images/active.svg' alt='active' className='button' />
+					{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src='/product-images/passive.svg' key={ index } id={ (index + 1) * 3 + element } alt='passive' className='button' onClick={ handleClick } />) }
 				</div>
 
-				<div style={{ position: "relative" }} className='comment'>
-					<img src="/home/comment/comment2.png" alt="comment background" className='admin-comment-background'/>
+				<div style={{ position: 'relative' }} className='comment'>
+					<img src='/home/comment/comment2.png' alt='comment background' className='admin-comment-background' />
 								
 					<div className='admin-comment-data'>
 						<div className='admin-comment-box'>
@@ -96,7 +96,7 @@ export default function Reviews() {
 							<p className='comment-text'>Спасибо за обратную связь! Очень рады сотрудничеству!</p>
 						</div>
 
-						<img src="/home/comment/logo.svg" alt="user icon" className='comment-image'/>
+						<img src='/home/comment/logo.svg' alt='user icon' className='comment-image' />
 					</div>
 				</div>
 			</div>

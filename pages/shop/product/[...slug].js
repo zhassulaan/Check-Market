@@ -1,17 +1,19 @@
 import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Error from '../../_error';
-import ReturnModal from '../../../components/Modals/ReturnModal';
-import DeliveryModal from '../../../components/Modals/DeliveryModal';
-import BasketModal from '../../../components/Modals/BasketModal';
-import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import { Context } from '../../../context/Context';
+import data from '../../../data/products-data';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import Button from '../../../components/Button';
-import data from '../../../data/products-data';
+import BasketModal from '../../../components/Modals/BasketModal';
+import DeliveryModal from '../../../components/Modals/DeliveryModal';
+import ReturnModal from '../../../components/Modals/ReturnModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import bg from '../../../public/modal/background.png';
 
 export default function Shop() {
@@ -70,19 +72,19 @@ export default function Shop() {
 		const totalArray = cart.map(item =>
 			(item.quantity * item.product.price *  (100 - item.product.sale) / 100)
 		)
-		setTotal(totalArray.reduce((acc, curr) => acc + Number(curr), 0))
+		setTotal(totalArray.reduce((acc, curr) => acc + Number(curr), 0));
 	}, [cart]);
 
 	const handleClick = async(ev) => {
 		ev.preventDefault();
 		dispatch({
-			type: "ADD_TO_CART",
+			type: 'ADD_TO_CART',
 			payload: success,
 		})
 		if (ev.target.id == 1 && total >= 10000)
-			router.push("/order");
+			router.push('/order');
 		else
-			router.push("/shop/catalog/1");
+			router.push('/shop/catalog/1');
 	}
 
 	const [showSale, setShowSale] = useState(false);
@@ -114,17 +116,17 @@ export default function Shop() {
 			{ slug !== undefined ? 
 				success ? 
 					<div>
-						{ returnModal ? <ReturnModal close={ openReturnModal }/> : null };
-						{ deliveryModal ? <DeliveryModal close={ openDeliveryModal }/> : null };
-						{ basketModal ? <BasketModal close={ basket }/> : null };
-						{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+						{ returnModal ? <ReturnModal close={ openReturnModal } /> : null };
+						{ deliveryModal ? <DeliveryModal close={ openDeliveryModal } /> : null };
+						{ basketModal ? <BasketModal close={ basket } /> : null };
+						{ subscribeModal ? <SubscribeModal modal={ subscribe } /> : null };
 
 						<Navbar modal={ basket }/>
 
 						<LogoContainer>
 							<div className='logo-container'>
 								<div className='logo-box'>
-									<img src="/home/logo.svg" alt="logo" className='logo'/>
+									<img src='/home/logo.svg' alt='logo' className='logo' />
 								</div>
 							</div>
 						</LogoContainer>
@@ -132,23 +134,26 @@ export default function Shop() {
 						<Wrapper>
 							<div className='content'>
 								<div className='image-box'>
-									<img src={ success.image.src } alt="blog image" width={370} height={370} layout="fixed"/>
+									<Image src={ success.image.src } alt='blog image' width={ 370 } height={ 370 } layout='fixed' />
 								</div>
 
 								<div className='text-box'>
 									<h6>{ success.name }</h6>
 
 									<div className='icons'>
-										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+										<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+										<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+										<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 									</div>
 
-									<p className={ (success.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (success.inStock === true) ? "В наличии" : (success.onOrder === true) ? "Под заказ" : "Нет в наличии" }<span> | Оптом и в розницу</span></p>
+									<p className={ (success.inStock === true) ? 'product-instock' : 'product-notinstock' }>
+										{ (success.inStock === true) ? 'В наличии' : (success.onOrder === true) ? 'Под заказ' : 'Нет в наличии' }
+										<span> | Оптом и в розницу</span>
+									</p>
 									<p>Минимальная сумма заказа на сайте — 10000 тг.</p>
 												
 									<div className='delivery'>
-										<p style={{ width: "31.25rem" }}>Возврат товара в течение 14 дней <b>по договоренности</b></p>
+										<p style={{ width: '31.25rem' }}>Возврат товара в течение 14 дней <b>по договоренности</b></p>
 										<p className='link button' onClick={ openReturnModal }>Подробнее</p>
 									</div>
 
@@ -162,16 +167,18 @@ export default function Shop() {
 										</div>
 											:
 										<div className='price'>
-											<h3 className='old-product-price'>{ price(success.price *  (100 - success.sale) / 100) }</h3>
+											<h3 className='old-product-price'>{ price(success.price * (100 - success.sale) / 100) }</h3>
 											<h3 className='product-price'>{ price(success.price) } тг.</h3>
 										</div>
 									}
 
 									<div className='wholesale' onClick={ openSaleBox }>
 										<p className='link'>Показать оптовые цены</p>
-										<p style={ (window.innerWidth > 992) ? { color: "var(--clr-primary-1)" } : { height: "1.5625rem", color: "var(--clr-primary-1)", fontSize: "25px" } }>{ (window.innerWidth > 992) ? "<" : "⌄" }</p>
-										<div className={ (showSale === true) ? 'show' : 'hide' } >
-											<p style={{ fontWeight: "600", margin: "0 1.25rem 0.625rem" }}>800 тг. / шт.</p>
+										<p style={ (window.innerWidth > 992) ? { color: 'var(--clr-primary-1)' } : { height: '1.5625rem', color: 'var(--clr-primary-1)', fontSize: '25px' } }>
+											{ (window.innerWidth > 992) ? '<' : '⌄' }
+										</p>
+										<div className={ (showSale === true) ? 'show' : 'hide' }>
+											<p style={{ fontWeight: '600', margin: '0 1.25rem 0.625rem' }}>800 тг. / шт.</p>
 											<p>при заказе от 600 шт.</p>
 										</div>
 									</div>
@@ -179,25 +186,25 @@ export default function Shop() {
 									{ (success.inStock === false && success.onOrder === false) ?
 										<div className='buttons'>
 											<div className='nonactive-button'>
-												<Button blog={ true } text={ "Недоступно" }/>
+												<Button blog={ true } text={ 'Недоступно' } />
 											</div>
 										</div>
 											:
 										<div id='1' className='buttons'>
-											<div href="/order" id='1' className='purchase-button' onClick={ handleClick }>
-												<Button id='1' blog={ true } text={ "Купить" }/>
+											<div href='/order' id='1' className='purchase-button' onClick={ handleClick }>
+												<Button id='1' blog={ true } text={ 'Купить' } />
 											</div>
 											<div className='basket-button' onClick={ handleClick }>
-												<Button blog={ true } text={ "В корзину" }/>
+												<Button blog={ true } text={ 'В корзину' } />
 											</div>
 										</div>
 									}	
 								</div>
 
-								<a href="/shop/catalog/1" className='back-button'>
-									<img src="/shop/arrow2.svg" alt="arrow icon" width={40} height={10} layout="fixed"/>
+								<Link href='/shop/catalog/1' className='back-button'>
+									<Image src='/shop/arrow2.svg' alt='arrow icon' width={ 40 } height={ 10 } layout='fixed' />
 									<p>Вернуться к каталогу</p>
-								</a>
+								</Link>
 											
 								<div className='info-box'>
 									<div className='info-header'>
@@ -218,7 +225,7 @@ export default function Shop() {
 													<p className='info'>{ success.manufacturer }</p>
 												</li>
 												<li className='info-item'>
-													<p className='characteristic'>{ (window.innerWidth > 992) ? "Страна производитель" : "Страна" }</p>
+													<p className='characteristic'>{ (window.innerWidth > 992) ? 'Страна производитель' : 'Страна' }</p>
 													<p className='info'>{ success.producingCountry }</p>
 												</li>
 												<li className='info-item'>
@@ -240,9 +247,11 @@ export default function Shop() {
 												{ (window.innerWidth <= 992) ? <h5>Описание</h5> : null }
 												<div className={ showWhole ? 'info-menu' : 'info-menu hide' }>{ success.text }</div> 
 												{ (window.innerWidth <= 992) ? 
-													<div style={{ display: "flex", alignItems: "center", marginTop: "1.25rem", cursor: "pointer" }} onClick={ openWholeText }>
-														<p style={{ lineHeight: "1.5625rem", fontSize: "16px", fontWeight: "600", marginRight: "0.625rem"  }}>{ showWhole ? "Открыть полностью" : "Закрыть" }</p>
-														<p style={{ lineHeight: "1.25rem", color: "var(--clr-primary-1)", fontSize: "32px", marginBottom: "0.3125rem" }}>⌄</p>
+													<div style={{ display: 'flex', alignItems: 'center', marginTop: '1.25rem', cursor: 'pointer' }} onClick={ openWholeText }>
+														<p style={{ lineHeight: '1.5625rem', fontSize: '16px', fontWeight: '600', marginRight: '0.625rem' }}>
+															{ showWhole ? 'Открыть полностью' : 'Закрыть' }
+														</p>
+														<p style={{ lineHeight: '1.25rem', color: 'var(--clr-primary-1)', fontSize: '32px', marginBottom: '0.3125rem' }}>⌄</p>
 													</div>
 														:
 													null 
@@ -250,22 +259,22 @@ export default function Shop() {
 											</div>
 											<div className='return-content'>
 												<h5>Условия возврата и обмена</h5>
-												<div className="return-text">
+												<div className='return-text'>
 													<p>Возврат товара в течение 14 дней <b>по договоренности</b></p>
 												</div>
 												<div className='return-button' onClick={ openReturnModal }>
-													<Button text={ "Подробнее" }/>
+													<Button text={ 'Подробнее' } />
 												</div>
 											</div>
 											
 											<div className='delivery-content'>
 												<h5>Условия оплаты и доставки</h5>
-												<div className="delivery-text">
+												<div className='delivery-text'>
 													<p>Самовывоз</p>
 													<p>Курьером</p>
 												</div>
 												<div className='delivery-button' onClick={ openDeliveryModal }>
-													<Button text={ "Подробнее" }/>
+													<Button text={ 'Подробнее' } />
 												</div>
 											</div>
 										</>
@@ -276,7 +285,7 @@ export default function Shop() {
 							</div>
 						</Wrapper>
 															
-						<Footer modal={ subscribe }/>
+						<Footer modal={ subscribe } />
 					</div>
 						:
 					<Error/>
@@ -317,7 +326,7 @@ const LogoContainer = styled.section`
 	@media (max-width: 992px) {
 		display: flex;
 		align-items: center;
-		background-image: url(${bg.src}); 
+		background-image: url(${ bg.src }); 
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -333,7 +342,7 @@ const LogoContainer = styled.section`
 		}
 
 		.logo-box:before {
-			content: "";
+			content: '';
 			position: absolute;
 			width: calc(100vw - 39.0421vw * 2);
 			height: 0.1rem;
@@ -472,7 +481,7 @@ const Wrapper = styled.section`
 	}
 
 	.price:before {
-		content: "";
+		content: '';
 		top: 0;
 		position: absolute;
 		width: 100%;
@@ -575,7 +584,7 @@ const Wrapper = styled.section`
 	}
 
 	.info-header .active:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 3px;
@@ -589,7 +598,7 @@ const Wrapper = styled.section`
 	}
 
 	.header-button:after {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 3px;
@@ -891,7 +900,7 @@ const Wrapper = styled.section`
 		.info-content h5:after,
 		.return-content h5:after,
 		.delivery-content h5:after {
-			content: "";
+			content: '';
 			position: absolute;
 			width: 100%;
 			height: 1px;
@@ -914,7 +923,7 @@ const Wrapper = styled.section`
 		}
 
 		.br {
-			content: "";
+			content: '';
 			display: block;
 			margin: 0.75rem;
 		}

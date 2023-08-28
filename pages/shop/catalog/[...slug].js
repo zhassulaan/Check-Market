@@ -1,18 +1,19 @@
 import { useState, useEffect, useContext } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../../../context/Context';
-import BasketModal from '../../../components/Modals/BasketModal';
-import SubscribeModal from '../../../components/Modals/SubscribeModal';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
-import ProductBox from '../../../components/ProductBox';
-import Pagination from '../../../components/Pagination';
-import SearchBar from '../../../components/SearchBar';
-import Button from '../../../components/Button';
 import data from '../../../data/products-data';
 import data2 from '../../../data/top-products';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+import Button from '../../../components/Button';
+import Pagination from '../../../components/Pagination';
+import ProductBox from '../../../components/ProductBox';
+import SearchBar from '../../../components/SearchBar';
+import BasketModal from '../../../components/Modals/BasketModal';
+import SubscribeModal from '../../../components/Modals/SubscribeModal';
 import styles from '../../../styles/catalog.module.css';
 import bg from '../../../public/home/background.png';
 
@@ -65,7 +66,7 @@ export default function Shop() {
 	}
 	
 	// SEARCH
-	const [q, setQ] = useState("");
+	const [q, setQ] = useState('');
 
 	// USE FILTER
 	let [openDropdown, setOpenDropdown] = useState([false, false, false, false, false]);
@@ -81,12 +82,12 @@ export default function Shop() {
 	
 	// FILTER BY SECTION
 	const productType = [
-		{ text: "Все товары" },
-		{ text: "Чековая лента" },
-		{ text: "Термоэтикетки" },
-		{ text: "Счётчики подсчёта посетителей" },
-		{ text: "Противокражное оборудование" },
-		{ text: "Оборудование для автоматизации" }
+		{ text: 'Все товары' },
+		{ text: 'Чековая лента' },
+		{ text: 'Термоэтикетки' },
+		{ text: 'Счётчики подсчёта посетителей' },
+		{ text: 'Противокражное оборудование' },
+		{ text: 'Оборудование для автоматизации' },
 	];
 	const type = [];
 	for(let i = 0; i < 6; i++) { 
@@ -168,7 +169,7 @@ export default function Shop() {
 	const applyFilters = () => {
 		let updatedList = data;
 
-		if (q !== "") {
+		if (q !== '') {
 			updatedList = updatedList.filter(item => 
 				item.name.toLowerCase().indexOf(q.toLowerCase()) > -1
 			);
@@ -243,9 +244,9 @@ export default function Shop() {
 		});
 		dispatch({
 			type: "SAVE_FILTER",
-			payload: ["", 0, 0, 0, 0]
+			payload: ['', 0, 0, 0, 0]
 		});
-		setQ("")
+		setQ('')
 		setSelectedType([true, false, false, false, false, false]);
 		setSelectedPrice([false, false, false]);
 		setSelectedAviability([false, false, false, false]);
@@ -316,7 +317,7 @@ export default function Shop() {
 
 							<LogoContainer>
 								<div className='logo-box'>
-									<img src="/home/logo.svg" alt="logo" className='logo'/>
+									<img src='/home/logo.svg' alt='logo' className='logo' />
 								</div>
 							</LogoContainer>
 
@@ -327,9 +328,9 @@ export default function Shop() {
 									<h3 className={ styles.title }>Интернет-магазин</h3>
 
 									<div className={ styles.icons }>
-										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+										<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+										<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+										<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 									</div>
 
 									<p className={ styles.subtitle }>Более сотни позиций для автоматизации вашего бизнеса.</p>
@@ -339,27 +340,27 @@ export default function Shop() {
 									{ window.innerWidth < 769 ? 
 										<div className={ styles.filter_opener } onClick={ openFilter }>
 											<h5>Фильтр</h5> 
-											<img src="/catalog-icons/filter.svg" alt="filter icon"/>
+											<img src='/catalog-icons/filter.svg' alt='filter icon' />
 										</div>
 											: 
 										null }
 									
 									{ (window.innerWidth > 768 || filter) ?
 										<div className={ styles.filter_boxes }>
-											<svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={ openFilter }>
-												<path d="M1 1L30.9999 31" stroke="black" stroke-width="2"/>
-												<path d="M31 1L1 31" stroke="black" stroke-width="2"/>
+											<svg width='25' height='25' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={ openFilter }>
+												<path d='M1 1L30.9999 31' stroke='black' stroke-width='2' />
+												<path d='M31 1L1 31' stroke='black' stroke-width='2' />
 											</svg>
 											<h4>Выберите нужные фильтры</h4>
 
-											<div className='0' style={{ position: "relative" }}>
+											<div className='0' style={{ position: 'relative' }}>
 												<div className={ styles.filter_header }>
 													<p className='0'>Разделы:</p>
 													<div className='0'>
 														{ (window.innerWidth > 768) ?
-															<img className='0' src="/catalog-icons/arrow.svg" alt="show button"/>
+															<img className='0' src='/catalog-icons/arrow.svg' alt='show button' />
 																:
-															<img className='0' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+															<img className='0' src='/catalog-icons/arrow_mobile.svg' alt='show button' />
 														}
 													</div>
 												</div>
@@ -386,14 +387,14 @@ export default function Shop() {
 												</ul>
 											</div>
 
-											<div className='1' style={{ position: "relative" }}>
+											<div className='1' style={{ position: 'relative' }}>
 												<div className={ styles.filter_header }>
 													<p className='1'>Цена:</p>
 													<div className='1'>
 														{ (window.innerWidth > 768) ?
-															<img className='1' src="/catalog-icons/arrow.svg" alt="show button"/>
+															<img className='1' src='/catalog-icons/arrow.svg' alt='show button' />
 																:
-															<img className='1' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+															<img className='1' src='/catalog-icons/arrow_mobile.svg' alt='show button' />
 														}
 													</div>
 												</div>
@@ -411,14 +412,14 @@ export default function Shop() {
 												</ul>
 											</div>
 
-											<div className='2' style={{ position: "relative" }}>
+											<div className='2' style={{ position: 'relative' }}>
 												<div className={ styles.filter_header }>
 													<p className='2'>Наличие:</p>
 													<div className='2'>
 														{ (window.innerWidth > 768) ?
-															<img className='2' src="/catalog-icons/arrow.svg" alt="show button"/>
+															<img className='2' src='/catalog-icons/arrow.svg' alt='show button' />
 																:
-															<img className='2' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+															<img className='2' src='/catalog-icons/arrow_mobile.svg' alt='show button' />
 														}
 													</div>
 												</div>
@@ -439,14 +440,14 @@ export default function Shop() {
 												</ul>
 											</div>
 
-											<div className='3' style={{ position: "relative" }}>
+											<div className='3' style={{ position: 'relative' }}>
 												<div className={ styles.filter_header }>
 													<p className='3'>Акции:</p>
 													<div className='3'>
 														{ (window.innerWidth > 768) ?
-															<img className='3' src="/catalog-icons/arrow.svg" alt="show button"/>
+															<img className='3' src='/catalog-icons/arrow.svg' alt='show button' />
 																:
-															<img className='3' src="/catalog-icons/arrow_mobile.svg" alt="show button"/>
+															<img className='3' src='/catalog-icons/arrow_mobile.svg' alt='show button' />
 														}
 													</div>
 												</div>
@@ -462,11 +463,11 @@ export default function Shop() {
 											</div>
 
 											{ (window.innerWidth > 768) ?
-												<div className='4' style={{ position: "relative" }}>
+												<div className='4' style={{ position: 'relative' }}>
 													<div className={ styles.filter_header }>
 														<p className='4'>Сортировка:</p>
 														<div className='4'>
-															<img className='4' src="/catalog-icons/arrow.svg" alt="show button"/>
+															<img className='4' src='/catalog-icons/arrow.svg' alt='show button' />
 														</div>
 													</div>
 												
@@ -487,9 +488,9 @@ export default function Shop() {
 											}
 
 											{ (window.innerWidth < 769) ?
-												<div className={ styles.mobile_fliter } style={{ position: "relative" }}>
-													<div style={{ width: "9.6875rem", height: "2.5rem" }} onClick={ openFilter }>
-														<Button text={ "Применить" }/>
+												<div className={ styles.mobile_fliter } style={{ position: 'relative' }}>
+													<div style={{ width: '9.6875rem', height: '2.5rem' }} onClick={ openFilter }>
+														<Button text={ 'Применить' }/>
 													</div>
 												
 													<p className={ styles.clear_filter } onClick={ handleClearFilter }>Сбросить все фильтры</p>
@@ -505,7 +506,7 @@ export default function Shop() {
 									<div className={ styles.filter_box }>
 										<div className={ styles.search_box }>
 											<SearchBar
-												text={ "Поиск товара..." }
+												text={ 'Поиск товара...' }
 												value={ q }
 												onChange={ (e) => setQ(e.target.value) }
 												/>
@@ -521,10 +522,10 @@ export default function Shop() {
 								{ (currentProducts.length > 0) ?
 									<>
 										<div className={ styles.product_content }>
-											{ currentProducts.map(item => {
+											{ currentProducts.map((item, idx) => {
 												return(
-													<div id={ item.id } className={ styles.product }>
-														<ProductBox key={ item.id } product={ item }/>
+													<div id={ item.id } className={ styles.product } key={ idx }>
+														<ProductBox key={ item.id } product={ item } />
 													</div>
 												);
 											}) }
@@ -538,7 +539,7 @@ export default function Shop() {
 									</>
 										:
 									<div className={ styles.notfound_content }>
-										<img src="/product-images/not-found.svg" alt="not found"/>
+										<img src='/product-images/not-found.svg' alt='not found' />
 										<p>По Вашему запросу нет результатов. Попробуйте сбросить все фильтры или обновить страницу.</p>
 									</div>
 								}
@@ -600,7 +601,7 @@ const LogoContainer = styled.div`
 		}
 		
 		.logo-box:before {
-			content: "";
+			content: '';
 			position: absolute;
 			width: calc(100vw - 39.0421vw * 2);
 			height: 0.1rem;

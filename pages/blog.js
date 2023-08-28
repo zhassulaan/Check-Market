@@ -3,14 +3,14 @@ import ReactPaginate from 'react-paginate';
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import newsData from '../data/news-data';
 import articlesData from '../data/articles-data';
-import Blogs from '../components/BlogsContainer';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
+import newsData from '../data/news-data';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import Blogs from '../components/BlogsContainer';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import bg from '../public/modal/background.png';
 
 export default function Blog() {
@@ -68,7 +68,7 @@ export default function Blog() {
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * 3) % blogs.length;
 		console.log(
-		  `User requested page number ${event.selected + 1}, which is offset ${newOffset}`
+		  `User requested page number ${ event.selected + 1 }, which is offset ${ newOffset }`
 		);
 		setItemOffset(newOffset);
 	};
@@ -95,7 +95,7 @@ export default function Blog() {
 
 				<LogoContainer>
 					<div className='logo-box'>
-		        		<img src="/home/logo.svg" alt="logo" className='logo'/>
+						<img src='/home/logo.svg' alt='logo' className='logo' />
 					</div>
 				</LogoContainer>
 						
@@ -124,31 +124,31 @@ export default function Blog() {
 
 						{option === 1 ?
 							<div className='blog-container'>
-								<Blogs currentItems={ currentArticles } option={ "Статьи" }/>
+								<Blogs currentItems={ currentArticles } option={ 'Статьи' }/>
 								<ReactPaginate
-									key="paginate1"
-									breakLabel={ (window.innerWidth > 650) ? "..." : null }
-									nextLabel={ (window.innerWidth > 992) ? "Следующая" : <img src="/blog-icons/next.svg" alt="next arrow"/> }
+									key='paginate1'
+									breakLabel={ (window.innerWidth > 650) ? '...' : null }
+									nextLabel={ (window.innerWidth > 992) ? 'Следующая' : <img src='/blog-icons/next.svg' alt='next arrow' /> }
 									onPageChange={ handlePageClick }
 									marginPagesDisplayed={ (window.innerWidth > 650) ? 1 : 0 }
 									pageRangeDisplayed={ (window.innerWidth > 650) ? 3 : 2 }
 									pageCount={ pageCountArticles }
-									previousLabel={ (window.innerWidth > 992) ? "Предыдущая" : <img src="/blog-icons/previous.svg" alt="previous arrow"/> }
+									previousLabel={ (window.innerWidth > 992) ? 'Предыдущая' : <img src='/blog-icons/previous.svg' alt='previous arrow' /> }
 									renderOnZeroPageCount={ null }
 								/>
 							</div>
 								:
 							<div className='blog-container'>
-								<Blogs currentItems={ currentNews } option={ "Новости" }/>
+								<Blogs currentItems={ currentNews } option={ 'Новости' }/>
 								<ReactPaginate
-									key="paginate1"
-									breakLabel="..."
-									nextLabel={ (window.innerWidth > 992) ? "Следующая" : <img src="/blog-icons/next.svg" alt="next arrow"/> }
+									key='paginate1'
+									breakLabel='...'
+									nextLabel={ (window.innerWidth > 992) ? 'Следующая' : <img src='/blog-icons/next.svg' alt='next arrow'/> }
 									onPageChange={ handlePageClick }
 									marginPagesDisplayed={ (window.innerWidth > 992) ? 1 : 0 }
 									pageRangeDisplayed={ 3 }
 									pageCount={ pageCountArticles }
-									previousLabel={ (window.innerWidth > 992) ? "Предыдущая" : <img src="/blog-icons/previous.svg" alt="previous arrow"/> }
+									previousLabel={ (window.innerWidth > 992) ? 'Предыдущая' : <img src='/blog-icons/previous.svg' alt='previous arrow'/> }
 									renderOnZeroPageCount={ null }
 								/>
 							</div>
@@ -208,7 +208,7 @@ const LogoContainer = styled.section`
 		}
 		
 		.logo-box:before {
-			content: "";
+			content: '';
 			position: absolute;
 			width: calc(100vw - 39.0421vw * 2);
 			height: 0.1rem;

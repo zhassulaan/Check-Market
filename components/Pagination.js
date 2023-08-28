@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Pagination = ({ pageNumbers, currentPage, paginate }) => {
   	return (
@@ -9,14 +9,14 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
 						{ (window.innerWidth > 992) ? 
 							<p className='previous button'>Предыдущая</p>
 								:
-							<img src="/catalog-icons/previous.svg" alt="previous button" className='previous button'/>
+							<img src='/catalog-icons/previous.svg' alt='previous button' className='previous button' />
 						}
 					</a>
 						:
 					(window.innerWidth > 992) ? 
 						<p className='previous button'>Предыдущая</p>
 							:
-						<img src="/catalog-icons/previous.svg" alt="previous button" className='previous button'/>
+						<img src='/catalog-icons/previous.svg' alt='previous button' className='previous button' />
 				}
 				
 				{pageNumbers.map(number => (
@@ -32,14 +32,14 @@ const Pagination = ({ pageNumbers, currentPage, paginate }) => {
 						{ (window.innerWidth > 992) ? 
 							<p className='next button'>Следующая</p>
 								:
-							<img src="/catalog-icons/next.svg" alt="next button" className='next button'/>
+							<img src='/catalog-icons/next.svg' alt='next button' className='next button' />
 						}
 					</a>
 						:
 					(window.innerWidth > 992) ? 
 						<p className='next button'>Следующая</p>
 							:
-						<img src="/catalog-icons/next.svg" alt="next button" className='next button'/>
+						<img src='/catalog-icons/next.svg' alt='next button' className='next button' />
 				}
       	</ul>
     	</Wrapper>

@@ -19,15 +19,15 @@ export default function BlogsContainer({ currentItems, option }) {
 
 				<div className='text-content'>
 					<div className='text-content-header'>
-						<h6 style={ (window.innerWidth > 650) ? { display: "none" } : { display: "block" } }>{ firstElement.date }</h6>
+						<h6 style={ (window.innerWidth > 650) ? { display: 'none' } : { display: 'block' } }>{ firstElement.date }</h6>
 						<h6>{ option }</h6>
 					</div>
 					<h4 className='blog-title'>{ firstElement.title }</h4>
 					<div className='blog-text'><p>{ firstElement.text1 }</p></div>
-					{ option === "Статьи" ?
-						<a href={ `/blog/articles/${ firstElement.id }` } className='button'>{ "Смотреть полностью >" }</a>
+					{ option === 'Статьи' ?
+						<a href={ `/blog/articles/${ firstElement.id }` } className='button'>{ 'Смотреть полностью >' }</a>
 							:
-						<a href={ `/blog/news/${ firstElement.id }` } className='button'>{ "Смотреть полностью >" }</a>
+						<a href={ `/blog/news/${ firstElement.id }` } className='button'>{ 'Смотреть полностью >' }</a>
 					}
 				</div>
 			</div>
@@ -36,7 +36,7 @@ export default function BlogsContainer({ currentItems, option }) {
 			  	(item.id !== firstElement.id) ?
 				<div className='blog-box mini'>
 					<div className='mini-image-content'>
-						<Image src={ item.image } alt="blog image" width="100%" height="100%" layout="fill"/>
+						<Image src={ item.image } alt='blog image' width='100%' height='100%' layout='fill' />
 						<div className='frame'></div>
 					</div>
 
@@ -121,7 +121,7 @@ const Wrapper = styled.div`
 	}
 
 	.blog-title:after {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 1px;

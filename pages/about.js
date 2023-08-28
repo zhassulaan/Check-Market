@@ -36,14 +36,14 @@ export default function About() {
 			</Head>
 
 			<div>
-				{ basketModal ? <BasketModal close={ basket }/> : null };
-				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+				{ basketModal ? <BasketModal close={ basket } /> : null };
+				{ subscribeModal ? <SubscribeModal modal={ subscribe } /> : null };
 
 				<Navbar modal={ basket }/>
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+						<img src="/home/logo.svg" alt="logo" className={ styles.logo } />
 					</div>
 				</div>
 
@@ -91,9 +91,9 @@ export default function About() {
 						<h3 className={ styles.title }>Наши партнеры и бренды</h3>
 
 						<div className={ styles.icons }>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<div className={ styles.images }>

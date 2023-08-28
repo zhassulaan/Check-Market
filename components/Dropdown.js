@@ -78,7 +78,7 @@ function Dropdown({ close }) {
 					</Link>
 				</li>
 				
-				<li className={(router.pathname == "/services" || router.pathname == "/basket" || router.pathname == "/order") ? 'active dropdown-item' : 'dropdown-item'}>
+				<li className={(router.pathname == '/services' || router.pathname == '/basket' || router.pathname == '/order') ? 'active dropdown-item' : 'dropdown-item'}>
 					<div>
 						<Link href='/services'>
 							<svg width="16" height="15" viewBox="0 0 16 15" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ function Dropdown({ close }) {
 					</Link>
 				</li>
 				
-				<li className={(router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active dropdown-item' : 'dropdown-item'}>
+				<li className={(router.pathname == '/blog' || router.pathname === '/blog/news/[slug]' || router.pathname === '/blog/articles/[slug]') ? 'active dropdown-item' : 'dropdown-item'}>
 					<div>
 						<Link href='/blog'>
 							<svg width="16" height="17" viewBox="0 0 16 17" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg" className='withStroke'>
@@ -112,7 +112,7 @@ function Dropdown({ close }) {
 					</Link>
 				</li>
 				
-				<li className={(router.pathname == "/delivery") ? 'active dropdown-item' : 'dropdown-item'}>
+				<li className={(router.pathname == '/delivery') ? 'active dropdown-item' : 'dropdown-item'}>
 					<div>
 						<Link href='/delivery'>
 							<svg width="17" height="16" viewBox="0 0 17 16" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +132,7 @@ function Dropdown({ close }) {
 					</Link>
 				</li>
 				
-				<li className={(router.pathname == "/contacts") ? 'active dropdown-item' : 'dropdown-item'}>
+				<li className={(router.pathname == '/contacts') ? 'active dropdown-item' : 'dropdown-item'}>
 					<div>
 						<Link href='/contacts'>
 							<svg width="15" height="15" viewBox="0 0 15 15" fill="black" xmlns="http://www.w3.org/2000/svg">

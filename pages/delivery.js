@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import styles from '../styles/delivery.module.css';
 
 export default function Delivery() {
@@ -41,7 +42,7 @@ export default function Delivery() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		           		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+						<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 
@@ -50,9 +51,9 @@ export default function Delivery() {
 						<h3 className={ styles.title }>Доставка и оплата</h3>
 
 						<div className={ styles.icons }>
-							<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-							<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-							<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+							<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+							<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+							<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 						</div>
 
 						<p className={ styles.subtitle }>Условия доставки и оплаты</p>
@@ -60,7 +61,7 @@ export default function Delivery() {
 
 					<div className={ styles.content }>
 						<div className={ styles.main }>
-							<p className={ styles.text }>Доставка "Самовывоз" — <span className={ styles.green1 }>Бесплатно</span></p>
+							<p className={ styles.text }>Доставка &ldquo;Самовывоз&rdquo; — <span className={ styles.green1 }>Бесплатно</span></p>
 							<p className={ styles.text }>Обязательно связаться перед выездом на склад!</p>
 							<br className={ styles.br }/>
 							<p className={ styles.text }>Транспортная компания <span className={ styles.green2 }>Бесплатно при стоимости заказа от 70000 Тг.</span></p>

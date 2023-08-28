@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 
@@ -13,10 +12,10 @@ export default function SelectInput({ placeholderText, options, className, value
 			...provided,
 			padding: 0,
 			paddingRight: '1.5625rem',
-			"span": {
+			'span': {
 				width: 0
 			},
-			"svg": {
+			'svg': {
 				fill: 'var(--clr-black)',
 				width: '1.25rem',
 				height: '1.25rem'
@@ -28,7 +27,7 @@ export default function SelectInput({ placeholderText, options, className, value
 			height: '2.5rem',
 			minHeight: '2.5rem',
 			borderRadius: 0,
-			"span": {
+			'span': {
 				width: '0'
 			}
 		}),
@@ -55,7 +54,7 @@ export default function SelectInput({ placeholderText, options, className, value
 				value={ value }
 				onChange={ onChange }
 				options={ options }
-				placeholder={<p className="select-placeholder-text">{ placeholderText }</p>}
+				placeholder={<p className='select-placeholder-text'>{ placeholderText }</p>}
 				className={ className }
 				styles={ style } 
 			/>
@@ -69,4 +68,3 @@ const Wrapper = styled.nav`
 		color: var(--clr-black);
 	}
 `
-

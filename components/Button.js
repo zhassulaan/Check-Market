@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default function Button({ hero, blog, text, id, action }) {
 	return (

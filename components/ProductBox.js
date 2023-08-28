@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
-import Button from "./Button";
+import Button from './Button';
 
 export default function ProductBox({ product }) {
 	const { dispatch } = useContext(Context);
@@ -34,7 +34,7 @@ export default function ProductBox({ product }) {
 				}
 
 				<a href={`/shop/product/${product.id}`}>
-					<img src={ product.image.src } alt="product image"/>
+					<img src={ product.image.src } alt='product image' />
 				</a>
 
 				<div className='product-data'>
@@ -52,16 +52,16 @@ export default function ProductBox({ product }) {
 							</div>
 						}
 						
-						<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? "В наличии" : (product.onOrder === true) ? "Под заказ" : "Нет в наличии" }</p>
+						<p className={ (product.inStock === true) ? 'product-instock' : 'product-notinstock' }>{ (product.inStock === true) ? 'В наличии' : (product.onOrder === true) ? 'Под заказ' : 'Нет в наличии' }</p>
 					</div>
 					
 					{ (product.inStock === false && product.onOrder === false) ?
 						<div className='product-button nonactive'>
-							<Button text={ "Недоступно" }/>
+							<Button text={ 'Недоступно' }/>
 						</div>
 							:
 						<div className='product-button' onClick={ handleClick }>
-							<Button text={ "В корзину" }/>
+							<Button text={ 'В корзину' }/>
 						</div>
 					}
 				</div>
@@ -340,7 +340,7 @@ const Wrapper = styled.div`
 		}
 
 		.product-name:before {
-			content: "";
+			content: '';
 			position: absolute;
 			left: 0;
 			bottom: 0;

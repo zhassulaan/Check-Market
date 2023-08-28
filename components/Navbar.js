@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
-import SearchBar from '../components/SearchBar';
 import Dropdown from '../components/Dropdown';
+import SearchBar from '../components/SearchBar';
 
 function Navbar({ home, modal }) {
 	const router = useRouter();
@@ -43,8 +43,8 @@ function Navbar({ home, modal }) {
 						</svg>
 					</div>
 
-					<div className="search">
-						<SearchBar text={ "Введите здесь ключевые слова для поиска" }/>
+					<div className='search'>
+						<SearchBar text={ 'Введите здесь ключевые слова для поиска' }/>
 					</div>
 
 					<div className='icon button laptop closeIcon' onClick={ search }>
@@ -60,25 +60,25 @@ function Navbar({ home, modal }) {
 				<nav className={ home ? 'container white' : 'container' }>
 					<ul className='shop-menu laptop'>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/' className={ (router.pathname == "/") ? 'active' : 'notactive' }>Главная</Link>
+							<Link href='/' className={ (router.pathname == '/') ? 'active' : 'notactive' }>Главная</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/shop' className={ (router.pathname == "/shop" || router.pathname == "/shop/catalog/[...slug]"  || router.pathname == "/shop/product/[...slug]") ? 'active' : 'notactive' }>Магазин</Link>
+							<Link href='/shop' className={ (router.pathname == '/shop' || router.pathname == '/shop/catalog/[...slug]'  || router.pathname == '/shop/product/[...slug]') ? 'active' : 'notactive' }>Магазин</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/about' className={ (router.pathname == "/about") ? 'active' : 'notactive' }>О нас</Link>
+							<Link href='/about' className={ (router.pathname == '/about') ? 'active' : 'notactive' }>О нас</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/services' className={ (router.pathname == "/services" || router.pathname == "/basket" || router.pathname == "/order") ? 'active' : 'notactive' }>Услуги</Link>
+							<Link href='/services' className={ (router.pathname == '/services' || router.pathname == '/basket' || router.pathname == '/order') ? 'active' : 'notactive' }>Услуги</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/blog' className={ (router.pathname == "/blog" || router.pathname === "/blog/news/[slug]" || router.pathname === "/blog/articles/[slug]") ? 'active' : 'notactive' }>Блог</Link>
+							<Link href='/blog' className={ (router.pathname == '/blog' || router.pathname === '/blog/news/[slug]' || router.pathname === '/blog/articles/[slug]') ? 'active' : 'notactive' }>Блог</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/delivery' className={ (router.pathname == "/delivery") ? 'active' : 'notactive' }>Доставка</Link>
+							<Link href='/delivery' className={ (router.pathname == '/delivery') ? 'active' : 'notactive' }>Доставка</Link>
 						</li>
 						<li className={ home ? 'white item' : 'item' }>
-							<Link href='/contacts' className={ (router.pathname == "/contacts") ? 'active' : 'notactive' }>Контакты</Link>
+							<Link href='/contacts' className={ (router.pathname == '/contacts') ? 'active' : 'notactive' }>Контакты</Link>
 						</li>
 					</ul>
 					
@@ -169,7 +169,7 @@ const Wrapper = styled.header`
 
 	.notactive:after,
 	.active:after {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 2px;

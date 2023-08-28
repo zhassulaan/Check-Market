@@ -12,17 +12,17 @@ export default function Hero() {
 	const handleClick = async(ev) => {
 		ev.preventDefault();
 		dispatch({
-			type: "SAVE_PAGE",
+			type: 'SAVE_PAGE',
 			payload: 0
 		});
-		router.push("/shop/catalog/1");
+		router.push('/shop/catalog/1');
 	}
 
 	return (
 		<Wrapper>
          <div className='hero'>
 				<div className='logo-box'>
-					<img src="/home/logo.svg" alt="logo" className='logo'/>
+					<img src='/home/logo.svg' alt='logo' className='logo' />
 				</div>
           
 				<div className='hero-text-content'>
@@ -35,17 +35,17 @@ export default function Hero() {
 
 					<div className='hero-icons'>
 						<div className='hero-item'>
-							<img src="/home/rectangle.svg" alt="rectangle"/>
+							<img src='/home/rectangle.svg' alt='rectangle' />
 							<h6>Лучшие цены </h6>
 							<p>С нами всегда выгоднее</p>
 						</div>
 						<div className='hero-item'>
-							<img src="/home/triangle.svg" alt="triangle"/>
+							<img src='/home/triangle.svg' alt='triangle' />
 							<h6>Поддержка 24/7</h6>
 							<p>Ответим в любое время суток</p>
 						</div>
 						<div className='hero-item'>
-							<img src="/home/ellipse.svg" alt="circle"/>
+							<img src='/home/ellipse.svg' alt='circle' />
 							<h6>Быстрая доставка</h6>
 							<p>Оперативно доставим в руки</p>
 						</div>
@@ -104,7 +104,7 @@ const Wrapper = styled.section`
 	}
 	
 	.logo-box:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 0.3rem;

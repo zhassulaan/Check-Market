@@ -239,7 +239,7 @@ const Wrapper = styled.div`
 	}
 	
 	.module-header:before {
-		content: "";
+		content: '';
 		bottom: 0;
 		position: absolute;
 		width: 100%;

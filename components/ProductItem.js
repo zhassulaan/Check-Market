@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Context } from '../context/Context';
 
 export default function ProductItem({ product, quantity }) {

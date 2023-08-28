@@ -38,11 +38,11 @@ export default function TopProducts() {
 			</div>
 
 			<div className='buttons'>
-				<img src="/product-images/left.svg" alt="previous" id={ (current !== numb) ? current - numb : current } className='arrow button' onClick={ handleClick }/>
-				{ Array(Math.ceil(previous)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb } alt="passive" className='button' onClick={ handleClick }/>)}
-				<img src="/product-images/active.svg" alt="active" className='button'/>
-				{ Array(Math.ceil(next)).fill(true).map((item, index) => <img src="/product-images/passive.svg" id={ (index + 1) * numb + current } alt="passive" className='button' onClick={ handleClick }/>)}
-				<img src="/product-images/right.svg" alt="next" id={ (current < data.length) ? current + numb : current } className='arrow button' onClick={ handleClick }/>
+				<img src='/product-images/left.svg' alt='previous' id={ (current !== numb) ? current - numb : current } className='arrow button' onClick={ handleClick } />
+				{ Array(Math.ceil(previous)).fill(true).map((item, idx) => <img src='/product-images/passive.svg' id={ (idx + 1) * numb } alt='passive' className='button' key={ idx } onClick={ handleClick } />) }
+				<img src='/product-images/active.svg' alt='active' className='button' />
+				{ Array(Math.ceil(next)).fill(true).map((item, idx) => <img src='/product-images/passive.svg' id={ (idx + 1) * numb + current } alt='passive' className='button' key={ idx } onClick={ handleClick } />) }
+				<img src='/product-images/right.svg' alt='next' id={ (current < data.length) ? current + numb : current } className='arrow button' onClick={ handleClick } />
 			</div>
 		</Wrapper>
 	);

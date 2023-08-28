@@ -167,7 +167,7 @@ const Wrapper = styled.div`
 	}
 	
 	.form-header:before {
-		content: "";
+		content: '';
 		bottom: 0;
 		position: absolute;
 		width: 100%;

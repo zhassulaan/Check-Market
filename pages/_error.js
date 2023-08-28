@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Button from '../components/Button';
 import styles from '../styles/error.module.css';
 import styled from 'styled-components';
@@ -22,11 +23,11 @@ export default function NotFound() {
 					<h1 className={styles.title}>404</h1>
 					<h3 className={styles.subtitle}>Страница не найдена</h3>
 					<p className={styles.text}>Запрашиваемая страница не найдена, возможно она была удалена</p>
-					<a href='/'>
+					<Link href='/'>
 						<ButtonContainer>
 							<Button text={ "Вернуться на главную" }/>
 						</ButtonContainer>
-					</a>
+					</Link>
 				</div>
         </div>
     );

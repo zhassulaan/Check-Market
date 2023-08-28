@@ -1,15 +1,15 @@
 import { useState, useContext } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { Context } from '../context/Context';
-import MessageModal from '../components/Modals/MessageModal';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import TopProducts from '../components/TopProducts';
 import Button from '../components/Button';
+import TopProducts from '../components/TopProducts';
+import BasketModal from '../components/Modals/BasketModal';
+import MessageModal from '../components/Modals/MessageModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import styles from '../styles/shop.module.css';
 import styled from 'styled-components';
 
@@ -59,15 +59,15 @@ export default function Shop() {
 			</Head>
 			
 			<>
-				{ openModal ?<MessageModal close={ modal } send={ "SUBMIT_PRODUCT_APPLICATION" }/>  : null };
-				{ basketModal ? <BasketModal close={ basket }/> : null };
-				{ subscribeModal ? <SubscribeModal modal={ subscribe }/> : null };
+				{ openModal ? <MessageModal close={ modal } send={ 'SUBMIT_PRODUCT_APPLICATION' } /> : null };
+				{ basketModal ? <BasketModal close={ basket } /> : null };
+				{ subscribeModal ? <SubscribeModal modal={ subscribe } /> : null };
 
 				<Navbar modal={ basket }/>
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		        		<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+		        		<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 
@@ -113,11 +113,11 @@ export default function Shop() {
 
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='2' src="/shop/image3.png" alt="Термоэтикетки"/>
+									<img id='2' src='/shop/image3.png' alt='Термоэтикетки' />
 									<div id='2' className={ styles.frame }></div>
 									<div id='2' className={ styles.type_title }>
 										<p id='2' className={ [styles.frame_title, styles.frame_title3].join(" ") }>Термоэтикетки</p>
-										<img id='2' src="/shop/arrow.svg" alt="go arrow"/>
+										<img id='2' src='/shop/arrow.svg' alt='go arrow' />
 									</div>
 								</div>
 								<div className={ styles.frame_text }><p>Самоклеющиеся термоэтикетки термотрансферная этикет-лента</p></div>
@@ -125,7 +125,7 @@ export default function Shop() {
 
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='3' src="/shop/image4.png" alt="Счётчики подсчёта посетителей"/>
+									<img id='3' src='/shop/image4.png' alt='Счётчики подсчёта посетителей' />
 									<div id='3' className={ styles.frame }></div>
 									<div id='3' className={ styles.type_title }>
 										<p id='3' className={ [styles.frame_title, styles.frame_title4].join(" ") }>Счётчики подсчёта посетителей</p>
@@ -137,7 +137,7 @@ export default function Shop() {
 
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='4' src="/shop/image5.png" alt="Противокражное оборудование"/>
+									<img id='4' src='/shop/image5.png' alt='Противокражное оборудование' />
 									<div id='4' className={ styles.frame }></div>
 									<div id='4' className={ styles.type_title }>
 										<p id='4' className={ [styles.frame_title, styles.frame_title5].join(" ") }>Противокражное оборудование</p>
@@ -149,11 +149,11 @@ export default function Shop() {
 
 							<div className={ styles.image }>
 								<div onClick={ handleSubmit }>
-									<img id='5' src="/shop/image6.png" alt="Оборудование для автоматизации"/>
+									<img id='5' src='/shop/image6.png' alt='Оборудование для автоматизации' />
 									<div id='5' className={ styles.frame }></div>
 									<div id='5' className={ styles.type_title }>
 										<p id='5' className={ [styles.frame_title, styles.frame_title6].join(" ") }>Оборудование для автоматизации</p>
-										<img id='5' src="/shop/arrow.svg" alt="go arrow"/>
+										<img id='5' src='/shop/arrow.svg' alt='go arrow' />
 									</div>
 								</div>
 								<div className={ styles.frame_text }><p>ПО, принтеры этикетов, сканеры, терминалы сбора данных и тд.</p></div>

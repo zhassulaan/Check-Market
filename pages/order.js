@@ -3,16 +3,16 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
-import SuccessModal from '../components/Modals/SuccessModal';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
 import Error from './_error';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Button from '../components/Button';
+import Input from '../components/Input';
 import ProductItem from '../components/ProductItem';
 import Select from '../components/Select';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
+import SuccessModal from '../components/Modals/SuccessModal';
 import styles from '../styles/basket.module.css';
 
 export default function Basket() {
@@ -40,26 +40,26 @@ export default function Basket() {
 	}
 
 	const payment_method = [
-		{ value: "Наличными", label: "Наличными" },
-	 	{ value: "Безналичный расчет", label: "Безналичный расчет" }
+		{ value: 'Наличными', label: 'Наличными' },
+	 	{ value: 'Безналичный расчет', label: 'Безналичный расчет' },
 	];
 	const delivery_method = [
-		{ value: "Курьером", label: "Курьером" },
-	 	{ value: "Самовывоз", label: "Самовывоз" }
+		{ value: 'Курьером', label: 'Курьером' },
+	 	{ value: 'Самовывоз', label: 'Самовывоз' },
 	];
 	const region = [
-		{ value: "Акмолинская область", label: "Акмолинская область" },
-	 	{ value: "Актюбинская область", label: "Актюбинская область" },
-		{ value: "Алматинская область", label: "Алматинская область" },
-	 	{ value: "Жамбылская область", label: "Жамбылская область" },
-		{ value: "Туркестанская область", label: "Туркестанская область" },
-	 	{ value: "Актау", label: "Актау" },
-		{ value: "Алматы", label: "Алматы" },
-	 	{ value: "Атырау", label: "Атырау" },
-		{ value: "Байконур", label: "Байконур" },
-	 	{ value: "Караганда", label: "Караганда" },
-		{ value: "Павлодар", label: "Павлодар" },
-	 	{ value: "Петропавловск", label: "Петропавловск" }
+		{ value: 'Акмолинская область', label: 'Акмолинская область' },
+	 	{ value: 'Актюбинская область', label: 'Актюбинская область' },
+		{ value: 'Алматинская область', label: 'Алматинская область' },
+	 	{ value: 'Жамбылская область', label: 'Жамбылская область' },
+		{ value: 'Туркестанская область', label: 'Туркестанская область' },
+	 	{ value: 'Актау', label: 'Актау' },
+		{ value: 'Алматы', label: 'Алматы' },
+	 	{ value: 'Атырау', label: 'Атырау' },
+		{ value: 'Байконур', label: 'Байконур' },
+	 	{ value: 'Караганда', label: 'Караганда' },
+		{ value: 'Павлодар', label: 'Павлодар' },
+	 	{ value: 'Петропавловск', label: 'Петропавловск' },
 	];
 
 	function checkPhoneNumber(str) {
@@ -70,7 +70,7 @@ export default function Basket() {
 		return false;
 	};
 
-	const [details, setDetails] = useState({ paymentMethod: null, deliveryMethod: null, city: null, address: "", name: "", surename: "", phone: "", message: "", cart: cart });
+	const [details, setDetails] = useState({ paymentMethod: null, deliveryMethod: null, city: null, address: '', name: '', surename: '', phone: '', message: '', cart: cart });
 	const [error, setError] = useState(false);
 	const [successModal, setSuccessModal] = useState(false);
 
@@ -91,13 +91,13 @@ export default function Basket() {
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		if ((details.paymentMethod === null) || (details.deliveryMethod === null) || (details.city === null) || (details.address === "") || (details.name === "") || (details.surename === "") || (details.phone === "") || checkPhoneNumber(details.phone)) {
+		if ((details.paymentMethod === null) || (details.deliveryMethod === null) || (details.city === null) || (details.address === '') || (details.name === '') || (details.surename === '') || (details.phone === '') || checkPhoneNumber(details.phone)) {
 			setError(true);
 		}
 		else {
 			setError(false);
 			dispatch({
-				type: "PURCHASE",
+				type: 'PURCHASE',
 				payload: details,
 			})
 			window.scrollTo({ top: 0 });
@@ -136,7 +136,7 @@ export default function Basket() {
 
 						<div className={ styles.logo_container }>
 							<div className={ styles.logo_box }>
-									<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+								<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 							</div>
 						</div>
 
@@ -181,7 +181,7 @@ export default function Basket() {
 
 							<div className={ styles.logo_container }>
 								<div className={ styles.logo_box }>
-										<img src="/home/logo.svg" alt="logo" className={ styles.logo }/>
+										<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 								</div>
 							</div>
 
@@ -190,9 +190,9 @@ export default function Basket() {
 									<h3 className={ styles.title }>Оформление заказа</h3>
 
 									<div className={ styles.icons }>
-										<img src="/modal/rectangle.svg" alt="rectangle" width={15} height={15} layout="fixed"/>
-										<img src="/modal/triangle.svg" alt="triangle" width={40} height={15} layout="fixed"/>
-										<img src="/modal/ellipse.svg" alt="ellipse" width={15} height={15} layout="fixed"/>
+										<Image src='/modal/rectangle.svg' alt='rectangle' width={ 15 } height={ 15 } layout='fixed' />
+										<Image src='/modal/triangle.svg' alt='triangle' width={ 40 } height={ 15 } layout='fixed' />
+										<Image src='/modal/ellipse.svg' alt='ellipse' width={ 15 } height={ 15 } layout='fixed' />
 									</div>
 
 									<p className={ styles.subtitle }>Укажите детали Вашего заказа</p>
@@ -201,9 +201,9 @@ export default function Basket() {
 								<div className={ styles.content }>
 									<form className={ styles.form } style={ checkoutForm ? { position: 'sticky', top: '6.25rem' } : null } onSubmit={ handleSubmit }>
 										<div className={ styles.form_box }>
-											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Способ оплаты:</p>
+											<p className={ styles.form_text } style={{ marginBottom: '0.625rem' }}>Способ оплаты:</p>
 											<Select 
-												placeholderText={ "Выберите способ оплаты" }
+												placeholderText={ 'Выберите способ оплаты' }
 												options={ payment_method }
 												value={ details.paymentMethod }
 												onChange={ handleChange1 }
@@ -212,9 +212,9 @@ export default function Basket() {
 										</div>
 										
 										<div className={ styles.form_box }>
-											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Способ доставки:</p>
+											<p className={ styles.form_text } style={{ marginBottom: '0.625rem' }}>Способ доставки:</p>
 											<Select 
-												placeholderText={ "Выберите способ доставки" }
+												placeholderText={ 'Выберите способ доставки' }
 												options={ delivery_method }
 												value={ details.deliveryMethod }
 												onChange={ handleChange2 }
@@ -223,9 +223,9 @@ export default function Basket() {
 										</div>	
 
 										<div className={ styles.form_box }>
-											<p className={ styles.form_text } style={{ marginBottom: "0.625rem" }}>Адресная информация:</p>
+											<p className={ styles.form_text } style={{ marginBottom: '0.625rem' }}>Адресная информация:</p>
 											<Select 
-												placeholderText={ "Выберите свой город" }
+												placeholderText={ 'Выберите свой город' }
 												options={ region }
 												value={ details.city }
 												onChange={ handleChange3 }
@@ -233,10 +233,10 @@ export default function Basket() {
 											/>
 											<div className={ [styles.form_input, styles.address].join(" ") }>
 												<Input 
-													type={ "text" }
-													name={ "address" }
-													id={ "address" }
-													placeholder={ "Адрес " }
+													type={ 'text' }
+													name={ 'address' }
+													id={ 'address' }
+													placeholder={ 'Адрес ' }
 													value={ details.address }
 													onChange={ e => setDetails({...details, address: e.target.value}) }
 													className={ error ? styles.error_border : styles.dafault_border }
@@ -248,10 +248,10 @@ export default function Basket() {
 											<p className={ styles.form_text }>Информация о получателе:</p>
 											<div className={ styles.form_input }>
 												<Input 
-													type={ "text" }
-													name={ "name" }
-													id={ "name" }
-													placeholder={ "Имя " }
+													type={ 'text' }
+													name={ 'name' }
+													id={ 'name' }
+													placeholder={ 'Имя ' }
 													value={ details.name }
 													onChange={ e => setDetails({...details, name: e.target.value}) }
 													className={ error ? styles.error_border : styles.dafault_border }
@@ -259,10 +259,10 @@ export default function Basket() {
 											</div>
 											<div className={ styles.form_input }>
 												<Input 
-													type={ "text" }
-													name={ "surename" }
-													id={ "surename" }
-													placeholder={ "Фамилия " }
+													type={ 'text' }
+													name={ 'surename' }
+													id={ 'surename' }
+													placeholder={ 'Фамилия ' }
 													value={ details.surename }
 													onChange={ e => setDetails({...details, surename: e.target.value}) }
 													className={ error ? styles.error_border : styles.dafault_border }
@@ -274,10 +274,10 @@ export default function Basket() {
 											<p className={ styles.form_text }>Телефон:</p>
 											<div className={ styles.form_input }>
 												<Input 
-													type={ "text" }
-													name={ "phone" }
-													id={ "phone" }
-													placeholder={ "+7 (___) ___-__-__" }
+													type={ 'text' }
+													name={ 'phone' }
+													id={ 'phone' }
+													placeholder={ '+7 (___) ___-__-__' }
 													mask={ ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/] }
 													value={ details.phone }
 													onChange={ e => setDetails({...details, phone: e.target.value}) }
@@ -290,10 +290,10 @@ export default function Basket() {
 											<p className={ styles.form_text }>Ваш комментарий:</p>
 											<div className='form-textarea'>
 												<Input 
-													type={ "text" }
-													name={ "message" }
-													id={ "message" }
-													placeholder={ "Опишите Вашу проблему " }
+													type={ 'text' }
+													name={ 'message' }
+													id={ 'message' }
+													placeholder={ 'Опишите Вашу проблему ' }
 													value={ details.message }
 													onChange={ e => setDetails({...details, message: e.target.value}) }
 													ta={ true }
@@ -304,10 +304,10 @@ export default function Basket() {
 										</div>
 
 										<div className='form_button'>
-											<Button text={ "Подтвердить заказ" }/>
+											<Button text={ 'Подтвердить заказ' }/>
 										</div>
 
-										<p className={ styles.term_of_use }>Подтверждая заказ вы соглашаетесь с <a href="/term_of_use">пользовательским соглашением</a></p>
+										<p className={ styles.term_of_use }>Подтверждая заказ вы соглашаетесь с <a href='/term_of_use'>пользовательским соглашением</a></p>
 									</form>
 
 									<div className={styles.products}>

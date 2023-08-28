@@ -24,7 +24,7 @@
 }
 
 .subtitle:after {
-	content: "";
+	content: '';
 	position: absolute;
 	width: 60rem;
 	height: 2px;

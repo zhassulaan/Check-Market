@@ -21,9 +21,9 @@ export default function Blog() {
 		<Wrapper>
 			<div className='blog-container'>
 				<div className='icon-images'>
-					<img src="/home/scanner.svg" alt="scanner" />
-					<img src="/home/monitor.svg" alt="monitor" />
-					<img src="/home/roll.svg" alt="roll" />
+					<img src='/home/scanner.svg' alt='scanner' />
+					<img src='/home/monitor.svg' alt='monitor' />
+					<img src='/home/roll.svg' alt='roll' />
 				</div>
 
 				<div className='header'>

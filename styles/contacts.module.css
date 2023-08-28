@@ -146,7 +146,7 @@
 	}
 	
 	.logo_box:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: calc(100vw - 39.0421vw * 2);
 		height: 0.1rem;

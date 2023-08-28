@@ -1,27 +1,27 @@
 export function Reducer(state, action) {
 	switch (action.type) {
-		case "SUBSCRIBE":
+		case 'SUBSCRIBE':
 			return { ...state, subscription: [ ...state.subscription, action.payload] };
 				
-		case "SEND_MESSAGE":
+		case 'SEND_MESSAGE':
 			return { ...state, message: [ ...state.message, action.payload] };
 		
-		case "SAVE_PAGE":
+		case 'SAVE_PAGE':
 			return { ...state, page: [action.payload] };
 		
-		case "SAVE_FILTER":
+		case 'SAVE_FILTER':
 			return { ...state, filter: [action.payload] };
 		
-		case "SUBMIT_SERVICE_APPLICATION":
+		case 'SUBMIT_SERVICE_APPLICATION':
 			return { ...state, service: [ ...state.service, action.payload] };
 		
-		case "SUBMIT_PRODUCT_APPLICATION":
+		case 'SUBMIT_PRODUCT_APPLICATION':
 			return { ...state, product: [ ...state.product, action.payload] };
 		
-		case "PURCHASE":
+		case 'PURCHASE':
 			return { ...state, cart: [], basket: [ ...state.basket, action.payload] };
 	
-		case "ADD_TO_CART":
+		case 'ADD_TO_CART':
 			const inCart = state.cart.find(item => 
 				item.product.id === action.payload.id) ?
             	true
@@ -58,7 +58,7 @@ export function Reducer(state, action) {
 					]
 				};
 
-		case "REMOVE_FROM_CART":
+		case 'REMOVE_FROM_CART':
 			return { 
 				...state, 
 				cart: state.cart.filter(item => 
@@ -66,7 +66,7 @@ export function Reducer(state, action) {
 				)
 			};
 
-		case "INCREMENT_QUANTITY":
+		case 'INCREMENT_QUANTITY':
 			state.cart.map(item => 
 				(item.product.id === action.payload.id) ?
 					item.quantity += 0.5
@@ -81,7 +81,7 @@ export function Reducer(state, action) {
 				]
 			};
 		
-		case "DECREMENT_QUANTITY":
+		case 'DECREMENT_QUANTITY':
 			state.cart.map(item => 
 				(item.product.id === action.payload.id && item.quantity > 1) ?
 					item.quantity -= 0.5
@@ -99,4 +99,4 @@ export function Reducer(state, action) {
 		default:
 			return state;
 	}
- }
+}

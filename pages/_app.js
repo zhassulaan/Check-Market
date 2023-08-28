@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Provider } from "../context/Context";
+import { Provider } from '../context/Context';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {

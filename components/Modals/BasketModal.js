@@ -139,7 +139,7 @@ const Wrapper = styled.section`
 
 	.module-header:before,
 	.module-content:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 2px;

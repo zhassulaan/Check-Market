@@ -72,7 +72,7 @@ const Wrapper = styled.section`
 	}
 
 	.module-header:before {
-		content: "";
+		content: '';
 		bottom: 0;
 		position: absolute;
 		width: 100%;
@@ -136,7 +136,7 @@ const Wrapper = styled.section`
 		}
 
 		.br {
-			content: "";
+			content: '';
 			display: block;
 			margin: 0.75rem;
 		}

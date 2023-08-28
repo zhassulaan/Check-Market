@@ -23,7 +23,7 @@ export default function Footer({ modal }) {
  	const handleSubmit = e => {
 		e.preventDefault();
 
-		if (detail.email !== undefined && detail !== "") {
+		if (detail.email !== undefined && detail !== '') {
 			const inCart = state.subscription.find((item) => 
 				item.email === detail.email) ?
 					true
@@ -94,7 +94,7 @@ export default function Footer({ modal }) {
 								<div className={ styles.header }>
 									<p className={ styles.title }>ИНТЕРНЕТ-МАГАЗИН</p>
 									<div className={ [styles.mobile, styles.arrow].join(" ") } onClick={handleToggle2}>
-										<Image src='/footer-icons/arrow.svg' alt="message icon" width={20} height={10} layout='fixed' />
+										<Image src='/footer-icons/arrow.svg' alt='message icon' width={20} height={10} layout='fixed' />
 									</div>
 								</div>
 

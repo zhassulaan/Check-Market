@@ -4,13 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Context } from '../context/Context';
-import Button from '../components/Button';
-import BasketModal from '../components/Modals/BasketModal';
-import SubscribeModal from '../components/Modals/SubscribeModal';
 import Error from './_error';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Button from '../components/Button';
 import ProductItem from '../components/ModalProductItem';
+import BasketModal from '../components/Modals/BasketModal';
+import SubscribeModal from '../components/Modals/SubscribeModal';
 import bg2 from '../public/home/background.png';
 
 export default function Basket() {
@@ -71,7 +71,7 @@ export default function Basket() {
 					
 					<LogoContainer>
 						<div className='logo-box'>
-							<img src="/home/logo.svg" alt='logo' className='logo'/>
+							<img src='/home/logo.svg' alt='logo' className='logo' />
 						</div>
 					</LogoContainer>
 
@@ -110,12 +110,12 @@ export default function Basket() {
 										{ (total > 10000) ? 
 											<Link href='/order'>
 												<div className='basket-button'>
-													<Button text={ "Оформить заказ" }/>
+													<Button text={ 'Оформить заказ' }/>
 												</div>
 											</Link>
 												:
 											<div className='basket-button'>
-												<Button text={ "Оформить заказ" }/>
+												<Button text={ 'Оформить заказ' }/>
 											</div>
 										}
 									</div>
@@ -188,7 +188,7 @@ const LogoContainer = styled.div`
 	}
 
 	.logo-box:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 0.3rem;
@@ -250,7 +250,7 @@ const Wrapper = styled.section`
 	}
 
 	.content:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 1px;

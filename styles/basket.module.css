@@ -80,7 +80,7 @@
 }
 
 .total_price:before {
-	content: "";
+	content: '';
 	position: absolute;
 	width: 100%;
 	height: 1px;
@@ -172,7 +172,7 @@
 	}
 		
 	.logo_box:before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: calc(100vw - 39.0421vw * 2);
 		height: 0.1rem;

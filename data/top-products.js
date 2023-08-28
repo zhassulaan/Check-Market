@@ -8,7 +8,7 @@ import image6 from '../public/product-images/image6.png';
 const topProducts = [
 	{
 		id: 1,
-		name: "Сенсорный POS-терминал Mulex A8 MSR",
+		name: 'Сенсорный POS-терминал Mulex A8 MSR',
 		image: image1,
 		price: 312400,
 		sale: null,
@@ -37,7 +37,7 @@ const topProducts = [
 	},
 	{
 		id: 2,
-		name: "Принтер этикеток TSC TTP-244 СЕ",
+		name: 'Принтер этикеток TSC TTP-244 СЕ',
 		image: image2,
 		price: 121000,
 		sale: null,
@@ -66,7 +66,7 @@ const topProducts = [
 	},
 	{
 		id: 3,
-		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
+		name: 'Самоклеящиеся термоэтикетки 29*20 (1600 шт)',
 		image: image3,
 		price: 900,
 		sale: 20,
@@ -95,7 +95,7 @@ const topProducts = [
 	},
 	{
 		id: 4,
-		name: "Чековая лента 57*40*12 (ТЕРМОЛЕНТА)",
+		name: 'Чековая лента 57*40*12 (ТЕРМОЛЕНТА)',
 		image: image4,
 		price: 250,
 		sale: null,
@@ -124,7 +124,7 @@ const topProducts = [
 	},
 	{
 		id: 5,
-		name: "Счётчик подсчёта посетителей D-FLY COUNTER",
+		name: 'Счётчик подсчёта посетителей D-FLY COUNTER',
 		image: image5,
 		price: 60000,
 		sale: null,
@@ -153,7 +153,7 @@ const topProducts = [
 	},
 	{
 		id: 6,
-		name: "Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)",
+		name: 'Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)',
 		image: image6,
 		price: 850,
 		sale: null,
@@ -182,7 +182,7 @@ const topProducts = [
 	},
 	{
 		id: 7,
-		name: "Сенсорный POS-терминал Mulex A8 MSR",
+		name: 'Сенсорный POS-терминал Mulex A8 MSR',
 		image: image1,
 		price: 312400,
 		sale: null,
@@ -211,7 +211,7 @@ const topProducts = [
 	},
 	{
 		id: 8,
-		name: "Принтер этикеток TSC TTP-244 СЕ",
+		name: 'Принтер этикеток TSC TTP-244 СЕ',
 		image: image2,
 		price: 121000,
 		sale: null,
@@ -240,7 +240,7 @@ const topProducts = [
 	},
 	{
 		id: 9,
-		name: "Самоклеящиеся термоэтикетки 29*20 (1600 шт)",
+		name: 'Самоклеящиеся термоэтикетки 29*20 (1600 шт)',
 		image: image3,
 		price: 900,
 		sale: 20,

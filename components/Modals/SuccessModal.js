@@ -272,7 +272,7 @@ const Wrapper = styled.div`
 		}
 
 		.container title:before {
-			content: "";
+			content: '';
 			position: absolute;
 			width: 100%;
 			height: 1px;

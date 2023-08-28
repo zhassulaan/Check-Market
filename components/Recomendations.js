@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import styled from "styled-components";
-import TopProducts from "./TopProducts";
+import styled from 'styled-components';
+import TopProducts from './TopProducts';
 
 export default function Recomendations() {
 	return (
