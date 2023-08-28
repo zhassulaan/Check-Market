@@ -146,7 +146,7 @@ const LogoContainer = styled.div`
 	height: 15.625rem;
 	display: grid;
 	justify-content: center;
-	background-image: url(${bg2.src});
+	background-image: url(${ bg2.src });
 	background-size: cover;
 	margin-top: 1.875rem;
 	padding-top: 2.5rem;
@@ -203,7 +203,7 @@ const LogoContainer = styled.div`
 
 	@media (max-width: 480px) {
 		height: 11.875rem;
-		background-image: url(${bg2.src});
+		background-image: url(${ bg2.src });
 		background-repeat: no-repeat;
 		background-size: cover;
 

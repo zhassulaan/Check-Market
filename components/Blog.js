@@ -147,6 +147,7 @@ const Wrapper = styled.section`
 		height: 29.375rem;
 		display: flex;
 		background-color: var(--clr-white);
+		overflow: hidden;
 	}
 
 	.blog-box:hover {

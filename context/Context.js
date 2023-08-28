@@ -103,7 +103,7 @@ function Provider({ children }) {
   	const value = { state, dispatch };
 
 	useEffect(() => {
-		if (typeof window !== "undefined") {
+		if (typeof window !== 'undefined') {
 			localStorage.setItem('page-item', JSON.stringify(state.page));
 			localStorage.setItem('filter', JSON.stringify(state.filter));
 			localStorage.setItem('subscription', JSON.stringify(state.subscription));

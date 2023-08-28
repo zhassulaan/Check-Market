@@ -85,7 +85,7 @@
 
 	.content {
 		width: 69.375rem;
-	}	
+	}
 }
 
 @media (max-width: 1220px) {
@@ -95,7 +95,7 @@
 
 	.content {
 		width: 57.3125rem;
-	}	
+	}
 	
 	.header {
 		margin-bottom: 2.1875rem;
@@ -143,7 +143,7 @@
 	}
 	
 	.logo_box:before {
-		content: '';
+		content: "";
 		position: absolute;
 		width: calc(100vw - 39.0421vw * 2);
 		height: 0.1rem;
@@ -198,7 +198,7 @@
 	}
 
 	.br {
-		content: '';
+		content: "";
 		display: block;
 	   	margin: 0.75rem;
 	}
@@ -233,7 +233,7 @@
 	}
 
 	.br {
-		content: '';
+		content: "";
 		display: block;
 	   margin: 0.5rem;
 	}

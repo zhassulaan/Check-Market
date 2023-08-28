@@ -24,15 +24,14 @@ export function Reducer(state, action) {
 		case 'ADD_TO_CART':
 			const inCart = state.cart.find(item => 
 				item.product.id === action.payload.id) ?
-            	true
-          			: 
+					true
+						: 
 					false;
 
 					
 			if (inCart) {
 				state.cart.map(item => 
-					(item.product.id === action.payload.id) 
-							?
+					(item.product.id === action.payload.id) ?
 						item.quantity += 0.5
 							:
 						item.quantity

@@ -112,7 +112,7 @@ export default function Shop() {
 		if (ev.target.id == 5)
 			setSelectedType([false, false, false, false, false, !selectedType[5]]);
 		dispatch({
-			type: "SAVE_PAGE",
+			type: 'SAVE_PAGE',
 			payload: ev.target.id
 		});
 	};
@@ -239,11 +239,11 @@ export default function Shop() {
 	// CLEAR FILTERS
 	const handleClearFilter = () => {
 		dispatch({
-			type: "SAVE_PAGE",
+			type: 'SAVE_PAGE',
 			payload: 0
 		});
 		dispatch({
-			type: "SAVE_FILTER",
+			type: 'SAVE_FILTER',
 			payload: ['', 0, 0, 0, 0]
 		});
 		setQ('')
@@ -585,7 +585,7 @@ const LogoContainer = styled.div`
 	@media (max-width: 992px) {
 		display: flex;
 		align-items: center;
-		background-image: url(${bg.src}); 
+		background-image: url(${ bg.src }); 
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;

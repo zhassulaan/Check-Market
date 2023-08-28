@@ -38,10 +38,10 @@ export default function Shop() {
 	const handleSubmit = async(ev) => {
 		ev.preventDefault();
 		dispatch({
-			type: "SAVE_PAGE",
+			type: 'SAVE_PAGE',
 			payload: ev.target.id
 		})
-		router.push("/shop/catalog/1");
+		router.push('/shop/catalog/1');
 	}
 
 	return (

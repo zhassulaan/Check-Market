@@ -115,10 +115,10 @@ export default function Blog() {
 
 						<div className='buttons'>
 							<div className={ option === 1 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseArticles }>
-								<Button blog={ true } text={ "Статьи" }/>
+								<Button blog={ true } text={ 'Статьи' }/>
 							</div>
 							<div className={ option === 2 ? 'blog-button' : 'blog-button non-active' } onClick={ chooseNews }>
-								<Button blog={ true } text={ "Новости" }/>
+								<Button blog={ true } text={ 'Новости' }/>
 							</div>
 						</div>
 
@@ -143,12 +143,12 @@ export default function Blog() {
 								<ReactPaginate
 									key='paginate1'
 									breakLabel='...'
-									nextLabel={ (window.innerWidth > 992) ? 'Следующая' : <img src='/blog-icons/next.svg' alt='next arrow'/> }
+									nextLabel={ (window.innerWidth > 992) ? 'Следующая' : <img src='/blog-icons/next.svg' alt='next arrow' /> }
 									onPageChange={ handlePageClick }
 									marginPagesDisplayed={ (window.innerWidth > 992) ? 1 : 0 }
 									pageRangeDisplayed={ 3 }
 									pageCount={ pageCountArticles }
-									previousLabel={ (window.innerWidth > 992) ? 'Предыдущая' : <img src='/blog-icons/previous.svg' alt='previous arrow'/> }
+									previousLabel={ (window.innerWidth > 992) ? 'Предыдущая' : <img src='/blog-icons/previous.svg' alt='previous arrow' /> }
 									renderOnZeroPageCount={ null }
 								/>
 							</div>
@@ -192,7 +192,7 @@ const LogoContainer = styled.section`
 	@media (max-width: 992px) {
 		display: flex;
 		align-items: center;
-		background-image: url(${bg.src}); 
+		background-image: url(${ bg.src }); 
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;

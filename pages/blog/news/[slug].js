@@ -74,13 +74,13 @@ export default function SingleBlog() {
 
 							<div className={ styles.box }>
 								<div className={ styles.title_content }>
-									<Link href="/blog">
+									<Link href='/blog'>
 										<Image src='/blog-icons/arrow2.svg' alt='back arrow' width={ 40 } height={ 10 } layout='fixed' />
 										<p>Вернуться</p>
 									</Link>
 
 									<div className='title_content_header'>
-										<h6 style={ (window.innerWidth > 992) ? { display: "none" } : { display: "block" } }>{ success.date }</h6>
+										<h6 style={ (window.innerWidth > 992) ? { display: 'none' } : { display: 'block' } }>{ success.date }</h6>
 										<h6>Новости</h6>
 									</div>
 									
