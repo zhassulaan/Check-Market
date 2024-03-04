@@ -27,7 +27,6 @@ export function Reducer(state, action) {
 					true
 						: 
 					false;
-
 					
 			if (inCart) {
 				state.cart.map(item => 

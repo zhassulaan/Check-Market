@@ -43,8 +43,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: false,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 2,
 		name: 'Принтер этикеток TSC TTP-244 СЕ',
 		image: image2,
@@ -74,8 +73,7 @@ const topProducts = [
 		date: '2022-06-13',
 		inStock: false,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 3,
 		name: 'Самоклеящиеся термоэтикетки 29*20 (1600 шт)',
 		image: image3,
@@ -105,8 +103,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 4,
 		name: 'Чековая лента 57*40*12 (ТЕРМОЛЕНТА)',
 		image: image4,
@@ -136,8 +133,7 @@ const topProducts = [
 		date: '2022-06-13',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 5,
 		name: 'Счётчик подсчёта посетителей D-FLY COUNTER',
 		image: image5,
@@ -167,8 +163,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 6,
 		name: 'Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)',
 		image: image6,
@@ -198,8 +193,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 7,
 		name: 'Сенсорный POS-терминал Mulex A8 MSR',
 		image: image1,
@@ -229,8 +223,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 8,
 		name: 'Принтер этикеток TSC TTP-244 СЕ',
 		image: image2,
@@ -260,8 +253,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 9,
 		name: 'Самоклеящиеся термоэтикетки 29*20 (1600 шт)',
 		image: image3,
@@ -291,8 +283,7 @@ const topProducts = [
 		date: '2022-06-13',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 10,
 		name: 'Чековая лента 57*40*12 (ТЕРМОЛЕНТА)',
 		image: image4,
@@ -322,8 +313,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 11,
 		name: 'Счётчик подсчёта посетителей D-FLY COUNTER',
 		image: image5,
@@ -353,8 +343,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 12,
 		name: 'Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)',
 		image: image6,
@@ -384,8 +373,7 @@ const topProducts = [
 		date: '2022-06-13',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 13,
 		name: 'Сенсорный POS-терминал Mulex A8 MSR',
 		image: image1,
@@ -415,8 +403,7 @@ const topProducts = [
 		date: '2022-06-13',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 14,
 		name: 'Принтер этикеток TSC TTP-244 СЕ',
 		image: image2,
@@ -446,8 +433,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 15,
 		name: 'Самоклеящиеся термоэтикетки 29*20 (1600 шт)',
 		image: image3,
@@ -477,8 +463,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 16,
 		name: 'Чековая лента 57*40*12 (ТЕРМОЛЕНТА)',
 		image: image4,
@@ -508,8 +493,7 @@ const topProducts = [
 		date: '2022-06-14',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 17,
 		name: 'Счётчик подсчёта посетителей D-FLY COUNTER',
 		image: image5,
@@ -539,8 +523,7 @@ const topProducts = [
 		date: '2022-06-12',
 		inStock: true,
 		onOrder: false
-	},
-	{
+	}, {
 		id: 18,
 		name: 'Самоклеящиеся термоэтикетки 58*40*600 (ВЕСОВАЯ ЛЕНТА)',
 		image: image6,

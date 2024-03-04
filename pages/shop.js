@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
+import styled from 'styled-components';
 import { Context } from '../context/Context';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -11,7 +12,6 @@ import BasketModal from '../components/Modals/BasketModal';
 import MessageModal from '../components/Modals/MessageModal';
 import SubscribeModal from '../components/Modals/SubscribeModal';
 import styles from '../styles/shop.module.css';
-import styled from 'styled-components';
 
 export default function Shop() {
 	const { dispatch } = useContext(Context);
@@ -67,7 +67,7 @@ export default function Shop() {
 
 				<div className={ styles.logo_container }>
 					<div className={ styles.logo_box }>
-		        		<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
+						<img src='/home/logo.svg' alt='logo' className={ styles.logo } />
 					</div>
 				</div>
 
